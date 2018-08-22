@@ -1,5 +1,5 @@
 # Study_Planner<br>
-repositório referente ao trabalho integrado desenvolvido no quinto periodo de sistema de informação no IFES Serra. Disciplinas envolvidas Programação Orientada a Objetos 2,Banco de Dados 2,Projeto de Sistemas,Engenharia de Software.
+repositório referente ao trabalho integrado desenvolvido no quinto periodo de sistema de informação no IFES Serra. Disciplinas envolvidas Programação Orientada a Objetos 2, Banco de Dados 2, Projeto de Sistemas, Engenharia de Software.
 
 ## DESCRIÇÃO
 O Study Planner é um software criado com intuito de auxiliar alunos,a principio os alunos ingressantes do ensino superior, a gerenciarem seu tempo de estudo de modo a atingirem seus objetivos acadêmicos, seja obter uma determinada pontuação em uma disciplina específica ou a organizar melhor sua rotina de estudos e consequentemente, suas atividades diárias.<br><br> 
