@@ -1,4 +1,4 @@
-# iTI [NOME PROVISÓRIO]<br>
+# ResolveAE<br>
 repositório referente ao trabalho integrado desenvolvido no quinto periodo de sistema de informação no IFES Serra. Disciplinas envolvidas Programação Orientada a Objetos 2, Banco de Dados 2, Projeto de Sistemas, Engenharia de Software.
 
 # Sumário<br>
