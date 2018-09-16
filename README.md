@@ -10,7 +10,7 @@ Antônio Carlos D.:  [duraes-antonio](https://github.com/duraes-antonio)<br>
 Elimar Macena:      [elimarmacena](https://github.com/elimarmacena)<br>
 Hugo Ramalho:       [hugoramalho](https://github.com/hugoramalho)<br>
 
-## 2.DIARIO DE BORDO DO TRABALHO <br>
+### 2.DIARIO DE BORDO DO TRABALHO <br>
 <a href="https://docs.google.com/document/d/1IdetJXo8JxywMN9Et_-meReJdg83JbfsaWmf0YkEg0g/edit?usp=sharing">Diário de bordo</a>
 
 ### 3.INFORMACOES REFERENTE AO SISTEMA<br>
@@ -24,10 +24,9 @@ Hugo Ramalho:       [hugoramalho](https://github.com/hugoramalho)<br>
 </p><br>
 
 #### 3.2 Mini Mundo<br>
-><br>
+>[REFAZER APÓS DIAGRAMA DE CLASSE EM MÃOS]<br>
 
-
-#### REFERÊNCIAS
+### REFERÊNCIAS
 [1]. G1. "Tecnologia no Brasil volta crescer em 2017 e mantém país entre os 10 maiores mercados do mundo". Acesso em 16/09/2018. Disponível em: https://g1.globo.com/economia/tecnologia/noticia/tecnologia-no-brasil-volta-crescer-em-2017-e-mantem-pais-entre-os-10-maiores-mercados-do-mundo.ghtml
 
 
