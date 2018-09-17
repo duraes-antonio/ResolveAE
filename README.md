@@ -26,13 +26,13 @@ Hugo Ramalho:       [hugoramalho](https://github.com/hugoramalho)<br>
 #### 3.2 Mini-Mundo<br>
 
 <p align="justify">
-Para facilitar a busca dos profissionais de TI por pessoas físicas, seria interessante ter um sistema que dispõe informações sobre a formação da pessoa prestadora de serviço, como cursos feitos e experiência em trabalhos passados; informações pessoais como nome, endereço (bairro, cidade, estado), além de meios de contato como telefone (fixo ou móvel) e redes sociais (Facebook, Instagram, LinkedIn, …).<br><br>
+Para facilitar a busca dos profissionais de TI por pessoas físicas, seria interessante ter um sistema que dispõe informações sobre a formação da pessoa prestadora de serviço, como cursos feitos e experiência em trabalhos passados; informações pessoais como nome, endereço (bairro, cidade, estado), além de meios de contato como telefone (fixo ou móvel) e redes sociais (Facebook, Instagram, LinkedIn, …).<br>
     
-É bastante importante ter informações sobre o quadro de horários do profissional, pois sabendo qual dia da semana e intervalo de horário estará livre, é possível encontrar um horário que não prejudique ou tenha impacto reduzido sob a rotina do cliente.<br><br>
+É bastante importante ter informações sobre o quadro de horários do profissional, pois sabendo qual dia da semana e intervalo de horário estará livre, é possível encontrar um horário que não prejudique ou tenha impacto reduzido sob a rotina do cliente.<br>
 
-O cliente, pessoa que busca por um serviço, é peça central no sistema, ele deve ser responsável por solicitar o serviço, para isso, deve informar um título que resuma sua procura, uma descrição mais alongada, uma faixa de valor que está disposto a pagar e a área (Manutenção, Desenvolvimento, Design, Infraestrutura, etc) que melhor descreve o tipo de serviço.<br><br>
+O cliente, pessoa que busca por um serviço, é peça central no sistema, ele deve ser responsável por solicitar o serviço, para isso, deve informar um título que resuma sua procura, uma descrição mais alongada, uma faixa de valor que está disposto a pagar e a área (Manutenção, Desenvolvimento, Design, Infraestrutura, etc) que melhor descreve o tipo de serviço.<br>
 
-A fim de assegurar a contratação do serviço, seria ideal um campo para inserir um texto que representa uma espécie de contrato ou termo de compromisso, onde haveria a descrição do acordo, a data em que foi elaborado, a data da última modificação, quando o serviço se iniciará e a previsão de seu término. O conteúdo do contrato deve estar livre para ser um acordo direto entre o contratado e contratante do serviço.<br><br>
+A fim de assegurar a contratação do serviço, seria ideal um campo para inserir um texto que representa uma espécie de contrato ou termo de compromisso, onde haveria a descrição do acordo, a data em que foi elaborado, a data da última modificação, quando o serviço se iniciará e a previsão de seu término. O conteúdo do contrato deve estar livre para ser um acordo direto entre o contratado e contratante do serviço.<br>
 
 O feedback do cliente também deve ter seu espaço, portanto, deseja-se poder avaliar com uma nota (de 1 a 5) e comentários, os serviços contratados. Futuramente, para recompensar bons profissionais e exibir suas qualidades para os potenciais clientes seria bem-vindo premiações como medalhas virtuais por número de trabalhos atendidos, anos de experiência no sistema, bom atendimento, entre outras.
 </p><br>
