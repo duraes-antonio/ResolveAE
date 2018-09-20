@@ -8,7 +8,6 @@ Repositório referente ao trabalho integrado desenvolvido no quinto periodo de s
 Integrantes do grupo<br>
 Antônio Carlos D.:  [duraes-antonio](https://github.com/duraes-antonio)<br>
 Elimar Macena:      [elimarmacena](https://github.com/elimarmacena)<br>
-Hugo Ramalho:       [hugoramalho](https://github.com/hugoramalho)<br>
 
 ### 2.DIARIO DE BORDO DO TRABALHO <br>
 <a href="https://docs.google.com/document/d/1IdetJXo8JxywMN9Et_-meReJdg83JbfsaWmf0YkEg0g/edit?usp=sharing">Diário de bordo</a>
