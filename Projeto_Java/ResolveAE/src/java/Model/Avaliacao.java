@@ -12,6 +12,24 @@ package Model;
 public class Avaliacao {
     private float nota;
     private String comentario;
+    private int idUsuario;
+    private int idServicoPrestado;
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getIdServicoPrestado() {
+        return idServicoPrestado;
+    }
+
+    public void setIdServicoPrestado(int idServicoPrestado) {
+        this.idServicoPrestado = idServicoPrestado;
+    }
 
     public float getNota() {
         return nota;
