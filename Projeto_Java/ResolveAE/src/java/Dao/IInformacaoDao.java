@@ -10,8 +10,5 @@ package Dao;
  * @author 20161BSI0314
  */
 public interface IInformacaoDao {
-    public String getBairro(int idInformacao);
-    public String getBairro(int idInformacao);
-    public String getBairro(int idInformacao);
-    public String getBairro(int idInformacao);
+    String getBairro(int idInformacao);
 }
