@@ -16,6 +16,15 @@ public class Usuario extends Pessoa {
     private String login; //utiliza o emmail do usuario como login
     private String senha;
     private String sobre;
+    private int idUsuario;
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public String getNome() {
         return nome;
