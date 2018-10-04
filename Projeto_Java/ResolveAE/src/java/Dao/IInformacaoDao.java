@@ -5,13 +5,16 @@
  */
 package Dao;
 
+import java.util.List;
+import Model.Telefone;
+import Model.Experiencia;
+import Model.Endereco;
 /**
  *
  * @author 20161BSI0314
  */
 public interface IInformacaoDao {
-    public String getBairro(int idInformacao);
-    public String getBairro(int idInformacao);
-    public String getBairro(int idInformacao);
-    public String getBairro(int idInformacao);
+    public Endereco getEndereco(int idInformacao);
+    public List<Telefone> getContatos(int idInformacao);
+    public List<Experiencia> getInfosProfissionais(int idInformacao);
 }
