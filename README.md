@@ -42,6 +42,11 @@ O feedback do cliente também deve ter seu espaço, portanto, deseja-se poder av
 
 ### 5 MODELAGEM DO SISTEMA<br>
 
+#### 5.0 Nomenclatura e Convenções<br>
+
+* Para modelos entidade-relacionamento(ER) e operações com banco de dados convecinou-se seguir o formato dos exemplos do site do PostgreSQL[2].<br>
+* Para modelar os diagramas de caso de uso, de classes, e codificação, optou-se por seguir a tática CamelCase.<br>
+
 #### 5.1 Diagrama de Classes<br>
 
 <p align="center"><img src="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Imagens/diag_classe.svg"></p><br>
@@ -49,16 +54,16 @@ O feedback do cliente também deve ter seu espaço, portanto, deseja-se poder av
 #### 5.2 Modelo Conceitual - Entidade-Relacionamento<br>
 
 <p align="center">
-    <img src="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Imagens/resolveAE_conceitual.png"></p><br>
-    <a href="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Arquivos/resolveAE_conceitual.brM3">Download brmodelos</a><br>
+    <img src="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Imagens/modelo_er_conceitual.png"></p><br>
+    <a href="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Arquivos/modelo_er_conceitual.brM3">Download brmodelo(.brM3)</a><br>
 
 #### 5.3 Modelo Logico - Entidade-Relacionamento<br>
 
 <p align="center">
-    <img src="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Imagens/resolveae_logico.png"></p><br>
-    <a href="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Arquivos/resolveae_logico.brM3">Download brmodelos</a><br>
+    <img src="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Imagens/modelo_er_logico.png"></p><br>
+    <a href="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Arquivos/modelo_er_logico.brM3">Download brmodelo(.brM3)</a><br>
 
 ### REFERÊNCIAS
-[1]. G1. "Tecnologia no Brasil volta crescer em 2017 e mantém país entre os 10 maiores mercados do mundo". Acesso em 16/09/2018. Disponível em: https://g1.globo.com/economia/tecnologia/noticia/tecnologia-no-brasil-volta-crescer-em-2017-e-mantem-pais-entre-os-10-maiores-mercados-do-mundo.ghtml
-
+[1]. G1. "Tecnologia no Brasil volta crescer em 2017 e mantém país entre os 10 maiores mercados do mundo". Acesso em 16/09/2018. Disponível em: https://g1.globo.com/economia/tecnologia/noticia/tecnologia-no-brasil-volta-crescer-em-2017-e-mantem-pais-entre-os-10-maiores-mercados-do-mundo.ghtml<br>
+[2]. PostgreSQL. "CREATE TABLE". Acesso em 05/10/2018. Disponível em: https://www.postgresql.org/docs/9.1/static/sql-createtable.html
 
