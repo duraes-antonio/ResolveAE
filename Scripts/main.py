@@ -189,7 +189,8 @@ def main():
     path = "/home/x/Área de Trabalho/novo.txt"
     path2 = "/home/x/Área de Trabalho/cidade_bairros_estado.json"
 
-    print(TabelaUsuario().get_SQL_INSERT())
+    print(TabelaUsuario(preencher_base=False).get_SQL_CREATE())
+    # print(TabelaUsuario().get_SQL_INSERT())
     return 0
 
 

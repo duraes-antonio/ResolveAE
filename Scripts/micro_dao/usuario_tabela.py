@@ -9,7 +9,7 @@ class TabelaUsuario(Tabela):
 
     faker_gen = Faker("pt_br")
 
-    def __init__(self):
+    def __init__(self, preencher_base: bool = True):
         super().__init__("usuario", Usuario.get_id)
         self.add_ID()
         self.add_VARCHAR("nome", 150)
@@ -18,7 +18,7 @@ class TabelaUsuario(Tabela):
         self.add_VARCHAR("sobre", 1000)
         # self.add_FOREIGN_KEY("fk_informacoes", tab_info)
         self.__inserted__ = False
-        self.__preencher__(1000000)
+        if preencher_base: self.__preencher__(1500000)
 
     def __parse_JSON__(self, caminho: str):
 
