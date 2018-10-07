@@ -1,27 +1,33 @@
-from micro_dao.object_dao import ObjectDAO
+from micro_dao.objeto_modelo import ObjetoModelo
 
-class Cidade(ObjectDAO):
+class Cidade(ObjetoModelo):
+
+
+    _id: int
+    _nome: str
+    _fk_estado: int
 
     def __init__(self, nome_cidade: str, fk_estado: int):
-        self._dic = {"id": -1, "nome": nome_cidade, "fk_estado": fk_estado}
+        self.set_nome(nome_cidade)
+        self.set_fk_estado(fk_estado)
 
     def get_id(self) -> int:
-        return self._dic["id"]
+        return self._id
 
-    def set_id(self, id):
-        self._dic["id"] = id
+    def set_id(self, id: int):
+        self._id = id
+        return self
 
     def get_nome(self) -> str:
-        return self._dic["nome"]
+        return self._nome
 
-    def set_nome(self, nome_cidade):
-        self._dic["nome"] = nome_cidade
+    def set_nome(self, nome_cidade: str):
+        self._nome = nome_cidade
+        return self
 
-    def get_sigla(self) -> str:
-        return self._dic["sigla"]
+    def get_fk_estado(self) -> int:
+        return self._fk_estado
 
-    def set_sigla(self, sigla):
-        self._dic["sigla"] = sigla
-
-    def get_dic(self) -> dict:
-        return self._dic
+    def set_fk_estado(self, fk_estado: int):
+        self._fk_estado = fk_estado
+        return self

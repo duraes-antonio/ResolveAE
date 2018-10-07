@@ -1,7 +1,6 @@
 # encoding: utf-8
 from typing import List
-
-from micro_dao.object_dao import ObjectDAO
+from micro_dao.objeto_modelo import ObjetoModelo
 import json
 
 class Tabela():
@@ -15,18 +14,20 @@ class Tabela():
         self.tabela = {"nome_tabela": nome_tabela, "pk": str,
                        "get_metodo": get_metodo, "colunas": {}, "values": []}
 
-    def _add_atributo(self, nome: str, tipo: str):
+    #Adiciona uma coluna com determinado NOME e determinado TIPO (char, varchar, int, ...)
+    def __add_atributo__(self, nome: str, tipo: str):
         self.tabela["colunas"][nome] = tipo
         return self
 
-
-    # NOME DA TABELA
+    #GET: Nome da tabela
     def get_nome(self) -> str:
         return self.tabela["nome_tabela"]
 
+    #SET: Nome da tabela
     def set_nome(self, nome_tabela):
         self.tabela["nome_tabela"] = nome_tabela
-
+    
+    # Retorna nome da coluna que é CHAVE PRIMÁRIA
     def get_nome_pk(self) -> str:
         return self.tabela["pk"]
 
@@ -42,7 +43,7 @@ class Tabela():
         return self
 
     def add_PRIMARY_KEY(self, nome_coluna):
-        return self._add_atributo(nome_coluna, "SERIAL PRIMARY KEY")
+        return self.__add_atributo__(nome_coluna, "SERIAL PRIMARY KEY")
 
     def add_ID(self):
         self.add_PRIMARY_KEY("id")
@@ -54,44 +55,44 @@ class Tabela():
         if (tamanho <= 0 or tamanho > 8000):
             raise ValueError("O tamanho da coluna deve estar entre 1 e 8000 chars!")
 
-        return self._add_atributo(nome_atributo, "CHAR(%d)" %tamanho)
+        return self.__add_atributo__(nome_atributo, "CHAR(%d)" %tamanho)
 
     def add_VARCHAR(self, nome_atributo: str, tamanho: int):
 
         if (tamanho <= 0 or tamanho > 8000):
             raise ValueError("O tamanho da coluna deve estar entre 1 e 8000 chars!")
 
-        return self._add_atributo(nome_atributo, "VARCHAR(%d)" %tamanho)
+        return self.__add_atributo__(nome_atributo, "VARCHAR(%d)" %tamanho)
 
     def add_DATE(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "DATE")
+        return self.__add_atributo__(nome_atributo, "DATE")
 
     def add_TIME(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "TIME")
+        return self.__add_atributo__(nome_atributo, "TIME")
 
     def add_SMALLINT(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "SMALLINT")
+        return self.__add_atributo__(nome_atributo, "SMALLINT")
 
     def add_INT(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "INT")
+        return self.__add_atributo__(nome_atributo, "INT")
 
     def add_BIGINT(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "BIGINT")
+        return self.__add_atributo__(nome_atributo, "BIGINT")
 
     def add_FLOAT(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "FLOAT")
+        return self.__add_atributo__(nome_atributo, "FLOAT")
 
     def add_REAL(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "REAL")
+        return self.__add_atributo__(nome_atributo, "REAL")
 
     def add_SERIAL(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "SERIAL")
+        return self.__add_atributo__(nome_atributo, "SERIAL")
 
     def add_BOOLEAN(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "BOOLEAN")
+        return self.__add_atributo__(nome_atributo, "BOOLEAN")
 
     def add_JSON(self, nome_atributo: str):
-        return self._add_atributo(nome_atributo, "JSON")
+        return self.__add_atributo__(nome_atributo, "JSON")
 
 
     #----- OBTER STRING COM O SQL PRONTO -----#
@@ -116,20 +117,21 @@ class Tabela():
 
         return "({0})".format(", ".join(sql_valores))
 
-    def get_SQL_INSERT(self, inicio_dados=0, fim_dados=0) -> str:
+    def get_SQL_INSERT(self, inicio_dados: int = 0, fim_dados: int = 0) -> str:
 
         tam_tab = len(self.tabela["values"])
 
         if not self.tabela:
             raise ValueError("Tabela vazia!")
 
-        if not fim_dados: fim_dados = tam_tab
+        if not fim_dados:
+            im_dados = tam_tab
 
         return "INSERT INTO {0}({1}) VALUES\n\t{2};".format(
             self.get_nome(),
             ", ".join([col for col in self.tabela["colunas"]]),
-            ",\n\t".join([self.__get_SQL_VALUE_FORMAT__(self.tabela["values"][i].get_dic())
-                          for i in range(tam_tab)])
+            ",\n\t".join(
+                [self.__get_SQL_VALUE_FORMAT__(self.tabela["values"][i].get_dic()) for i in range(tam_tab)])
         )
 
     def get_SQL_CREATE(self) -> str:
@@ -147,7 +149,7 @@ class Tabela():
 
     #----- FUNÇÕES PARA OPERAÇÕES DE BUSCA E INSERÇÃO -----#
 
-    def __busca_binaria__(self, get_metodo: classmethod, item_buscado: object, lista: list) -> ObjectDAO:
+    def __busca_binaria__(self, get_metodo: classmethod, item_buscado: object, lista: list) -> ObjetoModelo:
         inicio = 0
         fim = len(lista) - 1
 
@@ -155,15 +157,20 @@ class Tabela():
 
             meio = (inicio + fim) // 2
 
-            if get_metodo(lista[meio]) == item_buscado: return lista[meio]
+            if get_metodo(lista[meio]) == item_buscado:
+                return lista[meio]
 
-            elif item_buscado < get_metodo(lista[meio]): fim = meio - 1
+            else:
 
-            else: inicio = meio + 1
+                if item_buscado < get_metodo(lista[meio]):
+                    fim = meio - 1
+
+                else:
+                    inicio = meio + 1
 
         return None
 
-    def insert_VALUE(self, value: ObjectDAO):
+    def insert_VALUE(self, value: ObjetoModelo):
         value.set_id(self.__cont_id__)
         self.tabela["values"].append(value)
         self.__cont_id__ += 1
@@ -177,9 +184,6 @@ class Tabela():
 
     def get_ALL(self):
         return self.tabela["values"]
-
-    def get_metadados(self):
-        return self.tabela
 
     def get_JSON(self):
         return json.dumps(self.tabela)

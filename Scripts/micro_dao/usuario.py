@@ -1,40 +1,53 @@
-from micro_dao.object_dao import ObjectDAO
+from micro_dao.objeto_modelo import ObjetoModelo
 
-class Usuario(ObjectDAO):
+class Usuario(ObjetoModelo):
 
-    def __init__(self, nome: str, email: str, senha: str, sobre: str, fk_informacoes: int):
-        self._dic = {"id": -1, "nome": nome, "email": email, "senha": senha,
-                     "sobre": sobre}
+    _id: int
+    _email: str
+    _nome: str
+    _senha: str
+    _sobre: str
+    prestador: bool
+
+    def __init__(self, email: str, nome: str, senha: str, sobre: str,
+                 prestador: bool = False):
+        self.set_email(email)
+        self.set_nome(nome)
+        self.set_senha(senha)
+        self.set_sobre(sobre)
+        self.prestador = prestador
 
     def get_id(self) -> int:
-        return self._dic["id"]
+        return self._id
 
-    def set_id(self, id):
-        self._dic["id"] = id
-
-    def get_nome(self) -> str:
-        return self._dic["nome"]
-
-    def set_nome(self, nome):
-        self._dic["nome"] = nome
+    def set_id(self, id: int):
+        self._id = id
+        return self
 
     def get_email(self) -> str:
-        return self._dic["email"]
+        return self._email
 
-    def set_email(self, email):
-        self._dic["email"] = email
+    def set_email(self, email: str):
+        self._email = email
+        return self
+
+    def get_nome(self) -> str:
+        return self._nome
+
+    def set_nome(self, nome: str):
+        self._nome = nome
+        return self
 
     def get_senha(self) -> str:
-        return self._dic["senha"]
+        return self._senha
 
-    def set_senha(self, senha):
-        self._dic["senha"] = senha
+    def set_senha(self, senha: str):
+        self._senha = senha
+        return self
 
     def get_sobre(self) -> str:
-        return self._dic["sobre"]
+        return self._sobre
 
-    def set_sobre(self, sobre):
-        self._dic["sobre"] = sobre
-
-    def get_dic(self) -> dict:
-        return self._dic
+    def set_sobre(self, sobre: str):
+        self._sobre = sobre
+        return self
