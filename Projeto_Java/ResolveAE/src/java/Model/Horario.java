@@ -13,11 +13,19 @@ import java.util.Date;
  */
 public class Horario {
     //ENUM diasemana
+    private int diaSemana;
     private Date horarioInicio;
     private Date horarioFim;
     private boolean livre;
-    private boolean exibir;
 
+    
+    public int getDiaSemana() {
+        return diaSemana;
+    }
+
+    public void setDiaSemana(int diaSemana) {
+        this.diaSemana = diaSemana;
+    }
     public Date getHorarioInicio() {
         return horarioInicio;
     }
@@ -40,13 +48,5 @@ public class Horario {
 
     public void setLivre(boolean livre) {
         this.livre = livre;
-    }
-
-    public boolean isExibir() {
-        return exibir;
-    }
-
-    public void setExibir(boolean exibir) {
-        this.exibir = exibir;
     }
 }

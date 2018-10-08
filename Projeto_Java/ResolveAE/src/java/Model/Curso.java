@@ -15,6 +15,33 @@ public class Curso {
     private String nomeCurso;
     private Date dataInicio;
     private Date dataFim;
+    private int idUsuario;
+    private int tipoInfo;
+
+    public int getIdBase() {
+        return idBase;
+    }
+
+    public void setIdBase(int idBase) {
+        this.idBase = idBase;
+    }
+    private int idBase;
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getTipoInfo() {
+        return tipoInfo;
+    }
+
+    public void setTipoInfo(int tipoInfo) {
+        this.tipoInfo = tipoInfo;
+    }
 
     public String getNomeCurso() {
         return nomeCurso;
