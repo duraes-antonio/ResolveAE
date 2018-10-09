@@ -10,9 +10,13 @@ package Model;
  * @author 20161BSI0314
  */
 public class Servico {
+    enum ETipoServico{
+        BANCO_DE_DADOS,DESENVOLVIMENTO,DESING,GESTAO,INFRAESTRUTURA,SEGURANCA,SUPORTE_MANUTENCAO,REDES
+    }
+    
     private String titulo;
     private String descricao;
-    private String tipo;
+    private ETipoServico tipo;
     private SubTipo subtipoServico;
     private float valor;
     private int idAgendaPrestacao;
@@ -38,11 +42,11 @@ public class Servico {
         this.idBase = idBase;
     }
 
-    public String getTipo() {
+    public ETipoServico getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(ETipoServico tipo) {
         this.tipo = tipo;
     }
 
@@ -101,4 +105,6 @@ public class Servico {
     public void setValor(float valor) {
         this.valor = valor;
     }
+    
+    
 }

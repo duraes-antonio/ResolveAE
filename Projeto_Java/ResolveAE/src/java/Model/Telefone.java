@@ -10,10 +10,12 @@ package Model;
  * @author 20161BSI0314
  */
 public class Telefone extends MeioContato{
-    //enum
+    enum ETipoContato{
+        TELEFONE,CELULAR,RESIDENCIAL,EMPRESA
+    }
     private String numero;
     private int idUsario;
-    private int tipoContato;
+    private ETipoContato tipoContato;
     private int idTel;
 
     public int getIdTel() {
@@ -32,11 +34,11 @@ public class Telefone extends MeioContato{
         this.idUsario = idUsario;
     }
 
-    public int getTipoContato() {
+    public ETipoContato getTipoContato() {
         return tipoContato;
     }
 
-    public void setTipoContato(int tipoContato) {
+    public void setTipoContato(ETipoContato tipoContato) {
         this.tipoContato = tipoContato;
     }
 

@@ -30,7 +30,7 @@ public class ServicoPrestacaoDAO implements IServicoPrestacaoDAO{
     public void insertServico(Servico serv) {
         String query = "INSERT INTO Servico_Prestacao (valor,titulo,fk_usuario,fk_agenda_prestacao,fk_tipo_servico,fk_subtipo_servico,fk_contrato) "
                 + "VALUES "
-                + "( "+serv.getValor()+", "+serv.getTitulo()+", "+serv.getIdUsario()+", "+serv.getIdAgendaPrestacao()+", "+serv.getTipo()+", "+serv.getIdSubTipo()+", "+serv.getIdContrato()+" )";
+                + "( "+serv.getValor()+", "+serv.getTitulo()+", "+serv.getIdUsario()+", "+serv.getIdAgendaPrestacao()+", "+serv.getTipo() +", "+serv.getIdSubTipo()+", "+serv.getIdContrato()+" )";
         //EXECUCAO DA QUERY
         //FECHAMENTO DA CONEXAO
     }

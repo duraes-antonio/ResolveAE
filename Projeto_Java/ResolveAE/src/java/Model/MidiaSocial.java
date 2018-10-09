@@ -10,10 +10,12 @@ package Model;
  * @author 20161BSI0314
  */
 public class MidiaSocial extends MeioContato {
-    //enum
+    enum ETipoMidia{
+        FACEBOOK,INSTAGRAM,LINKEDIN,SKYPE,TWITTER,LATTES,OUTROS
+    }
     private String link;
     private int idUsario;
-    private int tipoMidia;
+    private ETipoMidia tipoMidia;
     private int idMidia;
 
     public int getIdMidia() {
@@ -32,11 +34,11 @@ public class MidiaSocial extends MeioContato {
         this.idUsario = idUsario;
     }
 
-    public int getTipoMidia() {
+    public ETipoMidia getTipoMidia() {
         return tipoMidia;
     }
 
-    public void setTipoMidia(int tipoMidia) {
+    public void setTipoMidia(ETipoMidia tipoMidia) {
         this.tipoMidia = tipoMidia;
     }
 
