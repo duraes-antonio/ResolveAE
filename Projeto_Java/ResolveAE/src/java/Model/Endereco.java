@@ -15,6 +15,7 @@ public class Endereco {
     private String cidade;
     private String estado;
 
+    //PREENCHIDO A PARTIR DO CEP INFORMADO
     public String getRua() {
         return rua;
     }

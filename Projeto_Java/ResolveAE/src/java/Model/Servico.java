@@ -15,9 +15,9 @@ public class Servico {
     private String tipo;
     private SubTipo subtipoServico;
     private float valor;
+    private int idAgendaPrestacao;
     private int idContrato;
     private int idSubTipo;
-    private int idAgendaPrestacao;
     private int idUsario;
     private int idBase;
 

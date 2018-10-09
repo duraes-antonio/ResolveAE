@@ -17,6 +17,24 @@ public class Horario {
     private Date horarioInicio;
     private Date horarioFim;
     private boolean livre;
+    private int idHorario;
+    private int idAgenda;
+
+    public int getIdHorario() {
+        return idHorario;
+    }
+
+    public void setIdHorario(int idHorario) {
+        this.idHorario = idHorario;
+    }
+
+    public int getIdAgenda() {
+        return idAgenda;
+    }
+
+    public void setIdAgenda(int idAgenda) {
+        this.idAgenda = idAgenda;
+    }
 
     
     public int getDiaSemana() {

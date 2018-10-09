@@ -17,6 +17,15 @@ public class Curso {
     private Date dataFim;
     private int idUsuario;
     private int tipoInfo;
+    private int idCurso;
+
+    public int getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(int idCurso) {
+        this.idCurso = idCurso;
+    }
 
     public int getIdBase() {
         return idBase;
