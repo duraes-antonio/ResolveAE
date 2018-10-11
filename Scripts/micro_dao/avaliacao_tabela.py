@@ -3,7 +3,7 @@ from random import choice, randint
 from typing import List
 
 from micro_dao.avaliacao import Avaliacao
-from micro_dao.servico_prestacao_tabela import TabelaServicoPrestacao
+from micro_dao.servico_tabela import TabelaServico
 from micro_dao.tabela_model import Tabela
 from micro_dao.usuario_tabela import TabelaUsuario
 
@@ -14,7 +14,7 @@ class TabelaAvaliacao(Tabela):
     _nota_min = 1
     _nota_max = 5
 
-    def __init__(self, tab_serv_prest: TabelaServicoPrestacao, tab_usu: TabelaUsuario):
+    def __init__(self, tab_serv_prest: TabelaServico, tab_usu: TabelaUsuario):
         super().__init__("avaliacao", Avaliacao.get_id)
         self.add_ID(Avaliacao.get_id)
         self.add_VARCHAR(Avaliacao.get_comentario, "comentario", 500)
@@ -24,7 +24,7 @@ class TabelaAvaliacao(Tabela):
         self.__inserted__ = False
         self.__preencher__(tab_serv_prest, tab_usu)
 
-    def __preencher__(self, tab_serv_prest: TabelaServicoPrestacao, tab_usu: TabelaUsuario):
+    def __preencher__(self, tab_serv_prest: TabelaServico, tab_usu: TabelaUsuario):
 
         nota_especial = [1, 2, 5]
         coments = {

@@ -1,6 +1,6 @@
 from micro_dao.objeto_modelo import ObjetoModelo
 
-class ServicoPrestacao(ObjetoModelo):
+class Servico(ObjetoModelo):
 
     _id: int
     _valor: float

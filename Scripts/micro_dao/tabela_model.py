@@ -1,5 +1,6 @@
 # encoding: utf-8
 import datetime
+from os import sep
 from typing import List, Optional
 
 import time
@@ -264,7 +265,7 @@ class Tabela():
 
         return "({0})".format(", ".join(sql_valores))
 
-    def get_SQL_insert(self, quantidade: int = 0, ignorar_pk: bool = True) -> List[str]:
+    def get_SQL_insert(self, quantidade: int = 200000, ignorar_pk: bool = True) -> List[str]:
 
         sqls = []
         tam_tab = len(self._valores)
@@ -297,15 +298,22 @@ class Tabela():
         return "CREATE TABLE {0}(\n\t{1}\n);".format(
             self.get_nome(), ", \n\t".join([col.to_string() for col in self._colunas]))
 
-    def gerar_arq_SQL(self, nome_arq_saida: str = None):
+    def gerar_arq_SQL(self, nome_arq_saida: str = None, outro_dir: bool = False, ignorar_pk: bool = False):
 
         if not nome_arq_saida:
             nome_arq_saida = self._nome + ".sql"
 
+        elif outro_dir:
+            nome_arq_saida = nome_arq_saida if nome_arq_saida[-1] == sep else nome_arq_saida + sep
+            nome_arq_saida = nome_arq_saida + self._nome + ".sql"
+
         with open(nome_arq_saida, 'w') as arq:
             arq.write(self.get_SQL_create())
-            arq.write("\n")
-            arq.write(self.get_SQL_insert(ignorar_pk=False)[0])
+            arq.write('\n')
+
+            for sql in self.get_SQL_insert(ignorar_pk=ignorar_pk):
+                arq.write(sql)
+                arq.write("\n\n")
 
         return self
 

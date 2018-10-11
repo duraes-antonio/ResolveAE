@@ -2,27 +2,27 @@
 
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-from tabela_dic import Tabela
 
 class UtilBD():
 
-    _usuario = str
-    _senha = str
-    _porta = int
-    _db_padrao = "postgres"
+    _usuario: str
+    _senha: str
+    _porta: int
+    _database: str
 
     _conexao = None
     _cursor = None
 
-    _fechar_apos_terminar = False
+    _fechar_apos_terminar: bool = False
 
-    def __init__(self, usuario, senha, porta="5432"):
+    def __init__(self, usuario: str, senha: str, porta: int=5432, database: str = "postgres"):
         self._usuario = usuario
         self._senha = senha
         self._porta = porta
+        self._database = database
 
-    def conectar(self, database="postgres"):
-        self._conexao = psycopg2.connect(host="localhost", database=database,
+    def conectar(self):
+        self._conexao = psycopg2.connect(host="localhost", database=self._database,
                                          user=self._usuario, port=self._porta, password=self._senha)
         self._conexao.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         self._cursor = self._conexao.cursor()
@@ -45,12 +45,4 @@ class UtilBD():
 
         if self._fechar_apos_terminar: self.desconectar()
 
-        return self
-
-    def criar_database(self, nome_database):
-        self.executar_sql("CREATE DATABASE {0};".format(nome_database))
-        return self
-
-    def criar_tabela(self, tabela: Tabela):
-        self.executar_sql(tabela.get_SQL_CREATE())
         return self
