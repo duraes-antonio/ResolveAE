@@ -14,7 +14,7 @@ class TabelaDiaSemana(Tabela):
     def __init__(self):
         super().__init__("dia_semana", DiaSemana.get_id)
         self.add_ID(DiaSemana.get_id)
-        self.add_VARCHAR(DiaSemana.get_dia, "nome", 15)
+        self.add_VARCHAR(DiaSemana.get_dia, "nome", 15, True)
         self.__inserted__ = False
         self.__preencher__()
 

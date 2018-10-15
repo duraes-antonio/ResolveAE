@@ -17,7 +17,6 @@ class TabelaAvaliacao(Tabela):
     def __init__(self, tab_serv_prest: TabelaServico, tab_usu: TabelaUsuario):
         super().__init__("avaliacao", Avaliacao.get_id)
         self.add_ID(Avaliacao.get_id)
-        self.add_VARCHAR(Avaliacao.get_comentario, "comentario", 500)
         self.add_FLOAT(Avaliacao.get_nota, "nota")
         self.add_FK(Avaliacao.get_fk_usuario, "fk_usuario", tab_usu)
         self.add_FK(Avaliacao.get_fk_servico_prestacao, "fk_servico_prestacao", tab_serv_prest)
@@ -26,37 +25,16 @@ class TabelaAvaliacao(Tabela):
 
     def __preencher__(self, tab_serv_prest: TabelaServico, tab_usu: TabelaUsuario):
 
-        nota_especial = [1, 2, 5]
-        coments = {
-            1: ["Péssimo {}.", "Não gostei do {}.", "Se não fosse o {}.",
-                "O {} é bem ruim.", "É pelo {} que o Brasil não vai para frente."],
-            2: ["Não gostei do {}.", "Poderia melhorar o {}.",
-                "O que estraga é o {}.", "Se melhorar o {}, tem futuro."],
-            3: ["Dentro do combinado.", "Tudo okay.", "Dentro do prazo",
-                "Preço compátivel.", "Regular.", "Como esperado."],
-            4: ["Ótimo.", "Gostei!", "Show.", "Melhor.", "Recomendo!",
-                "Muito bom!"],
-            5: ["Melhor {}.", "Não tem igual {}", "Não achei nenhum {} semelhante.",
-                "Só pelo {}, já vale.", "O que mais compensa é o {}."]
-        }
-        atributos = ["atendimento", "prazo", "custo-benefício", "preço", "marketing"]
-
-        # Para cada serviço, faça de 1 até 3 avaliações;
+        # Para cada serviço, faça uma ou nenhuma avaliação;
         for serv_prest in tab_serv_prest.get_all():
 
-            for aval in range(randint(self._num_min_aval, self._num_max_aval)):
-                nota = randint(self._nota_min, self._nota_max)
-
-                if (nota in nota_especial):
-                    comentario = choice(coments[nota]).format(choice(atributos))
-
-                else: comentario = choice(coments[nota])
+            for aval in range(randint(0, 1)):
 
                 self.insert(
                     Avaliacao(
-                        randint(self._nota_min, self._nota_max),
-                        comentario, serv_prest.get_id(),
-                        serv_prest.get_fk_usuario()
+	                    randint(self._nota_min, self._nota_max),
+	                    serv_prest.get_id(),
+	                    serv_prest.get_fk_usuario()
                     )
                 )
 

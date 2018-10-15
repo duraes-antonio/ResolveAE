@@ -13,7 +13,7 @@ class TabelaTipoServico(Tabela):
     def __init__(self):
         super().__init__("tipo_servico", TipoServico.get_id)
         self.add_ID(TipoServico.get_id)
-        self.add_VARCHAR(TipoServico.get_nome, "nome", 30)
+        self.add_VARCHAR(TipoServico.get_nome, "nome", 30, True)
         self.__inserted__ = False
         self.__preencher__()
 

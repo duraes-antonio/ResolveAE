@@ -25,11 +25,11 @@ class TabelaContrato(Tabela):
     def __init__(self, tab_usu: TabelaUsuario, preencher: bool = True):
         super().__init__("contrato", Contrato.get_id)
         self.add_ID(Contrato.get_id)
-        self.add_DATE(Contrato.get_data_contrato, "data_contrato")
-        self.add_DATE(Contrato.get_data_inicio_prestacao, "data_inicio_prestacao")
-        self.add_DATE(Contrato.get_data_fim_prestacao, "data_fim_prestacao")
+        self.add_DATE(Contrato.get_data_inicio, "data_inicio")
+        self.add_DATE(Contrato.get_data_fim, "data_fim")
         self.add_DATE(Contrato.get_data_ultima_modif, "data_ult_modif")
         self.add_VARCHAR(Contrato.get_descricao, "descricao", 1000)
+        self.add_INT(Contrato.get_horas_contratadas, "horas_contratadas")
         self.add_FK(Contrato.get_fk_usuario, "fk_usuario", tab_usu)
         self.__inserted__ = False
 
@@ -45,9 +45,9 @@ class TabelaContrato(Tabela):
                     Contrato(
                         datetime.strptime(self._dt_min_i, self._fmt),
                         datetime.strptime(self.__randomDate__(self._dt_min_i, self._dt_min_f), self._fmt),
-                        datetime.strptime(self.__randomDate__(self._dt_max_i, self._dt_max_f), self._fmt),
                         datetime.strptime(self.__randomDate__(self._dt_min_i, self._dt_max_i), self._fmt),
                         "Imagine uma descrição bonita aqui",
+	                    random.randint(1, 1600),
                         usuario.get_id()
                     )
                 )

@@ -1,16 +1,11 @@
 # encoding: utf-8
-from random import uniform, choice
+from random import choice
 from typing import List
 
-from micro_dao.contrato_tabela import TabelaContrato
-from micro_dao.servico import Servico
 from micro_dao.servico_subtipo_servico import ServicoSubtipoServico
 from micro_dao.servico_tabela import TabelaServico
-from micro_dao.subtipo_servico import SubtipoServico
 from micro_dao.subtipo_servico_tabela import TabelaSubtipoServico
 from micro_dao.tabela_model import Tabela
-from micro_dao.tipo_servico_tabela import TabelaTipoServico
-from micro_dao.usuario_tabela import TabelaUsuario
 
 
 class TabelaServicoSubtipoServico(Tabela):
@@ -37,5 +32,5 @@ class TabelaServicoSubtipoServico(Tabela):
         self.__inserted__ = True
         return self
 
-    def get_all(self) -> List[Servico]:
+    def get_all(self) -> List[ServicoSubtipoServico]:
         return super().get_all()

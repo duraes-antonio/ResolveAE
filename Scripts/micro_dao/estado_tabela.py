@@ -19,8 +19,8 @@ class TabelaEstado(Tabela):
     def __init__(self):
         super().__init__("estado", Estado.get_id)
         self.add_ID(Estado.get_id)
-        self.add_VARCHAR(Estado.get_nome, "nome", 40)
-        self.add_CHAR(Estado.get_sigla, "sigla", 2)
+        self.add_VARCHAR(Estado.get_nome, "nome", 40, True)
+        self.add_CHAR(Estado.get_sigla, "sigla", 2, True)
         self.__inserted__ = False
         self.__preencher__()
 

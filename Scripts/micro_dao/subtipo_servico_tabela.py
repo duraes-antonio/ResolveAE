@@ -14,7 +14,7 @@ class TabelaSubtipoServico(Tabela):
         super().__init__("subtipo_servico", SubtipoServico.get_id)
         self._subtipos = {}
         self.add_ID(SubtipoServico.get_id)
-        self.add_VARCHAR(SubtipoServico.get_nome, "nome", 50)
+        self.add_VARCHAR(SubtipoServico.get_nome, "nome", 50, True)
         self.add_FK(SubtipoServico.get_fk_tipo_servico, "fk_tipo_servico", tab_t_serv)
         self.__inserted__ = False
         self.__preencher__(tab_t_serv)

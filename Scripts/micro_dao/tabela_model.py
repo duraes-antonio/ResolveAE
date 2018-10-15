@@ -193,8 +193,8 @@ class Tabela():
     def add_FLOAT(self, get_metodo: classmethod, nome_coluna: str):
         return self.__add_coluna__(get_metodo, nome_coluna, "FLOAT")
 
-    def add_REAL(self, nome_coluna: str):
-        return self.__add_coluna__(nome_coluna, "REAL")
+    def add_REAL(self, get_metodo: classmethod, nome_coluna: str):
+        return self.__add_coluna__(get_metodo, nome_coluna, "REAL")
 
     def add_SERIAL(self, get_metodo: classmethod, nome_coluna: str, unique: bool = False):
         return self.__add_coluna__(get_metodo, nome_coluna, "SERIAL", unique)
@@ -265,7 +265,7 @@ class Tabela():
 
         return "({0})".format(", ".join(sql_valores))
 
-    def get_SQL_insert(self, quantidade: int = 200000, ignorar_pk: bool = True) -> List[str]:
+    def get_SQL_insert(self, quantidade: int = 100000, ignorar_pk: bool = True) -> List[str]:
 
         sqls = []
         tam_tab = len(self._valores)

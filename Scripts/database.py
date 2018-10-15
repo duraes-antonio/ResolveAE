@@ -1,9 +1,10 @@
-from typing import List, Dict
 from os import sep
+import gc
 
 from micro_dao.avaliacao_tabela import TabelaAvaliacao
 from micro_dao.bairro_tabela import TabelaBairro
 from micro_dao.cidade_tabela import TabelaCidade
+from micro_dao.comentario_tabela import TabelaComentario
 from micro_dao.contato_tabela import TabelaContato
 from micro_dao.contrato_tabela import TabelaContrato
 from micro_dao.dia_semana_tabela import TabelaDiaSemana
@@ -23,94 +24,105 @@ from util_bd import UtilBD
 
 class Database():
 
-    _conexao: UtilBD = None
-    _qtd_user: int
+	_conexao: UtilBD = None
+	_qtd_user: int
 
-    __dic_tabs = {
-        1: None, 2: None, 3: None,
-        4: None, 5: None, 6: None,
-        7: None, 8: None, 9: None,
-        10: None,11: None, 12: None,
-        13: None, 14: None, 15: None,
-        16: None
-    }
+	__dic_tabs = {
+		1: None, 2: None, 3: None,
+		4: None, 5: None, 6: None,
+		7: None, 8: None, 9: None,
+		10: None,11: None, 12: None,
+		13: None, 14: None, 15: None,
+		16: None, 17: None, 18: None
+	}
 
-    def __init__(self, usuario: str = "postgres", senha: str = "postgres",
-                 porta: int = 5432, qtd_user: int = 50, database: str = "postgres"):
-        self._conexao = UtilBD(usuario, senha, porta, database)
-        self._qtd_user = qtd_user
+	def __init__(self, usuario: str = "postgres", senha: str = "postgres",
+				 porta: int = 5432, qtd_user: int = 50, database: str = "postgres"):
+		self._conexao = UtilBD(usuario, senha, porta, database)
+		self._qtd_user = qtd_user
 
-    def builder_all(self, criar_e_executar: bool = False):
+	def builder_all(self, criar_e_executar: bool = False):
 
-        # USUÁRIO
-        self.__dic_tabs[1] = TabelaUsuario(num_registros=self._qtd_user)
+		# USUÁRIO
+		self.__dic_tabs[1] = TabelaUsuario(num_registros=self._qtd_user)
 
-        # ENDEREÇO
-        self.__dic_tabs[2] = TabelaEstado()
-        self.__dic_tabs[3] = TabelaCidade(self.__dic_tabs[2])
-        self.__dic_tabs[4] = TabelaBairro(self.__dic_tabs[3], self.__dic_tabs[2])
-        self.__dic_tabs[5] = TabelaEndereco(self.__dic_tabs[4], self.__dic_tabs[1])
+		# ENDEREÇO
+		self.__dic_tabs[2] = TabelaEstado()
+		self.__dic_tabs[3] = TabelaCidade(self.__dic_tabs[2])
+		self.__dic_tabs[4] = TabelaBairro(self.__dic_tabs[3], self.__dic_tabs[2])
+		self.__dic_tabs[5] = TabelaEndereco(self.__dic_tabs[4], self.__dic_tabs[1])
 
-        # CONTATO
-        self.__dic_tabs[6] = TabelaTipoContato()
-        self.__dic_tabs[7] = TabelaContato(self.__dic_tabs[6], self.__dic_tabs[1])
+		# CONTATO
+		self.__dic_tabs[6] = TabelaTipoContato()
+		self.__dic_tabs[7] = TabelaContato(self.__dic_tabs[6], self.__dic_tabs[1])
 
-        # TABELAS INFORMAÇÃO PROFISSIONAL
-        self.__dic_tabs[8] = TabelaTipoInfoProfissional()
-        self.__dic_tabs[9] = TabelaInfoProfissional(self.__dic_tabs[1], self.__dic_tabs[8])
+		# TABELAS INFORMAÇÃO PROFISSIONAL
+		self.__dic_tabs[8] = TabelaTipoInfoProfissional()
+		self.__dic_tabs[9] = TabelaInfoProfissional(self.__dic_tabs[1], self.__dic_tabs[8])
 
-        # TABELAS SERVIÇO PRESTACAO
-        self.__dic_tabs[10] = TabelaContrato(self.__dic_tabs[1])
-        self.__dic_tabs[11] = TabelaTipoServico()
-        self.__dic_tabs[12] = TabelaSubtipoServico(self.__dic_tabs[11])
-        self.__dic_tabs[13] = TabelaServico(
-            self.__dic_tabs[10], self.__dic_tabs[11], self.__dic_tabs[12], self.__dic_tabs[1])
-        self.__dic_tabs[14] = TabelaServicoSubtipoServico(
-            self.__dic_tabs[13], self.__dic_tabs[12])
-        self.__dic_tabs[15] = TabelaAvaliacao(self.__dic_tabs[13], self.__dic_tabs[1])
+		# TABELAS SERVIÇO PRESTACAO
+		self.__dic_tabs[10] = TabelaContrato(self.__dic_tabs[1])
+		self.__dic_tabs[11] = TabelaTipoServico()
+		self.__dic_tabs[12] = TabelaSubtipoServico(self.__dic_tabs[11])
+		self.__dic_tabs[13] = TabelaServico(
+			self.__dic_tabs[10], self.__dic_tabs[11], self.__dic_tabs[12], self.__dic_tabs[1])
+		self.__dic_tabs[14] = TabelaServicoSubtipoServico(
+			self.__dic_tabs[13], self.__dic_tabs[12])
+		self.__dic_tabs[15] = TabelaAvaliacao(self.__dic_tabs[13], self.__dic_tabs[1])
+		self.__dic_tabs[16] = TabelaComentario(self.__dic_tabs[15])
 
-        # TABELAS HORARIO PRESTACAO
-        self.__dic_tabs[16] = TabelaDiaSemana()
-        self.__dic_tabs[17] = TabelaHorarioPrestacao(
-            self.__dic_tabs[1], self.__dic_tabs[10], self.__dic_tabs[16])
+		# TABELAS HORARIO PRESTACAO
+		self.__dic_tabs[17] = TabelaDiaSemana()
+		self.__dic_tabs[18] = TabelaHorarioPrestacao(
+			self.__dic_tabs[1], self.__dic_tabs[10], self.__dic_tabs[17])
 
-        if criar_e_executar:
-            self.create_all()
-            self.insert_all()
+		if criar_e_executar:
+			self.create_all()
+			self.insert_all()
 
-    def to_arq_sql_all(self, caminho: str = None):
+	def to_arq_sql_all(self, caminho: str = None, ign_pk: bool = True):
 
-        for atrib in self.__dict__:
+		for chave in self.__dic_tabs:
 
-            if isinstance(self.__dict__[atrib], Tabela):
+			try:
+				if caminho:
+					caminho = caminho if caminho[-1] == sep else caminho + sep
+					self.__dic_tabs[chave].gerar_arq_SQL(
+						caminho + self.__dic_tabs[chave].get_nome() + ".sql",
+						ignorar_pk=ign_pk)
 
-                if caminho:
-                    caminho = caminho if caminho[-1] == sep else caminho + sep
-                    (self.__dict__[atrib]).gerar_arq_SQL(caminho + self.__dict__[atrib].get_nome())
+				else: self.__dic_tabs[chave].gerar_arq_SQL(ignorar_pk=ign_pk)
 
-                else: (self.__dict__[atrib]).gerar_arq_SQL()
+			except ValueError:
+				pass
 
-    def create_all(self):
-        [self.create(self.__dic_tabs[i]) for i in sorted(list(self.__dic_tabs.keys()))]
+	def create_all(self):
+		[self.create(self.__dic_tabs[i]) for i in sorted(list(self.__dic_tabs.keys()))]
 
-    def insert_all(self):
-        [self.insert(self.__dic_tabs[i]) for i in sorted(list(self.__dic_tabs.keys()))]
+	def insert_all(self):
+		[self.insert(self.__dic_tabs[i]) for i in sorted(list(self.__dic_tabs.keys()))]
 
-    def drop_all(self):
-        [self.drop_table(self.__dic_tabs[i]) for i in sorted(list(self.__dic_tabs.keys()))]
+	def drop_all(self):
+		[self.drop_table(self.__dic_tabs[i]) for i in sorted(list(self.__dic_tabs.keys()))]
 
-    def create(self, *tabelas: Tabela):
+	def create(self, *tabelas: Tabela):
 
-        for tabela in tabelas:
-            self._conexao.executar_sql(tabela.get_SQL_create())
+		for tabela in tabelas:
+			self._conexao.executar_sql(tabela.get_SQL_create())
 
-    def insert(self, *tabelas: Tabela, quantidade: int = 0):
+	def insert(self, *tabelas: Tabela, quantidade: int = 0):
 
-        for tabela in tabelas:
-            self._conexao.executar_sql("\n".join(tabela.get_SQL_insert(quantidade)))
+		for tabela in tabelas:
+			self._conexao.executar_sql("\n".join(tabela.get_SQL_insert(quantidade)))
 
-    def drop_table(self, tabela: Tabela):
-        self._conexao.executar_sql("DROP TABLE IF EXISTS {} CASCADE;".format(tabela.get_nome()))
+	def drop_table(self, tabela: Tabela):
+		self._conexao.executar_sql("DROP TABLE IF EXISTS {} CASCADE;".format(tabela.get_nome()))
 
-    def execute(self, SQL: str):
-        self._conexao.executar_sql(SQL)
+	def execute(self, SQL: str):
+		self._conexao.executar_sql(SQL)
+
+	def del_mem_table(self):
+
+		for chave in self.__dic_tabs:
+			self.__dic_tabs[chave] = None
+			gc.collect()
