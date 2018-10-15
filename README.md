@@ -2,6 +2,8 @@
 
 Repositório referente ao trabalho integrado desenvolvido no quinto periodo de sistema de informação no IFES Serra. Disciplinas envolvidas Programação Orientada a Objetos 2, Banco de Dados 2, Projeto de Sistemas, Engenharia de Software.
 
+Repositório voltado p/ Banco de Dados 2: [ResolveAE_BD2](https://github.com/duraes-antonio/resolveae_bd2)<br>
+
 # Sumário<br>
 
 ### 1. COMPONENTES<br>
