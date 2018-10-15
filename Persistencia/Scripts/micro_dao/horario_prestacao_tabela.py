@@ -23,9 +23,9 @@ class TabelaHorarioPrestacao(Tabela):
                  tab_dia_sem: TabelaDiaSemana, preencher: bool = True):
         super().__init__("horario_prestacao", HorarioPrestacao.get_id)
         self.add_ID(HorarioPrestacao.get_id)
-        self.add_TIME(HorarioPrestacao.get_horario_prest_ini, "horario_prestacao_ini")
-        self.add_TIME(HorarioPrestacao.get_horario_prest_fim, "horario_prestacao_fim")
-        self.add_BOOLEAN(HorarioPrestacao.get_disponibilidade, "disponibilidade")
+        self.add_TIME(HorarioPrestacao.get_horario_prest_ini, "inicio")
+        self.add_TIME(HorarioPrestacao.get_horario_prest_fim, "fim")
+        self.add_BOOLEAN(HorarioPrestacao.get_disponibilidade, "disponivel")
         self.add_FK(HorarioPrestacao.get_fk_usuario, "fk_usuario", tab_usu)
         self.add_FK(HorarioPrestacao.get_fk_dia_semana, "fk_dia_semana", tab_dia_sem)
         self.__inserted__ = False
