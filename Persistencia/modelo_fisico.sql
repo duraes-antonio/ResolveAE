@@ -26,7 +26,7 @@ CREATE TABLE bairro(
 
 CREATE TABLE endereco(
 	id SERIAL PRIMARY KEY, 
-	cep CHAR (8), 
+	cep INT, 
 	fk_bairro SERIAL REFERENCES bairro(id), 
 	fk_usuario SERIAL REFERENCES usuario(id)
 );

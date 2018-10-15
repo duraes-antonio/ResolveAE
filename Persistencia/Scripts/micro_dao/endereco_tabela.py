@@ -18,7 +18,7 @@ class TabelaEndereco(Tabela):
                  preencher: bool = True):
         super().__init__("endereco", Endereco.get_id)
         self.add_ID(Endereco.get_id)
-        self.add_CHAR(Endereco.get_cep, "cep", 8)
+        self.add_INT(Endereco.get_cep, "cep")
         self.add_FK(Endereco.get_fk_bairro, "fk_bairro", tab_bairro)
         self.add_FK(Endereco.get_fk_usuario, "fk_usuario", tab_usu)
         self.__inserted__ = False
@@ -37,7 +37,7 @@ class TabelaEndereco(Tabela):
 
         [self.insert(
             Endereco(
-                str(randint(cep_min, cep_max)),
+                randint(cep_min, cep_max),
                 choice(tab_bai.get_all()).get_id(),
                 usuario.get_id()
             )

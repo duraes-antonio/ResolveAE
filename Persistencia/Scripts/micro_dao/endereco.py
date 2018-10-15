@@ -3,11 +3,11 @@ from micro_dao.objeto_modelo import ObjetoModelo
 class Endereco(ObjetoModelo):
 
     _id: int
-    _cep: str
+    _cep: int
     _fk_bairro: int
     _fk_usuario: int
 
-    def __init__(self, cep: str, fk_bairro: int, fk_usuario: int):
+    def __init__(self, cep: int, fk_bairro: int, fk_usuario: int):
         self._id = 1
         self.set_cep(cep)
         self.set_fk_bairro(fk_bairro)
@@ -20,10 +20,10 @@ class Endereco(ObjetoModelo):
         self._id = id
         return self
 
-    def get_cep(self) -> str:
+    def get_cep(self) -> int:
         return self._cep
 
-    def set_cep(self, cep: str):
+    def set_cep(self, cep: int):
         self._cep = cep
         return self
 
