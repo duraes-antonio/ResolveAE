@@ -10,12 +10,12 @@ class TabelaTipoInfoProfissional(Tabela):
     _tipos = ["DOMÍNIO TECNOLÓGICO", "CURSO TÉCNICO", "GRADUAÇÃO", "PÓS-GRADUAÇÃO",
               "TRABALHO", "OUTRO CURSOS"]
 
-    def __init__(self):
+    def __init__(self, preencher: bool = False):
         super().__init__("tipo_info_profissional", TipoInfoProfissional.get_id)
         self.add_ID(TipoInfoProfissional.get_id)
         self.add_VARCHAR(TipoInfoProfissional.get_nome, "nome", 20, True)
         self.__inserted__ = False
-        self.__preencher__()
+        if preencher: self.__preencher__()
 
     def __preencher__(self):
         [self.insert(TipoInfoProfissional(tipo)) for tipo in self._tipos]

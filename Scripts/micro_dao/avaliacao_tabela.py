@@ -14,14 +14,15 @@ class TabelaAvaliacao(Tabela):
     _nota_min = 1
     _nota_max = 5
 
-    def __init__(self, tab_serv_prest: TabelaServico, tab_usu: TabelaUsuario):
+    def __init__(self, tab_serv_prest: TabelaServico, tab_usu: TabelaUsuario,
+                 preencher: bool = False):
         super().__init__("avaliacao", Avaliacao.get_id)
         self.add_ID(Avaliacao.get_id)
-        self.add_FLOAT(Avaliacao.get_nota, "nota")
+        self.add_INT(Avaliacao.get_nota, "nota")
         self.add_FK(Avaliacao.get_fk_usuario, "fk_usuario", tab_usu)
         self.add_FK(Avaliacao.get_fk_servico_prestacao, "fk_servico_prestacao", tab_serv_prest)
         self.__inserted__ = False
-        self.__preencher__(tab_serv_prest, tab_usu)
+        if preencher: self.__preencher__(tab_serv_prest, tab_usu)
 
     def __preencher__(self, tab_serv_prest: TabelaServico, tab_usu: TabelaUsuario):
 

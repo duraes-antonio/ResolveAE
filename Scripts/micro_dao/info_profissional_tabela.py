@@ -20,7 +20,8 @@ class TabelaInfoProfissional(Tabela):
     _dt_info_fim = "2004-01-01"
     _fmt = "%Y-%m-%d"
 
-    def __init__(self, tab_usu: TabelaUsuario, tab_info: TabelaTipoInfoProfissional):
+    def __init__(self, tab_usu: TabelaUsuario, tab_info: TabelaTipoInfoProfissional,
+                 preencher: bool = False):
         super().__init__("info_profissional", InfoProfissional.get_id)
         self.add_ID(InfoProfissional.get_id)
         self.add_VARCHAR(InfoProfissional.get_descricao, "descricao", 200)
@@ -29,7 +30,7 @@ class TabelaInfoProfissional(Tabela):
         self.add_FK(InfoProfissional.get_fk_usuario, "fk_usuario", tab_usu)
         self.add_FK(InfoProfissional.get_fk_tipo_info_prof, "fk_tipo_info_prof", tab_info)
         self.__inserted__ = False
-        self.__preencher__(tab_usu, tab_info)
+        if preencher: self.__preencher__(tab_usu, tab_info)
 
     def __preencher__(self, tab_usu: TabelaUsuario, tab_t_info: TabelaTipoInfoProfissional):
 

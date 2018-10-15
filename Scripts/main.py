@@ -1,9 +1,5 @@
 # encoding: utf-8
 import argparse
-import gc
-
-from os import path
-from time import sleep
 
 from database import Database
 
@@ -16,7 +12,7 @@ def main():
 
 	if (args.parse_args().user > 0):
 		db.builder_all(False)
-		db.to_arq_sql_all(args.parse_args().path)
+		db.to_arq_all_sql(args.parse_args().path)
 
 	return 0
 

@@ -10,12 +10,12 @@ class TabelaTipoServico(Tabela):
               "DESENVOLVIMENTO", "DESIGN", "ANÁLISE DE SISTEMA",
               "SEGURANÇA DA INFORMAÇÃO"]
 
-    def __init__(self):
+    def __init__(self, preencher: bool = False):
         super().__init__("tipo_servico", TipoServico.get_id)
         self.add_ID(TipoServico.get_id)
         self.add_VARCHAR(TipoServico.get_nome, "nome", 30, True)
         self.__inserted__ = False
-        self.__preencher__()
+        if preencher: self.__preencher__()
 
     def __preencher__(self):
         [self.insert(TipoServico(tipo)) for tipo in self._tipos]

@@ -10,13 +10,13 @@ from micro_dao.tabela_model import Tabela
 
 class TabelaComentario(Tabela):
 
-	def __init__(self, tab_aval: TabelaAvaliacao):
+	def __init__(self, tab_aval: TabelaAvaliacao, preencher: bool = False):
 		super().__init__("comentario", Comentario.get_id)
 		self.add_ID(Comentario.get_id)
 		self.add_VARCHAR(Comentario.get_comentario, "comentario", 500)
 		self.add_FK(Comentario.get_fk_avaliacao, "fk_avaliacao", tab_aval)
 		self.__inserted__ = False
-		self.__preencher__(tab_aval)
+		if preencher: self.__preencher__(tab_aval)
 
 	def __preencher__(self, tab_aval: TabelaAvaliacao):
 

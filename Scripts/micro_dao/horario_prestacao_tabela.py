@@ -20,8 +20,7 @@ class TabelaHorarioPrestacao(Tabela):
     _hor_max = "14:00:00"
 
     def __init__(self, tab_usu: TabelaUsuario, tab_contrato: TabelaContrato,
-                 tab_dia_sem: TabelaDiaSemana,
-                 preencher: bool = True):
+                 tab_dia_sem: TabelaDiaSemana, preencher: bool = True):
         super().__init__("horario_prestacao", HorarioPrestacao.get_id)
         self.add_ID(HorarioPrestacao.get_id)
         self.add_TIME(HorarioPrestacao.get_horario_prest_ini, "horario_prestacao_ini")

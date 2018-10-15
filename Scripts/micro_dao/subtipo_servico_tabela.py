@@ -10,14 +10,14 @@ from micro_dao.tipo_servico_tabela import TabelaTipoServico
 class TabelaSubtipoServico(Tabela):
     _subtipos: dict
 
-    def __init__(self, tab_t_serv: TabelaTipoServico):
+    def __init__(self, tab_t_serv: TabelaTipoServico, preencher: bool = False):
         super().__init__("subtipo_servico", SubtipoServico.get_id)
         self._subtipos = {}
         self.add_ID(SubtipoServico.get_id)
         self.add_VARCHAR(SubtipoServico.get_nome, "nome", 50, True)
         self.add_FK(SubtipoServico.get_fk_tipo_servico, "fk_tipo_servico", tab_t_serv)
         self.__inserted__ = False
-        self.__preencher__(tab_t_serv)
+        if preencher: self.__preencher__(tab_t_serv)
 
     def __preencher__(self, tab_tipo_serv: TabelaTipoServico):
 

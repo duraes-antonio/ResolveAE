@@ -13,14 +13,15 @@ class TabelaContato(Tabela):
 
     _num_contato_por_usuario = 1
 
-    def __init__(self, tab_tipo_cont: TabelaTipoContato, tab_usu: TabelaUsuario):
+    def __init__(self, tab_tipo_cont: TabelaTipoContato, tab_usu: TabelaUsuario,
+                 preencher: bool = False):
         super().__init__("contato", Contato.get_id)
         self.add_ID(Contato.get_id)
         self.add_VARCHAR(Contato.get_descricao, "descricao", 100)
         self.add_FK(Contato.get_fk_usuario, "fk_usuario", tab_usu)
         self.add_FK(Contato.get_fk_tipo_cont, "fk_tipo_contato", tab_tipo_cont)
         self.__inserted__ = False
-        self.__preencher__(tab_tipo_cont, tab_usu)
+        if preencher: self.__preencher__(tab_tipo_cont, tab_usu)
 
     def __preencher__(self, tab_tipo_cont: TabelaTipoContato, tab_usu: TabelaUsuario):
 

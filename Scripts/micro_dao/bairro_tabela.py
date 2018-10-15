@@ -10,13 +10,14 @@ import json
 class TabelaBairro(Tabela):
     __path_est_cid__ = "./backup_temp_dados_txts_jsons/estado_cidade_bairro.json"
 
-    def __init__(self, tab_cid: TabelaCidade, tab_est: TabelaEstado):
+    def __init__(self, tab_cid: TabelaCidade, tab_est: TabelaEstado,
+                 preencher: bool = False):
         super().__init__("bairro", Bairro.get_id)
         self.add_ID(Bairro.get_id)
         self.add_VARCHAR(Bairro.get_nome, "nome", 60)
         self.add_FK(Bairro.get_fk_cidade, "fk_cidade", tab_cid)
         self.__inserted__ = False
-        self.__preencher__(tab_cid, tab_est)
+        if preencher: self.__preencher__(tab_cid, tab_est)
 
     def __parse_JSON__(self, caminho: str):
         with open(caminho, 'r') as arq:

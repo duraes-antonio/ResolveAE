@@ -41,46 +41,54 @@ class Database():
 		self._conexao = UtilBD(usuario, senha, porta, database)
 		self._qtd_user = qtd_user
 
-	def builder_all(self, criar_e_executar: bool = False):
+	def builder_all(self, criar_e_executar: bool = False, preencher: bool = False):
 
 		# USUÁRIO
 		self.__dic_tabs[1] = TabelaUsuario(num_registros=self._qtd_user)
 
 		# ENDEREÇO
-		self.__dic_tabs[2] = TabelaEstado()
-		self.__dic_tabs[3] = TabelaCidade(self.__dic_tabs[2])
-		self.__dic_tabs[4] = TabelaBairro(self.__dic_tabs[3], self.__dic_tabs[2])
-		self.__dic_tabs[5] = TabelaEndereco(self.__dic_tabs[4], self.__dic_tabs[1])
+		self.__dic_tabs[2] = TabelaEstado(preencher=preencher)
+		self.__dic_tabs[3] = TabelaCidade(self.__dic_tabs[2], preencher=preencher)
+		self.__dic_tabs[4] = TabelaBairro(self.__dic_tabs[3], self.__dic_tabs[2],
+		                                  preencher=preencher)
+		self.__dic_tabs[5] = TabelaEndereco(self.__dic_tabs[4], self.__dic_tabs[1],
+		                                    preencher=preencher)
 
 		# CONTATO
-		self.__dic_tabs[6] = TabelaTipoContato()
-		self.__dic_tabs[7] = TabelaContato(self.__dic_tabs[6], self.__dic_tabs[1])
+		self.__dic_tabs[6] = TabelaTipoContato(preencher=preencher)
+		self.__dic_tabs[7] = TabelaContato(self.__dic_tabs[6], self.__dic_tabs[1],
+		                                   preencher=preencher)
 
 		# TABELAS INFORMAÇÃO PROFISSIONAL
-		self.__dic_tabs[8] = TabelaTipoInfoProfissional()
-		self.__dic_tabs[9] = TabelaInfoProfissional(self.__dic_tabs[1], self.__dic_tabs[8])
+		self.__dic_tabs[8] = TabelaTipoInfoProfissional(preencher=preencher)
+		self.__dic_tabs[9] = TabelaInfoProfissional(self.__dic_tabs[1],
+		                                            self.__dic_tabs[8],
+		                                            preencher=preencher)
 
 		# TABELAS SERVIÇO PRESTACAO
-		self.__dic_tabs[10] = TabelaContrato(self.__dic_tabs[1])
-		self.__dic_tabs[11] = TabelaTipoServico()
-		self.__dic_tabs[12] = TabelaSubtipoServico(self.__dic_tabs[11])
-		self.__dic_tabs[13] = TabelaServico(
-			self.__dic_tabs[10], self.__dic_tabs[11], self.__dic_tabs[12], self.__dic_tabs[1])
+		self.__dic_tabs[10] = TabelaContrato(self.__dic_tabs[1], preencher=preencher)
+		self.__dic_tabs[11] = TabelaTipoServico(preencher=preencher)
+		self.__dic_tabs[12] = TabelaSubtipoServico(self.__dic_tabs[11],
+		                                           preencher=preencher)
+		self.__dic_tabs[13] = TabelaServico(self.__dic_tabs[10], self.__dic_tabs[11],
+		                                    self.__dic_tabs[12], self.__dic_tabs[1],
+		                                    preencher=preencher)
 		self.__dic_tabs[14] = TabelaServicoSubtipoServico(
-			self.__dic_tabs[13], self.__dic_tabs[12])
-		self.__dic_tabs[15] = TabelaAvaliacao(self.__dic_tabs[13], self.__dic_tabs[1])
-		self.__dic_tabs[16] = TabelaComentario(self.__dic_tabs[15])
+			self.__dic_tabs[13], self.__dic_tabs[12], preencher=preencher)
+		self.__dic_tabs[15] = TabelaAvaliacao(self.__dic_tabs[13], self.__dic_tabs[1],
+		                                      preencher=preencher)
+		self.__dic_tabs[16] = TabelaComentario(self.__dic_tabs[15], preencher=preencher)
 
 		# TABELAS HORARIO PRESTACAO
-		self.__dic_tabs[17] = TabelaDiaSemana()
-		self.__dic_tabs[18] = TabelaHorarioPrestacao(
-			self.__dic_tabs[1], self.__dic_tabs[10], self.__dic_tabs[17])
+		self.__dic_tabs[17] = TabelaDiaSemana(preencher=preencher)
+		self.__dic_tabs[18] = TabelaHorarioPrestacao(self.__dic_tabs[1], self.__dic_tabs[10],
+		                                             self.__dic_tabs[17], preencher=preencher)
 
 		if criar_e_executar:
 			self.create_all()
 			self.insert_all()
 
-	def to_arq_sql_all(self, caminho: str = None, ign_pk: bool = True):
+	def to_arq_all_sql(self, caminho: str = None, ign_pk: bool = True):
 
 		for chave in self.__dic_tabs:
 
@@ -95,6 +103,22 @@ class Database():
 
 			except ValueError:
 				pass
+
+	def to_arq_all_creates(self, caminho: str = None):
+		"""Gera o modelo físico contendo o create de todas tabelas."""
+
+		def gerar_arq(conteudo: str, caminho_nome: str):
+
+			with open(caminho_nome, 'w') as arq:
+				arq.write(conteudo)
+
+		self.builder_all(criar_e_executar=False, preencher=False)
+
+		sql = "\n\n".join([self.__dic_tabs[chave].get_SQL_create() for chave in self.__dic_tabs])
+
+		if not caminho: caminho = "modelo_fisico.sql"
+
+		gerar_arq(sql, caminho)
 
 	def create_all(self):
 		[self.create(self.__dic_tabs[i]) for i in sorted(list(self.__dic_tabs.keys()))]

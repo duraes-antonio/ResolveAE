@@ -17,7 +17,8 @@ class TabelaServico(Tabela):
     _valor_max = 1500.00
 
     def __init__(self, tab_contrato: TabelaContrato, tab_tipo_serv: TabelaTipoServico,
-                 tab_subt_serv: TabelaSubtipoServico, tab_usu: TabelaUsuario):
+                 tab_subt_serv: TabelaSubtipoServico, tab_usu: TabelaUsuario,
+                 preencher: bool = False):
         super().__init__("servico", Servico.get_id)
         self._subtipos = {}
         self.add_ID(Servico.get_id)
@@ -28,7 +29,7 @@ class TabelaServico(Tabela):
         self.add_FK(Servico.get_fk_tipo_servico, "fk_tipo_servico", tab_tipo_serv)
         self.add_FK(Servico.get_fk_usuario, "fk_usuario", tab_usu)
         self.__inserted__ = False
-        self.__preencher__(tab_contrato, tab_usu, tab_subt_serv)
+        if preencher: self.__preencher__(tab_contrato, tab_usu, tab_subt_serv)
 
     def __preencher__(self, tab_contrato: TabelaContrato, tab_usu: TabelaUsuario,
                       tab_subt_serv: TabelaSubtipoServico):

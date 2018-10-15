@@ -10,12 +10,12 @@ class TabelaTipoContato(Tabela):
     _tipos = ["CELULAR", "FACEBOOK", "GITHUB", "LATTES", "LINKEDIN", "SKYPE",
               "TELEFONE", "TELEGRAM", "TWITTER", "WHATSAPP"]
 
-    def __init__(self):
+    def __init__(self, preencher: bool = False):
         super().__init__("tipo_contato", TipoContato.get_id)
         self.add_ID(TipoContato.get_id)
         self.add_VARCHAR(TipoContato.get_nome, "nome", 15, True)
         self.__inserted__ = False
-        self.__preencher__()
+        if preencher: self.__preencher__()
 
     def __preencher__(self):
         [self.insert(TipoContato(tipo)) for tipo in self._tipos]

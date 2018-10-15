@@ -11,12 +11,12 @@ class TabelaDiaSemana(Tabela):
     _dias = ["DOMINGO", "SEGUNDA-FEIRA", "TERÇA-FEIRA", "QUARTA-FEIRA",
               "QUINTA-FEIRA", "SEXTA-FEIRA", "SÁBADO"]
 
-    def __init__(self):
+    def __init__(self, preencher: bool = False):
         super().__init__("dia_semana", DiaSemana.get_id)
         self.add_ID(DiaSemana.get_id)
         self.add_VARCHAR(DiaSemana.get_dia, "nome", 15, True)
         self.__inserted__ = False
-        self.__preencher__()
+        if preencher: self.__preencher__()
 
     def __preencher__(self):
         [self.insert(DiaSemana(nome_dia)) for nome_dia in self._dias]

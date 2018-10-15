@@ -16,13 +16,14 @@ class TabelaEstado(Tabela):
                    'Santa Catarina': 'SC', 'Sergipe': 'SE', 'São Paulo': 'SP', 'Tocantins': 'TO'
                    }
 
-    def __init__(self):
+    def __init__(self, preencher: bool = False):
         super().__init__("estado", Estado.get_id)
         self.add_ID(Estado.get_id)
         self.add_VARCHAR(Estado.get_nome, "nome", 40, True)
         self.add_CHAR(Estado.get_sigla, "sigla", 2, True)
         self.__inserted__ = False
-        self.__preencher__()
+
+        if preencher: self.__preencher__()
 
     def __preencher__(self):
         [self.insert(Estado(chave, self.__estados__[chave]))
