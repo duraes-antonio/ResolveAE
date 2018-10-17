@@ -42,6 +42,10 @@ A fim de assegurar a contratação do serviço, seria ideal um campo para inseri
 O feedback do cliente também deve ter seu espaço, portanto, deseja-se poder avaliar com uma nota (de 1 a 5) e comentários, os serviços contratados após a conclusão de sua prestação. Futuramente, para recompensar bons profissionais e exibir suas qualidades para os potenciais clientes seria bem-vindo premiações como medalhas virtuais por número de trabalhos atendidos, anos de experiência no sistema, bom atendimento, entre outras.
 </p><br>
 
+#### 4.3 Protótipo de Telas(Mockups) <br>
+[PROTÓTIPO PDF](https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Mockups/resolveAE.pdf)<br><br>
+[ARQUIVO BRUTO](https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Mockups/resolveAE.bmpr)<br>
+
 ### 5 MODELAGEM DO SISTEMA<br>
 
 #### 5.0 Nomenclatura e Convenções<br>
