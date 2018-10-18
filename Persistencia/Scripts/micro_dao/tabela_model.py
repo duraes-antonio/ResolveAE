@@ -265,7 +265,7 @@ class Tabela():
 
         return "({0})".format(", ".join(sql_valores))
 
-    def get_SQL_insert(self, quantidade: int = 100000, ignorar_pk: bool = True) -> List[str]:
+    def get_SQL_insert(self, quantidade: int = 500000, ignorar_pk: bool = True) -> List[str]:
 
         sqls = []
         tam_tab = len(self._valores)
