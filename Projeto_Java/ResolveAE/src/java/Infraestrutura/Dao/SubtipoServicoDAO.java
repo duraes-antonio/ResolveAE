@@ -5,7 +5,6 @@
  */
 package Infraestrutura.Dao;
 
-import Dominio.Entidades.SubTipo;
 import java.util.ArrayList;
 import java.util.List;
 

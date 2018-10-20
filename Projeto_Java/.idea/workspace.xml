@@ -2,69 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d017034-cfd8-4b7c-adf4-69c8f82ee553" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/InfoProfissional.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentacao/Diagramas/Arquivos/diag_classe.asta" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacao/Diagramas/Arquivos/diag_classe.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentacao/Diagramas/Imagens/diag_classe.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentacao/Diagramas/Imagens/diag_classe.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/nbproject/private/private.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/nbproject/project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/ResolveAE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/ResolveAE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/AgendaPrestacaoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/AvaliacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/AvaliacaoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/ContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ContatoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/ContratoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ContratoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/EnderecoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/EnderecoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IAgendaPrestacaoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IAvaliacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IAvaliacaoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IContatoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IContratoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IContratoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IEnderecoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IEnderecoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IInfoProfissionalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IInfoProfissionalDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IServicoPrestacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IServicoPrestacaoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/ISubtipoServicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ISubtipoServicoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IUsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IUsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/InfoProfissionalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/InfoProfissionalDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/ServicoPrestacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ServicoPrestacaoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/SubtipoServicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/SubtipoServicoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/AgendaPrestacao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Cep.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Cep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contrato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Curso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/EDiaSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/EDiaSemana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Experiencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Experiencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Horario.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Horario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/MeioContato.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MeioContato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/MidiaSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MidiaSocial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Servico.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Servico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/SubTipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/SubTipo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Telefone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Util/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Util/Persistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/View/cadastroRESOLVEAE.html" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Apresentacao/cadastroRESOLVEAE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/View/homeRESOLVEAE.html" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Apresentacao/homeRESOLVEAE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Dao/IInformacaoDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Dao/IUsuarioDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Dao/UsuarioDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/AgendaPrestacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Avaliacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Cep.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Contrato.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Curso.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/EDiaSemana.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Endereco.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Experiencia.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Horario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/MeioContato.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/MidiaSocial.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Pessoa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Servico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Telefone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Testes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ResolveAE/Testes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Util/Persistencia.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Curso.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/EDiaSemana.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Experiencia.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Horario.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Horario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MeioContato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MidiaSocial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Servico.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Servico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/SubTipo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Telefone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Enum/ETipoMidiaSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Enum/ETipoContato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ContatoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IContatoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IInfoProfissionalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IInfoProfissionalDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ISubtipoServicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ISubtipoServicoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/InfoProfissionalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/InfoProfissionalDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/SubtipoServicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/SubtipoServicoDAO.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,28 +47,30 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="2" />
+          <entry key="class" value="3" />
           <entry key="html" value="1" />
-          <entry key="java" value="30" />
+          <entry key="java" value="100" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="2" />
+          <entry key="CLASS" value="3" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="30" />
+          <entry key="JAVA" value="100" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2508" />
+          <entry key="dummy" value="1" />
+          <entry key="java" value="7367" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2508" />
+          <entry key="JAVA" value="7367" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -112,55 +78,60 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java">
+        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Usuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="360">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
               <folding>
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#Usuario#0" />
+                <element signature="method#Usuario#0;class#Usuario#0" />
+                <element signature="method#setId#0;class#Usuario#0" />
+                <element signature="method#setSenha#0;class#Usuario#0" />
+                <element signature="e#1078#1079#0" expanded="true" />
+                <element signature="e#1106#1107#0" expanded="true" />
+                <element signature="method#setInfoProfissionais#0;class#Usuario#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Cep.java">
+        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/AvaliacaoDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="150">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#Cep#0;class#Cep#0" />
-                <element signature="method#setCep#0;class#Cep#0" />
-                <element signature="method#getEndercoPorCep#0;class#Cep#0" />
+                <element signature="method#getAvaliacoesByUser#0;class#AvaliacaoDAO#0" />
+                <element signature="method#getAvaliacaoesByServico#0;class#AvaliacaoDAO#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java">
+        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="71" column="91" selection-start-line="71" selection-start-column="91" selection-end-line="71" selection-end-column="91" />
+            <state relative-caret-position="135">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
-                <element signature="method#setRua#0;class#Endereco#0" />
-                <element signature="method#setBairro#0;class#Endereco#0" />
-                <element signature="method#setCidade#0;class#Endereco#0" />
-                <element signature="method#setEstado#0;class#Endereco#0" />
+                <element signature="docComment;class#Util#0" />
+                <element signature="docComment;method#isStringValida#0;class#Util#0" />
+                <element signature="docComment;method#isNumero#0;class#Util#0" />
+                <element signature="method#isNumero#0;class#Util#0" />
+                <element signature="docComment;method#throwExceptCampoVazio#0;class#Util#0" />
+                <element signature="method#throwExceptCampoVazio#0;class#Util#0" />
+                <element signature="docComment;method#throwExceptQtdInvalida#0;class#Util#0" />
+                <element signature="method#throwExceptQtdInvalida#0;class#Util#0" />
+                <element signature="docComment;method#throwExceptQtdSupChar#0;class#Util#0" />
+                <element signature="method#throwExceptQtdSupChar#0;class#Util#0" />
+                <element signature="docComment;method#throwExceptQtdInfChar#0;class#Util#0" />
+                <element signature="method#throwExceptQtdSupChar#1;class#Util#0" />
+                <element signature="docComment;method#throwExceptCampoNumerico#0;class#Util#0" />
+                <element signature="method#throwExceptCampoNumerico#0;class#Util#0" />
+                <element signature="docComment;method#throwExceptNumeroInferior#0;class#Util#0" />
+                <element signature="method#throwExceptNumeroInferior#0;class#Util#0" />
+                <element signature="docComment;method#throwExceptNumeroInferior#1;class#Util#0" />
+                <element signature="method#throwExceptNumeroInferior#1;class#Util#0" />
               </folding>
             </state>
           </provider>
@@ -172,6 +143,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -179,7 +151,11 @@
     <findStrings>
       <find>erro</find>
       <find>Value</find>
+      <find>return</find>
     </findStrings>
+    <replaceStrings>
+      <replace>return this.</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -193,12 +169,29 @@
         <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Avaliacao.java" />
         <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Model/Avaliacao.java" />
         <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/MeioContato.java" />
-        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java" />
-        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java" />
         <option value="$PROJECT_DIR$/ResolveAE/src/java/pom.xml" />
-        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java" />
         <option value="$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java" />
         <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Cep.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Interfaces/IContato.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MeioContato.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Interfaces/MeioContato.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Interfaces/IMeioContato.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Enum/ETipoMidiaSocial.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MidiaSocial.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Telefone.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Enum/ETipoContato.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/EDiaSemana.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Experiencia.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contato.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/InfoProfissional.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Servico.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Horario.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contrato.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Pessoa.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Usuario.java" />
       </list>
     </option>
   </component>
@@ -214,7 +207,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="5">
     <option name="x" value="683" />
     <option name="width" value="683" />
     <option name="height" value="741" />
@@ -237,6 +230,19 @@
               <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Infraestrutura" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Infraestrutura" type="462c0819:PsiDirectoryNode" />
+              <item name="Dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
@@ -348,21 +354,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13146000" />
+    <option name="totallyTimeSpent" value="27890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="683" y="0" width="683" height="741" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.38110235" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28503937" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956383" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.56542814" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26332796" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -371,6 +376,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32956383" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32741934" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -412,67 +418,24 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dao/IInformacaoDao.java" />
     <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Apresentacao/cadastroRESOLVEAE.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/AgendaPrestacao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MeioContato.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Horario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Experiencia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/EDiaSemana.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Curso.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contrato.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/AgendaPrestacao.java" />
     <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Util/Persistencia.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -483,20 +446,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/AgendaPrestacaoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/AgendaPrestacaoDAO.java" />
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/pom.xml" />
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -511,49 +462,276 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java">
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Interfaces/IContato.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java">
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Enum/EDiaSemana.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="71" column="91" selection-start-line="71" selection-start-column="91" selection-end-line="71" selection-end-column="91" />
-          <folding>
-            <element signature="method#setRua#0;class#Endereco#0" />
-            <element signature="method#setBairro#0;class#Endereco#0" />
-            <element signature="method#setCidade#0;class#Endereco#0" />
-            <element signature="method#setEstado#0;class#Endereco#0" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Enum/ESubtipoServico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        <state relative-caret-position="120">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Enum/ETipoTelefone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Interfaces/IMeioContato.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Enum/ETipoContato.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Telefone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/EDiaSemana.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/SubTipo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Curso.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#Avaliacao#1;class#Avaliacao#0" />
+            <element signature="method#Avaliacao#2;class#Avaliacao#0" />
+            <element signature="method#setId#0;class#Avaliacao#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Cep.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="255">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Cep#0;class#Cep#0" />
             <element signature="method#setCep#0;class#Cep#0" />
-            <element signature="method#getEndercoPorCep#0;class#Cep#0" />
+            <element signature="method#getEnderecoPorCep#0;class#Cep#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contato.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="14" />
+          <folding>
+            <element signature="method#setId#0;class#Contato#0" />
+            <element signature="method#setDescricao#0;class#Contato#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="method#Endereco#1;class#Endereco#0" />
+            <element signature="method#Endereco#2;class#Endereco#0" />
+            <element signature="method#setId#0;class#Endereco#0" />
+            <element signature="method#setRua#0;class#Endereco#0" />
+            <element signature="method#setBairro#0;class#Endereco#0" />
+            <element signature="method#setCidade#0;class#Endereco#0" />
+            <element signature="method#setEstado#0;class#Endereco#0" />
+            <element signature="method#toString#0;class#Endereco#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/InfoProfissional.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#InfoProfissional#1;class#InfoProfissional#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contrato.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="method#setId#0;class#Contrato#0" />
+            <element signature="method#setDescricao#0;class#Contrato#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Servico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Servico#0" />
+            <element signature="method#Servico#1;class#Servico#0" />
+            <element signature="method#Servico#2;class#Servico#0" />
+            <element signature="method#setId#0;class#Servico#0" />
+            <element signature="method#setTitulo#0;class#Servico#0" />
+            <element signature="method#setDescricao#0;class#Servico#0" />
+            <element signature="method#setValor#0;class#Servico#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Horario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="65" column="24" lean-forward="true" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1154#1155#0" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+            <element signature="e#1334#1335#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1485#1486#0" expanded="true" />
+            <element signature="e#1523#1524#0" expanded="true" />
+            <element signature="e#1578#1579#0" expanded="true" />
+            <element signature="e#1622#1623#0" expanded="true" />
+            <element signature="e#1654#1655#0" expanded="true" />
+            <element signature="e#1687#1688#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Pessoa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+          <folding>
+            <element signature="method#Pessoa#0;class#Pessoa#0" />
+            <element signature="method#setNome#0;class#Pessoa#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/javax/naming/SizeLimitExceededException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="docComment;class#Util#0" />
+            <element signature="docComment;method#isStringValida#0;class#Util#0" />
+            <element signature="docComment;method#isNumero#0;class#Util#0" />
+            <element signature="method#isNumero#0;class#Util#0" />
+            <element signature="docComment;method#throwExceptCampoVazio#0;class#Util#0" />
+            <element signature="method#throwExceptCampoVazio#0;class#Util#0" />
+            <element signature="docComment;method#throwExceptQtdInvalida#0;class#Util#0" />
+            <element signature="method#throwExceptQtdInvalida#0;class#Util#0" />
+            <element signature="docComment;method#throwExceptQtdSupChar#0;class#Util#0" />
+            <element signature="method#throwExceptQtdSupChar#0;class#Util#0" />
+            <element signature="docComment;method#throwExceptQtdInfChar#0;class#Util#0" />
+            <element signature="method#throwExceptQtdSupChar#1;class#Util#0" />
+            <element signature="docComment;method#throwExceptCampoNumerico#0;class#Util#0" />
+            <element signature="method#throwExceptCampoNumerico#0;class#Util#0" />
+            <element signature="docComment;method#throwExceptNumeroInferior#0;class#Util#0" />
+            <element signature="method#throwExceptNumeroInferior#0;class#Util#0" />
+            <element signature="docComment;method#throwExceptNumeroInferior#1;class#Util#0" />
+            <element signature="method#throwExceptNumeroInferior#1;class#Util#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="docComment;class#Usuario#0" />
+            <element signature="method#Usuario#0;class#Usuario#0" />
+            <element signature="method#setId#0;class#Usuario#0" />
+            <element signature="method#setSenha#0;class#Usuario#0" />
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#1106#1107#0" expanded="true" />
+            <element signature="method#setInfoProfissionais#0;class#Usuario#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/UsuarioDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/AvaliacaoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="method#getAvaliacoesByUser#0;class#AvaliacaoDAO#0" />
+            <element signature="method#getAvaliacaoesByServico#0;class#AvaliacaoDAO#0" />
           </folding>
         </state>
       </provider>

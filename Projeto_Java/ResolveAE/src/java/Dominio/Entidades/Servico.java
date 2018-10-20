@@ -1,85 +1,53 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Dominio.Entidades;
+
+import Dominio.Enum.ESubtipoServico;
+import Dominio.Enum.ETipoServico;
+
+import java.util.List;
 
 /**
  *
  * @author 20161BSI0314
  */
 public class Servico {
-    enum ETipoServico{
-        BANCO_DE_DADOS,DESENVOLVIMENTO,DESING,GESTAO,INFRAESTRUTURA,SEGURANCA,SUPORTE_MANUTENCAO,REDES
-    }
-    
+
+    private int id;
     private String titulo;
     private String descricao;
     private ETipoServico tipo;
-    private SubTipo subtipoServico;
-    private float valor;
-    private int idAgendaPrestacao;
-    private int idContrato;
-    private int idSubTipo;
-    private int idUsario;
-    private int idBase;
+    private List<ESubtipoServico> subtipos;
+    private double valor;
 
-    public SubTipo getSubtipoServico() {
-        return subtipoServico;
+    public Servico(){}
+
+    public Servico(String titulo, String descricao, ETipoServico tipoServico,
+                   List<ESubtipoServico> subtipos, double valor) {
+        this.setTitulo(titulo);
+        this.setDescricao(descricao);
+        this.setTipo(tipoServico);
+        this.setSubtipoServico(subtipos);
+        this.setValor(valor);
     }
 
-    public void setSubtipoServico(SubTipo subtipoServico) {
-        this.subtipoServico = subtipoServico;
+    public Servico(int id, String titulo, String descricao, ETipoServico tipoServico,
+                   List<ESubtipoServico> subtipos, double valor) {
+        this.setId(id);
+        this.setTitulo(titulo);
+        this.setDescricao(descricao);
+        this.setTipo(tipoServico);
+        this.setSubtipoServico(subtipos);
+        this.setValor(valor);
     }
 
-    
-    public int getIdBase() {
-        return idBase;
+    public int getId() {
+        return id;
     }
 
-    public void setIdBase(int idBase) {
-        this.idBase = idBase;
-    }
+    public void setId(int id) {
 
-    public ETipoServico getTipo() {
-        return tipo;
-    }
+        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
 
-    public void setTipo(ETipoServico tipo) {
-        this.tipo = tipo;
-    }
-
-    public int getIdContrato() {
-        return idContrato;
-    }
-
-    public void setIdContrato(int idContrato) {
-        this.idContrato = idContrato;
-    }
-
-    public int getIdSubTipo() {
-        return idSubTipo;
-    }
-
-    public void setIdSubTipo(int idSubTipo) {
-        this.idSubTipo = idSubTipo;
-    }
-
-    public int getIdAgendaPrestacao() {
-        return idAgendaPrestacao;
-    }
-
-    public void setIdAgendaPrestacao(int idAgendaPrestacao) {
-        this.idAgendaPrestacao = idAgendaPrestacao;
-    }
-
-    public int getIdUsario() {
-        return idUsario;
-    }
-
-    public void setIdUsario(int idUsario) {
-        this.idUsario = idUsario;
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -87,24 +55,47 @@ public class Servico {
     }
 
     public void setTitulo(String titulo) {
+
+        if (!Util.isStringValida(titulo)) Util.throwExceptCampoVazio("título");
+
         this.titulo = titulo;
     }
 
     public String getDescricao() {
-        return descricao;
+        return this.descricao;
     }
 
     public void setDescricao(String descricao) {
+
+        if (!Util.isStringValida(descricao)) Util.throwExceptCampoVazio("descrição");
+
         this.descricao = descricao;
     }
 
-    public float getValor() {
-        return valor;
+    public double getValor() {
+        return this.valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(double valor) {
+
+        if (valor < 0) Util.throwExceptNumeroInferior("preço", 0);
+
         this.valor = valor;
     }
-    
-    
+
+    public ETipoServico getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(ETipoServico tipo) {
+        this.tipo = tipo;
+    }
+
+    public List<ESubtipoServico> getSubtipos() {
+        return this.subtipos;
+    }
+
+    public void setSubtipoServico(List<ESubtipoServico> subtipos) {
+        this.subtipos = subtipos;
+    }
 }

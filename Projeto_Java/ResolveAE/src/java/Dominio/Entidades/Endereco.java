@@ -5,6 +5,8 @@ package Dominio.Entidades;
  * @author 20161BSI0314
  */
 public class Endereco {
+
+    private int id;
     private String rua;
     private String bairro;
     private String cidade;
@@ -19,6 +21,25 @@ public class Endereco {
         this.setCidade(cidade);
         this.setEstado(estado);
         this.cep = new Cep(cep);
+    }
+
+    public Endereco(int id, String rua, String bairro, String cidade, String estado, int cep){
+        this.setRua(rua);
+        this.setBairro(bairro);
+        this.setCidade(cidade);
+        this.setEstado(estado);
+        this.cep = new Cep(cep);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+
+        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
+
+        this.id = id;
     }
 
     //PREENCHIDO A PARTIR DO CEP INFORMADO
@@ -64,6 +85,14 @@ public class Endereco {
         if (Util.isStringValida(estado)) this.estado = estado;
 
         else Util.throwExceptCampoVazio("estado");
+    }
+
+    public Cep getCep() {
+        return cep;
+    }
+
+    public void setCep(Cep cep) {
+        this.cep = cep;
     }
 
     @Override

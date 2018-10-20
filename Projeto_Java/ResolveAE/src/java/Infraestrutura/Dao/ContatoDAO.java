@@ -6,7 +6,7 @@
 package Infraestrutura.Dao;
 
 import Dominio.Entidades.MidiaSocial;
-import Dominio.Entidades.Telefone;
+
 import java.util.ArrayList;
 import java.util.List;
 

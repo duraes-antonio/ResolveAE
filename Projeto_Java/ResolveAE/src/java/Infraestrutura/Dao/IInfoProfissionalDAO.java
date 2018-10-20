@@ -5,7 +5,6 @@
  */
 package Infraestrutura.Dao;
 
-import Dominio.Entidades.Curso;
 import Dominio.Entidades.Experiencia;
 import java.util.List;
 

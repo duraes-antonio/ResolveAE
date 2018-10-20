@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Dominio.Entidades;
 
 /**
@@ -10,32 +5,40 @@ package Dominio.Entidades;
  * @author 20161BSI0314
  */
 public class Avaliacao {
-    private float nota;
+
+    private int id;
+    private int nota;
     private String comentario;
-    private int idUsuario;
-    private int idServicoPrestado;
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Avaliacao(){}
+
+    public Avaliacao(int nota, String comentario){
+        this.setNota(nota);
+        this.setComentario(comentario);
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public Avaliacao(int id, int nota, String comentario){
+        this.setId(id);
+        this.setNota(nota);
+        this.setComentario(comentario);
     }
 
-    public int getIdServicoPrestado() {
-        return idServicoPrestado;
+    public int getId() {
+        return id;
     }
 
-    public void setIdServicoPrestado(int idServicoPrestado) {
-        this.idServicoPrestado = idServicoPrestado;
+    public void setId(int id) {
+
+        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
+
+        this.id = id;
     }
 
-    public float getNota() {
+    public int getNota() {
         return nota;
     }
 
-    public void setNota(float nota) {
+    public void setNota(int nota) {
         this.nota = nota;
     }
 

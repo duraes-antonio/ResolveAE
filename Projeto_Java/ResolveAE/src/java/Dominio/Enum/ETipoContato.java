@@ -1,6 +1,6 @@
 package Dominio.Enum;
 
-public enum ETipoMidiaSocial {
+public enum ETipoContato {
 
     CELULAR("Celular"),
     FACEBOOK("Facebook"),
@@ -13,13 +13,13 @@ public enum ETipoMidiaSocial {
     TWITTER("Twitter"),
     WHATSAPP("WhatsApp");
 
-    private String tipo;
+    private String nome;
 
-    private ETipoMidiaSocial(String tipo) {
-        this.tipo = tipo;
+    private ETipoContato(String tipo) {
+        this.nome = tipo;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getNome() {
+        return nome;
     }
 }

@@ -1,69 +1,77 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Dominio.Entidades;
 
-import java.util.Date;
+import Dominio.Enum.EDiaSemana;
+
+import java.time.LocalTime;
 
 /**
  *
  * @author 20161BSI0314
  */
 public class Horario {
-    enum EDiaSemana{
-        DOMINGO,SEGUNDA,TERCA,QUARTA,QUINTA,SEXTA,SABADO
-    }
+
+    private int id;
     private EDiaSemana diaSemana;
-    private Date horarioInicio;
-    private Date horarioFim;
+    private LocalTime inicio;
+    private LocalTime fim;
     private boolean livre;
-    private int idHorario;
-    private int idAgenda;
 
-    public int getIdHorario() {
-        return idHorario;
+    public Horario(){}
+
+    public Horario(EDiaSemana diaSemana, LocalTime horarioInicio, LocalTime horarioFim,
+            boolean livre) {
+        this.setDiaSemana(diaSemana);
+        this.setHorarioInicio(horarioInicio);
+        this.setHorarioFim(horarioFim);
+        this.setLivre(livre);
     }
 
-    public void setIdHorario(int idHorario) {
-        this.idHorario = idHorario;
+    public Horario(int id, EDiaSemana diaSemana, LocalTime horarioInicio, LocalTime horarioFim,
+            boolean livre) {
+        this.setId(id);
+        this.setDiaSemana(diaSemana);
+        this.setHorarioInicio(horarioInicio);
+        this.setHorarioFim(horarioFim);
+        this.setLivre(livre);
     }
 
-    public int getIdAgenda() {
-        return idAgenda;
+    public int getId() {
+        return this.id;
     }
 
-    public void setIdAgenda(int idAgenda) {
-        this.idAgenda = idAgenda;
+    public void setId(int id) {
+
+        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
+
+        this.id = id;
     }
 
-    
     public EDiaSemana getDiaSemana() {
-        return diaSemana;
+        return this.diaSemana;
     }
 
     public void setDiaSemana(EDiaSemana diaSemana) {
         this.diaSemana = diaSemana;
     }
-    public Date getHorarioInicio() {
-        return horarioInicio;
+
+    public LocalTime getHorarioInicio() {
+        return this.inicio;
     }
 
-    public void setHorarioInicio(Date horarioInicio) {
-        this.horarioInicio = horarioInicio;
+    public void setHorarioInicio(LocalTime horarioInicio) {
+        this.inicio = horarioInicio;
     }
 
-    public Date getHorarioFim() {
-        return horarioFim;
+    public LocalTime getHorarioFim() {
+        return this.fim;
     }
 
-    public void setHorarioFim(Date horarioFim) {
-        this.horarioFim = horarioFim;
+    public void setHorarioFim(LocalTime horarioFim) {
+        this.fim = horarioFim;
     }
 
     public boolean isLivre() {
-        return livre;
+        return this.livre;
     }
 
     public void setLivre(boolean livre) {
