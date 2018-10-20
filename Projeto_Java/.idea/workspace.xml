@@ -1,35 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d017034-cfd8-4b7c-adf4-69c8f82ee553" name="Default" comment="" />
+    <list default="true" id="4d017034-cfd8-4b7c-adf4-69c8f82ee553" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/ResolveAE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/ResolveAE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/AgendaPrestacaoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/AvaliacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/AvaliacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/ContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ContatoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/ContratoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ContratoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/EnderecoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/EnderecoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IAgendaPrestacaoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IAvaliacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IAvaliacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IContatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IContatoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IContratoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IContratoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IEnderecoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IEnderecoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IInfoProfissionalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IInfoProfissionalDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IServicoPrestacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IServicoPrestacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/ISubtipoServicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ISubtipoServicoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/IUsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/IUsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/InfoProfissionalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/InfoProfissionalDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/ServicoPrestacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/ServicoPrestacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/SubtipoServicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/SubtipoServicoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/AgendaPrestacao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Cep.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Cep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Curso.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Curso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/EDiaSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/EDiaSemana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Experiencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Experiencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Horario.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Horario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/MeioContato.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MeioContato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/MidiaSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MidiaSocial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Servico.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Servico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/SubTipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/SubTipo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Telefone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/Util/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Util/Persistencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/View/cadastroRESOLVEAE.html" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Apresentacao/cadastroRESOLVEAE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResolveAE/src/java/View/homeRESOLVEAE.html" beforeDir="false" afterPath="$PROJECT_DIR$/ResolveAE/src/java/Apresentacao/homeRESOLVEAE.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Dao/IInformacaoDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Dao/IUsuarioDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Dao/UsuarioDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/AgendaPrestacao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Avaliacao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Cep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Contrato.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Curso.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/EDiaSemana.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Endereco.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Experiencia.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Horario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/MeioContato.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/MidiaSocial.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Pessoa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Servico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Telefone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Model/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Testes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ResolveAE/Testes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ResolveAE/Util/Persistencia.class" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1990331533">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="2" />
+          <entry key="html" value="1" />
+          <entry key="java" value="30" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="2" />
+          <entry key="HTML" value="1" />
+          <entry key="JAVA" value="30" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="2508" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2508" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Persistencia.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Util/Persistencia.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="285">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getIdAtCreate#0;class#Persistencia#0" expanded="false" />
+                <element signature="e#398#399#0" expanded="true" />
+                <element signature="e#461#462#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,12 +136,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IInformacaoDao.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dao/IInformacaoDao.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Cep.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="15" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="402">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#Cep#0;class#Cep#0" />
+                <element signature="method#setCep#0;class#Cep#0" />
+                <element signature="method#getEndercoPorCep#0;class#Cep#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="71" column="91" selection-start-line="71" selection-start-column="91" selection-end-line="71" selection-end-column="91" />
+              <folding>
+                <element signature="method#setRua#0;class#Endereco#0" />
+                <element signature="method#setBairro#0;class#Endereco#0" />
+                <element signature="method#setCidade#0;class#Endereco#0" />
+                <element signature="method#setEstado#0;class#Endereco#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,38 +175,53 @@
       </list>
     </option>
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>erro</find>
+      <find>Value</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ResolveAE/src/java/Util/DBUtil.java" />
         <option value="$PROJECT_DIR$/ResolveAE/src/java/Util/Persistencia.java" />
-        <option value="$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java" />
         <option value="$PROJECT_DIR$/ResolveAE/src/java/Dao/IInformacaoDao.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Avaliacao.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Model/Avaliacao.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/MeioContato.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/pom.xml" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java" />
+        <option value="$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Cep.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="800" />
-    <option name="width" value="800" />
-    <option name="height" value="871" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="683" />
+    <option name="width" value="683" />
+    <option name="height" value="741" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -106,33 +240,30 @@
             </path>
             <path>
               <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../postgresql-42.2.5.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ResolveAE/src/java/Apresentacao/View/View" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -148,113 +279,59 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="Testes.Main" />
+      <module name="ResolveAE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Testes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="Testes.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ResolveAE" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <list>
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -266,71 +343,218 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538642654236</updated>
+      <workItem from="1540040539115" duration="13146000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="13146000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="800" y="0" width="800" height="871" extended-state="4" />
+    <frame x="683" y="0" width="683" height="741" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901555" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32901555" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28822055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.38110235" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956383" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.56542814" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32956383" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32741934" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.32913387" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29704303" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32956383" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.32901555" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32956383" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32901555" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dao/IInformacaoDao.java" />
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Apresentacao/cadastroRESOLVEAE.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/AgendaPrestacao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/MeioContato.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Horario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Experiencia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/EDiaSemana.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Curso.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Contrato.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Avaliacao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Util/Persistencia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="method#getIdAtCreate#0;class#Persistencia#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Infraestrutura/Dao/AgendaPrestacaoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json-20180813.jar!/org/json/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="211" selection-start-line="211" selection-end-line="211" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Endereco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="71" column="91" selection-start-line="71" selection-start-column="91" selection-end-line="71" selection-end-column="91" />
+          <folding>
+            <element signature="method#setRua#0;class#Endereco#0" />
+            <element signature="method#setBairro#0;class#Endereco#0" />
+            <element signature="method#setCidade#0;class#Endereco#0" />
+            <element signature="method#setEstado#0;class#Endereco#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Testes/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Util/Persistencia.java">
+    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dominio/Entidades/Cep.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        <state relative-caret-position="402">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getIdAtCreate#0;class#Persistencia#0" expanded="false" />
+            <element signature="method#Cep#0;class#Cep#0" />
+            <element signature="method#setCep#0;class#Cep#0" />
+            <element signature="method#getEndercoPorCep#0;class#Cep#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ResolveAE/src/java/Dao/IInformacaoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="15" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -363,6 +587,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>javax.annotation</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -391,7 +616,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -411,7 +635,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lib</last-edited>
+          <last-edited>org.json:json:20180813</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
