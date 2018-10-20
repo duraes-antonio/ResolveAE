@@ -11,9 +11,9 @@ public class Endereco {
     private String estado;
     private Cep cep;
 
-    Endereco(){}
+    public Endereco(){}
 
-    Endereco(String rua, String bairro, String cidade, String estado, int cep){
+    public Endereco(String rua, String bairro, String cidade, String estado, int cep){
         this.setRua(rua);
         this.setBairro(bairro);
         this.setCidade(cidade);

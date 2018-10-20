@@ -2,7 +2,6 @@ package Dominio.Entidades;
 
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 import org.json.JSONObject;
-import org.w3c.dom.ranges.RangeException;
 
 import java.io.BufferedReader;
 import java.io.IOException;

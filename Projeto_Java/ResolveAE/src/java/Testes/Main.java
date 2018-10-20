@@ -1,16 +1,9 @@
 package Testes;
 
-import Dominio.Entidades.Cep;
-import Infraestrutura.Util.Persistencia;
-
-import java.sql.SQLException;
+import java.io.IOException;
 
 public class Main {
-
-    public static void main(String[] args) throws Exception {
-
-        Cep cep = new Cep(29161699);
-        System.out.println(cep.getEnderecoPorCep());
-
+    public static void main(String[] args) throws IOException {
+        System.out.println();
     }
 }
