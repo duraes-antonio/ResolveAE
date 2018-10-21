@@ -5,9 +5,9 @@ import Dominio.Enum.ETipoContato;
 
 import java.util.List;
 
-public interface IContatoRepositorio extends IRepositorio<Contato> {
+public interface IContatoRepositorio extends IRepositorioBase<Contato> {
 
-    List<Contato> ObterTodosPorTipo(ETipoContato tipo);
-    List<Contato> ObterTodosPorUsuario(int usuarioId);
-    List<Contato> ObterTodosPorTipoEUsuario(ETipoContato tipo, int usuarioId);
+    List<Contato> obterTodosPorTipo(ETipoContato tipo);
+    List<Contato> obterTodosPorUsuario(int usuarioId);
+    List<Contato> obterTodosPorTipoEUsuario(ETipoContato tipo, int usuarioId);
 }

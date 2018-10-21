@@ -1,20 +1,15 @@
 package Dominio.Interfaces;
 
-import Dominio.Entidades.Usuario;
+import Dominio.Entidades.Endereco;
 import Dominio.Enum.EEstado;
-import Dominio.Enum.ETipoContato;
-import Dominio.Enum.ETipoInfoProfissional;
 
 import java.util.List;
 
-public interface IEnderecoRepositorio extends IRepositorio<Usuario> {
+public interface IEnderecoRepositorio extends IRepositorioBase<Endereco> {
 
-    List<Usuario> ObterTodosPorNome(String nome);
-    List<Usuario> ObterTodosPorEmail(String email);
-    List<Usuario> ObterTodosPorContato(ETipoContato tipoContato, String contato);
-    List<Usuario> ObterTodosPorCep(int cep);
-    List<Usuario> ObterTodosPorBairro(String bairro);
-    List<Usuario> ObterTodosPorCidade(String cidade);
-    List<Usuario> ObterTodosPorEstado(EEstado estado);
-    List<Usuario> ObterTodosPorInfoProfissional(ETipoInfoProfissional tipoInfo);
+    List<Endereco> obterTodosPorRua(String rua);
+    List<Endereco> obterTodosPorBairro(String bairro);
+    List<Endereco> obterTodosPorCidade(String cidade);
+    List<Endereco> obterTodosPorEstado(EEstado estado);
+    List<Endereco> obterTodosPorCep(int cep);
 }

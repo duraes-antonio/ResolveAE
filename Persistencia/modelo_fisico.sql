@@ -98,7 +98,7 @@ CREATE TABLE avaliacao(
 	id SERIAL PRIMARY KEY, 
 	nota INT, 
 	fk_usuario SERIAL REFERENCES usuario(id), 
-	fk_servico_prestacao SERIAL REFERENCES servico(id)
+	fk_servico SERIAL REFERENCES servico(id)
 );
 
 CREATE TABLE comentario(

@@ -8,16 +8,16 @@ public class Avaliacao {
 
     private int id;
     private int nota;
-    private String comentario;
+    private Comentario comentario;
 
     public Avaliacao(){}
 
-    public Avaliacao(int nota, String comentario){
+    public Avaliacao(int nota, Comentario comentario){
         this.setNota(nota);
         this.setComentario(comentario);
     }
 
-    public Avaliacao(int id, int nota, String comentario){
+    public Avaliacao(int id, int nota, Comentario comentario){
         this.setId(id);
         this.setNota(nota);
         this.setComentario(comentario);
@@ -42,11 +42,11 @@ public class Avaliacao {
         this.nota = nota;
     }
 
-    public String getComentario() {
+    public Comentario getComentario() {
         return comentario;
     }
 
-    public void setComentario(String comentario) {
+    public void setComentario(Comentario comentario) {
         this.comentario = comentario;
     }
 }

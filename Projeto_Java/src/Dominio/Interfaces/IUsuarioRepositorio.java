@@ -7,14 +7,14 @@ import Dominio.Enum.ETipoInfoProfissional;
 
 import java.util.List;
 
-public interface IUsuarioRepositorio extends IRepositorio<Usuario> {
+public interface IUsuarioRepositorio extends IRepositorioBase<Usuario> {
 
-    List<Usuario> ObterTodosPorNome(String nome);
-    List<Usuario> ObterTodosPorEmail(String email);
-    List<Usuario> ObterTodosPorContato(ETipoContato tipoContato, String contato);
-    List<Usuario> ObterTodosPorCep(int cep);
-    List<Usuario> ObterTodosPorBairro(String bairro);
-    List<Usuario> ObterTodosPorCidade(String cidade);
-    List<Usuario> ObterTodosPorEstado(EEstado estado);
-    List<Usuario> ObterTodosPorInfoProfissional(ETipoInfoProfissional tipoInfo);
+    List<Usuario> obterTodosPorNome(String nome);
+    List<Usuario> obterTodosPorEmail(String email);
+    List<Usuario> obterTodosPorContato(ETipoContato tipoContato, String contato);
+    List<Usuario> obterTodosPorCep(int cep);
+    List<Usuario> obterTodosPorBairro(String bairro);
+    List<Usuario> obterTodosPorCidade(String cidade);
+    List<Usuario> obterTodosPorEstado(EEstado estado);
+    List<Usuario> obterTodosPorInfoProfissional(ETipoInfoProfissional tipoInfo);
 }

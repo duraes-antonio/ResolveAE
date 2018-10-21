@@ -8,7 +8,6 @@ public class Persistencia {
     private static Persistencia persistencia;
     private Connection conexao;
     private PreparedStatement preparedSt;
-    private ResultSet resultSet;
 
     // ALTERAR de acordo com sua base de dados, usuário e senha no postgresql;
     private Persistencia()
@@ -23,7 +22,7 @@ public class Persistencia {
         String nome_user_postgre = "postgres";
 
         // Senha para acessar sua base de dados;
-        String senha = "postgre";
+        String senha = "postgres";
 
         String driver = "org.postgresql.Driver";
         String url = "jdbc:postgresql://localhost:5432/" + nome_base_dados;
@@ -35,7 +34,7 @@ public class Persistencia {
     public static synchronized Persistencia getPersistencia()
             throws SQLException, ClassNotFoundException {
 
-        if (persistencia == null) {
+        if (persistencia == null || persistencia.conexao.isClosed()) {
             persistencia = new Persistencia();
         }
 
@@ -46,31 +45,94 @@ public class Persistencia {
      *Dado um PreparedStatement já executado, retorna o ID do item gravado na tabela;
      *@return Inteiro que representa o ID do item inserido em uma tabela;
      *@param st PreparedStatement já executado;
-     * @throws java.sql.SQLException
+     *@throws SQLException java.sql.SQLException
      */
-    public static int getIdAtCreate(PreparedStatement st) throws SQLException {
+    public static int getIdAtCreate(PreparedStatement st)
+            throws SQLException {
         ResultSet rs = st.getGeneratedKeys();
         rs.next();
 
         return rs.getInt("id");
     }
 
-    public void executeQuery(String sql) {
+    public boolean executar(PreparedStatement preparedSt) throws SQLException {
+
+        boolean result = false;
 
         if (persistencia == null) {
             throw new NullPointerException("Objeto não inicializado!");
         }
 
         else {
-
             try {
-                this.preparedSt = this.conexao.prepareStatement(sql);
-                this.resultSet = this.preparedSt.executeQuery();
+                result = preparedSt.execute();
             }
 
-            catch (SQLException ex) {
-                System.out.println("Deu erro ao executar a QUERY, ResolveAE!");
+            catch (SQLException e) {
+                e.printStackTrace();
             }
+
+            finally {
+                if (!this.conexao.isClosed()) this.conexao.close();
+            }
+
+            return result;
         }
+    }
+
+    public ResultSet executarSelecao(PreparedStatement preparedSt)
+            throws SQLException {
+
+        ResultSet result = null;
+
+        if (persistencia == null) {
+            throw new NullPointerException("Objeto não inicializado!");
+        }
+
+        else {
+            try {
+                result = preparedSt.executeQuery();
+            }
+
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            finally {
+                if (!this.conexao.isClosed()) this.conexao.close();
+            }
+
+            return result;
+        }
+    }
+
+    public int executarAtualizacao(PreparedStatement preparedSt)
+            throws SQLException {
+
+        int result = 0;
+
+        if (persistencia == null) {
+            throw new NullPointerException("Objeto não inicializado!");
+        }
+
+        else {
+            try {
+                result = preparedSt.executeUpdate();
+            }
+
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            finally {
+                if (!this.conexao.isClosed()) this.conexao.close();
+            }
+
+            return result;
+        }
+    }
+
+    public Connection getConexao() {
+        return this.conexao;
     }
 }

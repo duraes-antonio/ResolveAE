@@ -20,7 +20,7 @@ class TabelaAvaliacao(Tabela):
         self.add_ID(Avaliacao.get_id)
         self.add_INT(Avaliacao.get_nota, "nota")
         self.add_FK(Avaliacao.get_fk_usuario, "fk_usuario", tab_usu)
-        self.add_FK(Avaliacao.get_fk_servico_prestacao, "fk_servico_prestacao", tab_serv_prest)
+        self.add_FK(Avaliacao.get_fk_servico_prestacao, "fk_servico", tab_serv_prest)
         self.__inserted__ = False
         if preencher: self.__preencher__(tab_serv_prest, tab_usu)
 

@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Usuario extends Pessoa {
 
-//ADICIONAR CLASSES COMO OBJETOS.
     private int id;
     private String senha;
     private String sobre;
