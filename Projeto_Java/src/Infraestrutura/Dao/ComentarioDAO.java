@@ -23,18 +23,24 @@ public class ComentarioDAO implements IComentarioRepositorio, IGenericDAO<Coment
     private Persistencia persistencia = Persistencia.getPersistencia();
     private Connection conexao = Persistencia.getPersistencia().getConexao();
 
-    public ComentarioDAO() throws SQLException, ClassNotFoundException {}
+    public ComentarioDAO()
+            throws SQLException, ClassNotFoundException {}
 
     @Override
-    public Comentario construir(ResultSet rs) throws SQLException {
+    public Comentario construir(ResultSet rs)
+            throws SQLException {
+
+        if (rs == null) return null;
+
         return new Comentario(
                 rs.getInt(this.ID),
-                rs.getString(this.COMENTARIO)
-        );
+                rs.getString(this.COMENTARIO),
+                rs.getInt(this.FK_AVALIACAO));
     }
 
     @Override
-    public List<Comentario> extrairTodos(ResultSet rs) throws SQLException {
+    public List<Comentario> extrairTodos(ResultSet rs)
+            throws SQLException {
 
         List<Comentario> comentarios = new ArrayList<Comentario>();
 
@@ -44,13 +50,26 @@ public class ComentarioDAO implements IComentarioRepositorio, IGenericDAO<Coment
     }
 
     @Override
+    public Comentario obterPorAvaliacao(int avaliacaoId)
+            throws SQLException {
+
+        PreparedStatement ps = this.conexao.prepareStatement(
+                "SELECT * FROM "+TABELA+" c "
+                + "INNER JOIN avaliacao a ON c."+FK_AVALIACAO+" = a.id "
+                + "WHERE a.id = ?;");
+
+        ps.setInt(1, avaliacaoId);
+        ResultSet rs = persistencia.executarSelecao(ps);
+
+        return rs.next() ? construir(rs) : null;
+    }
+
+    @Override
     public List<Comentario> obterTodosPorUsuario(int idUsuario)
             throws SQLException {
 
         PreparedStatement ps = this.conexao.prepareStatement(
-                String.format(
-                        "SELECT %s, %s FROM %s WHERE fk_usuario = ?;",
-                        this.ID, this.COMENTARIO, this.TABELA));
+                "SELECT * FROM "+TABELA+" WHERE fk_usuario = ?;");
         ps.setInt(1, idUsuario);
 
         return this.extrairTodos(this.persistencia.executarSelecao(ps));
@@ -62,7 +81,7 @@ public class ComentarioDAO implements IComentarioRepositorio, IGenericDAO<Coment
             throws SQLException {
 
         PreparedStatement ps = this.conexao.prepareStatement(
-                "SELECT c.id, c.comentario FROM comentario c "
+                "SELECT * FROM comentario c "
                 + "INNER JOIN avaliacao a ON a.id = c.fk_avaliacao "
                 + "INNER JOIN servico s ON s.id = a.fk_servico "
                 + "WHERE s.id = ? ORDER BY 1;");
@@ -73,32 +92,54 @@ public class ComentarioDAO implements IComentarioRepositorio, IGenericDAO<Coment
     }
 
     @Override
-    public void adicionar(Comentario comentario) throws SQLException {
+    public int adicionar(Comentario comentario) throws SQLException {
 
-//        PreparedStatement ps = this.conexao.prepareStatement(
-//                "INSERT INTO %s();");
-//        ps.setInt(1, idUsuario);
-//
-//        return this.extrairTodos(this.persistencia.executarSelecao(ps));
+        PreparedStatement ps = this.conexao.prepareStatement(
+                "INSERT INTO "+TABELA+"("+COMENTARIO+", "+FK_AVALIACAO+
+                        ") VALUE(?, ?);");
+        ps.setString(1, comentario.getComentario());
+        ps.setInt(2, comentario.getFkAvalicao());
+        persistencia.executarAtualizacao(ps);
+        comentario.setId(Persistencia.getIdAtCreate(ps));
+
+        return comentario.getId();
     }
 
     @Override
-    public void atualizar(Comentario entidade) {
+    public void atualizar(Comentario comentario) throws SQLException {
 
+        PreparedStatement ps = this.conexao.prepareStatement(
+                "UPDATE "+TABELA+" SET "+COMENTARIO+" = ? WHERE id = ?;"
+        );
+
+        ps.setString(1, comentario.getComentario());
+        ps.setInt(2, comentario.getId());
+
+        persistencia.executarAtualizacao(ps);
     }
 
     @Override
-    public void excluirPorId(int id) {
-
+    public void excluirPorId(int id) throws SQLException {
+        PreparedStatement ps = this.conexao.prepareStatement(
+                "DELETE FROM "+TABELA+" WHERE id = ?;");
+        ps.setInt(1, id);
+        persistencia.executarAtualizacao(ps);
     }
 
     @Override
-    public Comentario obterPorId(int id) {
-        return null;
+    public Comentario obterPorId(int id) throws SQLException {
+        PreparedStatement ps = this.conexao.prepareStatement(
+                "SELECT * FROM "+TABELA+" WHERE id = ?;");
+        ps.setInt(1, id);
+        ResultSet rs = persistencia.executarSelecao(ps);
+
+        return rs.next() ? construir(rs) : null;
     }
 
     @Override
-    public List<Comentario> obterTodos() {
-        return null;
+    public List<Comentario> obterTodos() throws SQLException {
+        PreparedStatement ps = this.conexao.prepareStatement(
+                "SELECT * FROM "+TABELA+";");
+        return this.extrairTodos(persistencia.executarSelecao(ps));
     }
 }

@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface IRepositorioBase<T> {
 
-    void adicionar(T entidade) throws SQLException;
-    void atualizar(T entidade);
-    void excluirPorId(int id);
-    T obterPorId(int id);
-    List<T> obterTodos();
+    int adicionar(T entidade) throws SQLException;
+    void atualizar(T entidade) throws SQLException;
+    void excluirPorId(int id) throws SQLException;
+    T obterPorId(int id) throws SQLException;
+    List<T> obterTodos() throws SQLException;
 }

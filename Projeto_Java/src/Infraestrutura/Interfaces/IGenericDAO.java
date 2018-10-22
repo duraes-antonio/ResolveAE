@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IGenericDAO<T> {
 
-    public T construir(ResultSet rs) throws SQLException;
-    public List<T> extrairTodos(ResultSet r) throws SQLException;
+    T construir(ResultSet rs) throws SQLException;
+    List<T> extrairTodos(ResultSet r) throws SQLException;
 }

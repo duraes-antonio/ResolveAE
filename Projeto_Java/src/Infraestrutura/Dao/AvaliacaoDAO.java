@@ -1,6 +1,7 @@
 package Infraestrutura.Dao;
 
 import Dominio.Entidades.Avaliacao;
+import Dominio.Entidades.Comentario;
 import Dominio.Interfaces.IAvaliacaoRepositorio;
 import Infraestrutura.Interfaces.IGenericDAO;
 import Infraestrutura.Util.Persistencia;
@@ -17,6 +18,7 @@ import java.util.List;
  *
  * @author 20161BSI0314
  */
+//TODO finalizar classe https://www.youtube.com/watch?v=51C1jXMG1eo
 public class AvaliacaoDAO implements IAvaliacaoRepositorio, IGenericDAO<Avaliacao> {
 
     //Nome das cols. da tabela 'Avaliacao', facilita correções e centraliza os nomes;
@@ -26,6 +28,7 @@ public class AvaliacaoDAO implements IAvaliacaoRepositorio, IGenericDAO<Avaliaca
     private final String FK_USUARIO = "fk_usuario";
     private final String FK_SERVICO = "fk_servico";
 
+    private ComentarioDAO comentarioDAO = new ComentarioDAO();
     private Persistencia persistencia = Persistencia.getPersistencia();
     private Connection conexao = Persistencia.getPersistencia().getConexao();
 
@@ -33,11 +36,10 @@ public class AvaliacaoDAO implements IAvaliacaoRepositorio, IGenericDAO<Avaliaca
 
     @Override
     public Avaliacao construir(ResultSet rs) throws SQLException {
-        return new Avaliacao(
-                rs.getInt(this.ID),
-                rs.getInt(this.NOTA),
-                rs.getString(this.COMENTARIO)
-        );
+
+        Comentario comentario = comentarioDAO.obterPorAvaliacao(rs.getInt(ID));
+
+        return new Avaliacao(rs.getInt(ID), rs.getInt(NOTA), comentario);
     }
 
     @Override

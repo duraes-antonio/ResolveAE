@@ -47,8 +47,7 @@ public class Persistencia {
      *@param st PreparedStatement já executado;
      *@throws SQLException java.sql.SQLException
      */
-    public static int getIdAtCreate(PreparedStatement st)
-            throws SQLException {
+    public static int getIdAtCreate(PreparedStatement st) throws SQLException {
         ResultSet rs = st.getGeneratedKeys();
         rs.next();
 
