@@ -6,30 +6,27 @@ public class Comentario {
     private String comentario;
     private int fkAvalicao;
 
-    public Comentario(){}
-
     public Comentario(String comentario, int fkAvalicao){
         this.setComentario(comentario);
+        this.setFkAvalicao(fkAvalicao);
     }
 
     public Comentario(int id, String comentario, int fkAvalicao){
         this.setId(id);
         this.setComentario(comentario);
+        this.setFkAvalicao(fkAvalicao);
     }
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(int id) {
-
-        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.id = id;
     }
 
     public String getComentario() {
-        return this.comentario;
+        return comentario;
     }
 
     public void setComentario(String comentario) {
@@ -37,13 +34,10 @@ public class Comentario {
     }
 
     public int getFkAvalicao() {
-        return this.fkAvalicao;
+        return fkAvalicao;
     }
 
     public void setFkAvalicao(int fkAvalicao) {
-
-        if (fkAvalicao < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.fkAvalicao = fkAvalicao;
     }
 

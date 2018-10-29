@@ -11,31 +11,31 @@ public class Contato {
     private int id;
     private String descricao;
     private ETipoContato tipo;
+    private int fkUsuario;
 
     public Contato(ETipoContato tipo, String descricao){
         this.setTipo(tipo);
         this.setDescricao(descricao);
     }
 
-    public Contato(int id, ETipoContato tipo, String descricao){
+    public Contato(int id, ETipoContato tipo, String descricao, int fkUsuario){
         this.setId(id);
         this.setTipo(tipo);
         this.setDescricao(descricao);
+        this.setFkUsuario(fkUsuario);
     }
+
 
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
-
-        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.id = id;
     }
 
     public ETipoContato getTipo() {
-        return this.tipo;
+        return tipo;
     }
 
     public void setTipo(ETipoContato tipo) {
@@ -43,7 +43,7 @@ public class Contato {
     }
 
     public String getDescricao() {
-        return this.descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
@@ -67,5 +67,13 @@ public class Contato {
         else if (!Util.isStringValida(descricao)) {
             Util.throwExceptCampoVazio(this.getTipo().getNome());
         }
+    }
+
+    public int getFkUsuario() {
+        return fkUsuario;
+    }
+
+    public void setFkUsuario(int fkUsuario) {
+        this.fkUsuario = fkUsuario;
     }
 }

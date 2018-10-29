@@ -66,7 +66,7 @@ public class Cep {
                     jsonObj.getString("bairro"),
                     jsonObj.getString("localidade"),
                     jsonObj.getString("uf"),
-                    this.valorCep);
+                    this.valorCep, 0);
         }
     }
 }

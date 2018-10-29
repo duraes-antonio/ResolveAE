@@ -6,14 +6,14 @@ import java.util.List;
  *
  * @author 20161BSI0314
  */
-public abstract class Pessoa {
+public abstract class APessoa {
 
     private String nome;
     private String email;
     private Endereco endereco;
     private List<Contato> contatos;
 
-    Pessoa(String nome, String email, Endereco endereco, List<Contato> contatos) {
+    APessoa(String nome, String email, Endereco endereco, List<Contato> contatos) {
         this.setNome(nome);
         this.setEmail(email);
         this.setEndereco(endereco);

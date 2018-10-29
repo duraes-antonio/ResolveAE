@@ -7,7 +7,7 @@ import java.util.List;
  * @author 20161BSI0314
  */
 
-public class Usuario extends Pessoa {
+public class Usuario extends APessoa {
 
     private int id;
     private String senha;
@@ -23,19 +23,17 @@ public class Usuario extends Pessoa {
         this.setSobre(sobre);
     }
 
+
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(int id) {
-
-        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.id = id;
     }
 
     public String getSenha() {
-        return this.senha;
+        return senha;
     }
 
     public void setSenha(String senha) {
@@ -47,7 +45,7 @@ public class Usuario extends Pessoa {
     }
 
     public String getSobre() {
-        return this.sobre;
+        return sobre;
     }
 
     public void setSobre(String sobre) {

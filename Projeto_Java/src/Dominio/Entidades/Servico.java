@@ -17,36 +17,37 @@ public class Servico {
     private ETipoServico tipo;
     private List<ESubtipoServico> subtipos;
     private double valor;
+    private int fkUsuario;
 
     public Servico(){}
 
     public Servico(String titulo, String descricao, ETipoServico tipoServico,
-                   List<ESubtipoServico> subtipos, double valor) {
+                   List<ESubtipoServico> subtipos, double valor, int fkUsuario) {
         this.setTitulo(titulo);
         this.setDescricao(descricao);
         this.setTipo(tipoServico);
         this.setSubtipoServico(subtipos);
         this.setValor(valor);
+        this.setFkUsuario(fkUsuario);
     }
 
     public Servico(int id, String titulo, String descricao, ETipoServico tipoServico,
-                   List<ESubtipoServico> subtipos, double valor) {
+                   List<ESubtipoServico> subtipos, double valor, int fkUsuario) {
         this.setId(id);
         this.setTitulo(titulo);
         this.setDescricao(descricao);
         this.setTipo(tipoServico);
         this.setSubtipoServico(subtipos);
         this.setValor(valor);
+        this.setFkUsuario(fkUsuario);
     }
+
 
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
-
-        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.id = id;
     }
 
@@ -62,7 +63,7 @@ public class Servico {
     }
 
     public String getDescricao() {
-        return this.descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
@@ -73,7 +74,7 @@ public class Servico {
     }
 
     public double getValor() {
-        return this.valor;
+        return valor;
     }
 
     public void setValor(double valor) {
@@ -84,7 +85,7 @@ public class Servico {
     }
 
     public ETipoServico getTipo() {
-        return this.tipo;
+        return tipo;
     }
 
     public void setTipo(ETipoServico tipo) {
@@ -92,10 +93,19 @@ public class Servico {
     }
 
     public List<ESubtipoServico> getSubtipos() {
-        return this.subtipos;
+        return subtipos;
     }
 
     public void setSubtipoServico(List<ESubtipoServico> subtipos) {
         this.subtipos = subtipos;
     }
+
+    public int getFkUsuario() {
+        return fkUsuario;
+    }
+
+    private void setFkUsuario(int fkUsuario) {
+        this.fkUsuario = fkUsuario;
+    }
+
 }

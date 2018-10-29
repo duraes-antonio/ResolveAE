@@ -12,23 +12,29 @@ public class Endereco {
     private String cidade;
     private String estado;
     private Cep cep;
+    private int fkUsuario;
 
     public Endereco(){}
 
-    public Endereco(String rua, String bairro, String cidade, String estado, int cep){
+    public Endereco(String rua, String bairro, String cidade, String estado,
+                    int cep, int fkUsuario){
         this.setRua(rua);
         this.setBairro(bairro);
         this.setCidade(cidade);
         this.setEstado(estado);
         this.cep = new Cep(cep);
+        this.setFkUsuario(fkUsuario);
     }
 
-    public Endereco(int id, String rua, String bairro, String cidade, String estado, int cep){
+    public Endereco(int id, String rua, String bairro, String cidade,
+                    String estado, int cep, int fkUsuario){
+        this.setId(id);
         this.setRua(rua);
         this.setBairro(bairro);
         this.setCidade(cidade);
         this.setEstado(estado);
         this.cep = new Cep(cep);
+        this.setFkUsuario(fkUsuario);
     }
 
     public int getId() {
@@ -36,9 +42,6 @@ public class Endereco {
     }
 
     public void setId(int id) {
-
-        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.id = id;
     }
 
@@ -94,6 +97,15 @@ public class Endereco {
     public void setCep(Cep cep) {
         this.cep = cep;
     }
+
+    public int getFkUsuario() {
+        return fkUsuario;
+    }
+
+    public void setFkUsuario(int fkUsuario) {
+        this.fkUsuario = fkUsuario;
+    }
+
 
     @Override
     public String toString() {

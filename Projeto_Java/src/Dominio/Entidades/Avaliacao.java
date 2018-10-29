@@ -8,19 +8,26 @@ public class Avaliacao {
 
     private int id;
     private int nota;
+    private int fkUsuario;
+    private int fkServico;
     private Comentario comentario;
 
     public Avaliacao(){}
 
-    public Avaliacao(int nota, Comentario comentario){
+    public Avaliacao(int nota, int fkUsuario, int fkServico, Comentario comentario){
         this.setNota(nota);
         this.setComentario(comentario);
+        this.setFkUsuario(fkUsuario);
+        this.setFkServico(fkServico);
     }
 
-    public Avaliacao(int id, int nota, Comentario comentario){
+    public Avaliacao(int id, int nota, int fkUsuario, int fkServico,
+                     Comentario comentario){
         this.setId(id);
         this.setNota(nota);
         this.setComentario(comentario);
+        this.setFkUsuario(fkUsuario);
+        this.setFkServico(fkServico);
     }
 
     public int getId() {
@@ -28,9 +35,6 @@ public class Avaliacao {
     }
 
     public void setId(int id) {
-
-        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.id = id;
     }
 
@@ -39,7 +43,26 @@ public class Avaliacao {
     }
 
     public void setNota(int nota) {
+
+        if (nota < 1) Util.throwExceptNumeroInferior("nota", 1);
+
         this.nota = nota;
+    }
+
+    public int getFkUsuario() {
+        return fkUsuario;
+    }
+
+    public void setFkUsuario(int fkUsuario) {
+        this.fkUsuario = fkUsuario;
+    }
+
+    public int getFkServico() {
+        return fkServico;
+    }
+
+    public void setFkServico(int fkServico) {
+        this.fkServico = fkServico;
     }
 
     public Comentario getComentario() {

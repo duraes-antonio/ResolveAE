@@ -15,6 +15,7 @@ public class InfoProfissional {
     private Date dataInicio;
     private Date dataFim;
     private ETipoInfoProfissional tipoInfo;
+    private int fkUsuario;
 
     public InfoProfissional(){}
 
@@ -40,14 +41,11 @@ public class InfoProfissional {
     }
 
     public void setId(int id) {
-
-        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.id = id;
     }
 
     public ETipoInfoProfissional getTipoInfoProfissional() {
-        return this.tipoInfo;
+        return tipoInfo;
     }
 
     public void setTipoInfo(ETipoInfoProfissional tipoInfo) {
@@ -55,7 +53,7 @@ public class InfoProfissional {
     }
 
     public String getDescricao() {
-        return this.descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
@@ -66,7 +64,7 @@ public class InfoProfissional {
     }
 
     public Date getDataInicio() {
-        return this.dataInicio;
+        return dataInicio;
     }
 
     public void setDataInicio(Date dataInicio) {
@@ -74,10 +72,19 @@ public class InfoProfissional {
     }
 
     public Date getDataFim() {
-        return this.dataFim;
+        return dataFim;
     }
 
     public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
+
+    public int getFkUsuario() {
+        return fkUsuario;
+    }
+
+    private void setFkUsuario(int fkUsuario) {
+        this.fkUsuario = fkUsuario;
+    }
+
 }

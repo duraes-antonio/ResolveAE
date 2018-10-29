@@ -14,35 +14,35 @@ public class Contrato {
     private Date dataUltimaModif;
     private Date dataInicio;
     private Date dataFim;
-
-    Contrato(){}
+    private int fkUsuario;
 
     Contrato(String descricao, Date dataCriacao, Date dataUltimaModif,
-             Date dataInicio, Date dataFim){
+             Date dataInicio, Date dataFim, int fkUsuario){
         this.setDescricao(descricao);
         this.setDataCriacao(dataCriacao);
         this.setDataUltimaModif(dataUltimaModif);
         this.setDataInicio(dataInicio);
         this.setDataFim(dataFim);
+        this.setFkUsuario(fkUsuario);
     }
 
     Contrato(int id, String descricao, Date dataCriacao, Date dataUltimaModif,
-             Date dataInicio, Date dataFim){
+             Date dataInicio, Date dataFim, int fkUsuario){
         this.setId(id);
         this.setDescricao(descricao);
         this.setDataCriacao(dataCriacao);
         this.setDataUltimaModif(dataUltimaModif);
         this.setDataInicio(dataInicio);
         this.setDataFim(dataFim);
+        this.setFkUsuario(fkUsuario);
     }
+
+
     public int getId() {
-        return this.id;
+        return id;
     }
 
-    public void setId(int idContrato) {
-
-        if (idContrato < 1) Util.throwExceptNumeroInferior("id", 1);
-
+    private void setId(int idContrato) {
         this.id = idContrato;
     }
 
@@ -52,13 +52,13 @@ public class Contrato {
 
     public void setDescricao(String descricao) {
 
-        if (!Util.isStringValida(descricao)) Util.throwExceptCampoVazio(descricao);
+        if (!Util.isStringValida(descricao)) Util.throwExceptCampoVazio("descrição");
 
         this.descricao = descricao;
     }
 
     public Date getDataCriacao() {
-        return this.dataCriacao;
+        return dataCriacao;
     }
 
     public void setDataCriacao(Date dataCriacao) {
@@ -66,7 +66,7 @@ public class Contrato {
     }
 
     public Date getDataUltimaModif() {
-        return this.dataUltimaModif;
+        return dataUltimaModif;
     }
 
     public void setDataUltimaModif(Date dataUltimaModificacao) {
@@ -74,7 +74,7 @@ public class Contrato {
     }
 
     public Date getDataInicio() {
-        return this.dataInicio;
+        return dataInicio;
     }
 
     public void setDataInicio(Date dataInicioPrestacao) {
@@ -82,10 +82,18 @@ public class Contrato {
     }
 
     public Date getDataFim() {
-        return this.dataFim;
+        return dataFim;
     }
 
     public void setDataFim(Date dataFimPrestacao) {
         this.dataFim = dataFimPrestacao;
+    }
+
+    public int getFkUsuario() {
+        return fkUsuario;
+    }
+
+    private void setFkUsuario(int fkUsuario) {
+        this.fkUsuario = fkUsuario;
     }
 }

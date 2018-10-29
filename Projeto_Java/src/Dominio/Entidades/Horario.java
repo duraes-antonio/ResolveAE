@@ -15,39 +15,39 @@ public class Horario {
     private LocalTime inicio;
     private LocalTime fim;
     private boolean livre;
+    private int fkUsuario;
 
     public Horario(){}
 
     public Horario(EDiaSemana diaSemana, LocalTime horarioInicio, LocalTime horarioFim,
-            boolean livre) {
+                   boolean livre, int fkUsuario) {
         this.setDiaSemana(diaSemana);
         this.setHorarioInicio(horarioInicio);
         this.setHorarioFim(horarioFim);
         this.setLivre(livre);
+        this.setFkUsuario(fkUsuario);
     }
 
     public Horario(int id, EDiaSemana diaSemana, LocalTime horarioInicio, LocalTime horarioFim,
-            boolean livre) {
+                   boolean livre, int fkUsuario) {
         this.setId(id);
         this.setDiaSemana(diaSemana);
         this.setHorarioInicio(horarioInicio);
         this.setHorarioFim(horarioFim);
         this.setLivre(livre);
+        this.setFkUsuario(fkUsuario);
     }
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(int id) {
-
-        if (id < 1) Util.throwExceptNumeroInferior("id", 1);
-
         this.id = id;
     }
 
     public EDiaSemana getDiaSemana() {
-        return this.diaSemana;
+        return diaSemana;
     }
 
     public void setDiaSemana(EDiaSemana diaSemana) {
@@ -55,7 +55,7 @@ public class Horario {
     }
 
     public LocalTime getHorarioInicio() {
-        return this.inicio;
+        return inicio;
     }
 
     public void setHorarioInicio(LocalTime horarioInicio) {
@@ -63,7 +63,7 @@ public class Horario {
     }
 
     public LocalTime getHorarioFim() {
-        return this.fim;
+        return fim;
     }
 
     public void setHorarioFim(LocalTime horarioFim) {
@@ -71,10 +71,18 @@ public class Horario {
     }
 
     public boolean isLivre() {
-        return this.livre;
+        return livre;
     }
 
     public void setLivre(boolean livre) {
         this.livre = livre;
+    }
+
+    public int getFkUsuario() {
+        return fkUsuario;
+    }
+
+    public void setFkUsuario(int fkUsuario) {
+        this.fkUsuario = fkUsuario;
     }
 }
