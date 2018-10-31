@@ -1,7 +1,11 @@
 package Testes;
 
+import Dominio.Entidades.Cep;
+import Dominio.Entidades.Endereco;
+import Infraestrutura.PostgresDAO.EnderecoDAO;
 import Infraestrutura.UtilPostgres.Persistencia;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -16,7 +20,7 @@ public class Main {
 
 
             String sql = "insert into x(idade, nome) values(1, '" + nome + "');";
-            persistencia.executarAtualizacao(sql);
+            persistencia.executarAtualizacao(sql, null);
 
     }
 
@@ -33,7 +37,7 @@ public class Main {
             insertX(nome);
 
             String sql2 = "insert into y(altura, sobre) values(3, '644444444444444444444444444444444444444444444');";
-            re = persistencia.executarAtualizacao(sql2);
+            re = persistencia.executarAtualizacao(sql2, null);
 
             conexao.commit();
         }
@@ -45,16 +49,14 @@ public class Main {
 
 
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
 
         long startTime = System.currentTimeMillis();
 
-        insertY("2");
-//        AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
-//        avaliacaoDAO.adicionar(null);
-//        avaliacaoDAO.atualizar(null);
-//        avaliacaoDAO.obterPorId(1);
-//        avaliacaoDAO.obterTodos();
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        Endereco endereco = new Cep(29161699).getEnderecoPorCep();
+        endereco.setFkUsuario(1);
+        enderecoDAO.adicionar(endereco);
 
 
         long stopTime = System.currentTimeMillis();

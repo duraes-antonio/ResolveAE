@@ -123,28 +123,22 @@ public class Persistencia {
      * @return Id do objeto inserido, modificado ou atualizado
      * @throws SQLException
      */
-    public int executarAtualizacao(String sql)
+    public int executarAtualizacao(String sql, String nomeColunaId)
             throws SQLException {
 
-        int idObjeto = 0;
+        int idObjeto;
         ResultSet rs;
 
-        if (persistencia == null) {
-            throw new NullPointerException("Objeto não inicializado!");
+        PreparedStatement ps = this.conexao.prepareStatement(sql);
+        idObjeto = ps.executeUpdate();
+        rs = ps.getGeneratedKeys();
+
+        if (rs.isBeforeFirst()) {
+            rs.next();
+            idObjeto = rs.getInt(nomeColunaId);
         }
 
-        else {
-            PreparedStatement ps = this.conexao.prepareStatement(sql);
-            ps.executeUpdate();
-            rs = ps.getGeneratedKeys();
-
-            if (rs.isBeforeFirst()) {
-                rs.next();
-                idObjeto = rs.getInt("id");
-            }
-
-            return idObjeto;
-        }
+        return idObjeto;
     }
 
     /**Executa inserção, atualização ou exclusão no banco definido como padrão.
@@ -152,9 +146,9 @@ public class Persistencia {
      * @return Id do objeto inserido, modificado ou atualizado
      * @throws SQLException
      */
-    public int executarAtualizacao(PreparedStatement preparedSt)
+    public int executarAtualizacao(PreparedStatement preparedSt, String nomeColunaId)
             throws SQLException {
-        return this.executarAtualizacao(preparedSt.toString());
+        return this.executarAtualizacao(preparedSt.toString(), nomeColunaId);
     }
 
     public Connection getConexao() {

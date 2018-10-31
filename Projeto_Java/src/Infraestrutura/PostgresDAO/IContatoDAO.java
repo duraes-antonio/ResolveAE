@@ -3,7 +3,7 @@
 // * To change this template file, choose Tools | Templates
 // * and open the template in the editor.
 // */
-//package Infraestrutura.Dao;
+//package Infraestrutura.PostgresDAO;
 //import Dominio.Entidades.MidiaSocial;
 //
 //import java.util.List;

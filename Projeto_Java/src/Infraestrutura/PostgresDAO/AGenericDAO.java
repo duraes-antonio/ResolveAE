@@ -1,6 +1,7 @@
-package Infraestrutura.Dao;
+package Infraestrutura.PostgresDAO;
 
 import Dominio.Interfaces.IRepositorioBase;
+import Infraestrutura.Enum.ETab;
 import Infraestrutura.UtilPostgres.Persistencia;
 import Infraestrutura.UtilPostgres.SQLProdutor;
 
@@ -13,30 +14,25 @@ import java.util.List;
 
 public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
 
-    private Persistencia persistencia = Persistencia.get();
-    private Connection conexao = persistencia.getConexao();
+    public Persistencia persistencia = Persistencia.get();
+    public Connection conexao = persistencia.getConexao();
 
     /**Retorna o nome da Tabela responsável pela classe.
      * @return Nome da tabela.
      */
-    protected abstract String obterNomeTabela();
+    protected abstract ETab obterNomeTabela();
 
-    /**Retorna uma lista com o nome de cada coluna da tabela.
+    /**Retorna uma lista com o nome de cada coluna da tabela COM EXCEÇÃO do ID.
      * @return Lista com os nomes das colunas.
      */
     protected abstract List<String> obterNomeColunas();
 
-    /**Substitui os '?' do PS de inserção pelos valores dos atributos da entidade.
+    /**Substitui os '?' do PS pelos valores dos atributos da entidade.
      * @param ps P. Statement com SQL já pronto com os '?' para serem substituídos.
+     * @param objeto Objeto com os atributos para preencher o statement.
      * @return ps com os '?' substituídos, inclusíve o da cláusula WHERE;
      */
-    protected abstract PreparedStatement preencherPSInsert(PreparedStatement ps);
-
-    /**Substitui os '?' do PS de atualização pelos valores dos atributos da entidade.
-     * @param ps P. Statement com SQL já pronto com os '?' para serem substituídos.
-     * @return ps com os '?' substituídos, inclusíve o da cláusula WHERE;
-     */
-    protected abstract PreparedStatement preencherPSUpdate(PreparedStatement ps);
+    protected abstract PreparedStatement preencherPS(PreparedStatement ps, T objeto) throws SQLException;
 
     /**Monta e retorna o objeto a partir de um resultSet.
      * @param rs ResultSet retornado de uma consulta já executada.
@@ -70,7 +66,7 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
 
         /*Monte a seguinte parte do SQL:
         INSERT INTO nomeTabela VALUES*/
-        sqlProdutor.insert(this.obterNomeTabela(), this.obterNomeColunas());
+        sqlProdutor.insert(this.obterNomeTabela().get(), this.obterNomeColunas());
 
         //Monte o seguinte trecho do SQL: (?, ?, ?, ...);
         sqlProdutor.values(this.obterNomeColunas());
@@ -78,8 +74,8 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
         this.conexao.setAutoCommit(false);
 
         PreparedStatement ps = conexao.prepareStatement(sqlProdutor.toString());
-        this.preencherPSInsert(ps);
-        resultado = persistencia.executarAtualizacao(ps);
+        this.preencherPS(ps, entidade);
+        resultado = persistencia.executarAtualizacao(ps, "id");
 
         this.conexao.commit();
 
@@ -97,15 +93,15 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
 
         /*Monte a seguinte parte do SQL:
         UPDATE nomeTabela SET col1 = ?, col2 = ?*/
-        sqlProdutor.update(this.obterNomeTabela(), this.obterNomeColunas());
+        sqlProdutor.update(this.obterNomeTabela().get(), this.obterNomeColunas());
 
         //Monte o seguinte trecho do SQL: WHERE id = ?;
         sqlProdutor.where("id").eq();
 
         PreparedStatement ps = conexao.prepareStatement(sqlProdutor.toString());
-        this.preencherPSUpdate(ps);
+        this.preencherPS(ps, entidade);
 
-        persistencia.executarAtualizacao(ps);
+        persistencia.executarAtualizacao(ps, "id");
     }
 
     /**Remove um objeto do meio de persistência dado seu identificador.
@@ -119,12 +115,13 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
 
         /*Monte a seguinte parte do SQL:
         DELETE * FROM nomeTabela WHERE nomeCol = ?*/
-        sqlProdutor.delete().from(this.obterNomeTabela()).where("id").eq();
+        sqlProdutor.delete().from(this.obterNomeTabela().get())
+                .where("id").eq();
 
         PreparedStatement ps = conexao.prepareStatement(sqlProdutor.toString());
         ps.setInt(1, id);
 
-        persistencia.executarAtualizacao(ps);
+        persistencia.executarAtualizacao(ps, "id");
     }
 
     /**Busca e retorna o objeto que possuir o identificador recebido.
@@ -139,7 +136,8 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
 
         /*Monte a seguinte parte do SQL:
         SELECT nomeCol1, nomeCol2 FROM nomeTabela*/
-        sqlProdutor.select(this.obterNomeColunas()).from(this.obterNomeTabela());
+        sqlProdutor.select(this.obterNomeColunas())
+                .from(this.obterNomeTabela().get());
 
         /*Monte o seguinte trecho do SQL: WHERE nomeCol = ?*/
         sqlProdutor.where("id").eq();
@@ -160,7 +158,8 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
 
         /*Monte a seguinte parte do SQL:
         SELECT nomeCol1, nomeCol2 FROM nomeTabela*/
-        sqlProdutor.select(this.obterNomeColunas()).from(this.obterNomeTabela());
+        sqlProdutor.select(this.obterNomeColunas())
+                .from(this.obterNomeTabela().get());
 
         String sql = sqlProdutor.toString();
         return extrairTodos(persistencia.executarSelecao(sql));
