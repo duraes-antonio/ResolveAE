@@ -21,6 +21,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario>
     public static final String COMENTARIO = ETab.COMENTARIO.get() + ".comentario";
     public static final String FK_AVALIACAO = ETab.COMENTARIO.get() + ".fk_avaliacao";
     private final List<String> COLUNAS = Arrays.asList(COMENTARIO, FK_AVALIACAO);
+    PreparedStatement ps;
 
     private Persistencia persistencia = Persistencia.get();
     private Connection conexao = persistencia.getConexao();
@@ -64,8 +65,14 @@ public class ComentarioDAO extends AGenericDAO<Comentario>
     }
 
     @Override
-    public List<Comentario> obterTodosPorServico(int servicoId) throws SQLException {
-        //TODO implementar
+    public List<Comentario> obterTodosPorServico(int servicoId)
+            throws SQLException {
+        SQLProdutor sqlProdutor = new SQLProdutor();
+        sqlProdutor.selectAll().from(ETab.COMENTARIO.get()).where(FK_AVALIACAO).eq();
+
+        ps = conexao.prepareStatement(sqlProdutor.toString());
+        ps.setInt(1, servicoId);
+
         return null;
     }
 

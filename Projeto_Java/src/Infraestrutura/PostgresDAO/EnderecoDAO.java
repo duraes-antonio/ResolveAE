@@ -16,7 +16,6 @@ public class EnderecoDAO extends AGenericDAO<Endereco>
         implements IEnderecoRepositorio {
 
     public static final String ID = ETab.ENDERECO.get() + ".id";
-    public static final String RUA = ETab.ENDERECO.get() + ".rua";
     public static final String BAIRRO = ETab.ENDERECO.get() + ".bairro";
     public static final String CIDADE = ETab.ENDERECO.get() + ".cidade";
     public static final String ESTADO = ETab.ENDERECO.get() + ".estado";
@@ -24,7 +23,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco>
     public static final String FK_USUARIO = ETab.ENDERECO.get() + ".fk_usuario";
 
     private final List<String> COLUNAS = Arrays.asList(
-            RUA, BAIRRO, CIDADE, ESTADO, CEP, FK_USUARIO);
+            BAIRRO, CIDADE, ESTADO, CEP, FK_USUARIO);
 
     @Override
     public int adicionar(Endereco entidade) throws SQLException {
@@ -34,11 +33,6 @@ public class EnderecoDAO extends AGenericDAO<Endereco>
     @Override
     public void atualizar(Endereco entidade) throws SQLException {
         Function.insertEndereco(entidade, this.persistencia);
-    }
-
-    @Override
-    public List<Endereco> obterTodosPorRua(String rua) {
-        return null;
     }
 
     @Override
