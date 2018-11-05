@@ -42,9 +42,9 @@ Contributor(s):
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
-    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
-    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/sample</property>
-    <property name="hibernate.connection.username">app</property>
-    <property name="hibernate.connection.password">app</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/resolve_ae</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">postgres</property>
   </session-factory>
 </hibernate-configuration>

@@ -10,7 +10,7 @@ public interface IRepositorioBase<T> {
      * @return Id gerado após a inserção do objeto.
      * @throws SQLException
      */
-    int adicionar(T entidade) throws SQLException;
+    T adicionar(T entidade) throws SQLException;
 
     /**Atualiza os dados de um objeto já existente no meio de persistência.
      * @param entidade Objeto a ser atualizado.

@@ -1,15 +1,27 @@
 package Dominio.Entidades;
 
-/**
- *
- * @author 20161BSI0314
- */
+import javax.persistence.*;
+
+@Entity
+@Table(name = "avaliacao")
 public class Avaliacao {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "nota")
     private int nota;
+
+    @Column(name = "fk_usuario")
     private int fkUsuario;
+
+    @Column(name = "fk_servico")
     private int fkServico;
+
+    @OneToOne(targetEntity = Comentario.class)
+    @JoinColumn(name = "id")
     private Comentario comentario;
 
     public Avaliacao(){}
@@ -71,5 +83,13 @@ public class Avaliacao {
 
     public void setComentario(Comentario comentario) {
         this.comentario = comentario;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "ID:\t\t\t\t%d;\nNota:\t\t'%s';\nFK_usuario:\t%d;\nFK_servico:\t%d;" +
+                        "\n\n---COMENTÁRIO---\n",
+                this.getId(), this.getNota(), this.getFkUsuario(), getFkServico()) + (comentario != null ? comentario.toString() : "~NÃO HÁ COMENTÁRIO!");
     }
 }

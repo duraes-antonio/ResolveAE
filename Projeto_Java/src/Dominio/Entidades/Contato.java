@@ -2,16 +2,36 @@ package Dominio.Entidades;
 
 import Dominio.Enum.ETipoContato;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author 20161BSI0314
  */
+@Entity
+@Table(name = "contato")
 public class Contato {
 
+    @Id
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "descricao")
     private String descricao;
+
+    //TODO alterar de ENUM para classe com atributos FINALs
     private ETipoContato tipo;
+
+    @Column(name = "fk_usuario")
     private int fkUsuario;
+
+    @Column(name = "fk_tipo_contato")
+    private int fkTipoContato;
+
+    public Contato() {}
 
     public Contato(ETipoContato tipo, String descricao){
         this.setTipo(tipo);
@@ -75,5 +95,13 @@ public class Contato {
 
     public void setFkUsuario(int fkUsuario) {
         this.fkUsuario = fkUsuario;
+    }
+
+    public int getFkTipoContato() {
+        return fkTipoContato;
+    }
+
+    public void setFkTipoContato(int fkTipoContato) {
+        this.fkTipoContato = fkTipoContato;
     }
 }

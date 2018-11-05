@@ -1,10 +1,24 @@
 package Dominio.Entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "comentario")
 public class Comentario {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "comentario", length = 500)
     private String comentario;
+
+    @Column(name = "fk_avaliacao")
     private int fkAvalicao;
+
+    public Comentario() {
+    }
 
     public Comentario(String comentario, int fkAvalicao){
         this.setComentario(comentario);
@@ -16,6 +30,7 @@ public class Comentario {
         this.setComentario(comentario);
         this.setFkAvalicao(fkAvalicao);
     }
+
 
     public int getId() {
         return id;

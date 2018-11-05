@@ -1,13 +1,8 @@
 package Dominio.Entidades;
 
-/**
- *
- * @author 20161BSI0314
- */
 public class Endereco {
 
     private int id;
-    private String rua;
     private String bairro;
     private String cidade;
     private String estado;
@@ -16,9 +11,8 @@ public class Endereco {
 
     public Endereco(){}
 
-    public Endereco(String rua, String bairro, String cidade, String estado,
+    public Endereco(String bairro, String cidade, String estado,
                     int cep, int fkUsuario){
-        this.setRua(rua);
         this.setBairro(bairro);
         this.setCidade(cidade);
         this.setEstado(estado);
@@ -26,10 +20,9 @@ public class Endereco {
         this.setFkUsuario(fkUsuario);
     }
 
-    public Endereco(int id, String rua, String bairro, String cidade,
+    public Endereco(int id, String bairro, String cidade,
                     String estado, int cep, int fkUsuario){
         this.setId(id);
-        this.setRua(rua);
         this.setBairro(bairro);
         this.setCidade(cidade);
         this.setEstado(estado);
@@ -43,18 +36,6 @@ public class Endereco {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    //PREENCHIDO A PARTIR DO CEP INFORMADO
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-
-        if (Util.isStringValida(rua)) this.rua = rua;
-
-        else Util.throwExceptCampoVazio("rua");
     }
 
     public String getBairro() {
@@ -110,7 +91,7 @@ public class Endereco {
     @Override
     public String toString() {
         return String.format(
-                "CEP:\t\t%d;\nLogradouro:\t%s;\nBairro:\t\t%s;\nCidade:\t\t%s;\nEstado:\t\t%s;",
-                this.cep.getCep(), this.getRua(), this.getBairro(), this.getCidade(), this.getEstado());
+                "CEP:\t\t%d;\nBairro:\t\t%s;\nCidade:\t\t%s;\nEstado:\t\t%s;",
+                this.cep.getCep(), this.getBairro(), this.getCidade(), this.getEstado());
     }
 }

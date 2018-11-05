@@ -62,7 +62,6 @@ public class Cep {
 
         else {
             return new Endereco(
-                    jsonObj.getString("logradouro"),
                     jsonObj.getString("bairro"),
                     jsonObj.getString("localidade"),
                     jsonObj.getString("uf"),

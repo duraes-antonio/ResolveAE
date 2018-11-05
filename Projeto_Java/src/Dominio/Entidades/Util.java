@@ -54,7 +54,7 @@ public class Util {
     public static void throwExceptQtdInvalida(String tipoChar, String nomeCampo)
             throws NumberFormatException{
         throw new NumberFormatException(
-                "Quantidade de " + tipoChar + " incorreta para o campo " + nomeCampo + "."
+                "Quantidade de " + tipoChar + " incorreta para o campo " + nomeCampo + ""
         );
     }
 
