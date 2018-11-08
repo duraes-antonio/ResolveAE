@@ -2,15 +2,8 @@ package Dominio.Entidades;
 
 import Dominio.Enum.ETipoContato;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-/**
- *
- * @author 20161BSI0314
- */
 @Entity
 @Table(name = "contato")
 public class Contato {
@@ -22,27 +15,28 @@ public class Contato {
     @Column(name = "descricao")
     private String descricao;
 
-    //TODO alterar de ENUM para classe com atributos FINALs
     private ETipoContato tipo;
 
     @Column(name = "fk_usuario")
     private int fkUsuario;
 
     @Column(name = "fk_tipo_contato")
+    @JoinColumn(referencedColumnName = "id")
     private int fkTipoContato;
 
     public Contato() {}
 
-    public Contato(ETipoContato tipo, String descricao){
-        this.setTipo(tipo);
-        this.setDescricao(descricao);
-    }
-
-    public Contato(int id, ETipoContato tipo, String descricao, int fkUsuario){
-        this.setId(id);
-        this.setTipo(tipo);
+    public Contato(String descricao, int fkUsuario, int fkTipoContato){
         this.setDescricao(descricao);
         this.setFkUsuario(fkUsuario);
+        this.setFkTipoContato(fkTipoContato);
+    }
+
+    public Contato(int id, String descricao, int fkUsuario, int fkTipoContato){
+        this.setId(id);
+        this.setDescricao(descricao);
+        this.setFkUsuario(fkUsuario);
+        this.setFkTipoContato(fkTipoContato);
     }
 
 
@@ -58,7 +52,7 @@ public class Contato {
         return tipo;
     }
 
-    public void setTipo(ETipoContato tipo) {
+    private void setTipo(ETipoContato tipo) {
         this.tipo = tipo;
     }
 
@@ -87,6 +81,8 @@ public class Contato {
         else if (!Util.isStringValida(descricao)) {
             Util.throwExceptCampoVazio(this.getTipo().getNome());
         }
+
+        this.descricao = descricao;
     }
 
     public int getFkUsuario() {
@@ -103,5 +99,23 @@ public class Contato {
 
     public void setFkTipoContato(int fkTipoContato) {
         this.fkTipoContato = fkTipoContato;
+        this.atualizarTipoContato();
     }
+
+    @PostLoad
+    private void atualizarTipoContato() {
+        this.setTipo(ETipoContato.getTipoContatoPorId(this.getFkTipoContato()));
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "ID:\t\t\t\t\t%d;" +
+                        "\nDescrição:\t\t\t%s;" +
+                        "\nTipo:\t\t\t\t%s;" +
+                        "\nFK_usuario:\t\t\t%d;" +
+                        "\nFK_tipo_contato:\t%d\n",
+                id, descricao, tipo.getNome(), fkUsuario, fkTipoContato);
+    }
+
 }

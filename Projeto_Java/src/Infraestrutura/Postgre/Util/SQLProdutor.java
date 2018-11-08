@@ -11,6 +11,7 @@ import java.util.StringJoiner;
 public class SQLProdutor {
 
     private ArrayList<String> strings;
+    private String colunasSelect;
 
     public SQLProdutor() {
         this.strings = new ArrayList<String>();
@@ -24,7 +25,7 @@ public class SQLProdutor {
 
     private String concatSequencia(String... nomeColunas) {
         StringJoiner stringJoinerTemp = new StringJoiner(",");
-        for (String nome : nomeColunas) stringJoinerTemp.add("\n\t" + nome);
+        for (String nome : nomeColunas) stringJoinerTemp.add("\n\t" + nome + " AS " + "\"" + nome + "\"");
         return stringJoinerTemp.toString();
     }
 
@@ -39,16 +40,27 @@ public class SQLProdutor {
     }
 
     public SQLProdutor select(List<String> nomeColunas) {
+        String nomeConcatenado = this.concatSequencia(nomeColunas);
         this.strings.add("SELECT");
-        this.strings.add(this.concatSequencia(nomeColunas));
+        this.strings.add(nomeConcatenado);
+        colunasSelect = nomeConcatenado;
         return this;
     }
 
     public SQLProdutor select(String... nomeColunas) {
+        String nomeConcatenado = this.concatSequencia(nomeColunas);
         this.strings.add("SELECT");
-        this.strings.add(concatSequencia(nomeColunas));
+        this.strings.add(nomeConcatenado);
+        colunasSelect = nomeConcatenado;
         return this;
     }
+
+    public SQLProdutor select(String nomeColuna) {
+        this.strings.add("AS");
+        this.strings.add("\"" + nomeColuna + "\"");
+        return this;
+    }
+
 
     /**
      * @param fonte Nome da fonte de dados (tabela, view ou procedure);
@@ -87,14 +99,17 @@ public class SQLProdutor {
         return this;
     }
 
-    public SQLProdutor values(List<String> nomeColunas) {
+    private String concatQuestion(int quantidade) {
         List<String> argsParam = new ArrayList<>();
 
         //Para cada nome de coluna adicione uma interrogação p/ receber o param;
-        nomeColunas.forEach(coluna -> argsParam.add("?"));
+        for (int i = 0; i < quantidade; i++) argsParam.add("?");
 
-        this.strings.add("(" + this.concatSequencia(argsParam) + ")");
+        return concatSequencia(argsParam);
+    }
 
+    public SQLProdutor values(List<String> nomeColunas) {
+        this.strings.add("(" + concatQuestion(nomeColunas.size()) + ")");
         return this;
     }
 
@@ -189,6 +204,28 @@ public class SQLProdutor {
         this.strings.add(nomeCampo1);
         this.strings.add("=");
         this.strings.add(nomeCampo2);
+        return this;
+    }
+
+    public SQLProdutor limit() {
+        this.strings.add("LIMIT ?");
+        return this;
+    }
+
+    public SQLProdutor offset() {
+        this.strings.add("OFFSET ?");
+        return this;
+    }
+
+    public SQLProdutor orderBy(int qtdParam) {
+        this.strings.add("ORDER BY");
+        this.strings.add(concatQuestion(qtdParam));
+        return this;
+    }
+
+    public SQLProdutor groupBy() {
+        this.strings.add("\nGROUP BY");
+        this.strings.add(this.colunasSelect);
         return this;
     }
 

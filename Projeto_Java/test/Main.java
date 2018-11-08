@@ -1,9 +1,8 @@
-import Dominio.Entidades.Avaliacao;
-import Infraestrutura.Hibernate.Util.FabricaConexao;
-import Infraestrutura.Postgre.DAO.AvaliacaoDAO;
+import Dominio.Entidades.Contato;
+import Dominio.Enum.ETipoContato;
+import Infraestrutura.Postgre.DAO.ContatoDAO;
 import Infraestrutura.Postgre.Util.Persistencia;
 
-import javax.persistence.EntityManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,32 +12,31 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         long startTime;
         boolean hard = false;
-        List<Avaliacao> lista = new ArrayList<>();
+        List<Contato> lista = new ArrayList<>();
 
-        if (false) {
-            AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
+
+        if (true) {
+            ContatoDAO contatoDAO = new ContatoDAO();
             Persistencia persistencia = Persistencia.get();
             startTime = System.currentTimeMillis();
 
-            for (int i = 0; i < 1; i++) {
-                lista = avaliacaoDAO.obterTodos();
-            }
+            lista = contatoDAO.obterTodosPorTipo(ETipoContato.SKYPE, 5, null);
             System.out.println(lista.size());
-            System.out.println(lista.get(0));
+            lista.forEach(System.out::println);
             persistencia.getConexao().close();
         }
-
-        if(true) {
-            EntityManager em = FabricaConexao.obterConexao();
-
-            startTime = System.currentTimeMillis();
-            for (int i = 0; i < 1; i++) {
-                lista = em.createQuery("from Avaliacao").getResultList();
-            }
-            System.out.println(lista.size());
-            System.out.println(lista.get(0));
-            em.close();
-        }
+//
+//        if(true) {
+//            EntityManager em = FabricaConexao.obterConexao();
+//
+//            startTime = System.currentTimeMillis();
+//            for (int i = 0; i < 1; i++) {
+//                lista = em.createQuery("from Contato where id = 5").getResultList();
+//            }
+//            System.out.println(lista.size());
+//            System.out.println(lista.get(0));
+//            em.close();
+//        }
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;

@@ -3,7 +3,6 @@ package Infraestrutura.Hibernate.DAO;
 import Dominio.Entidades.Endereco;
 import Dominio.Enum.EEstado;
 import Dominio.Interfaces.IEnderecoRepositorio;
-import Infraestrutura.Enum.ETab;
 import Infraestrutura.Postgre.DAO.AGenericDAO;
 import Infraestrutura.Postgre.DAO.EnderecoSQL;
 import Infraestrutura.Postgre.Util.Function;
@@ -146,21 +145,6 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
         return obterGenerico(psTodosPorCep);
     }
 
-
-    @Override
-    protected ETab obterNomeTabela() {
-        return ETab.ENDERECO;
-    }
-
-    /**
-     * Retorna uma lista com o nome de cada coluna da tabela COM EXCEÇÃO do ID.
-     *
-     * @return Lista com os nomes das colunas.
-     */
-    @Override
-    protected List<String> obterNomeColunas() {
-        return EnderecoSQL.COLUNAS;
-    }
 
     /**
      * Substitui os '?' do PS pelos valores dos atributos da entidade.

@@ -4,7 +4,11 @@ package Infraestrutura.Postgre.DAO;
 import Dominio.Entidades.Contato;
 import Dominio.Enum.ETipoContato;
 import Dominio.Interfaces.IContatoRepositorio;
+import Infraestrutura.Enum.ETab;
+import Infraestrutura.Postgre.Util.Persistencia;
+import Infraestrutura.Postgre.Util.SQLProdutor;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,15 +17,67 @@ import java.util.List;
 public class ContatoDAO extends AGenericDAO<Contato>
         implements IContatoRepositorio
 {
+    private Persistencia persistencia = Persistencia.get();
+    private Connection conexao = persistencia.getConexao();
+    private PreparedStatement psTodosPorTipo;
+    private PreparedStatement psTodosPorUsuario;
+    private PreparedStatement psTodosPorTipoEUsuario;
+
+    private List<Contato> obterGenerico(PreparedStatement ps)
+            throws SQLException {
+
+        List<Contato> contatos = null;
+
+        try {
+            contatos = extrairTodos(persistencia.executarSelecao(ps));
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        finally {
+            if (ps != null) ps.close();
+        }
+
+        return contatos;
+    }
+
+    public List<Contato> obterTodosPorTipo(ETipoContato tipo, Integer limit, Integer offset)
+            throws SQLException {
+        SQLProdutor sqlProd = new SQLProdutor();
+        sqlProd.select(ContatoSQL.ID, ContatoSQL.DESCRICAO, ContatoSQL.FK_USUARIO, ContatoSQL.FK_TIPO_CONTATO)
+                .from(ETab.CONTATO.get()).where(ContatoSQL.FK_TIPO_CONTATO).eq();
+
+        if (limit != null) sqlProd.limit();
+        if (offset != null) sqlProd.offset();
+
+        psTodosPorTipo = conexao.prepareStatement(sqlProd.toString());
+
+        psTodosPorTipo.setInt(1, ETipoContato.getIdTipoContato(tipo));
+        if (limit != null) psTodosPorTipo.setInt(2, limit);
+        if (offset != null) psTodosPorTipo.setInt(3, offset);
+
+        return obterGenerico(psTodosPorTipo);
+    }
 
     @Override
-    public List<Contato> obterTodosPorTipo(ETipoContato tipo) {
+    public List<Contato> obterTodosPorTipo(ETipoContato tipo) throws SQLException {
         return null;
     }
 
     @Override
-    public List<Contato> obterTodosPorUsuario(int usuarioId) {
+    public List<Contato> obterTodosPorUsuario(int usuarioId) throws SQLException {
         return null;
+    }
+
+    public List<Contato> obterTodosPorUsuario(int usuarioId, int limit, int offset)
+            throws SQLException {
+        psTodosPorUsuario = conexao.prepareStatement(ContatoSQL.OBTER_TODOS_POR_USUARIO);
+        psTodosPorUsuario.setInt(1, usuarioId);
+        psTodosPorUsuario.setInt(2, limit);
+        psTodosPorUsuario.setInt(3, offset);
+        return obterGenerico(psTodosPorUsuario);
     }
 
     @Override
@@ -48,10 +104,16 @@ public class ContatoDAO extends AGenericDAO<Contato>
      * @param rs ResultSet retornado de uma consulta já executada.
      * @return Objeto montado a partir dos resultados da consulta.
      */
-    //TODO finalizar
     @Override
-    protected Contato construir(ResultSet rs) throws SQLException {
-        return null;
+    protected Contato construir(ResultSet rs)
+            throws SQLException {
+
+        return new Contato(
+                rs.getInt(ContatoSQL.ID),
+                rs.getString(ContatoSQL.DESCRICAO),
+                rs.getInt(ContatoSQL.FK_USUARIO),
+                rs.getInt(ContatoSQL.FK_TIPO_CONTATO)
+        );
     }
 
     /**

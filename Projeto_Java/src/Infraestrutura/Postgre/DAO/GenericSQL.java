@@ -34,10 +34,16 @@ public class GenericSQL {
         return sqlProdutor.toString();
     }
 
-    public static String obterTodos(ETab tabela, List<String> colunas) {
+    /**Monta o SQL de uma query genérica para pegar as X colunas de todas registros.
+     * @param tabela Nome da tabela que a query será executada.
+     * @param colunas Nome das colunas a serem retornadas.
+     * @param qtdParamOrderBy Quantidade de parâmetros para a cláusula Order By;
+     * @return String no formato: SELECT col1, col2, ... FROM tabela LIMIT ? OFFSET ?
+     */
+    public static String obterTodos(ETab tabela, List<String> colunas, int qtdParamOrderBy) {
 
         SQLProdutor sqlProdutor = new SQLProdutor();
-        sqlProdutor.select(colunas).from(tabela.get());
+        sqlProdutor.select(colunas).from(tabela.get()).limit().offset();
         return sqlProdutor.toString();
     }
 }

@@ -11,22 +11,12 @@ import java.util.List;
 public class AvaliacaoSQL {
 
     //Nome das colunas da tabela AVALIACAO (nomes usados para montar as querys);
-    private static final String _ID = "id";
-    private static final String _NOTA = "nota";
-    private static final String _FK_USUARIO = "fk_usuario";
-    private static final String _FK_SERVICO = "fk_servico";
-
-    public static final String ID = ETab.AVALIACAO.get() + "_id";
-    public static final String NOTA = ETab.AVALIACAO.get() + "_nota";
-    public static final String FK_USUARIO = ETab.AVALIACAO.get() + "_fk_usuario";
-    public static final String FK_SERVICO = ETab.AVALIACAO.get() + "_fk_servico";
+    public static final String ID = ETab.AVALIACAO.get() + ".id";
+    public static final String NOTA = ETab.AVALIACAO.get() + ".nota";
+    public static final String FK_USUARIO = ETab.AVALIACAO.get() + ".fk_usuario";
+    public static final String FK_SERVICO = ETab.AVALIACAO.get() + ".fk_servico";
 
     public static final List<String> COLUNAS = Arrays.asList(NOTA, FK_USUARIO, FK_SERVICO);
-    public static final List<String> _COLUNAS = Arrays.asList(
-            _ID + " AS " + ID,
-            _NOTA + " AS " + NOTA,
-            _FK_USUARIO + " AS " + FK_USUARIO,
-            _FK_SERVICO + " AS " + FK_SERVICO);
 
     //Querys prontas p/ ser usadas, apenas substituir os '?' pelo valor;
     public static final String ADICIONAR = adicionar();
@@ -58,7 +48,7 @@ public class AvaliacaoSQL {
 
     private static String obterPorId() {
         SQLProdutor sqlProdutor = new SQLProdutor();
-        sqlProdutor.select(_COLUNAS).from(ETab.AVALIACAO.get()).where(ID).eq();
+        sqlProdutor.select(COLUNAS).from(ETab.AVALIACAO.get()).where(ID).eq();
         return sqlProdutor.toString();
     }
 
@@ -71,13 +61,13 @@ public class AvaliacaoSQL {
 
     private static String obterTodosPorUsuario() {
         SQLProdutor sqlProd = new SQLProdutor();
-        sqlProd.select(_COLUNAS).from(ETab.AVALIACAO.get()).where(FK_USUARIO).eq();
+        sqlProd.select(COLUNAS).from(ETab.AVALIACAO.get()).where(FK_USUARIO).eq();
         return sqlProd.toString();
     }
 
     private static String obterTodosPorServico() {
         SQLProdutor sqlProd = new SQLProdutor();
-        sqlProd.select(_COLUNAS).from(ETab.AVALIACAO.get()).where(FK_SERVICO).eq();
+        sqlProd.select(COLUNAS).from(ETab.AVALIACAO.get()).where(FK_SERVICO).eq();
         return sqlProd.toString();
     }
 }
