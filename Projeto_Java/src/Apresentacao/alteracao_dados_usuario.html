@@ -1,11 +1,19 @@
 <!DOCTYPE html>
+<style>
+button{
+
+  text-align: center !important;
+  border: 1px solid white !important;
+}
+</style>
+
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="C:/Users/elmr/Documents/PINGENDO/aquamarine.css">
+  <link rel="stylesheet" href="C:\Users\20161bsi0314\Documents\GITHUB\ResolveAE\Projeto_Java\src\Apresentacao\aquamarine.css">
 </head>
 
 <body>
@@ -45,7 +53,7 @@
       </a>
     </div>
   </nav>
-  <div class="col-md-7 p-4">
+  <div  class="container col-md-7 p-4">
     <form>
       <section>
         <h3 class="mb-3">Informações Pessoais</h3>
@@ -76,15 +84,15 @@
         </div>
       </section>
       <section></section>
-      <p>
-        <button type="submit" class="btn btn-primary">Alterar Senha</button>
-        <button type="submit" class="btn btn-primary mx-3">Adicionar Meios De Contato</button>
-        <button type="submit" class="btn btn-primary mx-3">Adicionar Informações Profissionais</button>
-      </p>
-      <p contenteditable="true">
-        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-        <button type="submit" class="btn btn-primary mx-3">Cancelar</button><br>
-      </p>
+      <div style="margin-top:10px; margin-bottom:10px;" class="row">
+        <button type="submit" class="col-md-4 btn btn-default btn-sm" role="button">Alterar Senha</button>
+        <button type="submit" class="col-md-4 btn btn-default btn-sm" role="button">Adicionar Meios De Contato</button>
+        <button type="submit" class="col-md-4 btn btn-default btn-sm" role="button">Adicionar Informações Profissionais</button>
+      </div>
+      <div class="row">
+        <button  type="submit" class=" btn btn-primary btn-block">Salvar Alterações</button>
+        <button type="submit" class="btn btn-primary btn-block">Cancelar</button><br>
+      </div>
     </form>
   </div>
 </body>
