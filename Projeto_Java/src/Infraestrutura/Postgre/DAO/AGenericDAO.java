@@ -1,6 +1,6 @@
 package Infraestrutura.Postgre.DAO;
 
-import Dominio.Interfaces.IRepositorioBase;
+import Dominio.Interfaces.IBaseRepositorio;
 import Infraestrutura.Postgre.Util.Persistencia;
 
 import java.sql.Connection;
@@ -10,10 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
+public abstract class AGenericDAO<T> implements IBaseRepositorio<T> {
 
-    public Persistencia persistencia = Persistencia.get();
-    public Connection conexao = persistencia.getConexao();
+    private Persistencia persistencia = Persistencia.get();
+    private Connection conexao = persistencia.getConexao();
 
     /*1 PreparedStatement para cada consulta: O ps é feito para ser reusado
      * diversas vezes, então, 1 para cada SQL garante reuso e desempenho*/
@@ -21,9 +21,9 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
     private PreparedStatement psAtualizar = null;
     private PreparedStatement psExcluir = null;
     private PreparedStatement psSelecionar = null;
-    private PreparedStatement psSelecionarTodos = null;
 
     /**Substitui os '?' do PS pelos valores dos atributos da objeto.
+     * Substitui os valores para operações de INSERT e UPDATE apenas.
      * @param ps P. Statement com SQL já pronto com os '?' para serem substituídos.
      * @param objeto Objeto com os atributos para preencher o statement.
      * @return ps com os '?' substituídos, pronto para execução.
@@ -68,33 +68,28 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
     /**Retorna uma string com query de INSERT, com '?' p/ ser substuído.
      * @return String com comando SQL para adicionar um novo objeto.
      */
-    public abstract String obterSqlAdicionar();
+    protected abstract String obterSqlAdicionar();
 
     /**Retorna uma string com query de UPDATE, com '?' p/ ser substuído.
      * @return String com comando SQL para atualizar um objeto.
      */
-    public abstract String obterSqlAtualizar();
+    protected abstract String obterSqlAtualizar();
 
     /**Retorna uma string com query de DELETE, com '?' p/ ser substuído.
      * @return String com comando SQL para deletar um objeto.
      */
-    public abstract String obterSqlExcluir();
+    protected abstract String obterSqlExcluir();
 
     /**Retorna uma string com query de SELECT, com '?' p/ ser substuído.
      * @return String com comando SQL para buscar um objeto.
      */
-    public abstract String obterSqlSelecionar();
-
-    /**Retorna uma string com query de SELECT *, com '?' p/ ser substuído.
-     * @return String com comando SQL para buscar múltiplos itens.
-     */
-    public abstract String obterSqlSelecionarTodos();
+    protected abstract String obterSqlSelecionar();
 
     /**Define o Id de um objeto.
      * @param objeto Objeto a ter seu ID atualizado.
      * @param id Id a ser inserido no objeto.
      */
-    public abstract void definirId(T objeto, int id);
+    protected abstract void definirId(T objeto, int id);
 
     //Métodos CRUD GENÉRICOS;
 
@@ -111,7 +106,7 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
         try {
             psAdicionar = conexao.prepareStatement(obterSqlAdicionar());
             preencherPS(psAdicionar, objeto);
-            result = persistencia.executarAtualizacao(psAdicionar, "id");
+            result = persistencia.executarAtualizacao(psAdicionar);
         }
 
         catch (SQLException e) {
@@ -137,7 +132,7 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
         try {
             psAtualizar = conexao.prepareStatement(obterSqlAtualizar());
             preencherPS(psAtualizar, objeto);
-            persistencia.executarAtualizacao(psAtualizar, "id");
+            persistencia.executarAtualizacao(psAtualizar);
         }
 
         catch (SQLException e) {
@@ -159,7 +154,7 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
         try {
             psExcluir = conexao.prepareStatement(obterSqlExcluir());
             psExcluir.setInt(1, id);
-            persistencia.executarAtualizacao(psExcluir, "id");
+            persistencia.executarAtualizacao(psExcluir);
         }
 
         catch (SQLException e) {
@@ -180,11 +175,11 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
     public T obterPorId(int id) throws SQLException {
 
         T objeto = null;
-        
+
         try {
             psSelecionar = conexao.prepareStatement(obterSqlSelecionar());
             psSelecionar.setInt(1, id);
-            objeto = construir(persistencia.executarSelecao(psSelecionar));
+            objeto = obterObjeto(persistencia.executarSelecao(psSelecionar));
         }
 
         catch (SQLException e) {
@@ -194,34 +189,7 @@ public abstract class AGenericDAO<T> implements IRepositorioBase<T> {
         finally {
             if (psSelecionar != null) psSelecionar.close();
         }
-        
+
         return objeto;
-    }
-
-    /**Busca e retorna todos objetos de um determinado tipo.
-     * @return Lista com todos objetos encontrados.
-     * @throws SQLException
-     */
-    @Override
-    public List<T> obterTodos() throws SQLException {
-
-        List<T> objetos = null;
-
-        try {
-            String sql = obterSqlSelecionarTodos();
-            psSelecionarTodos = conexao.prepareStatement(sql);
-            psSelecionarTodos.setFetchSize(10000);
-            objetos = extrairTodos(persistencia.executarSelecao(psSelecionarTodos));
-        }
-
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        finally {
-            if (psSelecionarTodos != null) psSelecionarTodos.close();
-        }
-
-        return objetos;
     }
 }

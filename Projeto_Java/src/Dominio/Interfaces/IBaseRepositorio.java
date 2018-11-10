@@ -3,7 +3,7 @@ package Dominio.Interfaces;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IRepositorioBase<T> {
+public interface IBaseRepositorio<T> {
 
     /**Persiste o objeto em um meio não volátil de armazenamento.
      * @param entidade Objeto a ser persistido.
@@ -32,8 +32,10 @@ public interface IRepositorioBase<T> {
     T obterPorId(int id) throws SQLException;
 
     /**Busca e retorna todos objetos de um determinado tipo.
+     * @param limit Quantidade de resultados a ser retornada.
+     * @param offset Quantidade de resultados a pular.
      * @return Lista com todos objetos encontrados.
      * @throws SQLException
      */
-    List<T> obterTodos() throws SQLException;
+    List<T> obterTodos(Integer limit, Integer offset) throws SQLException;
 }

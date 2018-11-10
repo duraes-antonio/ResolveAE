@@ -6,13 +6,13 @@ import Dominio.Enum.ETipoServico;
 
 import java.util.List;
 
-public interface IServicoRepositorio extends IRepositorioBase<Servico> {
+public interface IServicoRepositorio extends IBaseRepositorio<Servico> {
 
-    List<Servico> obterTodosPorUsuario(int usuarioId);
-    List<Servico> obterTodosPorTitulo(String titulo);
-    List<Servico> obterTodosPorDescricao(String descricao);
-    List<Servico> obterTodosPorValorAte(double valorMax);
-    List<Servico> obterTodosPorValor(double valorMin, double valorMax);
-    List<Servico> obterTodosPorTipo(ETipoServico tipo);
-    List<Servico> obterTodosPorSubtipo(ESubtipoServico subtipo);
+    List<Servico> obterTodosPorUsuario(int usuarioId, Integer limit, Integer offset);
+    List<Servico> obterTodosPorTitulo(String titulo, Integer limit, Integer offset);
+    List<Servico> obterTodosPorDescricao(String descricao, Integer limit, Integer offset);
+    List<Servico> obterTodosPorValorAte(double valorMax, Integer limit, Integer offset);
+    List<Servico> obterTodosPorValor(double valorMin, double valorMax, Integer limit, Integer offset);
+    List<Servico> obterTodosPorTipo(ETipoServico tipo, Integer limit, Integer offset);
+    List<Servico> obterTodosPorSubtipo(ESubtipoServico subtipo, Integer limit, Integer offset);
 }

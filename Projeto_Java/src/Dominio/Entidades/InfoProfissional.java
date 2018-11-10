@@ -2,7 +2,7 @@ package Dominio.Entidades;
 
 import Dominio.Enum.ETipoInfoProfissional;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -12,28 +12,31 @@ public class InfoProfissional {
 
     private int id;
     private String descricao;
-    private Date dataInicio;
-    private Date dataFim;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
     private ETipoInfoProfissional tipoInfo;
+    private int fkTipoInfo;
     private int fkUsuario;
 
     public InfoProfissional(){}
 
-    public InfoProfissional(String descricao, Date dataInicio, Date dataFim,
-                            ETipoInfoProfissional tipoInfo) {
+    public InfoProfissional(String descricao, LocalDate dataInicio, LocalDate dataFim,
+                            int fkTipoInfo, int fkUsuario) {
         this.setDescricao(descricao);
         this.setDataInicio(dataInicio);
         this.setDataFim(dataFim);
-        this.setTipoInfo(tipoInfo);
+        this.setFkTipoInfo(fkTipoInfo);
+        this.setFkUsuario(fkUsuario);
     }
 
-    public InfoProfissional(int id, String descricao, Date dataInicio, Date dataFim,
-                            ETipoInfoProfissional tipoInfo) {
+    public InfoProfissional(int id, String descricao, LocalDate dataInicio, LocalDate dataFim,
+                            int fkTipoInfo, int fkUsuario) {
         this.setId(id);
         this.setDescricao(descricao);
         this.setDataInicio(dataInicio);
         this.setDataFim(dataFim);
-        this.setTipoInfo(tipoInfo);
+        this.setFkTipoInfo(fkTipoInfo);
+        this.setFkUsuario(fkUsuario);
     }
 
     public int getId() {
@@ -63,19 +66,19 @@ public class InfoProfissional {
         else Util.throwExceptCampoVazio("descrição");
     }
 
-    public Date getDataInicio() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public LocalDate getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
 
@@ -87,4 +90,11 @@ public class InfoProfissional {
         this.fkUsuario = fkUsuario;
     }
 
+    public int getFkTipoInfo() {
+        return fkTipoInfo;
+    }
+
+    public void setFkTipoInfo(int fkTipoInfo) {
+        this.fkTipoInfo = fkTipoInfo;
+    }
 }

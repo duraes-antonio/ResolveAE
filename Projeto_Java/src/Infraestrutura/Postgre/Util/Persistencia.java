@@ -10,6 +10,16 @@ public class Persistencia {
     private PreparedStatement preparedSt;
 
     //Alterar de acordo com sua base de dados, usuário e senha no postgresql;
+    private Persistencia(String nomeDatabase, String nomeUsuario, String senha, int porta)
+            throws SQLException, ClassNotFoundException {
+
+        String driver = "org.postgresql.Driver";
+        String url = "jdbc:postgresql://localhost:"+porta+"/" + nomeDatabase;
+
+        Class.forName(driver);
+        this.conexao = DriverManager.getConnection(url, nomeUsuario, senha);
+    }
+
     private Persistencia()
             throws SQLException, ClassNotFoundException {
 
@@ -27,6 +37,27 @@ public class Persistencia {
 
         Class.forName(driver);
         this.conexao = DriverManager.getConnection(url, nome_user_postgre, senha);
+    }
+
+
+    public static synchronized Persistencia get
+            (String nomeDatabase, String nomeUsuario, String senha, int porta) {
+
+        try {
+            if (persistencia == null || persistencia.conexao.isClosed()) {
+                persistencia = new Persistencia(nomeDatabase, nomeUsuario, senha, porta);
+            }
+        }
+
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return persistencia;
     }
 
     public static synchronized Persistencia get() {
@@ -121,23 +152,22 @@ public class Persistencia {
 
     /**Executa inserção, atualização ou exclusão no banco definido como padrão.
      * @param sql Comando a ser executado no banco.
-     * @param nomeColunaId Nome da coluna que representa o identificador da tabela.
      * @return Id do objeto inserido, modificado ou atualizado
      * @throws SQLException
      */
-    public int executarAtualizacao(String sql, String nomeColunaId)
+    public int executarAtualizacao(String sql)
             throws SQLException {
 
         int idObjeto;
         ResultSet rs;
 
-        PreparedStatement ps = this.conexao.prepareStatement(sql);
+        PreparedStatement ps = this.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         idObjeto = ps.executeUpdate();
         rs = ps.getGeneratedKeys();
 
         if (rs.isBeforeFirst()) {
             rs.next();
-            idObjeto = rs.getInt(nomeColunaId);
+            idObjeto = rs.getInt(1);
         }
 
         return idObjeto;
@@ -145,13 +175,12 @@ public class Persistencia {
 
     /**Executa inserção, atualização ou exclusão no banco definido como padrão.
      * @param preparedSt Comando a ser executado no banco.
-     * @param nomeColunaId Nome da coluna que representa o identificador da tabela.
      * @return Id do objeto inserido, modificado ou atualizado
      * @throws SQLException
      */
-    public int executarAtualizacao(PreparedStatement preparedSt, String nomeColunaId)
+    public int executarAtualizacao(PreparedStatement preparedSt)
             throws SQLException {
-        return this.executarAtualizacao(preparedSt.toString(), nomeColunaId);
+        return this.executarAtualizacao(preparedSt.toString());
     }
 
     public Connection getConexao() {

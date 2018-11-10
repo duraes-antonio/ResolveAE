@@ -18,4 +18,32 @@ public enum ETipoInfoProfissional {
     public String getTipo() {
         return tipo;
     }
+
+    public int getId() {
+
+        int id = -1;
+
+        if (this == DOMINIO_TECNOLOGICO) id = 1;
+        else if (this == CURSO_TECNICO) id = 2;
+        else if (this == GRADUACAO) id = 3;
+        else if (this == POS_GRADUACAO) id = 4;
+        else if (this == TRABALHO) id = 5;
+        else if (this == OUTROS_CURSOS) id = 6;
+
+        return id;
+    }
+
+    public ETipoInfoProfissional getTipoById(int id) {
+
+        ETipoInfoProfissional tipo = null;
+
+        if (id == 1) tipo = DOMINIO_TECNOLOGICO;
+        else if (id == 2) tipo = CURSO_TECNICO;
+        else if (id == 3) tipo = GRADUACAO;
+        else if (id == 4) tipo = POS_GRADUACAO;
+        else if (id == 5) tipo = TRABALHO;
+        else if (id == 6) tipo = OUTROS_CURSOS;
+
+        return tipo;
+    }
 }

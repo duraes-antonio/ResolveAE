@@ -1,6 +1,7 @@
 package Dominio.Entidades;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -10,30 +11,30 @@ public class Contrato {
 
     private int id;
     private String descricao;
-    private Date dataCriacao;
-    private Date dataUltimaModif;
-    private Date dataInicio;
-    private Date dataFim;
+    private LocalDateTime dataUltimaModif;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
+    private int horasContratadas;
     private int fkUsuario;
 
-    Contrato(String descricao, Date dataCriacao, Date dataUltimaModif,
-             Date dataInicio, Date dataFim, int fkUsuario){
+    public Contrato(String descricao, LocalDate dataInicio, LocalDate dataFim,
+                    LocalDateTime dataUltimaModif, int horasContratadas, int fkUsuario){
         this.setDescricao(descricao);
-        this.setDataCriacao(dataCriacao);
         this.setDataUltimaModif(dataUltimaModif);
         this.setDataInicio(dataInicio);
         this.setDataFim(dataFim);
+        this.setHorasContratadas(horasContratadas);
         this.setFkUsuario(fkUsuario);
     }
 
-    Contrato(int id, String descricao, Date dataCriacao, Date dataUltimaModif,
-             Date dataInicio, Date dataFim, int fkUsuario){
+    public Contrato(int id, String descricao, LocalDate dataInicio, LocalDate dataFim,
+                    LocalDateTime dataUltimaModif, int horasContratadas, int fkUsuario){
         this.setId(id);
         this.setDescricao(descricao);
-        this.setDataCriacao(dataCriacao);
         this.setDataUltimaModif(dataUltimaModif);
         this.setDataInicio(dataInicio);
         this.setDataFim(dataFim);
+        this.setHorasContratadas(horasContratadas);
         this.setFkUsuario(fkUsuario);
     }
 
@@ -42,7 +43,7 @@ public class Contrato {
         return id;
     }
 
-    private void setId(int idContrato) {
+    public void setId(int idContrato) {
         this.id = idContrato;
     }
 
@@ -57,35 +58,27 @@ public class Contrato {
         this.descricao = descricao;
     }
 
-    public Date getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(Date dataCriacao) {
-        this.dataCriacao = dataCriacao;
-    }
-
-    public Date getDataUltimaModif() {
+    public LocalDateTime getDataUltimaModif() {
         return dataUltimaModif;
     }
 
-    public void setDataUltimaModif(Date dataUltimaModificacao) {
+    public void setDataUltimaModif(LocalDateTime dataUltimaModificacao) {
         this.dataUltimaModif = dataUltimaModificacao;
     }
 
-    public Date getDataInicio() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicioPrestacao) {
+    public void setDataInicio(LocalDate dataInicioPrestacao) {
         this.dataInicio = dataInicioPrestacao;
     }
 
-    public Date getDataFim() {
+    public LocalDate getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFimPrestacao) {
+    public void setDataFim(LocalDate dataFimPrestacao) {
         this.dataFim = dataFimPrestacao;
     }
 
@@ -93,7 +86,15 @@ public class Contrato {
         return fkUsuario;
     }
 
-    private void setFkUsuario(int fkUsuario) {
+    public void setFkUsuario(int fkUsuario) {
         this.fkUsuario = fkUsuario;
+    }
+
+    public int getHorasContratadas() {
+        return horasContratadas;
+    }
+
+    public void setHorasContratadas(int horasContratadas) {
+        this.horasContratadas = horasContratadas;
     }
 }

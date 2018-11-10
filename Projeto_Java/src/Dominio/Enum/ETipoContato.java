@@ -29,6 +29,11 @@ public enum ETipoContato {
         return nome;
     }
 
+    public int getId() {
+        int id = tiposContatos.indexOf(this);
+        return (id > -1) ? id + 1 : id;
+    }
+
     public static int getIdTipoContato(ETipoContato tipo) {
         int id = tiposContatos.indexOf(tipo);
         return (id > -1) ? id + 1 : id;

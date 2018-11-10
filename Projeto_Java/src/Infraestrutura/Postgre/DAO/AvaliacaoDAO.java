@@ -3,24 +3,32 @@ package Infraestrutura.Postgre.DAO;
 import Dominio.Entidades.Avaliacao;
 import Dominio.Entidades.Comentario;
 import Dominio.Interfaces.IAvaliacaoRepositorio;
+import Infraestrutura.Enum.ETab;
 import Infraestrutura.Postgre.Util.Persistencia;
+import Infraestrutura.Postgre.Util.SQLProdutor;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
-public class AvaliacaoDAO extends AGenericDAO<Avaliacao>
-        implements IAvaliacaoRepositorio {
+public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRepositorio {
 
+    //Nome das colunas da tabela AVALIACAO (nomes usados para montar as querys);
+    public static final String ID = ETab.AVALIACAO.get() + ".id";
+    public static final String NOTA = ETab.AVALIACAO.get() + ".nota";
+    public static final String FK_USUARIO = ETab.AVALIACAO.get() + ".fk_usuario";
+    public static final String FK_SERVICO = ETab.AVALIACAO.get() + ".fk_servico";
+
+    public static final List<String> COLUNAS = Arrays.asList(NOTA, FK_USUARIO, FK_SERVICO);
 
     private Persistencia persistencia = Persistencia.get();
     private Connection conexao = persistencia.getConexao();
-    private PreparedStatement psTodasPorUsuario = null;
-    private PreparedStatement psTodasPorServico = null;
-
-    private ComentarioDAO comentarioDAO = new ComentarioDAO();
+    private PreparedStatement psTodos = null;
+    private PreparedStatement psTodosPorUsuario = null;
+    private PreparedStatement psTodosPorServico = null;
 
     private List<Avaliacao> obterGenerico(PreparedStatement ps)
             throws SQLException {
@@ -42,32 +50,69 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao>
         return avaliacoes;
     }
 
+    /**
+     * Busca e retorna todos objetos de um determinado tipo.
+     * @param limit  Quantidade de resultados a ser retornada.
+     * @param offset Quantidade de resultados a pular.
+     * @return Lista com todos objetos encontrados.
+     * @throws SQLException
+     */
     @Override
-    public List<Avaliacao> obterTodasPorUsuario(int usuarioId)
+    public List<Avaliacao> obterTodos(Integer limit, Integer offset)
             throws SQLException {
-        psTodasPorUsuario = conexao.prepareStatement(AvaliacaoSQL.OBTER_TODOS_POR_USUARIO);
-        psTodasPorUsuario.setInt(1, usuarioId);
-        return obterGenerico(psTodasPorUsuario);
+
+        SQLProdutor sqlProd = new SQLProdutor();
+        sqlProd.select(ID, NOTA, FK_USUARIO, FK_SERVICO, ComentarioDAO.ID, ComentarioDAO.COMENTARIO);
+        sqlProd.from(ETab.AVALIACAO.get()).innerJoin(ETab.COMENTARIO.get());
+        sqlProd.on(ID, ComentarioDAO.FK_AVALIACAO).limit(limit).offset(offset);
+
+        psTodos = conexao.prepareStatement(sqlProd.toString());
+        return obterGenerico(psTodos);
     }
 
     @Override
-    public List<Avaliacao> obterTodasPorServico(int servicoId) throws SQLException {
-        psTodasPorServico = conexao.prepareStatement(AvaliacaoSQL.OBTER_TODOS_POR_SERVICO);
-        psTodasPorServico.setInt(1, servicoId);
-        return obterGenerico(psTodasPorServico);
+    public List<Avaliacao> obterTodasPorUsuario(int usuarioId, Integer limit, Integer offset)
+            throws SQLException {
+        SQLProdutor sqlProd = new SQLProdutor();
+        sqlProd.select(ID, NOTA, FK_USUARIO, FK_SERVICO, ComentarioDAO.ID, ComentarioDAO.COMENTARIO);
+        sqlProd.from(ETab.AVALIACAO.get()).innerJoin(ETab.COMENTARIO.get());
+        sqlProd.on(ID, ComentarioDAO.FK_AVALIACAO).where(FK_USUARIO).eq();
+        sqlProd.limit(limit).offset(offset);
+
+        psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
+        psTodosPorUsuario.setInt(1, usuarioId);
+        return obterGenerico(psTodosPorUsuario);
     }
+
+    @Override
+    public List<Avaliacao> obterTodasPorServico(int servicoId, Integer limit, Integer offset) throws SQLException {
+        SQLProdutor sqlProd = new SQLProdutor();
+        sqlProd.select(ID, NOTA, FK_USUARIO, FK_SERVICO, ComentarioDAO.ID, ComentarioDAO.COMENTARIO);
+        sqlProd.from(ETab.AVALIACAO.get()).innerJoin(ETab.COMENTARIO.get());
+        sqlProd.on(ID, ComentarioDAO.FK_AVALIACAO).where(FK_SERVICO).eq();
+        sqlProd.limit(limit).offset(offset);
+
+        psTodosPorServico = conexao.prepareStatement(sqlProd.toString());
+        psTodosPorServico.setInt(1, servicoId);
+        return obterGenerico(psTodosPorServico);
+    }
+
 
     /**Substitui os '?' do PS pelos valores dos atributos da objeto.
      * @param ps P. Statement com SQL já pronto com os '?' para serem substituídos.
      * @param objeto Objeto com os atributos para preencher o statement.
      * @return ps com os '?' substituídos, pronto para execução.
      */
-    @Override
     protected PreparedStatement preencherPS(PreparedStatement ps, Avaliacao objeto)
             throws SQLException {
-        ps.setInt(AvaliacaoSQL.COLUNAS.indexOf(AvaliacaoSQL.NOTA) + 1, objeto.getNota());
-        ps.setInt(AvaliacaoSQL.COLUNAS.indexOf(AvaliacaoSQL.FK_USUARIO) + 1, objeto.getFkUsuario());
-        ps.setInt(AvaliacaoSQL.COLUNAS.indexOf(AvaliacaoSQL.FK_SERVICO) + 1, objeto.getFkServico());
+
+        ps.setInt(COLUNAS.indexOf(NOTA) + 1, objeto.getNota());
+        ps.setInt(COLUNAS.indexOf(FK_USUARIO) + 1, objeto.getFkUsuario());
+        ps.setInt(COLUNAS.indexOf(FK_SERVICO) + 1, objeto.getFkServico());
+
+        //Se o objeto já tiver ID, adicione-o;
+        if (objeto.getId() > 0) ps.setInt(COLUNAS.size() + 1, objeto.getId());
+
         return null;
     }
 
@@ -79,15 +124,15 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao>
     @Override
     protected Avaliacao construir(ResultSet rs) throws SQLException {
         Comentario comentario = new Comentario(
-                rs.getInt(ComentarioSQL.ID),
-                rs.getString(ComentarioSQL.COMENTARIO),
-                rs.getInt(AvaliacaoSQL.ID));
+                rs.getInt(ComentarioDAO.ID),
+                rs.getString(ComentarioDAO.COMENTARIO),
+                rs.getInt(ID));
 
         return new Avaliacao(
-                rs.getInt(AvaliacaoSQL.ID),
-                rs.getInt(AvaliacaoSQL.NOTA),
-                rs.getInt(AvaliacaoSQL.FK_USUARIO),
-                rs.getInt(AvaliacaoSQL.FK_SERVICO),
+                rs.getInt(ID),
+                rs.getInt(NOTA),
+                rs.getInt(FK_USUARIO),
+                rs.getInt(FK_SERVICO),
                 comentario.getComentario() != null ? comentario : null);
     }
 
@@ -97,8 +142,8 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao>
      * @return String com comando SQL para adicionar um novo objeto.
      */
     @Override
-    public String obterSqlAdicionar() {
-        return AvaliacaoSQL.ADICIONAR;
+    protected String obterSqlAdicionar() {
+        return GenericSQL.adicionar(ETab.AVALIACAO, COLUNAS);
     }
 
     /**
@@ -106,8 +151,8 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao>
      * @return String com comando SQL para atualizar um objeto.
      */
     @Override
-    public String obterSqlAtualizar() {
-        return AvaliacaoSQL.ATUALIZAR;
+    protected String obterSqlAtualizar() {
+        return GenericSQL.atualizar(ETab.AVALIACAO, COLUNAS, ID);
     }
 
     /**
@@ -115,8 +160,8 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao>
      * @return String com comando SQL para deletar um objeto.
      */
     @Override
-    public String obterSqlExcluir() {
-        return AvaliacaoSQL.EXCLUIR;
+    protected String obterSqlExcluir() {
+        return GenericSQL.excluirPorId(ETab.AVALIACAO, ID);
     }
 
     /**
@@ -124,17 +169,20 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao>
      * @return String com comando SQL para buscar um objeto.
      */
     @Override
-    public String obterSqlSelecionar() {
-        return AvaliacaoSQL.OBTER_POR_ID;
-    }
+    protected String obterSqlSelecionar() {
+        SQLProdutor sqlProd = new SQLProdutor();
 
-    /**
-     * Retorna uma string com query de SELECT *, com '?' p/ ser substuído.
-     * @return String com comando SQL para buscar múltiplos itens.
-     */
-    @Override
-    public String obterSqlSelecionarTodos() {
-        return AvaliacaoSQL.OBTER_TODOS;
+        /*SELECT avaliacao.id, avaliacao.nota, avaliacao.fk_usuario,
+                 avaliacao.fk_servico, comentario.id, comentario.comentario*/
+        sqlProd.select(ID, NOTA, FK_USUARIO, FK_SERVICO, ComentarioDAO.ID, ComentarioDAO.COMENTARIO);
+
+        //FROM avaliacao INNER JOIN comentario;
+        sqlProd.from(ETab.AVALIACAO.get()).innerJoin(ETab.COMENTARIO.get());
+
+        //ON avaliacao.id = comentario.fk_avaliacao WHERE avaliacao.id = ?;
+        sqlProd.on(ID, ComentarioDAO.FK_AVALIACAO).where(ID).eq();
+
+        return sqlProd.toString();
     }
 
     /**Define o Id de um objeto.

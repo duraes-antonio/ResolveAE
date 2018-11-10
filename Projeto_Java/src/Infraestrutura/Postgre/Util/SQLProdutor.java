@@ -1,8 +1,12 @@
 package Infraestrutura.Postgre.Util;
 
+import Infraestrutura.Enum.ETab;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 /**
  * Classe que permite a criação de comandos SQL manuais.
@@ -10,6 +14,7 @@ import java.util.StringJoiner;
  */
 public class SQLProdutor {
 
+    private String nomeTabela = null;
     private ArrayList<String> strings;
     private String colunasSelect;
 
@@ -23,7 +28,7 @@ public class SQLProdutor {
         return stringJoinerTemp.toString();
     }
 
-    private String concatSequencia(String... nomeColunas) {
+    private String concatColunas(String... nomeColunas) {
         StringJoiner stringJoinerTemp = new StringJoiner(",");
         for (String nome : nomeColunas) stringJoinerTemp.add("\n\t" + nome + " AS " + "\"" + nome + "\"");
         return stringJoinerTemp.toString();
@@ -40,27 +45,28 @@ public class SQLProdutor {
     }
 
     public SQLProdutor select(List<String> nomeColunas) {
-        String nomeConcatenado = this.concatSequencia(nomeColunas);
+
         this.strings.add("SELECT");
-        this.strings.add(nomeConcatenado);
-        colunasSelect = nomeConcatenado;
+
+        StringJoiner stringJoinerTemp = new StringJoiner(",");
+
+        for (String nome : nomeColunas) {
+            stringJoinerTemp.add("\n\t" + nome + " AS " + "\"" + nome + "\"");
+        }
+
+        this.strings.add(stringJoinerTemp.toString());
+        colunasSelect = stringJoinerTemp.toString();
+
         return this;
     }
 
     public SQLProdutor select(String... nomeColunas) {
-        String nomeConcatenado = this.concatSequencia(nomeColunas);
+        String colunasConcat = this.concatColunas(nomeColunas);
         this.strings.add("SELECT");
-        this.strings.add(nomeConcatenado);
-        colunasSelect = nomeConcatenado;
+        this.strings.add(colunasConcat);
+        colunasSelect = colunasConcat;
         return this;
     }
-
-    public SQLProdutor select(String nomeColuna) {
-        this.strings.add("AS");
-        this.strings.add("\"" + nomeColuna + "\"");
-        return this;
-    }
-
 
     /**
      * @param fonte Nome da fonte de dados (tabela, view ou procedure);
@@ -72,30 +78,54 @@ public class SQLProdutor {
         return this;
     }
 
-    public SQLProdutor insert(String nomeTabela, List<String> nomeColunas) {
+    public SQLProdutor insert(ETab nomeTabela, List<String> nomeColunas) {
         this.strings.add("INSERT INTO");
-        this.strings.add(nomeTabela);
-        this.strings.add(
-                String.join("(", this.concatSequencia(nomeColunas), ")"));
+        this.strings.add(nomeTabela.get());
+        this.nomeTabela = nomeTabela.get() + ".";
+
+        this.strings.add("(");
+        StringJoiner stringJoinerTemp = new StringJoiner(",");
+
+        for (String nome : nomeColunas) {
+            stringJoinerTemp.add("\n\t" + nome.replace(this.nomeTabela, ""));
+        }
+
+        this.strings.add(stringJoinerTemp.toString());
+        this.strings.add(")");
+
         this.strings.add("VALUES");
+        this.strings.add("(" + concatQuestion(nomeColunas.size()) + ")");
         return this;
     }
 
-    public SQLProdutor update(String nomeTabela, List<String> nomeColunas) {
+    public SQLProdutor update(ETab nomeTabela) {
 
         this.strings.add("UPDATE");
-        this.strings.add(nomeTabela);
+        this.strings.add(nomeTabela.get());
+        this.nomeTabela = nomeTabela.get() + ".";
+        return this;
+    }
+
+    public SQLProdutor set(List<String> nomeColunas) {
+
         this.strings.add("SET");
 
-        StringJoiner stringJoinerTemp = new StringJoiner(", ");
-        nomeColunas.forEach(x -> stringJoinerTemp.add(x + " = ?"));
+        StringJoiner stringJoinerTemp = new StringJoiner(",");
+
+        for (String nome : nomeColunas) {
+            stringJoinerTemp.add("\n\t" + nome.replace(nomeTabela, "") + " = ?");
+        }
         this.strings.add(stringJoinerTemp.toString());
 
         return this;
     }
 
+    public SQLProdutor set(String... nomeColunas) {
+        return set(Arrays.stream(nomeColunas).collect(Collectors.toList()));
+    }
+
     public SQLProdutor delete() {
-        this.strings.add("DELETE *");
+        this.strings.add("DELETE");
         return this;
     }
 
@@ -108,14 +138,13 @@ public class SQLProdutor {
         return concatSequencia(argsParam);
     }
 
-    public SQLProdutor values(List<String> nomeColunas) {
-        this.strings.add("(" + concatQuestion(nomeColunas.size()) + ")");
-        return this;
-    }
-
     public SQLProdutor where(String nomeColuna) {
+
         this.strings.add("\nWHERE");
-        this.strings.add(nomeColuna);
+
+        if (nomeTabela == null) this.strings.add(nomeColuna);
+        else this.strings.add(nomeColuna.replace(nomeTabela, ""));
+
         return this;
     }
 
@@ -133,26 +162,44 @@ public class SQLProdutor {
         return this;
     }
 
+    /**Cláusula '=' (Igual).
+     * @return instância atual do produtor de SQL.
+     */
     public SQLProdutor eq () {
         return this.addCondicao("=");
     }
 
+    /**Cláusula '!=' (Diferente).
+     * @return instância atual do produtor de SQL.
+     */
     public SQLProdutor neq () {
         return this.addCondicao("!=");
     }
 
+    /**Cláusula '<' (Menor).
+     * @return instância atual do produtor de SQL.
+     */
     public SQLProdutor less () {
         return this.addCondicao("<");
     }
 
+    /**Cláusula '<=' (Menor ou Igual).
+     * @return instância atual do produtor de SQL.
+     */
     public SQLProdutor leq () {
         return this.addCondicao("<=");
     }
 
+    /**Cláusula '>' (Maior).
+     * @return instância atual do produtor de SQL.
+     */
     public SQLProdutor grt () {
         return this.addCondicao("<");
     }
 
+    /**Cláusula '>=' (Maior ou Igual).
+     * @return instância atual do produtor de SQL.
+     */
     public SQLProdutor grteq () {
         return this.addCondicao("<=");
     }
@@ -207,22 +254,47 @@ public class SQLProdutor {
         return this;
     }
 
-    public SQLProdutor limit() {
-        this.strings.add("LIMIT ?");
+    public SQLProdutor limit(Integer valor) {
+
+        if (valor != null && valor > 0) {
+            this.strings.add("LIMIT");
+            this.strings.add(String.valueOf(valor));
+        }
         return this;
     }
 
-    public SQLProdutor offset() {
-        this.strings.add("OFFSET ?");
+    public SQLProdutor offset(Integer valor) {
+
+        if (valor != null && valor > 0) {
+            this.strings.add("OFFSET");
+            this.strings.add(String.valueOf(valor));
+        }
         return this;
     }
 
-    public SQLProdutor orderBy(int qtdParam) {
+    public SQLProdutor orderBy(int... ordemColunas) {
         this.strings.add("ORDER BY");
-        this.strings.add(concatQuestion(qtdParam));
+
+        StringJoiner stringJoinerTemp = new StringJoiner(",");
+
+        for (int ordem : ordemColunas) {
+            stringJoinerTemp.add(String.valueOf(ordem));
+        }
+
+        this.strings.add(stringJoinerTemp.toString());
+
         return this;
     }
 
+    public SQLProdutor desc() {
+        this.strings.add("DESC");
+        return this;
+    }
+
+    public SQLProdutor asc() {
+        this.strings.add("ASC");
+        return this;
+    }
     public SQLProdutor groupBy() {
         this.strings.add("\nGROUP BY");
         this.strings.add(this.colunasSelect);
@@ -249,11 +321,5 @@ public class SQLProdutor {
         String sql = String.join(" ", this.strings);
         this.strings.clear();
         return sql.replace(" \n", "\n") + ";";
-    }
-
-    public String pop() {
-        String sql = String.join(" ", this.strings);
-        this.strings.clear();
-        return sql;
     }
 }

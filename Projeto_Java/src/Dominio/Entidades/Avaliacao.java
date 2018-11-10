@@ -88,7 +88,7 @@ public class Avaliacao {
     @Override
     public String toString() {
         return String.format(
-                "ID:\t\t\t\t%d;\nNota:\t\t'%s';\nFK_usuario:\t%d;\nFK_servico:\t%d;" +
+                "ID:\t\t\t%d;\nNota:\t\t'%s';\nFK_usuario:\t%d;\nFK_servico:\t%d;" +
                         "\n\n---COMENTÁRIO---\n",
                 this.getId(), this.getNota(), this.getFkUsuario(), getFkServico()) + (comentario != null ? comentario.toString() : "~NÃO HÁ COMENTÁRIO!");
     }

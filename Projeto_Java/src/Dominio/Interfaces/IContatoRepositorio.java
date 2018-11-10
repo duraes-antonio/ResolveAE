@@ -6,9 +6,9 @@ import Dominio.Enum.ETipoContato;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IContatoRepositorio extends IRepositorioBase<Contato> {
+public interface IContatoRepositorio extends IBaseRepositorio<Contato> {
 
-    List<Contato> obterTodosPorTipo(ETipoContato tipo) throws SQLException;
-    List<Contato> obterTodosPorUsuario(int usuarioId) throws SQLException;
-    List<Contato> obterTodosPorTipoEUsuario(ETipoContato tipo, int usuarioId);
+    List<Contato> obterTodosPorTipo(ETipoContato tipo, Integer limit, Integer offset) throws SQLException;
+    List<Contato> obterTodosPorUsuario(int usuarioId, Integer limit, Integer offset) throws SQLException;
+    List<Contato> obterTodosPorTipoEUsuario(ETipoContato tipo, int usuarioId, Integer limit, Integer offset) throws SQLException;
 }
