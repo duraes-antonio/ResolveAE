@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="C:/Users/elmr/Documents/PINGENDO/aquamarine.css">
+  <link rel="stylesheet" href="../../../Documentacao/VIEW%20STYLE/aquamarine.css">
 </head>
 
 <body>
@@ -49,19 +49,16 @@
     </div>
   </nav>
   <!--FIM NAVBAR-->
-  <div class="text-center text-white w-100 h-100" >
-    <div class="container-fluid w-100 h-100">
-      <div class="row">
-        <div class="col-md-7">
-          <h1 class="text-dark">Cadastro de Prestação de Serviço</h1>
-          <p class="mb-4 lead text-dark">Disponibilize algum serviço, alguem pode esta precisando da sua ajuda</p>
-          <form>
-            <div class="form-group">
-              <input type="text" class="form-control" id="form25" placeholder="Titulo">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" id="form26" rows="3" placeholder="Descrição"></textarea>
-            </div>
+  <div class="container" align="Center" style="margin-top:3%">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-dark">Cadastro de Prestação de Serviço</h1>
+        <p class="mb-4 lead text-dark">Disponibilize algum serviço, alguem pode esta precisando da sua ajuda</p>
+        <form>
+          <!-- #region INFORMACOES BASICAS-->
+          <div class="form-group">
+            <input type="text" class="form-control" id="form25" placeholder="Titulo">
+            <textarea class="form-control" id="form26" rows="3" placeholder="Descrição"></textarea>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" class="form-control" id="form22" placeholder="Valor Hora">
@@ -70,17 +67,12 @@
                 <input type="email" class="form-control" id="form23" placeholder="Area">
               </div>
             </div>
-          </form>
-          <div class="row">
-            <div class="col-md-6">
-              <form class="">
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Subarea">
-                </div>
-                <button type="submit" class="btn btn-primary mt-1">Adicionar</button>
-              </form>
-            </div>
-            <div class="col-md-6">
+          </div>
+          <!-- #endregion INFORMACOES BASICAS-->
+
+          <!-- #region SUBAREA-->
+          <div class="row" style="margin-top:3%" style="display: block">
+            <div class="col-md-5">
               <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
                   <p class="mb-1">INFO</p>
@@ -88,14 +80,26 @@
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                   <p class="mb-1">INFO</p>
                 </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <p class="mb-1">INFO</p>
+                </a>
               </div>
             </div>
+            <div class="col-md-5">
+              <form class="">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Subarea">
+                </div>
+                <button type="submit" class="btn btn-primary mt-1">Adicionar</button>
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5">
-          <div class="row">
-            <div class="col-md-12">
-              <h1 class="">Horarios Disponiveis</h1>
+          <!-- #endregion SUBAREA -->
+
+          <!-- #region  HORARIO-->
+          <div class="row" style="margin-top:3%">
+            <div class="col-md-12 text-dark">
+              <p>Horarios Disponiveis</p>
             </div>
           </div>
           <div class="row">
@@ -114,20 +118,21 @@
               <form class="">
                 <div class="form-group">
                   <label class="text-dark">Data e Hora do inicio da disponibilidade</label>
-                  <input type="email" class="form-control" placeholder="Enter email">
+                  <input type="datetime" class="form-control" placeholder="data inicio">
                 </div>
                 <div class="form-group">
                   <label class="text-dark">Data e Hora do fim da disponibilidade</label>
-                  <input type="password" class="form-control" placeholder="Password">
+                  <input type="datetime" class="form-control" placeholder="data fim">
                 </div>
                 <button type="submit" class="btn btn-primary mt-1" style="">Adicionar</button>
               </form>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 mt-2"><button type="submit" class="btn btn-primary">Cadastrar</button></div>
+          <!-- #endregion HORARIO -->
+
+          <button style="margin-top: 5%" type="submit" class="btn btn-primary">Cadastrar</button>
+
+        </form>
       </div>
     </div>
   </div>
