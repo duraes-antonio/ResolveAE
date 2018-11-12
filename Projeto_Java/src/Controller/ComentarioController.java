@@ -4,10 +4,11 @@ import AplicationService.ComentarioApl;
 import Controller.Interfaces.IController;
 import Dominio.Entidades.Comentario;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+import org.json.JSONObject;
 
 import java.util.List;
 
-public class ComentarioController implements IController {
+public class ComentarioController implements IController<Comentario> {
     private ComentarioApl aplication = null;
     private int skip = 10;
     private int offsetServicos = 0;
@@ -22,7 +23,7 @@ public class ComentarioController implements IController {
     public Comentario searchById(int id){
         if (id>0){
             Comentario comentarioSearch = null;
-            comentarioSearch = (Comentario) this.aplication.getById(id);
+            comentarioSearch =  this.aplication.getById(id);
             return comentarioSearch;
         }
         else{
@@ -35,6 +36,16 @@ public class ComentarioController implements IController {
         List<Comentario> comentariosSearch = null;
         comentariosSearch = this.aplication.getAll(this.skip,offsetAll);
         return comentariosSearch;
+    }
+
+    @Override
+    public JSONObject toJson(Comentario data) {
+        return this.aplication.parseDataToJSON(data);
+    }
+
+    @Override
+    public List<JSONObject> toJsonList(List<Comentario> listData) {
+        return this.aplication.parseListToJSONList(listData);
     }
 
     public List<Comentario> searchByIdServico(int idServico){

@@ -5,10 +5,11 @@ import Controller.Interfaces.IController;
 import Dominio.Entidades.Contato;
 import Dominio.Enum.ETipoContato;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+import org.json.JSONObject;
 
 import java.util.List;
 
-public class ContatoController implements IController {
+public class ContatoController implements IController<Contato> {
     //ATRIBUTOS
     private ContatoApl aplication = null;
     private int limit = 10;
@@ -27,7 +28,7 @@ public class ContatoController implements IController {
     public Contato searchById(int id){
         if (id>0){
             Contato resultSearch = null;
-            resultSearch = (Contato)this.aplication.getById(id);
+            resultSearch = this.aplication.getById(id);
             return resultSearch;
         }
         else{
@@ -40,6 +41,16 @@ public class ContatoController implements IController {
         List<Contato> resultSearch = null;
         resultSearch = this.aplication.getAll(this.limit,this.offsetAll);
         return  resultSearch;
+    }
+
+    @Override
+    public JSONObject toJson(Contato data) {
+        return this.aplication.parseDataToJSON(data);
+    }
+
+    @Override
+    public List<JSONObject> toJsonList(List<Contato> listData) {
+        return this.aplication.parseListToJSONList(listData);
     }
 
     public List<Contato> searchByType(ETipoContato type){

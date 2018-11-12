@@ -5,11 +5,12 @@ import Controller.Interfaces.IController;
 import Dominio.Entidades.InfoProfissional;
 import Dominio.Enum.ETipoInfoProfissional;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class InfoProfissionalController implements IController {
+public class InfoProfissionalController implements IController<InfoProfissional> {
     //ATRIBUTOS
     private InfoProfissionalApl aplication = null;
     private int limit = 10;
@@ -22,7 +23,7 @@ public class InfoProfissionalController implements IController {
     @Override
     public InfoProfissional searchById(int id) {
         if (id>0){
-            InfoProfissional resultSearch = (InfoProfissional) this.aplication.getById(id);
+            InfoProfissional resultSearch =  this.aplication.getById(id);
             return resultSearch;
         }
         else{
@@ -34,6 +35,16 @@ public class InfoProfissionalController implements IController {
     public List<InfoProfissional> searchAll() {
         List<InfoProfissional> resultSearch = this.aplication.getAll(this.limit,this.offsetAll);
         return resultSearch;
+    }
+
+    @Override
+    public JSONObject toJson(InfoProfissional data) {
+        return this.aplication.parseDataToJSON(data);
+    }
+
+    @Override
+    public List<JSONObject> toJsonList(List<InfoProfissional> listData) {
+        return this.aplication.parseListToJSONList(listData);
     }
 
     public List<InfoProfissional>  searchByType(ETipoInfoProfissional type){

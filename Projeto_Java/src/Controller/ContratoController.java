@@ -4,13 +4,14 @@ import AplicationService.ContratoApl;
 import Controller.Interfaces.IController;
 import Dominio.Entidades.Contrato;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+import org.json.JSONObject;
 
 import java.security.InvalidParameterException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class ContratoController implements IController {
+public class ContratoController implements IController<Contrato> {
     //ATRIBUTOS
     private ContratoApl aplication = null;
     private int limit = 10;
@@ -29,7 +30,7 @@ public class ContratoController implements IController {
     public Contrato searchById(int id) {
         if(id>0){
             Contrato resultSearch = null;
-            resultSearch = (Contrato) this.aplication.getById(id);
+            resultSearch =  this.aplication.getById(id);
             return resultSearch;
         }
         else{
@@ -42,6 +43,16 @@ public class ContratoController implements IController {
         List<Contrato> resultSearch = null;
         resultSearch = this.aplication.getAll(this.limit,this.offsetAll);
         return resultSearch;
+    }
+
+    @Override
+    public JSONObject toJson(Contrato data) {
+        return this.aplication.parseDataToJSON(data);
+    }
+
+    @Override
+    public List<JSONObject> toJsonList(List<Contrato> listData) {
+        return this.aplication.parseListToJSONList(listData);
     }
 
     public List<Contrato> searchByUserId(int idUser){

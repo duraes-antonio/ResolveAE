@@ -4,11 +4,12 @@ import AplicationService.AvaliacaoApl;
 import Controller.Interfaces.IController;
 import Dominio.Entidades.Avaliacao;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+import org.json.JSONObject;
 
 
 import java.util.List;
 
-public class AvaliacaoController implements IController {
+public class AvaliacaoController implements IController<Avaliacao> {
     //ATRIBUTOS
     private AvaliacaoApl aplication = null;
     private int skip = 10;
@@ -26,7 +27,7 @@ public class AvaliacaoController implements IController {
     public Avaliacao searchById(int id) {
         if(id>0) {
             Avaliacao resultSearch = null;
-            resultSearch = (Avaliacao)this.aplication.getById(id);
+            resultSearch = this.aplication.getById(id);
             return resultSearch;
         }
         else{
@@ -39,6 +40,16 @@ public class AvaliacaoController implements IController {
         List<Avaliacao> resultSearch = null;
         resultSearch = this.aplication.getAll(this.skip,this.offsetAll);
         return resultSearch;
+    }
+
+    @Override
+    public JSONObject toJson(Avaliacao data) {
+        return this.aplication.parseDataToJSON(data);
+    }
+
+    @Override
+    public List<JSONObject> toJsonList(List<Avaliacao> listData) {
+        return this.aplication.parseListToJSONList(listData);
     }
 
     public List<Avaliacao> searchByServico(int idServico){

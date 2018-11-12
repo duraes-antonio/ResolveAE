@@ -5,10 +5,11 @@ import Controller.Interfaces.IController;
 import Dominio.Entidades.Endereco;
 import Dominio.Enum.EEstado;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+import org.json.JSONObject;
 
 import java.util.List;
 
-public class EnderecoController implements IController {
+public class EnderecoController implements IController<Endereco> {
     //ATRIBUTOS
     private EnderecoApl aplication = null;
     private int limit = 10;
@@ -27,7 +28,7 @@ public class EnderecoController implements IController {
     @Override
     public Endereco searchById(int id) {
         if(id > 0){
-            Endereco resultSearch = (Endereco) this.aplication.getById(id);
+            Endereco resultSearch =  this.aplication.getById(id);
             return resultSearch;
         }
         else{
@@ -39,6 +40,16 @@ public class EnderecoController implements IController {
     public List<Endereco> searchAll() {
         List<Endereco> resultSearch = this.aplication.getAll(this.limit,this.offsetAll);
         return resultSearch;
+    }
+
+    @Override
+    public JSONObject toJson(Endereco data) {
+        return this.aplication.parseDataToJSON(data);
+    }
+
+    @Override
+    public List<JSONObject> toJsonList(List<Endereco> listData) {
+        return this.aplication.parseListToJSONList(listData);
     }
 
     public List<Endereco> searchByBairro (String bairro){

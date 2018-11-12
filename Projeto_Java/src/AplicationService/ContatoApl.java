@@ -3,10 +3,12 @@ package AplicationService;
 import Dominio.Entidades.Contato;
 import Dominio.Enum.ETipoContato;
 import Infraestrutura.Postgre.DAO.ContatoDAO;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ContatoApl extends GenericApl {
+public class ContatoApl extends GenericApl<Contato> {
     //CONSTRUTORES
     public ContatoApl(){
         this.setDataDAO(new ContatoDAO());
@@ -53,5 +55,24 @@ public class ContatoApl extends GenericApl {
         finally {
             return resultSearch;
         }
+    }
+
+    @Override
+    public JSONObject parseDataToJSON(Contato data) {
+        JSONObject jsonOutput = new JSONObject();
+        jsonOutput.put("ID",data.getId());
+        jsonOutput.put("FkUsuario",data.getFkUsuario());
+        jsonOutput.put("TipoContato",data.getTipo().getNome());
+        jsonOutput.put("Descricao",data.getDescricao());
+        return jsonOutput;
+    }
+
+    @Override
+    public List<JSONObject> parseListToJSONList(List<Contato> dataList) {
+        List<JSONObject> listJSONOutput = new ArrayList<>();
+        for (Contato contato : dataList){
+            listJSONOutput.add(this.parseDataToJSON(contato));
+        }
+        return listJSONOutput;
     }
 }

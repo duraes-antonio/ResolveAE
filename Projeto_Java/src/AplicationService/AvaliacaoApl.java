@@ -2,10 +2,12 @@ package AplicationService;
 
 import Dominio.Entidades.Avaliacao;
 import Infraestrutura.Postgre.DAO.AvaliacaoDAO;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class AvaliacaoApl extends  GenericApl{
+public class AvaliacaoApl extends  GenericApl<Avaliacao>{
 
     //CONSTRUTORES
     public AvaliacaoApl(){
@@ -41,4 +43,27 @@ public class AvaliacaoApl extends  GenericApl{
         }
     }
 
+    @Override
+    public JSONObject parseDataToJSON(Avaliacao data) {
+        JSONObject jsonOutput = new JSONObject();
+        jsonOutput.put("ID",data.getId());
+        jsonOutput.put("FkServico",data.getFkServico());
+        jsonOutput.put("FkUsuario",data.getFkUsuario());
+        jsonOutput.put("Nota",data.getNota());
+
+        if (data.getComentario() != null){
+            jsonOutput.put("IdComentario",data.getComentario().getId());
+            jsonOutput.put("Comentario",data.getComentario().getComentario());
+        }
+        return jsonOutput;
+    }
+
+    @Override
+    public List<JSONObject> parseListToJSONList(List<Avaliacao> dataList) {
+        List<JSONObject> lisJSONOutput = new ArrayList<>();
+        for (Avaliacao avaliacao:dataList){
+            lisJSONOutput.add(this.parseDataToJSON(avaliacao));
+        }
+        return lisJSONOutput;
+    }
 }
