@@ -1,17 +1,18 @@
 package Controller;
 
-import AplicationService.UsuarioApl;
+import Controller.Interfaces.IController;
 
-public class UsuarioController {
-    private UsuarioApl aplication = null;
-    public UsuarioController(){
-        this.aplication = new UsuarioApl();
+import java.util.List;
+
+public class UsuarioController implements IController {
+
+    @Override
+    public Object searchById(int id) {
+        return null;
     }
-//    public Usuario login(String email, String senha) throws AuthenticationException {
-//        Usuario usuarioSessao = this.aplication.processLogin(email,senha);
-//        if (usuarioSessao == null){
-//            throw new AuthenticationException("Email e/ou senha incorretos");
-//        }
-//        return usuarioSessao;
-//    }
+
+    @Override
+    public List searchAll() {
+        return null;
+    }
 }

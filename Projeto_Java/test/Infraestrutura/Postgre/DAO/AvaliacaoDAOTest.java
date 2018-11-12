@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class AvaliacaoDAOTest {
 
