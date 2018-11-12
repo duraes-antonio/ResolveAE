@@ -1,5 +1,7 @@
 package Dominio.Enum;
 
+import java.util.HashMap;
+
 public enum ESubtipoServico {
 	MANUTENCAO_PREVENTIVA_E_CORRETIVA("Manutenção Preventiva e Corretiva"),
     CONFIGURACAO_E_GERENCIAMENTO_SOFTWARE("Configuração e Gerencimento de Software"),
@@ -33,6 +35,8 @@ public enum ESubtipoServico {
     ANALISE_DE_PROCESSOS("Análise de Processos");
 
     private String subtipo;
+    private static HashMap<Integer, ESubtipoServico> hashEnumId;
+
 
     private ESubtipoServico(String subtipo) {
         this.subtipo = subtipo;
@@ -40,5 +44,33 @@ public enum ESubtipoServico {
 
     public String getSubtipo() {
         return subtipo;
+    }
+
+    public int getId() {
+        return this.ordinal() + 1;
+    }
+
+    public static ESubtipoServico getById(int id) {
+
+        ESubtipoServico subtipoServico = null;
+
+        if (hashEnumId == null) {
+            initializeMapping();
+        }
+
+        if (hashEnumId.containsKey(id)) {
+            subtipoServico = hashEnumId.get(id);
+        }
+
+        return subtipoServico;
+    }
+
+    private static void initializeMapping() {
+
+        hashEnumId = new HashMap<>();
+
+        for (ESubtipoServico enumSubtipo : ESubtipoServico.values()) {
+            hashEnumId.put(enumSubtipo.ordinal() + 1, enumSubtipo);
+        }
     }
 }

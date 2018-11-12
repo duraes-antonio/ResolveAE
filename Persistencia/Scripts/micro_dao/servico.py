@@ -5,18 +5,18 @@ class Servico(ObjetoModelo):
     _id: int
     _valor: float
     _titulo: str
+    _descricao: str
     _fk_usuario: int
     _fk_tipo_servico: int
-    _fk_subtipo_servico: int
     _fk_contrato: int
 
-    def __init__(self, valor: float, titulo: str, fk_usuario: int,
-                 fk_tipo_servico: int, fk_subtipo_servico: int, fk_contrato: int):
+    def __init__(self, valor: float, titulo: str, descricao: str, fk_usuario: int,
+                 fk_tipo_servico: int, fk_contrato: int):
         self.set_valor(valor)
         self.set_titulo(titulo)
+        self.set_descricao(descricao)
         self.set_fk_usuario(fk_usuario)
         self.set_fk_tipo_servico(fk_tipo_servico)
-        self.set_fk_subtipo_servico(fk_subtipo_servico)
         self.set_fk_contrato(fk_contrato)
 
     def get_id(self) -> int:
@@ -40,6 +40,13 @@ class Servico(ObjetoModelo):
         self._titulo = titulo
         return self
 
+    def get_descricao(self) -> str:
+        return self._descricao
+
+    def set_descricao(self, descricao: str):
+        self._descricao = descricao
+        return self
+
     def set_fk_usuario(self, fk_usuario: int):
         self._fk_usuario = fk_usuario
         return self
@@ -53,13 +60,6 @@ class Servico(ObjetoModelo):
 
     def get_fk_tipo_servico(self) -> int:
         return self._fk_tipo_servico
-
-    def set_fk_subtipo_servico(self, fk_subtipo_servico: int):
-        self._fk_subtipo_servico= fk_subtipo_servico
-        return self
-
-    def get_fk_subtipo_servico(self) -> int:
-        return self._fk_subtipo_servico
 
     def set_fk_contrato(self, fk_contrato: int):
         self._fk_contrato = fk_contrato

@@ -1,19 +1,18 @@
-///*
-// * To change this license header, choose License Headers in Project Properties.
-// * To change this template file, choose Tools | Templates
-// * and open the template in the editor.
-// */
-//package Infraestrutura.Postgre.DAO;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-///**
-// *
-// * @author elmr
-// */
-//public class SubtipoServicoDAO implements ISubtipoServicoDAO{
-//
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Infraestrutura.Postgre.DAO;
+
+import Infraestrutura.Enum.ETab;
+
+/**
+ *
+ * @author elmr
+ */
+public class SubtipoServicoDAO {
+
 //    @Override
 //    public List<SubTipo> getSubtiposByTipo(int tipo) {
 //        String query = "SELECT * FROM Subtipo_Servico "
@@ -41,5 +40,8 @@
 //        //EXECUCAO DA QUERY
 //        //FECHAMENTO DA CONEXAO
 //    }
-//
-//}
+    public static final String ID = ETab.SUBTIPO_SERVICO.get() + ".id";
+    public static final String NOME = ETab.SUBTIPO_SERVICO.get() + ".nome";
+    public static final String FK_TIPO_SERVICO = ETab.SUBTIPO_SERVICO.get() + ".fk_tipo_sevico";
+
+}

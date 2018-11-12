@@ -272,6 +272,18 @@ public class SQLProdutor {
         return this;
     }
 
+    public SQLProdutor orderBy(String... ordemColunas) {
+        this.strings.add("ORDER BY");
+
+        StringJoiner stringJoinerTemp = new StringJoiner(",");
+
+        Arrays.stream(ordemColunas).forEach(stringJoinerTemp::add);
+
+        this.strings.add(stringJoinerTemp.toString());
+
+        return this;
+    }
+
     public SQLProdutor orderBy(int... ordemColunas) {
         this.strings.add("ORDER BY");
 

@@ -1,55 +1,67 @@
 # encoding: utf-8
-from random import uniform, choice
+from random import uniform, choice, randint
 from typing import List
 
 from micro_dao.contrato_tabela import TabelaContrato
+from micro_dao.fabrica_servicos import FabricaServico
 from micro_dao.servico import Servico
 from micro_dao.subtipo_servico import SubtipoServico
 from micro_dao.subtipo_servico_tabela import TabelaSubtipoServico
 from micro_dao.tabela_model import Tabela
+from micro_dao.tipo_servico import TipoServico
 from micro_dao.tipo_servico_tabela import TabelaTipoServico
 from micro_dao.usuario_tabela import TabelaUsuario
 
 
 class TabelaServico(Tabela):
-    _subtipos: dict
-    _valor_min = 300.00
-    _valor_max = 1500.00
 
     def __init__(self, tab_contrato: TabelaContrato, tab_tipo_serv: TabelaTipoServico,
-                 tab_subt_serv: TabelaSubtipoServico, tab_usu: TabelaUsuario,
+                 tab_usu: TabelaUsuario,
                  preencher: bool = False):
         super().__init__("servico", Servico.get_id)
-        self._subtipos = {}
         self.add_ID(Servico.get_id)
-        self.add_FLOAT(Servico.get_valor, "valor")
         self.add_VARCHAR(Servico.get_titulo, "titulo", 150)
+        self.add_VARCHAR(Servico.get_titulo, "descricao", 1500)
+        self.add_FLOAT(Servico.get_valor, "valor")
         self.add_FK(Servico.get_fk_contrato, "fk_contrato", tab_contrato)
-        self.add_FK(Servico.get_fk_subtipo_servico, "fk_subtipo_servico", tab_subt_serv)
         self.add_FK(Servico.get_fk_tipo_servico, "fk_tipo_servico", tab_tipo_serv)
         self.add_FK(Servico.get_fk_usuario, "fk_usuario", tab_usu)
+
         self.__inserted__ = False
-        if preencher: self.__preencher__(tab_contrato, tab_usu, tab_subt_serv)
+
+        if preencher:
+            self.__preencher__(tab_contrato, tab_usu, tab_tipo_serv)
+
 
     def __preencher__(self, tab_contrato: TabelaContrato, tab_usu: TabelaUsuario,
-                      tab_subt_serv: TabelaSubtipoServico):
+                      tab_tipo_serv: TabelaTipoServico):
+
+        tipos: List[TipoServico] = tab_tipo_serv.get_all()
+        fabrica: FabricaServico = FabricaServico()
 
         for i, contrato in enumerate(tab_contrato.get_all()):
 
             if tab_usu.get_by_indice(i).prestador:
-                subt_serv: SubtipoServico = choice(tab_subt_serv.get_all())
-                self.insert(
-                    Servico(
-                        uniform(self._valor_min, self._valor_max),
-                        "Imagine um título da hora.",
-                        contrato.get_fk_usuario(),
-                        subt_serv.get_fk_tipo_servico(),
-                        subt_serv.get_id(),
-                        contrato.get_id()
-                    )
-                )
+
+                ind_tipo_serv = randint(1, 5)
+
+                if (ind_tipo_serv == 1):
+                    self.insert(fabrica.get_serv_analise(contrato.get_id(), contrato.get_fk_usuario()))
+
+                elif (ind_tipo_serv == 2):
+                    self.insert(fabrica.get_serv_banco_dados(contrato.get_id(), contrato.get_fk_usuario()))
+
+                elif (ind_tipo_serv == 3):
+                    self.insert(fabrica.get_serv_desenvolvimento(contrato.get_id(), contrato.get_fk_usuario()))
+
+                elif (ind_tipo_serv == 4):
+                    self.insert(fabrica.get_serv_design(contrato.get_id(), contrato.get_fk_usuario()))
+
+                elif (ind_tipo_serv == 5):
+                    self.insert(fabrica.get_serv_redes(contrato.get_id(), contrato.get_fk_usuario()))
 
         self.__inserted__ = True
+
         return self
 
     def get_all(self) -> List[Servico]:

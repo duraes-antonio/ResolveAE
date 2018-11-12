@@ -22,22 +22,22 @@ from micro_dao.tipo_servico_tabela import TabelaTipoServico
 from micro_dao.usuario_tabela import TabelaUsuario
 from util_bd import UtilBD
 
-class Database():
 
+class Database():
 	_conexao: UtilBD = None
 	_qtd_user: int
 
 	__dic_tabs = {
-		1: None, 2: None, 3: None,
-		4: None, 5: None, 6: None,
-		7: None, 8: None, 9: None,
-		10: None,11: None, 12: None,
-		13: None, 14: None, 15: None,
-		16: None, 17: None, 18: None
+		1: Tabela, 2: Tabela, 3: Tabela,
+		4: Tabela, 5: Tabela, 6: Tabela,
+		7: Tabela, 8: Tabela, 9: Tabela,
+		10: Tabela, 11: Tabela, 12: Tabela,
+		13: Tabela, 14: Tabela, 15: Tabela,
+		16: Tabela, 17: Tabela, 18: Tabela
 	}
 
 	def __init__(self, usuario: str = "postgres", senha: str = "postgres",
-				 porta: int = 5432, qtd_user: int = 50, database: str = "postgres"):
+	             porta: int = 5432, qtd_user: int = 50, database: str = "postgres"):
 		self._conexao = UtilBD(usuario, senha, porta, database)
 		self._qtd_user = qtd_user
 
@@ -71,8 +71,7 @@ class Database():
 		self.__dic_tabs[12] = TabelaSubtipoServico(self.__dic_tabs[11],
 		                                           preencher=preencher)
 		self.__dic_tabs[13] = TabelaServico(self.__dic_tabs[10], self.__dic_tabs[11],
-		                                    self.__dic_tabs[12], self.__dic_tabs[1],
-		                                    preencher=preencher)
+		                                    self.__dic_tabs[1], preencher=preencher)
 		self.__dic_tabs[14] = TabelaServicoSubtipoServico(
 			self.__dic_tabs[13], self.__dic_tabs[12], preencher=preencher)
 		self.__dic_tabs[15] = TabelaAvaliacao(self.__dic_tabs[13], self.__dic_tabs[1],
@@ -88,18 +87,25 @@ class Database():
 			self.create_all()
 			self.insert_all()
 
-	def to_arq_all_sql(self, caminho: str = None, ign_pk: bool = True):
+	def to_arq_all_sql(self, arq_unico = False, caminho: str=None, ign_pk = True):
 
 		for chave in self.__dic_tabs:
 
 			try:
-				if caminho:
+
+				if caminho and not arq_unico:
 					caminho = caminho if caminho[-1] == sep else caminho + sep
+
 					self.__dic_tabs[chave].gerar_arq_SQL(
+						False,
 						caminho + self.__dic_tabs[chave].get_nome() + ".sql",
 						ignorar_pk=ign_pk)
 
-				else: self.__dic_tabs[chave].gerar_arq_SQL(ignorar_pk=ign_pk)
+				elif caminho and arq_unico:
+					self.__dic_tabs[chave].gerar_arq_SQL(True, caminho, ignorar_pk=ign_pk)
+
+				else:
+					self.__dic_tabs[chave].gerar_arq_SQL(ignorar_pk=ign_pk)
 
 			except ValueError:
 				pass
@@ -108,7 +114,6 @@ class Database():
 		"""Gera o modelo físico contendo o create de todas tabelas."""
 
 		def gerar_arq(conteudo: str, caminho_nome: str):
-
 			with open(caminho_nome, 'w') as arq:
 				arq.write(conteudo)
 
