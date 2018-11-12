@@ -1,16 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-import org.json.JSONObject;
-import Controller.ComentarioController;
 import Controller.ControllerFactory;
 import Controller.Interfaces.IController;
-import Dominio.Entidades.Comentario;
-import Infraestrutura.Postgre.DAO.ComentarioDAO;
-import Infraestrutura.Postgre.Util.Persistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -26,7 +15,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ResolveaeApi extends HttpServlet {
 
+    //ATRIBUTO
+    private IController controller = null;
     private String model = null;
+    
+    //METODODS
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -34,25 +27,15 @@ public class ResolveaeApi extends HttpServlet {
         PrintWriter out = response.getWriter();
         try{
             requestHandler(request);
-            /* TODO output your page here. You may use following sample code. */
-            if(request.getMethod().equalsIgnoreCase("GET")){
-                IController controler = ControllerFactory.createController("comentario");
-                List<Comentario> tt2 = controler.searchAll();
-                JSONObject objJson = new JSONObject();
-                for (Comentario inset: tt2){
-                    
-                    objJson.put("ID",inset.getId());
-                    objJson.put("Comentario",inset.getComentario());
-                    objJson.put("FK_Avaliacao",inset.getFkAvalicao());
-                    out.println(objJson.toString());
-                    out.println("<br>");
-                }
-                
-                
+            
+            if(request.getMethod().equalsIgnoreCase("GET")){                
+                out.println("METODO GET");
             }
+            
             else if (request.getMethod().equalsIgnoreCase("POST")){
                 out.println("METODO POST");
             }
+            
             else{
                 out.print("NAO EH POST E NEM GET");
             }
@@ -67,7 +50,8 @@ public class ResolveaeApi extends HttpServlet {
     //VAI GERAR O CONTROLLER COM BASE NA REQUISICAO
     private void requestHandler(HttpServletRequest request){
         String path = request.getRequestURI().substring(request.getContextPath().length());
-        System.out.println(path.replace("/", ""));
+        this.model = (path.replace("/", ""));
+        this.controller = ControllerFactory.createController(this.model);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
