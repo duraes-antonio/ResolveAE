@@ -8,6 +8,7 @@ import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 
 public class EnderecoController implements IController<Endereco> {
     //ATRIBUTOS
@@ -22,6 +23,84 @@ public class EnderecoController implements IController<Endereco> {
     //CONSTRUTORES
     public EnderecoController(){
         this.aplication = new EnderecoApl();
+    }
+
+    @Override
+    public String executeMethodGet(Map<String, String[]> parameters) throws Exception {
+        String jsonString = "";
+        String methodName = parameters.get("method")[0];
+
+        if(methodName.equalsIgnoreCase("searchById")){
+            int idEndereco = 0;
+            try{
+                idEndereco = Integer.parseInt(parameters.get("ID")[0]);
+            }
+            catch(Exception erro){
+                throw new ValueException("O endereco informado nao eh valido.");
+            }
+            Endereco resultSearch = this.searchById(idEndereco);
+            jsonString = this.toJson(resultSearch).toString();
+        }
+
+        else if(methodName.equalsIgnoreCase("searchAll")){
+            List<Endereco> resultSearch = this.searchAll();
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByBairro")){
+            String bairro = parameters.get("Bairro")[0];
+            List<Endereco> resultSearch = this.searchByBairro(bairro);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByCidade")){
+            String cidade = parameters.get("Cidade")[0];
+            List<Endereco> resultSearch = this.searchByCidade(cidade);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if (methodName.equalsIgnoreCase("searchByEstado")){
+            EEstado estado = EEstado.valueOf(parameters.get("Estado")[0]);
+            List<Endereco> resultSearch = this.searchByEstado(estado);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByCep")){
+            int cep = 0;
+            try{
+                cep = Integer.parseInt(parameters.get("Cep")[0]);
+            }
+            catch (Exception erro){
+                throw new ValueException("O CEP informado nao eh valido.");
+            }
+            List<Endereco> resultSearch = this.searchByCep(cep);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
+
+        return jsonString;
+    }
+
+    @Override
+    public void executeMethodPost(Map<String, String[]> parameters) {
+
     }
 
     //METODOS

@@ -5,8 +5,19 @@ import Dominio.Entidades.Horario;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 
 public class HorarioController implements IController<Horario> {
+    @Override
+    public String executeMethodGet(Map<String, String[]> parameters) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void executeMethodPost(Map<String, String[]> parameters) {
+
+    }
+
     @Override
     public Horario searchById(int id) {
         return null;

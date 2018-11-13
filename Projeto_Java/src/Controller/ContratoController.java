@@ -9,7 +9,9 @@ import org.json.JSONObject;
 import java.security.InvalidParameterException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 public class ContratoController implements IController<Contrato> {
     //ATRIBUTOS
@@ -23,6 +25,76 @@ public class ContratoController implements IController<Contrato> {
     //CONSTRUTORES
     public ContratoController(){
         this.aplication = new ContratoApl();
+    }
+
+    @Override
+    public String executeMethodGet(Map<String, String[]> parameters) throws Exception {
+        String jsonString = "";
+        String methodName = parameters.get("method")[0];
+        if(methodName.equalsIgnoreCase("searchById")){
+            int idContrato = 0;
+            try{
+                idContrato = Integer.parseInt(parameters.get("ID")[0]);
+            }
+            catch (Exception erro){
+                throw new ValueException("O contrato informado nao eh valido");
+            }
+            Contrato resultSearch = this.searchById(idContrato);
+            jsonString = this.toJson(resultSearch).toString();
+        }
+
+        else if(methodName.equalsIgnoreCase("searchAll")){
+            List<Contrato> resultSearch = this.searchAll();
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByUserId")){
+            int idUser = 0;
+            try{
+                idUser = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            }
+            catch (Exception erro){
+                throw  new ValueException("O usuario informado nao eh valido.");
+            }
+            List<Contrato> resultSearch = this.searchByUserId(idUser);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+        else if(methodName.equalsIgnoreCase("searchByDescription")){
+            String description = parameters.get("Descricao")[0];
+            List<Contrato> resultSearch = this.searchByDescription(description);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+        else if (methodName.equalsIgnoreCase("searchByDate")){
+
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate infDate = LocalDate.parse(parameters.get("DataInicio")[0],dateFormat);
+            LocalDate supDate = LocalDate.parse(parameters.get("DataFim")[0],dateFormat);
+            List<Contrato> resultSearch = this.searchByDate(infDate,supDate);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
+
+        return jsonString;
+    }
+
+    @Override
+    public void executeMethodPost(Map<String, String[]> parameters) {
+
     }
 
     //METODOS

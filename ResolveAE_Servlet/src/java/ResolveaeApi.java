@@ -1,5 +1,9 @@
+import Controller.AvaliacaoController;
 import Controller.ControllerFactory;
 import Controller.Interfaces.IController;
+import Controller.UsuarioController;
+import Dominio.Entidades.Avaliacao;
+import Dominio.Entidades.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,7 +21,8 @@ public class ResolveaeApi extends HttpServlet {
 
     //ATRIBUTO
     private IController controller = null;
-    private String model = null;
+    private String controllerName = null;
+    private String jsonResult = null;
     
     //METODODS
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -28,12 +33,13 @@ public class ResolveaeApi extends HttpServlet {
         try{
             requestHandler(request);
             
-            if(request.getMethod().equalsIgnoreCase("GET")){                
-                out.println("METODO GET");
+            if(request.getMethod().equalsIgnoreCase("GET")){
+                this.jsonResult = this.controller.executeMethodGet(request.getParameterMap());
+                out.println(this.jsonResult);
             }
             
             else if (request.getMethod().equalsIgnoreCase("POST")){
-                out.println("METODO POST");
+                this.controller.executeMethodPost(request.getParameterMap());
             }
             
             else{
@@ -50,8 +56,9 @@ public class ResolveaeApi extends HttpServlet {
     //VAI GERAR O CONTROLLER COM BASE NA REQUISICAO
     private void requestHandler(HttpServletRequest request){
         String path = request.getRequestURI().substring(request.getContextPath().length());
-        this.model = (path.replace("/", ""));
-        this.controller = ControllerFactory.createController(this.model);
+        this.controllerName = (path.replace("/", ""));
+        //this.controller = ControllerFactory.createController(this.controllerName);
+        this.controller = ControllerFactory.createController("avaliacao");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

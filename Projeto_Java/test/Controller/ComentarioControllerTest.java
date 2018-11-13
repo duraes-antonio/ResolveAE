@@ -1,6 +1,7 @@
 package Controller;
 
 import Dominio.Entidades.Comentario;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,10 +15,10 @@ class ComentarioControllerTest {
     int idServico;
     int idAvaliacao;
     int idUser;
+
     @BeforeEach
     void setUp(){
         controler = new ComentarioController();
-        comentario = new Comentario();
         idComentario = 1;
         idServico = 11;
         idAvaliacao = 1;
@@ -58,6 +59,22 @@ class ComentarioControllerTest {
         for(Comentario output:comentarios){
             System.out.println(output);
             System.out.println("--------------");
+        }
+    }
+
+    @Test
+    void toJson(){
+        comentario = controler.searchById(idComentario);
+        JSONObject json = controler.toJson(comentario);
+        System.out.println(json.toString());
+    }
+
+    @Test
+    void toJsonList(){
+        comentarios  = controler.searchAll();
+        List<JSONObject> jsonList = controler.toJsonList(this.comentarios);
+        for(JSONObject output : jsonList){
+            System.out.println(output.toString());
         }
     }
 }

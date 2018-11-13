@@ -10,6 +10,7 @@ import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Map;
 
 public class ServicoController implements IController<Servico> {
 
@@ -24,6 +25,109 @@ public class ServicoController implements IController<Servico> {
     private int offsetType = 0;
     private int offsetSubtype = 0;
 
+
+    @Override
+    public String executeMethodGet(Map<String, String[]> parameters) throws Exception {
+        String jsonString = "";
+        String methodName = parameters.get("method")[0];
+
+        if(methodName.equalsIgnoreCase("searchById")){
+            int idServico = 0;
+            try{
+                idServico = Integer.parseInt(parameters.get("ID")[0]);
+            }
+            catch (Exception erro){
+                throw new ValueException("O servico informado nao eh valido");
+            }
+            Servico resultSearch = this.searchById(idServico);
+            jsonString = this.toJson(resultSearch).toString();
+        }
+
+        else if (methodName.equalsIgnoreCase("searchAll")){
+            List<Servico> resultSearch = this.searchAll();
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByUser")){
+            int idUser = 0;
+            try{
+                idUser = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            }
+            catch (Exception erro){
+                throw new ValueException("O usuario informado nao eh valido");
+            }
+            List<Servico> resultSearch = this.searchByUser(idUser);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByTitle")){
+            String title = parameters.get("Titulo")[0];
+            List<Servico> resultSearch = this.searchByTitle(title);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByDescription")){
+            String description = parameters.get("Descricao")[0];
+            List<Servico> resultSearch = this.searchByDescription(description);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByPrice")){
+            double price = 0;
+            try {
+                price = Double.parseDouble(parameters.get("Valor")[0]);
+            }
+            catch (Exception erro){
+                throw  new ValueException("Os precos informados nao sao validos.");
+            }
+            List<Servico> resultSearch = this.searchByPrice(price,price);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchByType")){
+            ETipoServico type = ETipoServico.valueOf(parameters.get("TipoServico")[0]);
+            List<Servico> resultSearch = this.searchByType(type);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else if(methodName.equalsIgnoreCase("searchBySubtype")){
+            ESubtipoServico subtype = ESubtipoServico.valueOf(parameters.get("Subtipo")[0]);
+            List<Servico> resultSearch = this.searchBySubtype(subtype);
+            List<JSONObject> jsonList = this.toJsonList(resultSearch);
+            for(JSONObject json : jsonList){
+                jsonString += json.toString() + "<br>";
+            }
+        }
+
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
+
+        return jsonString;
+    }
+
+    @Override
+    public void executeMethodPost(Map<String, String[]> parameters) {
+
+    }
 
     //METODOS
     @Override
@@ -84,7 +188,7 @@ public class ServicoController implements IController<Servico> {
     }
 
     public List<Servico> searchByPrice (double minPrice, double maxPrice){
-        if(maxPrice > minPrice && minPrice >= 0){
+        if(maxPrice >= minPrice && minPrice >= 0){
             List<Servico> resultSearch = this.aplication.getByPrice(minPrice, maxPrice, this.limit, this.offsetPrice);
             return resultSearch;
         }

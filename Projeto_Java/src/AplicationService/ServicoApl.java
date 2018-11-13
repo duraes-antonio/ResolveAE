@@ -103,14 +103,10 @@ public class ServicoApl extends GenericApl<Servico> {
     public JSONObject parseDataToJSON(Servico data) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("ID",data.getId());
+        jsonObject.put("FkUsuario",data.getFkUsuario());
         jsonObject.put("FkContrato",data.getFkContrato());
         jsonObject.put("TipoServico",data.getTipo().getTipo());
-        List<ESubtipoServico> subtipos = data.getSubtipos();
-        int temp = 0;
-        for (ESubtipoServico sbTipo : subtipos){
-            jsonObject.put("Subtipo"+temp, sbTipo.getSubtipo());
-            temp++;
-        }
+        jsonObject.put("Subtipo",data.getSubtipos());
         jsonObject.put("Titulo",data.getTitulo());
         jsonObject.put("Descricao",data.getDescricao());
         jsonObject.put("Valor",data.getValor());
