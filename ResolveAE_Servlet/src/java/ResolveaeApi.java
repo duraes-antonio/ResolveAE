@@ -1,12 +1,7 @@
-import Controller.AvaliacaoController;
 import Controller.ControllerFactory;
-import Controller.Interfaces.IController;
-import Controller.UsuarioController;
-import Dominio.Entidades.Avaliacao;
-import Dominio.Entidades.Usuario;
+import Controller.Interfaces.IController; 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -57,8 +52,7 @@ public class ResolveaeApi extends HttpServlet {
     private void requestHandler(HttpServletRequest request){
         String path = request.getRequestURI().substring(request.getContextPath().length());
         this.controllerName = (path.replace("/", ""));
-        //this.controller = ControllerFactory.createController(this.controllerName);
-        this.controller = ControllerFactory.createController("avaliacao");
+        this.controller = ControllerFactory.createController(this.controllerName);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
