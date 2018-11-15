@@ -1,4 +1,4 @@
-from os import sep
+from os import sep, path
 import gc
 
 from micro_dao.avaliacao_tabela import TabelaAvaliacao
@@ -37,14 +37,15 @@ class Database():
 	}
 
 	def __init__(self, usuario: str = "postgres", senha: str = "postgres",
-	             porta: int = 5432, qtd_user: int = 50, database: str = "postgres"):
+	             porta: int = 5432, qtd_user: int = 500000, database: str = "postgres"):
 		self._conexao = UtilBD(usuario, senha, porta, database)
 		self._qtd_user = qtd_user
 
 	def builder_all(self, criar_e_executar: bool = False, preencher: bool = False):
 
 		# USUÁRIO
-		self.__dic_tabs[1] = TabelaUsuario(num_registros=self._qtd_user)
+		self.__dic_tabs[1] = TabelaUsuario(preencher_base=preencher,
+		                                   num_registros=self._qtd_user)
 
 		# ENDEREÇO
 		self.__dic_tabs[2] = TabelaEstado(preencher=preencher)
@@ -87,28 +88,19 @@ class Database():
 			self.create_all()
 			self.insert_all()
 
-	def to_arq_all_sql(self, arq_unico = False, caminho: str=None, ign_pk = True):
+	def to_arq_all_sql(self, arq_unico = False, multiplos_arq = False,
+	                   qtd_bloco=500000, caminho: str=None, ign_pk = True):
 
 		for chave in self.__dic_tabs:
 
-			try:
+			if caminho and not arq_unico:
+				caminho = caminho if caminho[-1] == sep else caminho + sep
+				caminho + self.__dic_tabs[chave].get_nome() + ".sql"
 
-				if caminho and not arq_unico:
-					caminho = caminho if caminho[-1] == sep else caminho + sep
-
-					self.__dic_tabs[chave].gerar_arq_SQL(
-						False,
-						caminho + self.__dic_tabs[chave].get_nome() + ".sql",
-						ignorar_pk=ign_pk)
-
-				elif caminho and arq_unico:
-					self.__dic_tabs[chave].gerar_arq_SQL(True, caminho, ignorar_pk=ign_pk)
-
-				else:
-					self.__dic_tabs[chave].gerar_arq_SQL(ignorar_pk=ign_pk)
-
-			except ValueError:
-				pass
+			self.__dic_tabs[chave].gerar_arq_SQL(
+				arq_unico=arq_unico, dividir_bloco_em_arq=multiplos_arq,
+				qtd_bloco=qtd_bloco, path_saida=caminho,
+				ignorar_pk=ign_pk)
 
 	def to_arq_all_creates(self, caminho: str = None):
 		"""Gera o modelo físico contendo o create de todas tabelas."""
@@ -121,7 +113,11 @@ class Database():
 
 		sql = "\n\n".join([self.__dic_tabs[chave].get_SQL_create() for chave in self.__dic_tabs])
 
-		if not caminho: caminho = "modelo_fisico.sql"
+		if not caminho:
+			caminho = "modelo_fisico.sql"
+
+		elif path.isdir(caminho):
+			caminho = path.join(caminho, "modelo_fisico.sql")
 
 		gerar_arq(sql, caminho)
 

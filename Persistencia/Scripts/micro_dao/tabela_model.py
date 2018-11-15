@@ -1,9 +1,8 @@
 # encoding: utf-8
 import datetime
 from os import sep, path
+from os.path import *
 from typing import List, Optional
-
-import time
 
 from micro_dao.objeto_modelo import ObjetoModelo
 
@@ -101,7 +100,7 @@ class Coluna():
 
 class Tabela():
 
-
+	global path
 	_nome: str
 	_pk_nome: str
 	_valores: List[object]
@@ -181,6 +180,9 @@ class Tabela():
 	def add_TIME(self, get_metodo: classmethod, nome_coluna: str, unique: bool = False):
 		return self.__add_coluna__(get_metodo, nome_coluna, "TIME", unique)
 
+	def add_TIMESTAMP(self, get_metodo: classmethod, nome_coluna: str, unique: bool = False):
+		return self.__add_coluna__(get_metodo, nome_coluna, "TIMESTAMP", unique)
+
 	def add_SMALLINT(self, get_metodo: classmethod, nome_coluna: str, unique: bool = False):
 		return self.__add_coluna__(get_metodo, nome_coluna, "SMALLINT", unique)
 
@@ -218,7 +220,6 @@ class Tabela():
 
 	def get_colunas(self) -> List[Coluna]:
 		return self._colunas
-
 
 	#----- OPERAÇÕES COM A STRING DO SQL -----#
 
@@ -281,6 +282,8 @@ class Tabela():
 
 		while ini < tam_tab:
 
+			print("TAMANHO: {}, TAM. VAL.: {}, TIPO: {}", len(self.get_all()), len(self._valores), self.get_nome())
+
 			sqls.append(
 				"INSERT INTO {0}({1}) VALUES\n\t{2};\n".format(
 					self.get_nome(),
@@ -290,7 +293,7 @@ class Tabela():
 					])
 				))
 			ini += quantidade
-			fim = (ini + quantidade) if (ini + quantidade) < tam_tab else (tam_tab - 1)
+			fim = (ini + quantidade) if (ini + quantidade) < tam_tab else tam_tab
 
 		return sqls
 
@@ -298,28 +301,59 @@ class Tabela():
 		return "CREATE TABLE {0}(\n\t{1}\n);".format(
 			self.get_nome(), ", \n\t".join([col.to_string() for col in self._colunas]))
 
-	def gerar_arq_SQL(self, arq_unico = False, nome_arq_saida: str = None, outro_dir = False, ignorar_pk = False):
+	def __gerar_arquivo(self, nome_arq_saida: str, conteudo: str):
+
+		with open(nome_arq_saida, "w") as arq:
+			arq.write(conteudo)
+
+		return 0
+
+	def gerar_arq_SQL(self, arq_unico = False, dividir_bloco_em_arq = False,
+	                  qtd_bloco=500000, path_saida: str = None, ignorar_pk = False):
 
 		# Se for arquivo único, o arq. será aberto em modo append, senão, escrita;
-		modo = "a" if arq_unico else "w"
+		path_completo_saida = ""
 
-		if not nome_arq_saida:
-			nome_arq_saida = self._nome + ".sql"
+		if dividir_bloco_em_arq:
 
-		elif path.isdir(nome_arq_saida):
-			nome_arq_saida = path.join(nome_arq_saida, "SAIDA.sql")
+			# Elaborar arquivo Create;
+			if not isdir(path_saida) and not isdir(path_saida + sep):
+				raise NotADirectoryError("O caminho recebido não é de um diretório.")
 
-		elif outro_dir:
-			nome_arq_saida = nome_arq_saida if nome_arq_saida[-1] == sep else nome_arq_saida + sep
-			nome_arq_saida = nome_arq_saida + self._nome + ".sql"
+			self.__gerar_arquivo(join(path_saida, self._nome + "_create.sql"),
+			                     self.get_SQL_create())
 
-		with open(nome_arq_saida, modo) as arq:
-			arq.write(self.get_SQL_create())
-			arq.write('\n')
+			blocos_sql = self.get_SQL_insert(quantidade=qtd_bloco,
+			                                 ignorar_pk=ignorar_pk)
 
-			for sql in self.get_SQL_insert(ignorar_pk=ignorar_pk):
-				arq.write(sql)
-				arq.write("\n\n")
+			for i, sql in enumerate(blocos_sql):
+
+				path_completo_saida = join(path_saida, self._nome + "_insert")
+
+				if (len(blocos_sql) > 1):
+					path_completo_saida = path_completo_saida + "_" + str(i+1)
+
+				path_completo_saida += ".sql"
+
+				self.__gerar_arquivo(path_completo_saida, sql)
+
+		if arq_unico:
+			modo = "a" if arq_unico else "w"
+
+			if not path_saida:
+				nome_arq_saida = self._nome + ".sql"
+
+			elif path.isdir(path_saida):
+				path_completo_saida = path.join(path_saida, "SAIDA.sql")
+
+			with open(path_completo_saida, modo) as arq:
+				arq.write(self.get_SQL_create())
+				arq.write('\n')
+
+				for sql in self.get_SQL_insert(quantidade=qtd_bloco,
+				                               ignorar_pk=ignorar_pk):
+					arq.write(sql)
+					arq.write("\n\n")
 
 		return self
 

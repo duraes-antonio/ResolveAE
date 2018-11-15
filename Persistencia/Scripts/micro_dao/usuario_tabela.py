@@ -56,6 +56,7 @@ class TabelaUsuario(Tabela):
 			email = self.__get_email_random__(nome)
 			self.insert(Usuario(email, nome, self._senha, "..."))
 
+		print("LEENNNNNN", len(self.get_all()))
 		self.__inserted__ = True
 		return self
 

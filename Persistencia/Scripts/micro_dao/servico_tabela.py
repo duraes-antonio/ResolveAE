@@ -20,7 +20,7 @@ class TabelaServico(Tabela):
                  preencher: bool = False):
         super().__init__("servico", Servico.get_id)
         self.add_ID(Servico.get_id)
-        self.add_VARCHAR(Servico.get_titulo, "titulo", 150)
+        self.add_VARCHAR(Servico.get_titulo, "titulo", 175)
         self.add_VARCHAR(Servico.get_titulo, "descricao", 1500)
         self.add_FLOAT(Servico.get_valor, "valor")
         self.add_FK(Servico.get_fk_contrato, "fk_contrato", tab_contrato)

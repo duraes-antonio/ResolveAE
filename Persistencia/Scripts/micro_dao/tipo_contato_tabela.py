@@ -7,8 +7,8 @@ from micro_dao.tipo_contato import TipoContato
 
 class TabelaTipoContato(Tabela):
 
-    _tipos = ["CELULAR", "FACEBOOK", "GITHUB", "LATTES", "LINKEDIN", "SKYPE",
-              "TELEFONE", "TELEGRAM", "TWITTER", "WHATSAPP"]
+    tipos = ["Celular", "Facebook", "Github", "Lattes", "Linkedin", "Skype",
+              "Telefone", "Telegram", "Twitter", "Whatsapp"]
 
     def __init__(self, preencher: bool = False):
         super().__init__("tipo_contato", TipoContato.get_id)
@@ -18,7 +18,7 @@ class TabelaTipoContato(Tabela):
         if preencher: self.__preencher__()
 
     def __preencher__(self):
-        [self.insert(TipoContato(tipo)) for tipo in self._tipos]
+        [self.insert(TipoContato(tipo)) for tipo in self.tipos]
         self.__inserted__ = True
         return self
 

@@ -27,7 +27,7 @@ class TabelaContrato(Tabela):
         self.add_ID(Contrato.get_id)
         self.add_DATE(Contrato.get_data_inicio, "data_inicio")
         self.add_DATE(Contrato.get_data_fim, "data_fim")
-        self.add_DATE(Contrato.get_data_ultima_modif, "data_ult_modif")
+        self.add_TIMESTAMP(Contrato.get_data_ultima_modif, "data_ult_modif")
         self.add_VARCHAR(Contrato.get_descricao, "descricao", 1000)
         self.add_INT(Contrato.get_horas_contratadas, "horas_contratadas")
         self.add_FK(Contrato.get_fk_usuario, "fk_usuario", tab_usu)

@@ -61,7 +61,7 @@ CREATE TABLE contrato(
 	id SERIAL PRIMARY KEY, 
 	data_inicio DATE, 
 	data_fim DATE, 
-	data_ult_modif DATE, 
+	data_ult_modif TIMESTAMP, 
 	descricao VARCHAR (1000), 
 	horas_contratadas INT, 
 	fk_usuario SERIAL REFERENCES usuario(id)
@@ -80,10 +80,10 @@ CREATE TABLE subtipo_servico(
 
 CREATE TABLE servico(
 	id SERIAL PRIMARY KEY, 
+	titulo VARCHAR (175), 
+	descricao VARCHAR (1500), 
 	valor FLOAT, 
-	titulo VARCHAR (150), 
 	fk_contrato SERIAL REFERENCES contrato(id), 
-	fk_subtipo_servico SERIAL REFERENCES subtipo_servico(id), 
 	fk_tipo_servico SERIAL REFERENCES tipo_servico(id), 
 	fk_usuario SERIAL REFERENCES usuario(id)
 );
