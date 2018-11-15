@@ -2,11 +2,13 @@ package AplicationService;
 
 import Dominio.Entidades.Contrato;
 import Infraestrutura.Postgre.DAO.ContratoDAO;
+import org.json.JSONObject;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-public class ContratoApl extends  GenericApl{
+public class ContratoApl extends  GenericApl<Contrato>{
     //CONSTRUTORES
     public ContratoApl(){
         this.setDataDAO(new ContratoDAO());
@@ -53,5 +55,27 @@ public class ContratoApl extends  GenericApl{
         finally {
             return  resultSearch;
         }
+    }
+
+    @Override
+    public JSONObject parseDataToJSON(Contrato data) {
+        JSONObject jsonOutput = new JSONObject();
+        jsonOutput.put("ID", data.getId());
+        jsonOutput.put("FkUsuario", data.getFkUsuario());
+        jsonOutput.put("HorasContratadas", data.getHorasContratadas());
+        jsonOutput.put("Descricao", data.getDescricao());
+        jsonOutput.put("DataUltimaModif", data.getDataUltimaModif());
+        jsonOutput.put("DataInicio", data.getDataInicio());
+        jsonOutput.put("DataFim", data.getDataFim());
+        return jsonOutput;
+    }
+
+    @Override
+    public List<JSONObject> parseListToJSONList(List<Contrato> dataList) {
+        List<JSONObject> listJSONOutput = new ArrayList<JSONObject>();
+        for (Contrato contrato : dataList){
+            listJSONOutput.add(this.parseDataToJSON(contrato));
+        }
+        return listJSONOutput;
     }
 }

@@ -2,10 +2,12 @@ package AplicationService;
 
 import Dominio.Entidades.Comentario;
 import Infraestrutura.Postgre.DAO.ComentarioDAO;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ComentarioApl extends GenericApl{
+public class ComentarioApl extends GenericApl<Comentario>{
 
     //CONSTRUTORES
     public ComentarioApl(){
@@ -48,5 +50,23 @@ public class ComentarioApl extends GenericApl{
             resultSet = null;
         }
         return resultSet;
+    }
+
+    @Override
+    public JSONObject parseDataToJSON(Comentario data) {
+        JSONObject jsonOutput = new JSONObject();
+        jsonOutput.put("ID",data.getId());
+        jsonOutput.put("FkAvaliacao",data.getFkAvalicao());
+        jsonOutput.put("Comentario",data.getComentario());
+        return jsonOutput;
+    }
+
+    @Override
+    public List<JSONObject> parseListToJSONList(List<Comentario> dataList) {
+        List<JSONObject> listJSONOutput = new ArrayList<JSONObject>();
+        for (Comentario comentario:dataList){
+            listJSONOutput.add(this.parseDataToJSON(comentario));
+        }
+        return listJSONOutput;
     }
 }

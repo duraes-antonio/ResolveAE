@@ -2,6 +2,7 @@ package AplicationService;
 
 import Infraestrutura.Postgre.DAO.AGenericDAO;
 import Infraestrutura.Postgre.Util.Persistencia;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -42,4 +43,8 @@ public abstract class GenericApl<T>{
             return resultSerch;
         }
     }
+
+    public abstract JSONObject parseDataToJSON(T data);
+
+    public abstract List<JSONObject> parseListToJSONList(List<T> dataList);
 }

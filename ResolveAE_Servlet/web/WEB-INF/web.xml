@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
     <servlet>
         <servlet-name>ResolveaeApi</servlet-name>
         <servlet-class>ResolveaeApi</servlet-class>
@@ -8,9 +9,96 @@
         <servlet-name>ResolveaeApi</servlet-name>
         <url-pattern>/ResolveaeApi</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AvaliacaoController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AvaliacaoController</servlet-name>
+        <url-pattern>/Avaliacao</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ComentarioController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ComentarioController</servlet-name>
+        <url-pattern>/Comentario</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ContatoController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContatoController</servlet-name>
+        <url-pattern>/Contato</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ContratoController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContratoController</servlet-name>
+        <url-pattern>/Contrato</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EnderecoController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EnderecoController</servlet-name>
+        <url-pattern>/Endereco</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>HorarioController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HorarioController</servlet-name>
+        <url-pattern>/Horario</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>InfoProfissionalController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InfoProfissionalController</servlet-name>
+        <url-pattern>/InfoProfissional</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServicoController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServicoController</servlet-name>
+        <url-pattern>/Servico</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UsuarioController</servlet-name>
+        <servlet-class>ResolveaeApi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioController</servlet-name>
+        <url-pattern>/Usuario</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
+     <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    
 </web-app>
