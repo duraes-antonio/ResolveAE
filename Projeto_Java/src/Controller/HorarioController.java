@@ -14,7 +14,7 @@ public class HorarioController implements IController<Horario> {
     }
 
     @Override
-    public void executeMethodPost(Map<String, String[]> parameters) {
+    public void executeMethodPost(Map<String, String[]> parameters) throws Exception {
 
     }
 

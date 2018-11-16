@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div align="center">
+        <H1>AVALIACAO FORMS</H1>
+        
+        <form id="forms" action="Avaliacao" method="POST">
+            <label for="metodo">Metodo: </label>
+            <select id="metodo" name="method" form="forms">
+                <option>Atualizar</option>
+                <option>Adicionar</option>
+            </select>
+            <br>
+            NOTA: <input type="number" name="Nota" /><br />
+            ID Usuario: <input type="number" name="FkUsuario" /><br />
+            ID Servico: <input type="number" name="FkServico" /><br />
+            <input type="submit" value="Enviar" />
+        </form>
+    </div>
+</body>
+
+</html>

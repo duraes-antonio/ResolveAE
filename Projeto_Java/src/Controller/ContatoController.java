@@ -97,8 +97,27 @@ public class ContatoController implements IController<Contato> {
     }
 
     @Override
-    public void executeMethodPost(Map<String, String[]> parameters) {
+    public void executeMethodPost(Map<String, String[]> parameters) throws Exception {
+        String methodName = parameters.get("method")[0];
+        if(methodName.equalsIgnoreCase("atualizar")){
+            int idContato = Integer.getInteger(parameters.get("ID")[0]);
+            int fkUsuario = Integer.getInteger(parameters.get("FkUsuario")[0]);
+            ETipoContato type = ETipoContato.valueOf(parameters.get("TipoContato")[0]);
+            String descricao = parameters.get("Descricao")[0];
+            Contato updateData = new Contato(idContato, descricao,fkUsuario,type.getId());
+            this.aplication.updateData(updateData);
+        }
+        else if (methodName.equalsIgnoreCase("adicionar")){
 
+            int fkUsuario = Integer.getInteger(parameters.get("FkUsuario")[0]);
+            ETipoContato type = ETipoContato.valueOf(parameters.get("TipoContato")[0]);
+            String descricao = parameters.get("Descricao")[0];
+            Contato addData = new Contato(descricao,fkUsuario,type.getId());
+            Contato resultAdd = this.aplication.addData(addData);
+        }
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
     }
 
     //METODOS

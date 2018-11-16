@@ -26,6 +26,12 @@ public class Avaliacao {
 
     public Avaliacao(){}
 
+    public Avaliacao(int nota, int fkUsuario, int fkServico){
+        this.nota = nota;
+        this.fkUsuario = fkUsuario;
+        this.fkServico = fkServico;
+    }
+
     public Avaliacao(int nota, int fkUsuario, int fkServico, Comentario comentario){
         this.setNota(nota);
         this.setComentario(comentario);

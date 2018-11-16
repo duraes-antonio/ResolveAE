@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface IController<T> {
     public String executeMethodGet(Map<String,String[]> parameters) throws Exception;
-    public void executeMethodPost(Map<String,String[]> parameters);
+    public void executeMethodPost(Map<String,String[]> parameters) throws Exception;
     public T searchById(int id);
     public List<T> searchAll();
     public JSONObject toJson(T data);

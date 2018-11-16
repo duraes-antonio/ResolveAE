@@ -84,7 +84,27 @@ public class AvaliacaoController implements IController<Avaliacao> {
     }
 
     @Override
-    public void executeMethodPost(Map<String, String[]> parameters) {
+    public void executeMethodPost(Map<String, String[]> parameters) throws Exception{
+        String methodName = parameters.get("method")[0];
+        if(methodName.equalsIgnoreCase("Atualizar")){
+            int idAvaliacao  = Integer.parseInt(parameters.get("ID")[0]);
+            int nota = Integer.parseInt(parameters.get("Nota")[0]);
+            int fkUsuario = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            int fkServico = Integer.parseInt(parameters.get("FkServico")[0]);
+            Avaliacao updateData = new Avaliacao(nota,fkUsuario,fkServico);
+            updateData.setId(idAvaliacao);
+            this.aplication.updateData(updateData);
+        }
+        else if(methodName.equalsIgnoreCase("Adicionar")){
+            int nota = Integer.parseInt(parameters.get("Nota")[0]);
+            int fkUsuario = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            int fkServico = Integer.parseInt(parameters.get("FkServico")[0]);
+            Avaliacao addData = new Avaliacao(nota,fkUsuario,fkServico);
+            Avaliacao resultAdd = this.aplication.addData(addData);
+        }
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
 
     }
 

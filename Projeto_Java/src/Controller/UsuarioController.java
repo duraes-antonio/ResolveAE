@@ -15,7 +15,7 @@ public class UsuarioController implements IController<Usuario> {
     }
 
     @Override
-    public void executeMethodPost(Map<String, String[]> parameters) {
+    public void executeMethodPost(Map<String, String[]> parameters)throws Exception {
 
     }
 

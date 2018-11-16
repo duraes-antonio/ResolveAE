@@ -2,6 +2,7 @@ import Controller.ControllerFactory;
 import Controller.Interfaces.IController; 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,14 +28,15 @@ public class ResolveaeApi extends HttpServlet {
         PrintWriter out = response.getWriter();
         try{
             requestHandler(request);
-            
+            Map<String, String[]> parametros = request.getParameterMap();
             if(request.getMethod().equalsIgnoreCase("GET")){
-                this.jsonResult = this.controller.executeMethodGet(request.getParameterMap());
+                this.jsonResult = this.controller.executeMethodGet(parametros);
                 out.println(this.jsonResult);
             }
             
             else if (request.getMethod().equalsIgnoreCase("POST")){
-                this.controller.executeMethodPost(request.getParameterMap());
+                
+                this.controller.executeMethodPost(parametros);
             }
             
             else{

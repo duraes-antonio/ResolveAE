@@ -9,6 +9,7 @@ import Dominio.Enum.ETipoServico;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -125,7 +126,54 @@ public class ServicoController implements IController<Servico> {
     }
 
     @Override
-    public void executeMethodPost(Map<String, String[]> parameters) {
+    public void executeMethodPost(Map<String, String[]> parameters) throws Exception {
+        String methodName = parameters.get("method")[0];
+        if(methodName.equalsIgnoreCase("atualizar")){
+            int idServico  = Integer.parseInt(parameters.get("ID")[0]);
+            String titulo = parameters.get("Titulo")[0];
+            String descricao = parameters.get("Descricao")[0];
+            String[] parametersSubtipo = parameters.get("Subtipo");
+            List<ESubtipoServico> subtipos = new ArrayList<ESubtipoServico>();
+            for (String subtipo : parametersSubtipo){
+                subtipos.add(ESubtipoServico.valueOf(subtipo));
+            }
+            double valor = Double.parseDouble(parameters.get("Valor")[0]);
+            int fkTipoServico = ETipoServico.valueOf(parameters.get("TipoServico")[0]).getId();
+            int fkUsuario = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            int fkContrato = -1;
+            try {
+                fkContrato = Integer.parseInt(parameters.get("FkContrato")[0]);
+            }
+            catch (Exception erro){
+                fkContrato = 0;
+            }
+            Servico updateData = new Servico(idServico,titulo,descricao,subtipos,valor,fkTipoServico,fkUsuario,fkContrato);
+            this.aplication.updateData(updateData);
+        }
+        else if (methodName.equalsIgnoreCase("adicionar")){
+            String titulo = parameters.get("Titulo")[0];
+            String descricao = parameters.get("Descricao")[0];
+            String[] parametersSubtipo = parameters.get("Subtipo");
+            List<ESubtipoServico> subtipos = new ArrayList<ESubtipoServico>();
+            for (String subtipo : parametersSubtipo){
+                subtipos.add(ESubtipoServico.valueOf(subtipo));
+            }
+            double valor = Double.parseDouble(parameters.get("Valor")[0]);
+            int fkTipoServico = ETipoServico.valueOf(parameters.get("TipoServico")[0]).getId();
+            int fkUsuario = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            int fkContrato = -1;
+            try {
+                fkContrato = Integer.parseInt(parameters.get("FkContrato")[0]);
+            }
+            catch (Exception erro){
+                fkContrato = 0;
+            }
+            Servico addData = new Servico(titulo,descricao,subtipos,valor,fkTipoServico,fkUsuario,fkContrato);
+            Servico resultAdd  = this.aplication.addData(addData);
+        }
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
 
     }
 

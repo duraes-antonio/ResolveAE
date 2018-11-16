@@ -17,6 +17,26 @@ public class Contrato {
     private int horasContratadas;
     private int fkUsuario;
 
+
+    public Contrato(String descricao, LocalDate dataInicio, LocalDate dataFim,
+                    int horasContratadas, int fkUsuario){
+        this.setDescricao(descricao);
+        this.setDataInicio(dataInicio);
+        this.setDataFim(dataFim);
+        this.setHorasContratadas(horasContratadas);
+        this.setFkUsuario(fkUsuario);
+    }
+
+    public Contrato(int id, String descricao, LocalDate dataInicio, LocalDate dataFim,
+                    int horasContratadas, int fkUsuario){
+        this.setId(id);
+        this.setDescricao(descricao);
+        this.setDataInicio(dataInicio);
+        this.setDataFim(dataFim);
+        this.setHorasContratadas(horasContratadas);
+        this.setFkUsuario(fkUsuario);
+    }
+
     public Contrato(String descricao, LocalDate dataInicio, LocalDate dataFim,
                     LocalDateTime dataUltimaModif, int horasContratadas, int fkUsuario){
         this.setDescricao(descricao);

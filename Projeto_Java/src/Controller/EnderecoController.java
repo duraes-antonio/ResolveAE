@@ -99,7 +99,30 @@ public class EnderecoController implements IController<Endereco> {
     }
 
     @Override
-    public void executeMethodPost(Map<String, String[]> parameters) {
+    public void executeMethodPost(Map<String, String[]> parameters) throws Exception {
+        String methodName = parameters.get("method")[0];
+        if(methodName.equalsIgnoreCase("atualizar")){
+            int idEndereco = Integer.parseInt(parameters.get("ID")[0]);
+            String bairro = parameters.get("Bairro")[0];
+            String cidade = parameters.get("Cidade")[0];
+            String estado = parameters.get("Estado")[0];
+            int cep = Integer.parseInt(parameters.get("Cep")[0]);
+            int fkUsuario = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            Endereco updateData = new Endereco(idEndereco,bairro,cidade,estado,cep,fkUsuario);
+            this.aplication.updateData(updateData);
+        }
+        else if (methodName.equalsIgnoreCase("adicionar")){
+            String bairro = parameters.get("Bairro")[0];
+            String cidade = parameters.get("Cidade")[0];
+            String estado = parameters.get("Estado")[0];
+            int cep = Integer.parseInt(parameters.get("Cep")[0]);
+            int fkUsuario = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            Endereco addData = new Endereco(bairro,cidade,estado,cep,fkUsuario);
+            Endereco resultAdd = this.aplication.addData(addData);
+        }
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
 
     }
 

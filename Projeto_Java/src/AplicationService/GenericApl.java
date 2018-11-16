@@ -2,12 +2,13 @@ package AplicationService;
 
 import Infraestrutura.Postgre.DAO.AGenericDAO;
 import Infraestrutura.Postgre.Util.Persistencia;
+import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 import org.json.JSONObject;
 
 import java.util.List;
 
 public abstract class GenericApl<T>{
-    private Persistencia currentConnection = Persistencia.get("resolve_ae","postgres","senha",5433);
+    private Persistencia currentConnection = Persistencia.get("resolve_ae","postgres","postgres",5433);
     private AGenericDAO dataDAO;
 
     public void setDataDAO(AGenericDAO dataDAO){
@@ -16,6 +17,28 @@ public abstract class GenericApl<T>{
 
     public AGenericDAO getDataDAo(){
         return this.dataDAO;
+    }
+
+    public T addData(T data){
+        T resultAdd = null;
+        try {
+            resultAdd = (T) this.dataDAO.adicionar(data);
+        }
+        catch (Exception erro){
+            resultAdd = null;
+        }
+        finally {
+            return resultAdd;
+        }
+    }
+
+    public void updateData(T data){
+        try{
+            this.dataDAO.atualizar(data);
+        }
+        catch (Exception erro){
+            throw new ValueException("Nao foi possivel atualizar as informacoes.");
+        }
     }
 
     public T getById(int id){

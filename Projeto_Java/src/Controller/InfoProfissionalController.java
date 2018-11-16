@@ -107,7 +107,33 @@ public class InfoProfissionalController implements IController<InfoProfissional>
     }
 
     @Override
-    public void executeMethodPost(Map<String, String[]> parameters) {
+    public void executeMethodPost(Map<String, String[]> parameters) throws Exception {
+        String methodName = parameters.get("method")[0];
+
+        if(methodName.equalsIgnoreCase("atualizar")){
+            int idInfoPro = Integer.parseInt(parameters.get("ID")[0]);
+            String descricao = parameters.get("Descricao")[0];
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate infDate = LocalDate.parse(parameters.get("DataInicio")[0],dateFormat);
+            LocalDate supDate = LocalDate.parse(parameters.get("DataFim")[0],dateFormat);
+            int fkTipoInfo = ETipoInfoProfissional.valueOf(parameters.get("TipoInfo")[0]).getId();
+            int fkUsuario = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            InfoProfissional updateData = new InfoProfissional(idInfoPro,descricao,infDate,supDate,fkTipoInfo,fkUsuario);
+            this.aplication.updateData(updateData);
+        }
+        else if (methodName.equalsIgnoreCase("adicionar")){
+            String descricao = parameters.get("Descricao")[0];
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate infDate = LocalDate.parse(parameters.get("DataInicio")[0],dateFormat);
+            LocalDate supDate = LocalDate.parse(parameters.get("DataFim")[0],dateFormat);
+            int fkTipoInfo = ETipoInfoProfissional.valueOf(parameters.get("TipoInfo")[0]).getId();
+            int fkUsuario = Integer.parseInt(parameters.get("FkUsuario")[0]);
+            InfoProfissional addData = new InfoProfissional(descricao,infDate,supDate,fkTipoInfo,fkUsuario);
+            InfoProfissional resultAdd = this.aplication.addData(addData);
+        }
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
 
     }
 

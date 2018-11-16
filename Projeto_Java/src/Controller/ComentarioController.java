@@ -1,5 +1,4 @@
 package Controller;
-
 import AplicationService.ComentarioApl;
 import Controller.Interfaces.IController;
 import Dominio.Entidades.Comentario;
@@ -95,8 +94,24 @@ public class ComentarioController implements IController<Comentario> {
     }
 
     @Override
-    public void executeMethodPost(Map<String, String[]> parameters) {
-
+    public void executeMethodPost(Map<String, String[]> parameters) throws Exception {
+        String methodName = parameters.get("method")[0];
+        if (methodName.equalsIgnoreCase("atualizar")){
+            int idComentario = Integer.parseInt(parameters.get("ID")[0]);
+            String comentario = parameters.get("Comentario")[0];
+            int fkAvaliacao = Integer.parseInt(parameters.get("FkAvalicao")[0]);
+            Comentario updateData = new Comentario(idComentario,comentario,fkAvaliacao);
+            this.aplication.updateData(updateData);
+        }
+        else if (methodName.equalsIgnoreCase("adicionar")){
+            String comentario = parameters.get("Comentario")[0];
+            int fkAvaliacao = Integer.parseInt(parameters.get("FkAvalicao")[0]);
+            Comentario addData = new Comentario(comentario,fkAvaliacao);
+            Comentario resultAdd =  this.aplication.addData(addData);
+        }
+        else{
+            throw  new Exception("O metodo informado nao eh valido.");
+        }
     }
 
     @Override
