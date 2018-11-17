@@ -58,9 +58,7 @@ public class Cep {
 
         if (jsonObj.toString().contains("erro")) {
             throw new IllegalArgumentException("O CEP buscado não foi encontrado!");
-        }
-
-        else {
+        } else {
             return new Endereco(
                     jsonObj.getString("bairro"),
                     jsonObj.getString("localidade"),

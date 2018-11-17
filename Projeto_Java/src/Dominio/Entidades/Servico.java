@@ -6,7 +6,6 @@ import Dominio.Enum.ETipoServico;
 import java.util.List;
 
 /**
- *
  * @author 20161BSI0314
  */
 public class Servico {
@@ -22,7 +21,8 @@ public class Servico {
     private int fkContrato;
 
 
-    public Servico() {}
+    public Servico() {
+    }
 
     public Servico(String titulo, String descricao, List<ESubtipoServico> subtipos,
                    double valor, int fkTipoServico, int fkUsuario, int fkContrato) {

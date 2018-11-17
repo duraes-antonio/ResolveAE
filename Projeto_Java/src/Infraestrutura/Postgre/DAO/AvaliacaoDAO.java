@@ -37,13 +37,9 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
         try {
             avaliacoes = extrairTodos(persistencia.executarSelecao(ps));
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        finally {
+        } finally {
             if (ps != null) ps.close();
         }
 
@@ -52,6 +48,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
     /**
      * Busca e retorna todos objetos de um determinado tipo.
+     *
      * @param limit  Quantidade de resultados a ser retornada.
      * @param offset Quantidade de resultados a pular.
      * @return Lista com todos objetos encontrados.
@@ -98,8 +95,10 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
     }
 
 
-    /**Substitui os '?' do PS pelos valores dos atributos da objeto.
-     * @param ps P. Statement com SQL já pronto com os '?' para serem substituídos.
+    /**
+     * Substitui os '?' do PS pelos valores dos atributos da objeto.
+     *
+     * @param ps     P. Statement com SQL já pronto com os '?' para serem substituídos.
      * @param objeto Objeto com os atributos para preencher o statement.
      * @return ps com os '?' substituídos, pronto para execução.
      */
@@ -116,8 +115,10 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
         return null;
     }
 
-    /**Monta e retorna o objeto a partir de um resultSet.
+    /**
+     * Monta e retorna o objeto a partir de um resultSet.
      * Não faz validações sobre o resultSet.
+     *
      * @param rs ResultSet retornado de uma consulta já executada.
      * @return Objeto montado a partir dos resultados da consulta.
      */
@@ -139,6 +140,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
     /**
      * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para adicionar um novo objeto.
      */
     @Override
@@ -148,6 +150,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
     /**
      * Retorna uma string com query de UPDATE, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para atualizar um objeto.
      */
     @Override
@@ -157,6 +160,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
     /**
      * Retorna uma string com query de DELETE, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para deletar um objeto.
      */
     @Override
@@ -166,6 +170,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
     /**
      * Retorna uma string com query de SELECT, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para buscar um objeto.
      */
     @Override
@@ -185,7 +190,9 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
         return sqlProd.toString();
     }
 
-    /**Define o Id de um objeto.
+    /**
+     * Define o Id de um objeto.
+     *
      * @param objeto Objeto a ter seu ID atualizado.
      * @param id     Id a ser inserido no objeto.
      */

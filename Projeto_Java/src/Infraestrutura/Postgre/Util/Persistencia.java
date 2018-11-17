@@ -14,7 +14,7 @@ public class Persistencia {
             throws SQLException, ClassNotFoundException {
 
         String driver = "org.postgresql.Driver";
-        String url = "jdbc:postgresql://localhost:"+porta+"/" + nomeDatabase;
+        String url = "jdbc:postgresql://localhost:" + porta + "/" + nomeDatabase;
 
         Class.forName(driver);
         this.conexao = DriverManager.getConnection(url, nomeUsuario, senha);
@@ -47,13 +47,9 @@ public class Persistencia {
             if (persistencia == null || persistencia.conexao.isClosed()) {
                 persistencia = new Persistencia(nomeDatabase, nomeUsuario, senha, porta);
             }
-        }
-
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
-
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -66,13 +62,9 @@ public class Persistencia {
             if (persistencia == null || persistencia.conexao.isClosed()) {
                 persistencia = new Persistencia();
             }
-        }
-
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
-
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -86,18 +78,12 @@ public class Persistencia {
 
         if (persistencia == null) {
             throw new NullPointerException("Objeto não inicializado!");
-        }
-
-        else {
+        } else {
             try {
                 result = this.conexao.prepareStatement(sql).execute();
-            }
-
-            catch (SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
-            }
-
-            finally {
+            } finally {
                 if (!this.conexao.isClosed()) this.conexao.close();
             }
 
@@ -111,7 +97,9 @@ public class Persistencia {
     }
 
 
-    /**Executa uma seleção no banco definido como padrão.
+    /**
+     * Executa uma seleção no banco definido como padrão.
+     *
      * @param preparedSt Comando a ser executado no banco.
      * @return ResultSet com os resultados da seleção.
      * @throws SQLException
@@ -123,14 +111,10 @@ public class Persistencia {
 
         if (persistencia == null) {
             throw new NullPointerException("Objeto não inicializado!");
-        }
-
-        else {
+        } else {
             try {
                 result = preparedSt.executeQuery();
-            }
-
-            catch (SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
 
@@ -138,7 +122,9 @@ public class Persistencia {
         }
     }
 
-    /**Executa uma seleção no banco definido como padrão.
+    /**
+     * Executa uma seleção no banco definido como padrão.
+     *
      * @param sql Comando a ser executado no banco.
      * @return ResultSet com os resultados da seleção.
      * @throws SQLException
@@ -150,7 +136,9 @@ public class Persistencia {
     }
 
 
-    /**Executa inserção, atualização ou exclusão no banco definido como padrão.
+    /**
+     * Executa inserção, atualização ou exclusão no banco definido como padrão.
+     *
      * @param sql Comando a ser executado no banco.
      * @return Id do objeto inserido, modificado ou atualizado
      * @throws SQLException
@@ -173,7 +161,9 @@ public class Persistencia {
         return idObjeto;
     }
 
-    /**Executa inserção, atualização ou exclusão no banco definido como padrão.
+    /**
+     * Executa inserção, atualização ou exclusão no banco definido como padrão.
+     *
      * @param preparedSt Comando a ser executado no banco.
      * @return Id do objeto inserido, modificado ou atualizado
      * @throws SQLException

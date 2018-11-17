@@ -17,6 +17,19 @@ public enum EEstado {
         this.estado = sigla;
     }
 
+    public static EEstado getByString(String texto) {
+        EEstado eTipoContato = null;
+
+        for (EEstado obj : EEstado.values()) {
+
+            if (obj.estado.equalsIgnoreCase(texto)) {
+                eTipoContato = obj;
+            }
+        }
+
+        return eTipoContato;
+    }
+
     public String getNomeExtenso() {
         return estado;
     }

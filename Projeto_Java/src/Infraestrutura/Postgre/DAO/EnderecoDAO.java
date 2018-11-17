@@ -38,7 +38,9 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     private PreparedStatement psTodosPorEstado = null;
     private PreparedStatement psTodosPorCep = null;
 
-    /**Define o Id de um objeto.
+    /**
+     * Define o Id de um objeto.
+     *
      * @param objeto Objeto a ter seu ID atualizado.
      * @param id     Id a ser inserido no objeto.
      */
@@ -65,13 +67,9 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
         try {
             enderecos = extrairTodos(persistencia.executarSelecao(ps));
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        finally {
+        } finally {
             if (ps != null) ps.close();
         }
 
@@ -200,6 +198,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
     /**
      * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para adicionar um novo objeto.
      */
     @Override
@@ -209,6 +208,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
     /**
      * Retorna uma string com query de UPDATE, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para atualizar um objeto.
      */
     @Override

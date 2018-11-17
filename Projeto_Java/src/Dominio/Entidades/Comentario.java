@@ -20,12 +20,12 @@ public class Comentario {
     public Comentario() {
     }
 
-    public Comentario(String comentario, int fkAvalicao){
+    public Comentario(String comentario, int fkAvalicao) {
         this.setComentario(comentario);
         this.setFkAvalicao(fkAvalicao);
     }
 
-    public Comentario(int id, String comentario, int fkAvalicao){
+    public Comentario(int id, String comentario, int fkAvalicao) {
         this.setId(id);
         this.setComentario(comentario);
         this.setFkAvalicao(fkAvalicao);

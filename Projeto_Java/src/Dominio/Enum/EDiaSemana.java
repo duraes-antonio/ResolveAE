@@ -16,6 +16,19 @@ public enum EDiaSemana {
         this.dia = dia;
     }
 
+    public static EDiaSemana getByString(String texto) {
+        EDiaSemana eTipoContato = null;
+
+        for (EDiaSemana obj : EDiaSemana.values()) {
+
+            if (obj.dia.equalsIgnoreCase(texto)) {
+                eTipoContato = obj;
+            }
+        }
+
+        return eTipoContato;
+    }
+
     public String getDiaExtenso() {
         return dia;
     }

@@ -24,15 +24,16 @@ public class Contato {
     @JoinColumn(referencedColumnName = "id")
     private int fkTipoContato;
 
-    public Contato() {}
+    public Contato() {
+    }
 
-    public Contato(String descricao, int fkUsuario, int fkTipoContato){
+    public Contato(String descricao, int fkUsuario, int fkTipoContato) {
         this.setDescricao(descricao);
         this.setFkUsuario(fkUsuario);
         this.setFkTipoContato(fkTipoContato);
     }
 
-    public Contato(int id, String descricao, int fkUsuario, int fkTipoContato){
+    public Contato(int id, String descricao, int fkUsuario, int fkTipoContato) {
         this.setId(id);
         this.setDescricao(descricao);
         this.setFkUsuario(fkUsuario);
@@ -76,9 +77,7 @@ public class Contato {
             else if (!Util.isNumero(descricao)) {
                 Util.throwExceptCampoNumerico(this.getTipo().getNome());
             }
-        }
-
-        else if (!Util.isStringValida(descricao)) {
+        } else if (!Util.isStringValida(descricao)) {
             Util.throwExceptCampoVazio(this.getTipo().getNome());
         }
 

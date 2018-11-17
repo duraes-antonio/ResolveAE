@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
- *
  * @author 20161BSI0314
  */
 public class Contrato {
@@ -18,8 +17,17 @@ public class Contrato {
     private int fkUsuario;
 
 
+    public Contrato(int fkUsuario) {
+        descricao = "";
+        dataInicio = null;
+        dataFim = null;
+        dataUltimaModif = null;
+        horasContratadas = 0;
+        this.fkUsuario = fkUsuario;
+    }
+
     public Contrato(String descricao, LocalDate dataInicio, LocalDate dataFim,
-                    int horasContratadas, int fkUsuario){
+                    int horasContratadas, int fkUsuario) {
         this.setDescricao(descricao);
         this.setDataInicio(dataInicio);
         this.setDataFim(dataFim);
@@ -28,7 +36,7 @@ public class Contrato {
     }
 
     public Contrato(int id, String descricao, LocalDate dataInicio, LocalDate dataFim,
-                    int horasContratadas, int fkUsuario){
+                    int horasContratadas, int fkUsuario) {
         this.setId(id);
         this.setDescricao(descricao);
         this.setDataInicio(dataInicio);
@@ -38,7 +46,7 @@ public class Contrato {
     }
 
     public Contrato(String descricao, LocalDate dataInicio, LocalDate dataFim,
-                    LocalDateTime dataUltimaModif, int horasContratadas, int fkUsuario){
+                    LocalDateTime dataUltimaModif, int horasContratadas, int fkUsuario) {
         this.setDescricao(descricao);
         this.setDataUltimaModif(dataUltimaModif);
         this.setDataInicio(dataInicio);
@@ -48,7 +56,7 @@ public class Contrato {
     }
 
     public Contrato(int id, String descricao, LocalDate dataInicio, LocalDate dataFim,
-                    LocalDateTime dataUltimaModif, int horasContratadas, int fkUsuario){
+                    LocalDateTime dataUltimaModif, int horasContratadas, int fkUsuario) {
         this.setId(id);
         this.setDescricao(descricao);
         this.setDataUltimaModif(dataUltimaModif);

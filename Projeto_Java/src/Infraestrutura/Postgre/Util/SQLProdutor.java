@@ -162,79 +162,91 @@ public class SQLProdutor {
         return this;
     }
 
-    /**Cláusula '=' (Igual).
+    /**
+     * Cláusula '=' (Igual).
+     *
      * @return instância atual do produtor de SQL.
      */
-    public SQLProdutor eq () {
+    public SQLProdutor eq() {
         return this.addCondicao("=");
     }
 
-    /**Cláusula '!=' (Diferente).
+    /**
+     * Cláusula '!=' (Diferente).
+     *
      * @return instância atual do produtor de SQL.
      */
-    public SQLProdutor neq () {
+    public SQLProdutor neq() {
         return this.addCondicao("!=");
     }
 
-    /**Cláusula '<' (Menor).
+    /**
+     * Cláusula '<' (Menor).
+     *
      * @return instância atual do produtor de SQL.
      */
-    public SQLProdutor less () {
+    public SQLProdutor less() {
         return this.addCondicao("<");
     }
 
-    /**Cláusula '<=' (Menor ou Igual).
+    /**
+     * Cláusula '<=' (Menor ou Igual).
+     *
      * @return instância atual do produtor de SQL.
      */
-    public SQLProdutor leq () {
+    public SQLProdutor leq() {
         return this.addCondicao("<=");
     }
 
-    /**Cláusula '>' (Maior).
+    /**
+     * Cláusula '>' (Maior).
+     *
      * @return instância atual do produtor de SQL.
      */
-    public SQLProdutor grt () {
+    public SQLProdutor grt() {
         return this.addCondicao("<");
     }
 
-    /**Cláusula '>=' (Maior ou Igual).
+    /**
+     * Cláusula '>=' (Maior ou Igual).
+     *
      * @return instância atual do produtor de SQL.
      */
-    public SQLProdutor grteq () {
+    public SQLProdutor grteq() {
         return this.addCondicao("<=");
     }
 
-    public SQLProdutor in (String nomeColuna) {
+    public SQLProdutor in(String nomeColuna) {
         this.strings.add(nomeColuna);
         this.strings.add("IN ?");
         return this;
     }
 
-    public SQLProdutor like () {
+    public SQLProdutor like() {
         return this.addCondicao("like");
     }
 
-    public SQLProdutor ilike () {
+    public SQLProdutor ilike() {
         return this.addCondicao("ilike");
     }
 
-    public SQLProdutor and () {
+    public SQLProdutor and() {
         this.strings.add("AND");
         return this;
     }
 
-    public SQLProdutor and (String nomeColuna) {
+    public SQLProdutor and(String nomeColuna) {
         this.strings.add("AND");
         this.strings.add(nomeColuna);
         return this;
     }
 
-    public SQLProdutor or () {
+    public SQLProdutor or() {
         this.strings.add("OR");
         return this;
     }
 
-    public SQLProdutor or (String nomeColuna) {
+    public SQLProdutor or(String nomeColuna) {
         this.strings.add("OR");
         this.strings.add(nomeColuna);
         return this;
@@ -246,7 +258,7 @@ public class SQLProdutor {
         return this;
     }
 
-    public SQLProdutor on (String nomeCampo1, String nomeCampo2) {
+    public SQLProdutor on(String nomeCampo1, String nomeCampo2) {
         this.strings.add("ON");
         this.strings.add(nomeCampo1);
         this.strings.add("=");
@@ -307,6 +319,7 @@ public class SQLProdutor {
         this.strings.add("ASC");
         return this;
     }
+
     public SQLProdutor groupBy() {
         this.strings.add("\nGROUP BY");
         this.strings.add(this.colunasSelect);

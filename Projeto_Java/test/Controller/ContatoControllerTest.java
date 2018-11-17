@@ -18,7 +18,7 @@ class ContatoControllerTest {
     int idUser;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         this.controller = new ContatoController();
         this.idContato = 10;
         this.type = ETipoContato.TELEFONE;
@@ -34,7 +34,7 @@ class ContatoControllerTest {
     @Test
     void searchAll() {
         this.contatos = this.controller.searchAll();
-        for (Contato output : this.contatos){
+        for (Contato output : this.contatos) {
             System.out.println(output);
         }
     }
@@ -50,7 +50,7 @@ class ContatoControllerTest {
     void toJsonList() {
         this.contatos = this.controller.searchByType(this.type);
         List<JSONObject> jsonList = this.controller.toJsonList(this.contatos);
-        for (JSONObject output : jsonList){
+        for (JSONObject output : jsonList) {
             System.out.println(output.toString());
         }
     }
@@ -58,7 +58,7 @@ class ContatoControllerTest {
     @Test
     void searchByType() {
         this.contatos = this.controller.searchByType(this.type);
-        for (Contato output : this.contatos){
+        for (Contato output : this.contatos) {
             System.out.println(output);
         }
     }
@@ -66,16 +66,39 @@ class ContatoControllerTest {
     @Test
     void searchByUser() {
         this.contatos = this.controller.searchByUser(this.idUser);
-        for (Contato output : this.contatos){
+        for (Contato output : this.contatos) {
             System.out.println(output);
         }
     }
 
     @Test
     void searchByUserNType() {
-        this.contatos = this.controller.searchByUserNType(this.idUser,this.type);
-        for (Contato output : this.contatos){
+        this.contatos = this.controller.searchByUserNType(this.idUser, this.type);
+        for (Contato output : this.contatos) {
             System.out.println(output);
         }
     }
+
+//    @Test
+//    void executeMethodPost(){
+//        String[] metodo = new String[1];
+//        metodo[0]="adicionar";
+//        String[] fkUsuario = new String[1];
+//        fkUsuario[0] = "1";
+//        String[] tipoContato = new String[1];
+//        tipoContato[0] = "Celular";
+//        String[] descricao = new String[1];
+//        descricao[0] = "99999999";
+//        Map<String, String[]> parametros = new HashMap();
+//        parametros.put("method",metodo);
+//        parametros.put("FkUsuario",fkUsuario);
+//        parametros.put("TipoContato",tipoContato);
+//        parametros.put("Descricao",descricao);
+//        try {
+//            this.controller.executeMethodPost(parametros);
+//        }
+//        catch (Exception erro){
+//            erro.printStackTrace();
+//        }
+// }
 }

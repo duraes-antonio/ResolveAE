@@ -39,6 +39,19 @@ public enum ETipoContato {
         return (id > -1) ? id + 1 : id;
     }
 
+    public static ETipoContato getByString(String texto) {
+        ETipoContato eTipoContato = null;
+
+        for (ETipoContato obj : ETipoContato.values()) {
+
+            if (obj.nome.equalsIgnoreCase(texto)) {
+                eTipoContato = obj;
+            }
+        }
+
+        return eTipoContato;
+    }
+
     public static ETipoContato getTipoContatoPorId(int id) {
         return id <= tiposContatos.size() ? tiposContatos.get(id - 1) : null;
     }

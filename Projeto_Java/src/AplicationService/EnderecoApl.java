@@ -10,61 +10,55 @@ import java.util.List;
 
 public class EnderecoApl extends GenericApl<Endereco> {
     //CONSTRUTORES
-    public EnderecoApl(){
+    public EnderecoApl() {
         this.setDataDAO(new EnderecoDAO());
     }
 
     //METODOS
-    public List<Endereco> getByBairro(String bairro, int limit, int offset){
+    public List<Endereco> getByBairro(String bairro, int limit, int offset) {
         List<Endereco> resultSearch = null;
-        try{
-            EnderecoDAO currentDao = (EnderecoDAO)this.getDataDAo();
-            resultSearch = currentDao.obterTodosPorBairro(bairro, limit,offset);
-        }
-        catch (Exception erro){
+        try {
+            EnderecoDAO currentDao = (EnderecoDAO) this.getDataDAo();
+            resultSearch = currentDao.obterTodosPorBairro(bairro, limit, offset);
+        } catch (Exception erro) {
             resultSearch = null;
-        }
-        finally {
-            return resultSearch;
-        }
-    }
-    public List<Endereco> getByCidade(String cidade, int limit, int offset){
-        List<Endereco> resultSearch = null;
-        try{
-            EnderecoDAO currentDao = (EnderecoDAO)this.getDataDAo();
-            resultSearch = currentDao.obterTodosPorCidade(cidade, limit, offset);
-        }
-        catch (Exception erro){
-            resultSearch = null;
-        }
-        finally {
-            return resultSearch;
-        }
-    }
-    public List<Endereco> getByEstado(EEstado estado, int limit, int offset){
-        List<Endereco> resultSearch = null;
-        try{
-            EnderecoDAO currentDao = (EnderecoDAO)this.getDataDAo();
-            resultSearch = currentDao.obterTodosPorEstado(estado, limit, offset);
-        }
-        catch (Exception erro){
-            resultSearch = null;
-        }
-        finally {
+        } finally {
             return resultSearch;
         }
     }
 
-    public List<Endereco> getByCep(int cep, int limit, int offset){
+    public List<Endereco> getByCidade(String cidade, int limit, int offset) {
         List<Endereco> resultSearch = null;
-        try{
-            EnderecoDAO currentDao = (EnderecoDAO)this.getDataDAo();
-            resultSearch = currentDao.obterTodosPorCep(cep, limit, offset);
-        }
-        catch (Exception erro){
+        try {
+            EnderecoDAO currentDao = (EnderecoDAO) this.getDataDAo();
+            resultSearch = currentDao.obterTodosPorCidade(cidade, limit, offset);
+        } catch (Exception erro) {
             resultSearch = null;
+        } finally {
+            return resultSearch;
         }
-        finally {
+    }
+
+    public List<Endereco> getByEstado(EEstado estado, int limit, int offset) {
+        List<Endereco> resultSearch = null;
+        try {
+            EnderecoDAO currentDao = (EnderecoDAO) this.getDataDAo();
+            resultSearch = currentDao.obterTodosPorEstado(estado, limit, offset);
+        } catch (Exception erro) {
+            resultSearch = null;
+        } finally {
+            return resultSearch;
+        }
+    }
+
+    public List<Endereco> getByCep(int cep, int limit, int offset) {
+        List<Endereco> resultSearch = null;
+        try {
+            EnderecoDAO currentDao = (EnderecoDAO) this.getDataDAo();
+            resultSearch = currentDao.obterTodosPorCep(cep, limit, offset);
+        } catch (Exception erro) {
+            resultSearch = null;
+        } finally {
             return resultSearch;
         }
     }
@@ -84,7 +78,7 @@ public class EnderecoApl extends GenericApl<Endereco> {
     @Override
     public List<JSONObject> parseListToJSONList(List<Endereco> dataList) {
         List<JSONObject> listJSONOutput = new ArrayList<JSONObject>();
-        for (Endereco endereco : dataList){
+        for (Endereco endereco : dataList) {
             listJSONOutput.add(this.parseDataToJSON(endereco));
         }
         return listJSONOutput;

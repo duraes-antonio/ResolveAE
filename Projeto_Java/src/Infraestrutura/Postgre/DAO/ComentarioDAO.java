@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentarioRepositorio{
+public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentarioRepositorio {
 
     public static final String ID = ETab.COMENTARIO.get() + ".id";
     public static final String COMENTARIO = ETab.COMENTARIO.get() + ".comentario";
@@ -36,13 +36,9 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
 
         try {
             comentarios = extrairTodos(persistencia.executarSelecao(ps));
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        finally {
+        } finally {
             if (ps != null) ps.close();
         }
 
@@ -52,6 +48,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
     /**
      * Substitui os '?' do PS pelos valores dos atributos da entidade.
      * Substitui os valores para operações de INSERT e UPDATE apenas.
+     *
      * @param ps     P. Statement com SQL já pronto com os '?' para serem substituídos.
      * @param objeto Objeto com os atributos para preencher o statement.
      * @return ps com os '?' substituídos, pronto para execução.
@@ -72,6 +69,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
 
     /**
      * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para adicionar um novo objeto.
      */
     @Override
@@ -81,6 +79,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
 
     /**
      * Retorna uma string com query de UPDATE, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para atualizar um objeto.
      */
     @Override
@@ -90,6 +89,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
 
     /**
      * Retorna uma string com query de DELETE, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para deletar um objeto.
      */
     @Override
@@ -99,6 +99,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
 
     /**
      * Retorna uma string com query de SELECT, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para buscar um objeto.
      */
     @Override
@@ -106,7 +107,9 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
         return GenericSQL.obterPorId(ETab.COMENTARIO, COLUNAS, ID);
     }
 
-    /**Define o Id de um objeto.
+    /**
+     * Define o Id de um objeto.
+     *
      * @param objeto Objeto a ter seu ID atualizado.
      * @param id     Id a ser inserido no objeto.
      */
@@ -115,8 +118,10 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
         objeto.setId(id);
     }
 
-    /**Monta e retorna o objeto a partir de um resultSet.
+    /**
+     * Monta e retorna o objeto a partir de um resultSet.
      * Não faz validações sobre o resultSet.
+     *
      * @param rs ResultSet retornado de uma consulta já executada.
      * @return Objeto montado a partir dos resultados da consulta.
      */

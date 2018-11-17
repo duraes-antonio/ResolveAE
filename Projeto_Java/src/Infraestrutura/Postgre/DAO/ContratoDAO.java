@@ -42,17 +42,13 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
     private List<Contrato> obterGenerico(PreparedStatement ps)
             throws SQLException {
 
-        List<Contrato> contratos= null;
+        List<Contrato> contratos = null;
 
         try {
             contratos = extrairTodos(persistencia.executarSelecao(ps));
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        finally {
+        } finally {
             if (ps != null) ps.close();
         }
 
@@ -160,9 +156,23 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
     @Override
     protected PreparedStatement preencherPS(PreparedStatement ps, Contrato objeto) throws SQLException {
 
-        ps.setDate(1, Date.valueOf(objeto.getDataInicio()));
-        ps.setDate(2, Date.valueOf(objeto.getDataFim()));
-        ps.setTimestamp(3, Timestamp.valueOf(objeto.getDataUltimaModif()));
+        if (objeto.getDataInicio() != null) {
+            ps.setDate(1, Date.valueOf(objeto.getDataInicio()));
+        } else {
+            ps.setDate(1, null);
+        }
+
+        if (objeto.getDataFim() != null) {
+            ps.setDate(2, Date.valueOf(objeto.getDataFim()));
+        } else {
+            ps.setDate(2, null);
+        }
+
+        if (objeto.getDataUltimaModif() != null) {
+            ps.setTimestamp(3, Timestamp.valueOf(objeto.getDataUltimaModif()));
+        } else {
+            ps.setTimestamp(3, null);
+        }
         ps.setString(4, objeto.getDescricao());
         ps.setInt(5, objeto.getHorasContratadas());
         ps.setInt(6, objeto.getFkUsuario());

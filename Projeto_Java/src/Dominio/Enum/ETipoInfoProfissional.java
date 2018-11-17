@@ -33,6 +33,19 @@ public enum ETipoInfoProfissional {
         return id;
     }
 
+    public static ETipoInfoProfissional getByString(String texto) {
+        ETipoInfoProfissional eTipoContato = null;
+
+        for (ETipoInfoProfissional obj: ETipoInfoProfissional.values()) {
+
+            if (obj.tipo.equalsIgnoreCase(texto)) {
+                eTipoContato = obj;
+            }
+        }
+
+        return  eTipoContato;
+    }
+
     public ETipoInfoProfissional getTipoById(int id) {
 
         ETipoInfoProfissional tipo = null;

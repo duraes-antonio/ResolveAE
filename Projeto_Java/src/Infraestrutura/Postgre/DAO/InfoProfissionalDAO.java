@@ -41,13 +41,9 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
 
         try {
             infos = extrairTodos(persistencia.executarSelecao(ps));
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        finally {
+        } finally {
             if (ps != null) ps.close();
         }
 
@@ -174,6 +170,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
 
     /**
      * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para adicionar um novo objeto.
      */
     @Override
@@ -193,6 +190,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
 
     /**
      * Retorna uma string com query de DELETE, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para deletar um objeto.
      */
     @Override
@@ -202,6 +200,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
 
     /**
      * Retorna uma string com query de SELECT, com '?' p/ ser substuído.
+     *
      * @return String com comando SQL para buscar um objeto.
      */
     @Override
@@ -211,6 +210,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
 
     /**
      * Define o Id de um objeto.
+     *
      * @param objeto Objeto a ter seu ID atualizado.
      * @param id     Id a ser inserido no objeto.
      */

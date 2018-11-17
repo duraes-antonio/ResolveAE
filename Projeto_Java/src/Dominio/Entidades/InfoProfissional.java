@@ -5,7 +5,6 @@ import Dominio.Enum.ETipoInfoProfissional;
 import java.time.LocalDate;
 
 /**
- *
  * @author 20161BSI0314
  */
 public class InfoProfissional {
@@ -18,7 +17,8 @@ public class InfoProfissional {
     private int fkTipoInfo;
     private int fkUsuario;
 
-    public InfoProfissional(){}
+    public InfoProfissional() {
+    }
 
     public InfoProfissional(String descricao, LocalDate dataInicio, LocalDate dataFim,
                             int fkTipoInfo, int fkUsuario) {

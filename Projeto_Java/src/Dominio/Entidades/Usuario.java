@@ -3,7 +3,6 @@ package Dominio.Entidades;
 import java.util.List;
 
 /**
- *
  * @author 20161BSI0314
  */
 
@@ -17,7 +16,7 @@ public class Usuario extends APessoa {
     private List<Avaliacao> avaliacoes;
 
     public Usuario(String nome, String email, Endereco endereco,
-                   List<Contato> contatos, String senha, String sobre){
+                   List<Contato> contatos, String senha, String sobre) {
         super(nome, email, endereco, contatos);
         this.setSenha(senha);
         this.setSobre(sobre);

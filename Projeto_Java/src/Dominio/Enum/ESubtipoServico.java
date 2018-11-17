@@ -3,7 +3,7 @@ package Dominio.Enum;
 import java.util.HashMap;
 
 public enum ESubtipoServico {
-	MANUTENCAO_PREVENTIVA_E_CORRETIVA("Manutenção Preventiva e Corretiva"),
+    MANUTENCAO_PREVENTIVA_E_CORRETIVA("Manutenção Preventiva e Corretiva"),
     CONFIGURACAO_E_GERENCIAMENTO_SOFTWARE("Configuração e Gerencimento de Software"),
     CONFIGURACAO_SUBSTITUICAO_ANALISE_DE_HARDWARE("Configuração, Substituição e Análise de Hardware"),
     LIMPEZA_E_OTIMIZACAO_DE_COMPUTADORES("Limpeza e Otimização de Computadores"),
@@ -63,6 +63,19 @@ public enum ESubtipoServico {
         }
 
         return subtipoServico;
+    }
+
+    public static ESubtipoServico getByString(String texto) {
+        ESubtipoServico eTipoContato = null;
+
+        for (ESubtipoServico obj : ESubtipoServico.values()) {
+
+            if (obj.subtipo.equalsIgnoreCase(texto)) {
+                eTipoContato = obj;
+            }
+        }
+
+        return eTipoContato;
     }
 
     private static void initializeMapping() {

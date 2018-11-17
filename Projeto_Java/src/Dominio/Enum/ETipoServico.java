@@ -44,6 +44,20 @@ public enum ETipoServico {
         return tipoServico;
     }
 
+    public static ETipoServico getByString(String texto) {
+        ETipoServico eTipoContato = null;
+
+        for (ETipoServico obj : ETipoServico.values()) {
+
+            if (obj.tipo.equalsIgnoreCase(texto)) {
+                eTipoContato = obj;
+            }
+        }
+
+        return eTipoContato;
+    }
+
+
     private static void initializeMapping() {
 
         hashEnumId = new HashMap<>();

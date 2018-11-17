@@ -3,7 +3,6 @@ package Dominio.Entidades;
 import java.util.List;
 
 /**
- *
  * @author 20161BSI0314
  */
 public abstract class APessoa {

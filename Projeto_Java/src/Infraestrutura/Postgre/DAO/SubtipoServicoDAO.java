@@ -8,12 +8,11 @@ package Infraestrutura.Postgre.DAO;
 import Infraestrutura.Enum.ETab;
 
 /**
- *
  * @author elmr
  */
 public class SubtipoServicoDAO {
 
-//    @Override
+    //    @Override
 //    public List<SubTipo> getSubtiposByTipo(int tipo) {
 //        String query = "SELECT * FROM Subtipo_Servico "
 //                + "WHERER fk_tipo_servico = "+tipo+" ";

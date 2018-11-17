@@ -12,6 +12,19 @@ public enum ETipoTelefone {
         this.tipo = tipo;
     }
 
+    public static ETipoTelefone getByString(String texto) {
+        ETipoTelefone eTipoContato = null;
+
+        for (ETipoTelefone obj : ETipoTelefone.values()) {
+
+            if (obj.tipo.equalsIgnoreCase(texto)) {
+                eTipoContato = obj;
+            }
+        }
+
+        return eTipoContato;
+    }
+
     public String getTipo() {
         return tipo;
     }

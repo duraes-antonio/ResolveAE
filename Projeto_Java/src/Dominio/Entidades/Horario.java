@@ -5,7 +5,6 @@ import Dominio.Enum.EDiaSemana;
 import java.time.LocalTime;
 
 /**
- *
  * @author 20161BSI0314
  */
 public class Horario {
@@ -17,7 +16,8 @@ public class Horario {
     private boolean livre;
     private int fkUsuario;
 
-    public Horario(){}
+    public Horario() {
+    }
 
     public Horario(EDiaSemana diaSemana, LocalTime horarioInicio, LocalTime horarioFim,
                    boolean livre, int fkUsuario) {

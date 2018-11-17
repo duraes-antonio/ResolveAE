@@ -15,8 +15,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class ContatoDAO extends AGenericDAO<Contato> implements IContatoRepositorio
-{
+public class ContatoDAO extends AGenericDAO<Contato> implements IContatoRepositorio {
     //Nome das colunas da tabela CONTATO (nomes usados para montar as querys);
     public static final String ID = ETab.CONTATO.get() + ".id";
     public static final String DESCRICAO = ETab.CONTATO.get() + ".descricao";
@@ -40,13 +39,9 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
 
         try {
             contatos = extrairTodos(persistencia.executarSelecao(ps));
-        }
-
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        finally {
+        } finally {
             if (ps != null) ps.close();
         }
 
@@ -113,9 +108,11 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
         return obterGenerico(psTodosPorTipoEUsuario);
     }
 
-    /**Substitui os '?' do PS pelos valores dos atributos da objeto.
+    /**
+     * Substitui os '?' do PS pelos valores dos atributos da objeto.
      * Substitui os valores para operações de INSERT e UPDATE apenas.
-     * @param ps P. Statement com SQL já pronto com os '?' para serem substituídos.
+     *
+     * @param ps     P. Statement com SQL já pronto com os '?' para serem substituídos.
      * @param objeto Objeto com os atributos para preencher o statement.
      * @return ps com os '?' substituídos, pronto para execução.
      */

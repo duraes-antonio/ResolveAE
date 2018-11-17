@@ -10,49 +10,43 @@ import java.util.List;
 
 public class ContatoApl extends GenericApl<Contato> {
     //CONSTRUTORES
-    public ContatoApl(){
+    public ContatoApl() {
         this.setDataDAO(new ContatoDAO());
     }
 
     //METODOS
-    public List<Contato> getByType(ETipoContato type, int limit, int offset){
+    public List<Contato> getByType(ETipoContato type, int limit, int offset) {
         List<Contato> resultSearch = null;
-        try{
+        try {
             ContatoDAO currentDao = (ContatoDAO) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorTipo(type, limit, offset);
-        }
-        catch (Exception erro){
+        } catch (Exception erro) {
             resultSearch = null;
-        }
-        finally {
+        } finally {
             return resultSearch;
         }
     }
 
-    public List<Contato> getByUser(int idUser, int limit, int offset){
+    public List<Contato> getByUser(int idUser, int limit, int offset) {
         List<Contato> resultSearch = null;
-        try{
-            ContatoDAO currentDao = (ContatoDAO)this.getDataDAo();
-            resultSearch = currentDao.obterTodosPorUsuario(idUser,limit,offset);
-        }
-        catch (Exception erro){
+        try {
+            ContatoDAO currentDao = (ContatoDAO) this.getDataDAo();
+            resultSearch = currentDao.obterTodosPorUsuario(idUser, limit, offset);
+        } catch (Exception erro) {
             resultSearch = null;
-        }
-        finally {
-            return  resultSearch;
+        } finally {
+            return resultSearch;
         }
     }
 
-    public List<Contato> getByUserNType(int idUser, ETipoContato type, int limit, int offset){
+    public List<Contato> getByUserNType(int idUser, ETipoContato type, int limit, int offset) {
         List<Contato> resultSearch = null;
-        try{
+        try {
             ContatoDAO currentDao = (ContatoDAO) this.getDataDAo();
-            resultSearch = currentDao.obterTodosPorTipoEUsuario(type,idUser,limit,offset);
-        }
-        catch (Exception erro){
+            resultSearch = currentDao.obterTodosPorTipoEUsuario(type, idUser, limit, offset);
+        } catch (Exception erro) {
             resultSearch = null;
-        }
-        finally {
+        } finally {
             return resultSearch;
         }
     }
@@ -60,17 +54,17 @@ public class ContatoApl extends GenericApl<Contato> {
     @Override
     public JSONObject parseDataToJSON(Contato data) {
         JSONObject jsonOutput = new JSONObject();
-        jsonOutput.put("ID",data.getId());
-        jsonOutput.put("FkUsuario",data.getFkUsuario());
-        jsonOutput.put("TipoContato",data.getTipo().getNome());
-        jsonOutput.put("Descricao",data.getDescricao());
+        jsonOutput.put("ID", data.getId());
+        jsonOutput.put("FkUsuario", data.getFkUsuario());
+        jsonOutput.put("TipoContato", data.getTipo().getNome());
+        jsonOutput.put("Descricao", data.getDescricao());
         return jsonOutput;
     }
 
     @Override
     public List<JSONObject> parseListToJSONList(List<Contato> dataList) {
         List<JSONObject> listJSONOutput = new ArrayList<>();
-        for (Contato contato : dataList){
+        for (Contato contato : dataList) {
             listJSONOutput.add(this.parseDataToJSON(contato));
         }
         return listJSONOutput;

@@ -5,9 +5,7 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 class ComentarioControllerTest {
     ComentarioController controler;
@@ -19,7 +17,7 @@ class ComentarioControllerTest {
     int idUser;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         controler = new ComentarioController();
         idComentario = 1;
         idServico = 11;
@@ -36,7 +34,7 @@ class ComentarioControllerTest {
     @Test
     void searchComentarioByIdServico() {
         comentarios = controler.searchByIdServico(idServico);
-        for (Comentario output: comentarios){
+        for (Comentario output : comentarios) {
             System.out.println(output);
         }
     }
@@ -50,7 +48,7 @@ class ComentarioControllerTest {
     @Test
     void searchComentariosByIdUser() {
         comentarios = controler.searchByIdUser(idUser);
-        for(Comentario output:comentarios){
+        for (Comentario output : comentarios) {
             System.out.println(output);
         }
     }
@@ -58,41 +56,40 @@ class ComentarioControllerTest {
     @Test
     void searchAllComentarios() {
         comentarios = controler.searchAll();
-        for(Comentario output:comentarios){
+        for (Comentario output : comentarios) {
             System.out.println(output);
             System.out.println("--------------");
         }
     }
 
     @Test
-    void toJson(){
+    void toJson() {
         comentario = controler.searchById(idComentario);
         JSONObject json = controler.toJson(comentario);
         System.out.println(json.toString());
     }
 
     @Test
-    void toJsonList(){
-        comentarios  = controler.searchAll();
+    void toJsonList() {
+        comentarios = controler.searchAll();
         List<JSONObject> jsonList = controler.toJsonList(this.comentarios);
-        for(JSONObject output : jsonList){
+        for (JSONObject output : jsonList) {
             System.out.println(output.toString());
         }
     }
 
 //    @Test
 //    void executeMethodPost(){
-//        Map<String,String[]> parametros = new HashMap();
-//        String[]  metodo = new String[1];
+//        String[] metodo = new String[1];
 //        metodo[0] = "adicionar";
-//        parametros.put("method",metodo);
-//        String[]  comentario = new String[1];
-//        comentario[0]="teste";
-//        parametros.put("Comentario",comentario);
-//        String[]  fkAvaliacao = new String[1];
+//        String[] comentario = new String[1];
+//        comentario[0] = "teste";
+//        String[] fkAvaliacao = new String[1];
 //        fkAvaliacao[0] = "13";
-//        parametros.put("FkAvalicao",fkAvaliacao);
-//        System.out.println(parametros.get("method")[0]);
+//        Map<String, String[]> parametros = new HashMap();
+//        parametros.put("method",metodo);
+//        parametros.put("Comentario",comentario);
+//        parametros.put("FkAvaliacao",fkAvaliacao);
 //        try {
 //            controler.executeMethodPost(parametros);
 //        }
