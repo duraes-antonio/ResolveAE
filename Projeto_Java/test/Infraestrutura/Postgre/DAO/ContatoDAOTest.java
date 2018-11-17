@@ -59,10 +59,10 @@ class ContatoDAOTest {
 
     @Test
     void excluirPorId() throws SQLException {
-        Contato contato = contatoDAO.obterPorId(id+1);
+        Contato contato = contatoDAO.obterPorId(id + 1);
         System.out.println(contato);
-        contatoDAO.excluirPorId(id+1);
-        Contato contatoExcluido = contatoDAO.obterPorId(id+1);
+        contatoDAO.excluirPorId(id + 1);
+        Contato contatoExcluido = contatoDAO.obterPorId(id + 1);
         System.out.println(contatoExcluido);
         assert contato != null && contatoExcluido == null;
     }

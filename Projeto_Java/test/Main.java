@@ -12,7 +12,7 @@ public class Main {
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println("TEMPO de EXECUÇÃO:\t" + elapsedTime/1000.00 + " sec.");
+        System.out.println("TEMPO de EXECUÇÃO:\t" + elapsedTime / 1000.00 + " sec.");
     }
 
 }

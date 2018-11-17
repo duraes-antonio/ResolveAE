@@ -45,27 +45,27 @@ class ComentarioDAOTest {
 
     @Test
     void obterPorId() throws SQLException {
-        Comentario comentario = comentarioDAO.obterPorId(id+1);
+        Comentario comentario = comentarioDAO.obterPorId(id + 1);
         System.out.println(comentario);
-        assert comentario.getId() == id+1;
+        assert comentario.getId() == id + 1;
     }
 
     @Test
     void atualizar() throws SQLException {
-        Comentario comentario = comentarioDAO.obterPorId(id+1);
+        Comentario comentario = comentarioDAO.obterPorId(id + 1);
         comentario.setComentario("666");
         comentarioDAO.atualizar(comentario);
         comentario = null;
-        comentario = comentarioDAO.obterPorId(id+1);
+        comentario = comentarioDAO.obterPorId(id + 1);
         assert comentario.getComentario().equals("666");
     }
 
     @Test
     void excluirPorId() throws SQLException {
-        Comentario comentario = comentarioDAO.obterPorId(id-1);
+        Comentario comentario = comentarioDAO.obterPorId(id - 1);
         System.out.println(comentario);
 
-        assert comentario.getId() == id+1;
+        assert comentario.getId() == id + 1;
 
     }
 
