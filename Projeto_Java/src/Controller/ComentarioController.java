@@ -99,13 +99,13 @@ public class ComentarioController implements IController<Comentario> {
         if (methodName.equalsIgnoreCase("atualizar")){
             int idComentario = Integer.parseInt(parameters.get("ID")[0]);
             String comentario = parameters.get("Comentario")[0];
-            int fkAvaliacao = Integer.parseInt(parameters.get("FkAvalicao")[0]);
+            int fkAvaliacao = Integer.parseInt(parameters.get("FkAvaliacao")[0]);
             Comentario updateData = new Comentario(idComentario,comentario,fkAvaliacao);
             this.aplication.updateData(updateData);
         }
         else if (methodName.equalsIgnoreCase("adicionar")){
             String comentario = parameters.get("Comentario")[0];
-            int fkAvaliacao = Integer.parseInt(parameters.get("FkAvalicao")[0]);
+            int fkAvaliacao = Integer.parseInt(parameters.get("FkAvaliacao")[0]);
             Comentario addData = new Comentario(comentario,fkAvaliacao);
             Comentario resultAdd =  this.aplication.addData(addData);
         }

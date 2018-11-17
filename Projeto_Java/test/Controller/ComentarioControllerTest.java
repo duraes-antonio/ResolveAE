@@ -5,7 +5,9 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class ComentarioControllerTest {
     ComentarioController controler;
@@ -77,4 +79,25 @@ class ComentarioControllerTest {
             System.out.println(output.toString());
         }
     }
+
+//    @Test
+//    void executeMethodPost(){
+//        Map<String,String[]> parametros = new HashMap();
+//        String[]  metodo = new String[1];
+//        metodo[0] = "adicionar";
+//        parametros.put("method",metodo);
+//        String[]  comentario = new String[1];
+//        comentario[0]="teste";
+//        parametros.put("Comentario",comentario);
+//        String[]  fkAvaliacao = new String[1];
+//        fkAvaliacao[0] = "13";
+//        parametros.put("FkAvalicao",fkAvaliacao);
+//        System.out.println(parametros.get("method")[0]);
+//        try {
+//            controler.executeMethodPost(parametros);
+//        }
+//        catch (Exception erro){
+//            erro.printStackTrace();
+//        }
+//    }
 }

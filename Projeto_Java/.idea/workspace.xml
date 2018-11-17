@@ -10,23 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a9405f3-55d7-464e-aca6-140c6bb39ff7" name="Default Changelist" comment="UP: fk adicionadas nas classes + DAO generico (Abstração)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AplicationService/GenericApl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AplicationService/GenericApl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AvaliacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AvaliacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ComentarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContatoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContratoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContratoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EnderecoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EnderecoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HorarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HorarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InfoProfissionalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InfoProfissionalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Interfaces/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Interfaces/IController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ServicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ServicoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Contrato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ResolveAE_Servlet/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ResolveAE_Servlet/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ResolveAE_Servlet/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ResolveAE_Servlet/nbproject/project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ResolveAE_Servlet/src/java/ResolveaeApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ResolveAE_Servlet/src/java/ResolveaeApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Controller/ComentarioControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Controller/ComentarioControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -184,40 +169,41 @@
     <session id="737108424">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.102" value="1" />
           <entry key="project.open.time.120" value="1" />
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.63" value="1" />
           <entry key="project.open.time.64" value="1" />
+          <entry key="project.open.time.68" value="1" />
           <entry key="project.open.time.69" value="1" />
           <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.79" value="1" />
           <entry key="project.open.time.81" value="1" />
           <entry key="project.open.time.85" value="1" />
           <entry key="project.open.time.97" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="255" />
+          <entry key="java" value="258" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="255" />
+          <entry key="JAVA" value="258" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="3" />
-          <entry key="java" value="30658" />
+          <entry key="java" value="31144" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="30658" />
+          <entry key="JAVA" value="31144" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -231,54 +217,7 @@
     <favorites_list name="Projeto_Java" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ServicoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="175" column="9" selection-start-line="175" selection-start-column="9" selection-end-line="175" selection-end-column="9" />
-              <folding>
-                <element signature="e#5221#5238#0" expanded="true" />
-                <element signature="method#searchById#0;class#ServicoController#0" />
-                <element signature="method#searchAll#0;class#ServicoController#0" />
-                <element signature="method#searchByUser#0;class#ServicoController#0" />
-                <element signature="method#searchByTitle#0;class#ServicoController#0" />
-                <element signature="method#searchByDescription#0;class#ServicoController#0" />
-                <element signature="method#searchByType#0;class#ServicoController#0" />
-                <element signature="method#searchBySubtype#0;class#ServicoController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/InfoProfissionalController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="135" column="9" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
-              <folding>
-                <element signature="method#searchById#0;class#InfoProfissionalController#0" />
-                <element signature="method#searchAll#0;class#InfoProfissionalController#0" />
-                <element signature="method#toJsonList#0;class#InfoProfissionalController#0" />
-                <element signature="method#searchByType#0;class#InfoProfissionalController#0" />
-                <element signature="method#searchByUser#0;class#InfoProfissionalController#0" />
-                <element signature="method#searchByUserNTYpe#0;class#InfoProfissionalController#0" />
-                <element signature="method#searchByData#0;class#InfoProfissionalController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/HorarioController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="16" column="84" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -292,7 +231,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>stringBuilder</find>
       <find>append</find>
       <find>SQLP</find>
       <find>ResultSet</find>
@@ -322,6 +260,7 @@
       <find>obtertodos</find>
       <find>adicionar</find>
       <find>datef</find>
+      <find>FkAvalicao</find>
     </findStrings>
     <replaceStrings>
       <replace>concatSequencia</replace>
@@ -380,14 +319,12 @@
         <option value="$PROJECT_DIR$/src/AplicationService/InfoProfissionalApl.java" />
         <option value="$PROJECT_DIR$/src/AplicationService/UsuarioApl.java" />
         <option value="$PROJECT_DIR$/test/Controller/ContatoControllerTest.java" />
-        <option value="$PROJECT_DIR$/test/Controller/ComentarioControllerTest.java" />
         <option value="$PROJECT_DIR$/test/Controller/AvaliacaoControllerTest.java" />
         <option value="$PROJECT_DIR$/src/AplicationService/ServicoApl.java" />
         <option value="$PROJECT_DIR$/src/AplicationService/GenericApl.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" />
         <option value="$PROJECT_DIR$/src/Controller/Interfaces/IController.java" />
         <option value="$PROJECT_DIR$/src/Controller/AvaliacaoController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/ComentarioController.java" />
         <option value="$PROJECT_DIR$/src/Controller/ContatoController.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Entidades/Contrato.java" />
         <option value="$PROJECT_DIR$/src/Controller/ContratoController.java" />
@@ -396,6 +333,8 @@
         <option value="$PROJECT_DIR$/src/Controller/ServicoController.java" />
         <option value="$PROJECT_DIR$/src/Controller/UsuarioController.java" />
         <option value="$PROJECT_DIR$/src/Controller/HorarioController.java" />
+        <option value="$PROJECT_DIR$/test/Controller/ComentarioControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ComentarioController.java" />
       </list>
     </option>
   </component>
@@ -593,8 +532,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -604,7 +543,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542147244071" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542470154725" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="GenericSQL&#10;PostgreSQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -664,7 +603,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ContatoControllerTest">
+  <component name="RunManager" selected="JUnit.ComentarioControllerTest.executeMethodPost">
     <configuration name="ComentarioControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projeto_Java" />
       <extension name="coverage">
@@ -675,6 +614,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="Controller" />
       <option name="MAIN_CLASS_NAME" value="Controller.ComentarioControllerTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ComentarioControllerTest.executeMethodPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto_Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Controller" />
+      <option name="MAIN_CLASS_NAME" value="Controller.ComentarioControllerTest" />
+      <option name="METHOD_NAME" value="executeMethodPost" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -690,22 +645,6 @@
       <option name="PACKAGE_NAME" value="Controller" />
       <option name="MAIN_CLASS_NAME" value="Controller.ComentarioControllerTest" />
       <option name="METHOD_NAME" value="searchAllComentarios" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ComentarioControllerTest.searchComentariosByIdUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projeto_Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Controller.Interfaces.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Controller" />
-      <option name="MAIN_CLASS_NAME" value="Controller.ComentarioControllerTest" />
-      <option name="METHOD_NAME" value="searchComentariosByIdUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -742,19 +681,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ComentarioControllerTest.searchComentariosByIdUser" />
       <item itemvalue="JUnit.ComentarioControllerTest.searchAllComentarios" />
       <item itemvalue="JUnit.ComentarioControllerTest" />
       <item itemvalue="JUnit.ComentarioControllerTest.toJsonList" />
       <item itemvalue="JUnit.ContatoControllerTest" />
+      <item itemvalue="JUnit.ComentarioControllerTest.executeMethodPost" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ComentarioControllerTest.executeMethodPost" />
         <item itemvalue="JUnit.ContatoControllerTest" />
         <item itemvalue="JUnit.ComentarioControllerTest" />
         <item itemvalue="JUnit.ComentarioControllerTest.toJsonList" />
         <item itemvalue="JUnit.ComentarioControllerTest.searchAllComentarios" />
-        <item itemvalue="JUnit.ComentarioControllerTest.searchComentariosByIdUser" />
       </list>
     </recent_temporary>
   </component>
@@ -795,6 +734,7 @@
       <workItem from="1542136748823" duration="10452000" />
       <workItem from="1542395285997" duration="193000" />
       <workItem from="1542398394526" duration="8368000" />
+      <workItem from="1542467040112" duration="2512000" />
     </task>
     <task id="LOCAL-00001" summary="UP: fk adicionadas nas classes + DAO generico (Abstração)">
       <created>1540808312913</created>
@@ -807,24 +747,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ComentarioControllerTest_searchAllComentarios - 2018.11.11 at 11h 31m 06s.xml">
-      <configuration name="ComentarioControllerTest.searchAllComentarios" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComentarioControllerTest_searchAllComentarios - 2018.11.11 at 11h 34m 05s.xml">
-      <configuration name="ComentarioControllerTest.searchAllComentarios" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComentarioControllerTest - 2018.11.11 at 11h 34m 43s.xml">
-      <configuration name="ComentarioControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComentarioControllerTest - 2018.11.11 at 14h 11m 11s.xml">
-      <configuration name="ComentarioControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComentarioControllerTest - 2018.11.13 at 15h 17m 12s.xml">
-      <configuration name="ComentarioControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComentarioControllerTest_toJsonList - 2018.11.13 at 15h 18m 13s.xml">
-      <configuration name="ComentarioControllerTest.toJsonList" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ComentarioControllerTest_toJsonList - 2018.11.13 at 15h 25m 56s.xml">
       <configuration name="ComentarioControllerTest.toJsonList" configurationId="JUnit" />
     </history-entry>
@@ -837,9 +759,27 @@
     <history-entry file="ContatoControllerTest - 2018.11.13 at 15h 35m 56s.xml">
       <configuration name="ContatoControllerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ComentarioControllerTest_executeMethodPost - 2018.11.17 at 13h 38m 09s.xml">
+      <configuration name="ComentarioControllerTest.executeMethodPost" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComentarioControllerTest_executeMethodPost - 2018.11.17 at 13h 41m 08s.xml">
+      <configuration name="ComentarioControllerTest.executeMethodPost" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComentarioControllerTest_executeMethodPost - 2018.11.17 at 13h 42m 16s.xml">
+      <configuration name="ComentarioControllerTest.executeMethodPost" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComentarioControllerTest_executeMethodPost - 2018.11.17 at 13h 44m 16s.xml">
+      <configuration name="ComentarioControllerTest.executeMethodPost" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComentarioControllerTest_executeMethodPost - 2018.11.17 at 13h 53m 26s.xml">
+      <configuration name="ComentarioControllerTest.executeMethodPost" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComentarioControllerTest_executeMethodPost - 2018.11.17 at 13h 54m 34s.xml">
+      <configuration name="ComentarioControllerTest.executeMethodPost" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220309000" />
+    <option name="totallyTimeSpent" value="222821000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -853,7 +793,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49157304" visible="true" weight="0.4493192" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49157304" visible="true" weight="0.45612708" />
       <window_info id="Structure" order="1" sideWeight="0.5024233" side_tool="true" weight="0.40191388" />
       <window_info id="Persistence" order="2" sideWeight="0.5056543" side_tool="true" weight="0.38118023" />
       <window_info id="Designer" order="3" />
@@ -863,8 +803,8 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956383" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49880764" weight="0.4409871" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49960256" weight="0.4914163" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49880764" weight="0.44032258" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49960256" weight="0.4903226" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32741934" />
@@ -1004,7 +944,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/Controller/ComentarioControllerTest.java</url>
-          <line>35</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="167" />
         </line-breakpoint>
@@ -1019,6 +959,18 @@
           <line>182</line>
           <properties />
           <option name="timeStamp" value="174" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controller/ComentarioController.java</url>
+          <line>97</line>
+          <properties />
+          <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/Controller/ComentarioControllerTest.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="176" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1164,13 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/Controller/ComentarioControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/Controller/AvaliacaoControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1206,13 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="105" selection-start-line="105" selection-end-line="105" />
-          <folding>
-            <element signature="method#get#0;class#Persistencia#0" />
-            <element signature="method#executar#1;class#Persistencia#0" />
-            <element signature="docComment;method#executarAtualizacao#0;class#Persistencia#0" />
-            <element signature="method#executarAtualizacao#0;class#Persistencia#0" />
-            <element signature="docComment;method#executarAtualizacao#1;class#Persistencia#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1227,10 +1165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2278">
           <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
-          <folding>
-            <element signature="e#5631#5632#0" expanded="true" />
-            <element signature="e#5699#5700#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1298,40 +1232,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2010#2022#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AvaliacaoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="105" column="12" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#executeMethodGet#0;class#AvaliacaoController#0" />
-            <element signature="method#searchById#0;class#AvaliacaoController#0" />
-            <element signature="method#toJsonList#0;class#AvaliacaoController#0" />
-            <element signature="method#searchByServico#0;class#AvaliacaoController#0" />
-            <element signature="method#searchByUser#0;class#AvaliacaoController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ComentarioController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#executeMethodGet#0;class#ComentarioController#0" />
-            <element signature="method#searchById#0;class#ComentarioController#0" />
-            <element signature="method#searchAll#0;class#ComentarioController#0" />
-            <element signature="e#5213#5214#0" expanded="true" />
-            <element signature="e#5273#5274#0" expanded="true" />
-            <element signature="method#toJsonList#0;class#ComentarioController#0" />
-            <element signature="method#searchByIdServico#0;class#ComentarioController#0" />
-            <element signature="method#searchByIdAvaliacao#0;class#ComentarioController#0" />
-            <element signature="method#searchByIdUser#0;class#ComentarioController#0" />
           </folding>
         </state>
       </provider>
@@ -1489,10 +1389,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ServicoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
+        <state relative-caret-position="2805">
           <caret line="175" column="9" selection-start-line="175" selection-start-column="9" selection-end-line="175" selection-end-column="9" />
           <folding>
-            <element signature="e#5221#5238#0" expanded="true" />
             <element signature="method#searchById#0;class#ServicoController#0" />
             <element signature="method#searchAll#0;class#ServicoController#0" />
             <element signature="method#searchByUser#0;class#ServicoController#0" />
@@ -1506,7 +1405,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/InfoProfissionalController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
+        <state relative-caret-position="2125">
           <caret line="135" column="9" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
           <folding>
             <element signature="method#searchById#0;class#InfoProfissionalController#0" />
@@ -1520,10 +1419,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/Controller/ComentarioControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="93" column="31" lean-forward="true" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ComentarioController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="101" column="71" selection-start-line="101" selection-start-column="71" selection-end-line="101" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#executeMethodGet#0;class#ComentarioController#0" />
+            <element signature="method#searchById#0;class#ComentarioController#0" />
+            <element signature="method#searchAll#0;class#ComentarioController#0" />
+            <element signature="e#5213#5214#0" expanded="true" />
+            <element signature="e#5273#5274#0" expanded="true" />
+            <element signature="method#toJsonList#0;class#ComentarioController#0" />
+            <element signature="method#searchByIdServico#0;class#ComentarioController#0" />
+            <element signature="method#searchByIdAvaliacao#0;class#ComentarioController#0" />
+            <element signature="method#searchByIdUser#0;class#ComentarioController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HorarioController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="16" column="84" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AvaliacaoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="105" column="12" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#executeMethodGet#0;class#AvaliacaoController#0" />
+            <element signature="method#searchById#0;class#AvaliacaoController#0" />
+            <element signature="method#toJsonList#0;class#AvaliacaoController#0" />
+            <element signature="method#searchByServico#0;class#AvaliacaoController#0" />
+            <element signature="method#searchByUser#0;class#AvaliacaoController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
