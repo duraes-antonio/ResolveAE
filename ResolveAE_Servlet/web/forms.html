@@ -2,25 +2,362 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 </head>
 
 <body>
-    <div align="center">
-        <H1>AVALIACAO FORMS</H1>
-        
-        <form id="forms" action="Avaliacao" method="POST">
-            <label for="metodo">Metodo: </label>
-            <select id="metodo" name="method" form="forms">
-                <option>Atualizar</option>
-                <option>Adicionar</option>
-            </select>
-            <br>
-            NOTA: <input type="number" name="Nota" /><br />
-            ID Usuario: <input type="number" name="FkUsuario" /><br />
-            ID Servico: <input type="number" name="FkServico" /><br />
-            <input type="submit" value="Enviar" />
+    <!--LINHA 1-->
+    <div class="form-row">
+        <!--AVALIACAO-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">AVALIACAO FORMS</h1>
+            <form id="forms" action="Avaliacao" method="POST">
+                <div align="center">
+                    <label for="metodo">Metodo: </label>
+                    <select id="metodo" name="method" form="forms">
+                        <option>Atualizar</option>
+                        <option>Adicionar</option>
+                    </select>
+                    <br>
+                </div>
+                <div align="right">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdAvaliacao: <input type="number" name="ID" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Nota: <input type="number" name="Nota" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdUser: <input type="number" name="FkUsuario" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            IdServico: <input type="number" name="FkServico" /><br />
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--AVALIACAO FIM-->
+
+        <!--COMENTARIO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">COMENTARIO FORMS</h1>
+            <form id="forms" action="Comentario" method="POST">
+                <div align="center">
+                    <label for="metodo">Metodo: </label>
+                    <select id="metodo" name="method" form="forms">
+                        <option>Atualizar</option>
+                        <option>Adicionar</option>
+                    </select>
+                    <br>
+                </div>
+                <div align="right">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdComentario: <input type="number" name="ID" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Comentario: <input type="text" name="Comentario" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdAvaliacao: <input type="number" name="FkAvaliacao" /><br />
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--COMENTARIO FIM-->
+    </div>
+    <!--LINHA 1 FIM-->
+
+    <!--LINHA 2-->
+    <div class="form-row" style="margin-top:3%">
+        <!--CONTATO-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">CONTATO FORMS</h1>
+            <form id="forms" action="Contato" method="POST">
+                <div align="center">
+                    <label for="metodo">Metodo: </label>
+                    <select id="metodo" name="method" form="forms">
+                        <option>Atualizar</option>
+                        <option>Adicionar</option>
+                    </select>
+                    <br>
+                </div>
+                <div align="right">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdContato: <input type="number" name="ID" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            IdUsuario: <input type="number" name="FkUsuario" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            Tipo: <input type="text" name="TipoContato" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Descricao: <input type="number" name="Descricao" /><br />
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--CONTATO FIM-->
+
+        <!--CONTRATO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">CONTRATO FORMS</h1>
+            <form id="forms" action="Contrato" method="POST">
+                <div align="center">
+                    <label for="metodo">Metodo: </label>
+                    <select id="metodo" name="method" form="forms">
+                        <option>Atualizar</option>
+                        <option>Adicionar</option>
+                    </select>
+                    <br>
+                </div>
+                <div align="right">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdContrato: <input type="number" name="ID" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Descricao: <input type="text" name="Descricao" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            DataInicio: <input type="date" name="DataInicio" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            DataFim: <input type="date" name="DataFim" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            HorasContratada: <input type="number" name="HorasContratada" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            IdUsuario: <input type="number" name="FkUsuario" /><br />
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--CONTRATO FIM-->
+    </div>
+    <!--LINHA 2 FIM-->
+
+    <!--LINHA 3-->
+    <div class="form-row" style="margin-top:3%">
+        <!--ENDERECO-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">ENDERECO FORMS</h1>
+            <form id="forms" action="Endereco" method="POST">
+                <div align="center">
+                    <label for="metodo">Metodo: </label>
+                    <select id="metodo" name="method" form="forms">
+                        <option>Atualizar</option>
+                        <option>Adicionar</option>
+                    </select>
+                    <br>
+                </div>
+                <div align="right">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdEndereco: <input type="number" name="ID" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Bairro: <input type="text" name="Bairro" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            Cidade: <input type="text" name="Cidade" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Estado: <input type="text" name="Estado" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            Cep: <input type="number" name="Cep" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            IdUsuario: <input type="number" name="FkUsuario" /><br />
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--ENDERECO FIM-->
+
+        <!--HORARIO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">HORARIO FORMS</h1>
+            <form id="forms" action="Horario" method="POST">
+                <div align="center">
+                    <label for="metodo">Metodo: </label>
+                    <select id="metodo" name="method" form="forms">
+                        <option>Atualizar</option>
+                        <option>Adicionar</option>
+                    </select>
+                    <br>
+                </div>
+                <div align="center">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--HORARIO FIM-->
+    </div>
+    <!--LINHA 3 FIM -->
+
+    <!--LINHA 4 -->
+    <div class="form-row" style="margin-top:3%">
+        <!--INFO PROFISSIONAL-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">INFORMACAO PROFISSIONAL FORMS</h1>
+            <form id="forms" action="InfoProfissional" method="POST">
+                <div align="center">
+                    <label for="metodo">Metodo: </label>
+                    <select id="metodo" name="method" form="forms">
+                        <option>Atualizar</option>
+                        <option>Adicionar</option>
+                    </select>
+                    <br>
+                </div>
+                <div align="right">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdInfoPro: <input type="number" name="ID" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Descricao: <input type="text" name="Descricao" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            DataInicio: <input type="date" name="DataInicio" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            DataFim: <input type="date" name="DataFim" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            Tipo Info: <input type="text" name="TipoInfo" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            IdUsuario: <input type="number" name="FkUsuario" /><br />
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--INFO PROFISSIONAL FIM-->
+
+        <!--SERVICO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">SERVICO FORMS</h1>
+            <form id="forms" action="Servico" method="POST">
+                <div align="center">
+                    <label for="metodo">Metodo: </label>
+                    <select id="metodo" name="method" form="forms">
+                        <option>Atualizar</option>
+                        <option>Adicionar</option>
+                    </select>
+                    <br>
+                </div>
+                <div align="right">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdServico: <input type="number" name="ID" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Titutlo: <input type="text" name="Titulo" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            Descricao: <input type="text" name="Descricao" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            Subtipo: <input type="text" name="Subtipo" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            Valor: <input type="number" name="Valor" /><br />
+                        </div>
+                        <div class="form-group col-md-6">
+                            TipoServico: <input type="text" name="TipoServico" /><br />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            IdContrato: <input type="number" name="FkContrato" /><br />
+                        </div>
+                    </div>
+                </div>
+
+                <div align="center">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--SERVICO FIM-->
+    </div>
+    <!--LINHA 4 FIM -->
+
+    <!--LINHA 5-->
+    <!--HORARIO-->
+    <div class="col-md-6">
+        <h1 style="text-align: center">USUARIO FORMS</h1>
+        <form id="forms" action="Usuario" method="POST">
+            <div align="center">
+                <label for="metodo">Metodo: </label>
+                <select id="metodo" name="method" form="forms">
+                    <option>Atualizar</option>
+                    <option>Adicionar</option>
+                </select>
+                <br>
+            </div>
+            <div align="center">
+                <input type="submit" value="Enviar" />
+            </div>
         </form>
     </div>
+    <!--HORARIO FIM-->
+    <!--LINHA 5 FIM-->
+
+
 </body>
 
 </html>

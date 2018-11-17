@@ -37,6 +37,7 @@ public class ResolveaeApi extends HttpServlet {
             else if (request.getMethod().equalsIgnoreCase("POST")){
                 
                 this.controller.executeMethodPost(parametros);
+                
             }
             
             else{
@@ -84,6 +85,7 @@ public class ResolveaeApi extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        response.sendRedirect("/forms.html");
     }
 
     /**
