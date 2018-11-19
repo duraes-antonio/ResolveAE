@@ -17,6 +17,8 @@ public class SQLProdutor {
     private String nomeTabela = null;
     private ArrayList<String> strings;
     private String colunasSelect;
+    private boolean deleteInsertUpdate;
+    private boolean joins;
 
     public SQLProdutor() {
         this.strings = new ArrayList<String>();
@@ -75,6 +77,7 @@ public class SQLProdutor {
     public SQLProdutor from(String fonte) {
         this.strings.add("\nFROM");
         this.strings.add(fonte);
+        this.nomeTabela = fonte + ".";
         return this;
     }
 
@@ -102,6 +105,7 @@ public class SQLProdutor {
 
         this.strings.add("UPDATE");
         this.strings.add(nomeTabela.get());
+        this.deleteInsertUpdate = true;
         this.nomeTabela = nomeTabela.get() + ".";
         return this;
     }
@@ -126,6 +130,7 @@ public class SQLProdutor {
 
     public SQLProdutor delete() {
         this.strings.add("DELETE");
+        this.deleteInsertUpdate = true;
         return this;
     }
 
@@ -142,8 +147,8 @@ public class SQLProdutor {
 
         this.strings.add("\nWHERE");
 
-        if (nomeTabela == null) this.strings.add(nomeColuna);
-        else this.strings.add(nomeColuna.replace(nomeTabela, ""));
+        if (!deleteInsertUpdate && joins) this.strings.add( nomeColuna);
+        else this.strings.add("\"" + nomeColuna.replace(nomeTabela, "") + "\"");
 
         return this;
     }
@@ -204,7 +209,7 @@ public class SQLProdutor {
      * @return instância atual do produtor de SQL.
      */
     public SQLProdutor grt() {
-        return this.addCondicao("<");
+        return this.addCondicao(">");
     }
 
     /**
@@ -213,7 +218,7 @@ public class SQLProdutor {
      * @return instância atual do produtor de SQL.
      */
     public SQLProdutor grteq() {
-        return this.addCondicao("<=");
+        return this.addCondicao(">=");
     }
 
     public SQLProdutor in(String nomeColuna) {
@@ -255,6 +260,7 @@ public class SQLProdutor {
     public SQLProdutor innerJoin(String nomeSegundaTabela) {
         this.strings.add("\n\tINNER JOIN");
         this.strings.add(nomeSegundaTabela);
+        joins = true;
         return this;
     }
 
@@ -343,8 +349,10 @@ public class SQLProdutor {
 
     @Override
     public String toString() {
+
         String sql = String.join(" ", this.strings);
         this.strings.clear();
+        System.out.println(sql);
         return sql.replace(" \n", "\n") + ";";
     }
 }

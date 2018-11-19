@@ -9,9 +9,9 @@ import java.util.List;
 public class GenericSQL {
 
     //Métodos que montam cada query;
-    public static String adicionar(ETab nomeTabela, List<String> nomeColunas) {
+    public static String adicionar(ETab tabela, List<String> nomeColunas) {
         SQLProdutor sqlProdutor = new SQLProdutor();
-        sqlProdutor.insert(nomeTabela, nomeColunas);
+        sqlProdutor.insert(tabela, nomeColunas);
         return sqlProdutor.toString();
     }
 
@@ -32,7 +32,9 @@ public class GenericSQL {
         ArrayList<String> todasColunas = new ArrayList<>(colunas);
         todasColunas.add(colunaId);
         SQLProdutor sqlProdutor = new SQLProdutor();
-        sqlProdutor.select(todasColunas).from(tabela.get()).where(colunaId).eq();
+        sqlProdutor.select(todasColunas);
+        sqlProdutor.from(tabela.get());
+        sqlProdutor.where(colunaId).eq();
         return sqlProdutor.toString();
     }
 

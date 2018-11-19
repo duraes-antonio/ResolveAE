@@ -133,15 +133,15 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
 
         SQLProdutor sqlProd = new SQLProdutor();
 
-        sqlProd.select(ID, DATA_INICIO, DATA_FIM, DATA_ULT_MODIF, DESCRICAO,
-                HORAS_CONTRATADAS, FK_USUARIO)
-                .from(ETab.CONTRATO.get()).where(DATA_INICIO).grteq()
-                .and(DATA_FIM).leq().limit(limit).offset(offset).orderBy(2);
+        sqlProd.select(ID, DATA_INICIO, DATA_FIM, DATA_ULT_MODIF, DESCRICAO, HORAS_CONTRATADAS, FK_USUARIO);
+        sqlProd.from(ETab.CONTRATO.get()).where(DATA_INICIO).grteq();
+        sqlProd.and(DATA_FIM).leq().orderBy(2).limit(limit).offset(offset);
 
-        psTodosPorData = conexao.prepareStatement(sqlProd.toString());
+        String sql = sqlProd.toString();
+        psTodosPorData = conexao.prepareStatement(sql);
         psTodosPorData.setDate(1, Date.valueOf(inicio));
         psTodosPorData.setDate(2, Date.valueOf(fim));
-        return obterGenerico(psTodosPorDescricao);
+        return obterGenerico(psTodosPorData);
     }
 
 

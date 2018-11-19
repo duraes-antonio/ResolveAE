@@ -2,6 +2,7 @@ package Dominio.Entidades;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author 20161BSI0314
@@ -124,5 +125,18 @@ public class Contrato {
 
     public void setHorasContratadas(int horasContratadas) {
         this.horasContratadas = horasContratadas;
+    }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String contrato = "\nID:\t\t\t\t\t" + this.getId();
+        contrato += "\nDescrição:\t\t\t" + this.getDescricao();
+        contrato += "\nData Ult. Modif.:\t" + this.getDataUltimaModif().format(formatter);
+        contrato += "\nData Início:\t\t" + this.getDataInicio();
+        contrato += "\nData Fim:\t\t\t" + this.getDataFim();
+        contrato += "\nHoras Contratadas:\t" + this.getHorasContratadas();
+        contrato += "\nFK_usuario:\t\t\t" + this.getFkUsuario();
+        return contrato;
     }
 }

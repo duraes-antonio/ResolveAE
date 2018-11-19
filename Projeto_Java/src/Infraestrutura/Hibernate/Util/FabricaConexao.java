@@ -6,6 +6,8 @@ import javax.persistence.Persistence;
 
 public class FabricaConexao {
 
+    private FabricaConexao() {}
+
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence.postgre");
 
     public static EntityManager obterConexao() {

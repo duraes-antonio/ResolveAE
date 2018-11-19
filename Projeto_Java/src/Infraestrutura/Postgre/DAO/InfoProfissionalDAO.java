@@ -72,10 +72,12 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
             throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
-        sqlProd.select(COLUNAS).from(ETab.INFO_PRO.get())
-                .where(FK_TIPO_INFO_PROF).eq().limit(limit).offset(offset);
+        sqlProd.select(ID, DESCRICAO, DATA_INICIO, DATA_FIM, FK_USUARIO, FK_TIPO_INFO_PROF);
+        sqlProd.from(ETab.INFO_PRO.get()).where(FK_TIPO_INFO_PROF);
+        sqlProd.eq().limit(limit).offset(offset);
 
-        psTodosPorTipo = conexao.prepareStatement(sqlProd.toString());
+        String sql = sqlProd.toString();
+        psTodosPorTipo = conexao.prepareStatement(sql);
         psTodosPorTipo.setInt(1, tipo.getId());
         return obterGenerico(psTodosPorTipo);
     }
@@ -85,8 +87,9 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
             throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
-        sqlProd.select(COLUNAS).from(ETab.INFO_PRO.get())
-                .where(FK_USUARIO).eq().limit(limit).offset(offset);
+        sqlProd.select(ID, DESCRICAO, DATA_INICIO, DATA_FIM, FK_USUARIO, FK_TIPO_INFO_PROF);
+        sqlProd.from(ETab.INFO_PRO.get());
+        sqlProd.where(FK_USUARIO).eq().limit(limit).offset(offset);
 
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, usuarioId);
@@ -98,9 +101,10 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
             throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
-        sqlProd.select(COLUNAS).from(ETab.INFO_PRO.get())
-                .where(FK_USUARIO).eq().and(FK_TIPO_INFO_PROF).eq()
-                .limit(limit).offset(offset);
+        sqlProd.select(ID, DESCRICAO, DATA_INICIO, DATA_FIM, FK_USUARIO, FK_TIPO_INFO_PROF);
+        sqlProd.from(ETab.INFO_PRO.get());
+        sqlProd.where(FK_USUARIO).eq().and(FK_TIPO_INFO_PROF).eq();
+        sqlProd.limit(limit).offset(offset);
 
         psTodosPorTipoEUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorTipoEUsuario.setInt(1, usuarioId);
@@ -113,9 +117,10 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
             throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
-        sqlProd.select(COLUNAS).from(ETab.INFO_PRO.get())
-                .where(DATA_INICIO).grteq().and(DATA_FIM).leq()
-                .limit(limit).offset(offset);
+        sqlProd.select(ID, DESCRICAO, DATA_INICIO, DATA_FIM, FK_USUARIO, FK_TIPO_INFO_PROF);
+        sqlProd.from(ETab.INFO_PRO.get());
+        sqlProd.where(DATA_INICIO).grteq().and(DATA_FIM).leq();
+        sqlProd.limit(limit).offset(offset);
 
         psTodosPorData = conexao.prepareStatement(sqlProd.toString());
         psTodosPorData.setDate(1, Date.valueOf(inicio));

@@ -46,7 +46,7 @@ public enum ETipoInfoProfissional {
         return  eTipoContato;
     }
 
-    public ETipoInfoProfissional getTipoById(int id) {
+    public static ETipoInfoProfissional getById(int id) {
 
         ETipoInfoProfissional tipo = null;
 

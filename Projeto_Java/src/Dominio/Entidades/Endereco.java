@@ -90,8 +90,14 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return String.format(
-                "CEP:\t\t%d;\nBairro:\t\t%s;\nCidade:\t\t%s;\nEstado:\t\t%s;",
-                this.cep.getCep(), this.getBairro(), this.getCidade(), this.getEstado());
+
+        String enderecoStr = "\nID:\t\t\t" + getId();
+        enderecoStr += "\nBairro:\t\t" + getBairro();
+        enderecoStr += "\nCidade:\t\t" + getCidade();
+        enderecoStr += "\nEstado:\t\t" + getEstado();
+        enderecoStr += "\nCEP:\t\t" + getCep().getCep();
+        enderecoStr += "\nFK_usuario:\t" + getFkUsuario();
+
+        return enderecoStr;
     }
 }

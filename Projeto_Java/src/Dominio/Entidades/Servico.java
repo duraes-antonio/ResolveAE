@@ -3,25 +3,60 @@ package Dominio.Entidades;
 import Dominio.Enum.ESubtipoServico;
 import Dominio.Enum.ETipoServico;
 
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author 20161BSI0314
- */
+@Entity
+@Table(name = "servico")
 public class Servico {
 
+    @Id
+    @Column(name = "servico_id")
     private int id;
+
+    @Column
     private String titulo;
+
+    @Column
     private String descricao;
+
+    @Column
     private ETipoServico tipo;
-    private List<ESubtipoServico> subtipos;
+
+    private List<ESubtipoServico> subtipos = new ArrayList<>();
+
+    @Column
     private double valor;
+
+    @Column(name = "fk_usuario")
     private int fkUsuario;
+
+    @Column(name = "fk_tipo_servico")
     private int fkTipoServico;
+
+    @Column(name = "fk_contrato")
     private int fkContrato;
 
+    @ManyToMany
+    @JoinTable(
+            name="servico_subtipo_servico",
+            joinColumns={@JoinColumn(name="servico_id")},
+            inverseJoinColumns={@JoinColumn(name="subtipo_servico_id")}
+            )
+    private List<SubtipoServico> subtiposServico;
 
-    public Servico() {
+    public Servico() {}
+
+    public Servico(int id, String titulo, String descricao, double valor, int fkTipoServico,
+                   int fkUsuario, int fkContrato) {
+        this.setId(id);
+        this.setTitulo(titulo);
+        this.setDescricao(descricao);
+        this.setValor(valor);
+        this.setFkTipoServico(fkTipoServico);
+        this.setFkUsuario(fkUsuario);
+        this.setFkContrato(fkContrato);
     }
 
     public Servico(String titulo, String descricao, List<ESubtipoServico> subtipos,
@@ -129,5 +164,25 @@ public class Servico {
 
     public void setFkContrato(int fkContrato) {
         this.fkContrato = fkContrato;
+    }
+
+    @Override
+    public String toString() {
+
+        String servicoStr = "\nID:\t\t\t\t\t" + getId();
+        servicoStr += "\nTítulo:\t\t\t\t" + getTitulo();
+        servicoStr += "\nDescrição:\t\t\t" + getDescricao();
+        servicoStr += "\nTipo:\t\t\t\t" + getTipo().getTipo();
+
+        for (int i = 0; i < getSubtipos().size(); i++) {
+            servicoStr += String.format("\nSubtipo %d:\t\t\t%s", i+1, getSubtipos().get(i).getSubtipo());
+        }
+
+        servicoStr += "\nValor:\t\t\t\t" + getValor();
+        servicoStr += "\nFK_usuario:\t\t\t" + getFkUsuario();
+        servicoStr += "\nFK_tipo_servico:\t" + getFkTipoServico();
+        servicoStr += "\nFK_contrato:\t\t" + getFkContrato();
+
+        return servicoStr;
     }
 }
