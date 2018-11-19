@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "servico")
-public class Servico {
+public class Servico implements Comparable<Servico>{
 
     @Id
     @Column(name = "servico_id")
@@ -184,5 +184,11 @@ public class Servico {
         servicoStr += "\nFK_contrato:\t\t" + getFkContrato();
 
         return servicoStr;
+    }
+
+
+    @Override
+    public int compareTo(Servico servico) {
+        return Integer.compare(getId(), servico.getId());
     }
 }

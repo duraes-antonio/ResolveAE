@@ -18,7 +18,7 @@ class ServicoDAOTest {
     @Test
     void obterTodos() throws SQLException {
 
-        List<Servico> servicos = servicoDAO.obterTodos(100000, 0);
+        List<Servico> servicos = servicoDAO.obterTodos(0, 0);
         System.out.println(servicos.size());
         assert servicos.size() > 0;
     }
@@ -33,7 +33,14 @@ class ServicoDAOTest {
     }
 
     @Test
-    void obterTodosPorTitulo() {
+    void obterTodosPorTitulo()
+            throws SQLException {
+
+        List<Servico> servicos = servicoDAO.obterTodosPorTitulo(".", 0, 0);
+
+        //servicos.forEach(System.out::println);
+        System.out.println(servicos.size());
+        assert servicos.size() > 0;
     }
 
     @Test
