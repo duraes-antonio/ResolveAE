@@ -18,7 +18,7 @@ class ServicoDAOTest {
     @Test
     void obterTodos() throws SQLException {
 
-        List<Servico> servicos = servicoDAO.obterTodos(0, 0);
+        List<Servico> servicos = servicoDAO.obterTodos(100, 0);
         System.out.println(servicos.size());
         assert servicos.size() > 0;
     }

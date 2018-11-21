@@ -24,7 +24,7 @@ public class Servico implements Comparable<Servico>{
     @Column
     private ETipoServico tipo;
 
-    private List<ESubtipoServico> subtipos = new ArrayList<>();
+    private List<ESubtipoServico> subtipos;
 
     @Column
     private double valor;
@@ -139,6 +139,15 @@ public class Servico implements Comparable<Servico>{
 
     public void setSubtipoServico(List<ESubtipoServico> subtipos) {
         this.subtipos = subtipos;
+    }
+
+    public void addSubtipoServico(ESubtipoServico subtipo) {
+
+        if (this.subtipos == null) {
+            this.subtipos = new ArrayList<>();
+        }
+
+        this.subtipos.add(subtipo);
     }
 
     public int getFkUsuario() {

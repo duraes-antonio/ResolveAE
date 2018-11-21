@@ -352,7 +352,7 @@ public class SQLProdutor {
 
         String sql = String.join(" ", this.strings);
         this.strings.clear();
-        System.out.println(sql);
+//        System.out.println(sql);
         return sql.replace(" \n", "\n") + ";";
     }
 }
