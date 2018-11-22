@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <script src="formsAjax.js"></script>
 </head>
 
 <body>
     <!--LINHA 1-->
     <div class="form-row">
         <!--AVALIACAO-->
-        <div class="col-md-5" style="margin-left:1%">
+        <div  class="col-md-5" style="margin-left:1%">
             <h1 style="text-align: center">AVALIACAO FORMS</h1>
-            <form id="formsAvaliacao" action="Avaliacao" method="POST">
+            <form id="formsAvaliacao" action="" method="POST" >
                 <div align="center">
                     <label for="metodo">Metodo: </label>
-                    <select id="metodo" name="method" form="formsAvaliacao">
+                    <select id="metodo" name="methodx" form="formsAvaliacao">
                         <option>Atualizar</option>
                         <option>Adicionar</option>
                     </select>
@@ -40,7 +41,7 @@
                     </div>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Enviar" />
+                    <input  onclick="onloadAvaliacao()" type="submit" value="Enviar" />
                 </div>
             </form>
         </div>
@@ -49,7 +50,7 @@
         <!--COMENTARIO-->
         <div class="col-md-6">
             <h1 style="text-align: center">COMENTARIO FORMS</h1>
-            <form id="formsComentario" action="Comentario" method="POST">
+            <form id="formsComentario" action="" method="POST">
                 <div align="center">
                     <label for="metodo">Metodo: </label>
                     <select id="metodo" name="method" form="formsComentario">
@@ -74,7 +75,7 @@
                     </div>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Enviar" />
+                    <input onclick="onloadComentario()" type="submit" value="Enviar" />
                 </div>
             </form>
         </div>
@@ -87,7 +88,7 @@
         <!--CONTATO-->
         <div class="col-md-5" style="margin-left:1%">
             <h1 style="text-align: center">CONTATO FORMS</h1>
-            <form id="formsContato" action="Contato" method="POST">
+            <form id="formsContato" action="" method="POST">
                 <div align="center">
                     <label for="metodo">Metodo: </label>
                     <select id="metodo" name="method" form="formsContato">
@@ -115,7 +116,7 @@
                     </div>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Enviar" />
+                    <input onclick="onloadContato()" type="submit" value="Enviar" />
                 </div>
             </form>
         </div>
@@ -124,7 +125,7 @@
         <!--CONTRATO-->
         <div class="col-md-6">
             <h1 style="text-align: center">CONTRATO FORMS</h1>
-            <form id="formsContrato" action="Contrato" method="POST">
+            <form id="formsContrato" action="" method="POST">
                 <div align="center">
                     <label for="metodo">Metodo: </label>
                     <select id="metodo" name="method" form="formsContrato">
@@ -160,7 +161,7 @@
                     </div>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Enviar" />
+                    <input onclick="onloadContrato()" type="submit" value="Enviar" />
                 </div>
             </form>
         </div>
@@ -173,7 +174,7 @@
         <!--ENDERECO-->
         <div class="col-md-5" style="margin-left:1%">
             <h1 style="text-align: center">ENDERECO FORMS</h1>
-            <form id="formsEndereco" action="Endereco" method="POST">
+            <form id="formsEndereco" action="" method="POST">
                 <div align="center">
                     <label for="metodo">Metodo: </label>
                     <select id="metodo" name="method" form="formsEndereco">
@@ -209,7 +210,7 @@
                     </div>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Enviar" />
+                    <input onclick="onloadEndereco()" type="submit" value="Enviar" />
                 </div>
             </form>
         </div>
@@ -218,7 +219,7 @@
         <!--HORARIO-->
         <div class="col-md-6">
             <h1 style="text-align: center">HORARIO FORMS</h1>
-            <form id="formsHorario" action="Horario" method="POST">
+            <form id="formsHorario" action="" method="POST">
                 <div align="center">
                     <label for="metodo">Metodo: </label>
                     <select id="metodo" name="method" form="formsHorario">
@@ -228,7 +229,7 @@
                     <br>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Enviar" />
+                    <input onclick="onloadHorario()" type="submit" value="Enviar" />
                 </div>
             </form>
         </div>
@@ -241,7 +242,7 @@
         <!--INFO PROFISSIONAL-->
         <div class="col-md-5" style="margin-left:1%">
             <h1 style="text-align: center">INFORMACAO PROFISSIONAL FORMS</h1>
-            <form id="formsInfoProfissional" action="InfoProfissional" method="POST">
+            <form id="formsInfoProfissional" action="" method="POST">
                 <div align="center">
                     <label for="metodo">Metodo: </label>
                     <select id="metodo" name="method" form="formsInfoProfissional">
@@ -277,7 +278,7 @@
                     </div>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Enviar" />
+                    <input onclick="onloadInfoProfissional()" type="submit" value="Enviar" />
                 </div>
             </form>
         </div>
@@ -286,7 +287,7 @@
         <!--SERVICO-->
         <div class="col-md-6">
             <h1 style="text-align: center">SERVICO FORMS</h1>
-            <form id="formsServico" action="Servico" method="POST">
+            <form id="formsServico" action="" method="POST" >
                 <div align="center">
                     <label for="metodo">Metodo: </label>
                     <select id="metodo" name="method" form="formsServico">
@@ -328,7 +329,7 @@
                 </div>
 
                 <div align="center">
-                    <input type="submit" value="Enviar" />
+                    <input onclick="onloadServico()" type="submit" value="Enviar" />
                 </div>
             </form>
         </div>
@@ -337,10 +338,10 @@
     <!--LINHA 4 FIM -->
 
     <!--LINHA 5-->
-    <!--HORARIO-->
+    <!--USUARIO-->
     <div class="col-md-6">
         <h1 style="text-align: center">USUARIO FORMS</h1>
-        <form id="formsUsuario" action="Usuario" method="POST">
+        <form id="formsUsuario" action="" method="POST">
             <div align="center">
                 <label for="metodo">Metodo: </label>
                 <select id="metodo" name="method" form="formsUsuario">
@@ -350,11 +351,11 @@
                 <br>
             </div>
             <div align="center">
-                <input type="submit" value="Enviar" />
+                <input onclick="onloadUsuario()" type="submit" value="Enviar" />
             </div>
         </form>
     </div>
-    <!--HORARIO FIM-->
+    <!--USUARIO FIM-->
     <!--LINHA 5 FIM-->
 
 
