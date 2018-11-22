@@ -1,6 +1,6 @@
 package Dominio.Entidades;
 
-public class ServicoSubtipoServico {
+public class ServicoSubtipoServico implements Comparable<ServicoSubtipoServico> {
 
     private int id;
     private int fkServico;
@@ -42,5 +42,10 @@ public class ServicoSubtipoServico {
 
     public void setFkSubtipoServico(int fkSubtipoServico) {
         this.fkSubtipoServico = fkSubtipoServico;
+    }
+
+    @Override
+    public int compareTo(ServicoSubtipoServico servicoSubtipoServico) {
+        return Integer.compare(this.getId(), servicoSubtipoServico.getId());
     }
 }

@@ -32,7 +32,17 @@ public class SQLProdutor {
 
     private String concatColunas(String... nomeColunas) {
         StringJoiner stringJoinerTemp = new StringJoiner(",");
-        for (String nome : nomeColunas) stringJoinerTemp.add("\n\t" + nome + " AS " + "\"" + nome + "\"");
+
+        for (String nome : nomeColunas) {
+
+            if (!nome.contains("AS") && !nome.contains("(")) {
+                stringJoinerTemp.add("\n\t" + nome + " AS " + "\"" + nome + "\"");
+            }
+
+            else {
+                stringJoinerTemp.add("\n\t" + nome);
+            }
+        }
         return stringJoinerTemp.toString();
     }
 
@@ -66,7 +76,17 @@ public class SQLProdutor {
         String colunasConcat = this.concatColunas(nomeColunas);
         this.strings.add("SELECT");
         this.strings.add(colunasConcat);
-        colunasSelect = colunasConcat;
+
+        StringJoiner stringJoinerTemp = new StringJoiner(",");
+
+        for (String nome : nomeColunas) {
+
+            if (!nome.contains("(")) {
+                stringJoinerTemp.add(nome);
+            }
+        }
+
+        colunasSelect = stringJoinerTemp.toString();
         return this;
     }
 
@@ -351,8 +371,8 @@ public class SQLProdutor {
     public String toString() {
 
         String sql = String.join(" ", this.strings);
-        this.strings.clear();
 //        System.out.println(sql);
-        return sql.replace(" \n", "\n") + ";";
+        this.strings.clear();
+        return sql.replace(" \n", "\n");
     }
 }

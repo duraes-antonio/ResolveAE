@@ -9,13 +9,9 @@ import Infraestrutura.Enum.ETab;
 import Infraestrutura.Postgre.Util.Persistencia;
 import Infraestrutura.Postgre.Util.SQLProdutor;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class ServicoDAO extends AGenericDAO<Servico> implements IServicoRepositorio {
@@ -34,16 +30,10 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     private Persistencia persistencia = Persistencia.get();
     private Connection conexao = persistencia.getConexao();
     private PreparedStatement psAdicionar;
-    private PreparedStatement psTodos;
-    private PreparedStatement psTodosPorUsuario;
-    private PreparedStatement psTodosPorTitulo;
-    private PreparedStatement psTodosPorDescricao;
-    private PreparedStatement psTodosPorValor;
-    private PreparedStatement psTodosPorTipo;
-    private PreparedStatement psTodosPorSubTipo;
 
-    ServicoSubtipoServicoDAO sssDAO;
-    
+    private ServicoSubtipoServicoDAO sssDAO;
+
+
     public ServicoDAO() {
         sssDAO = new ServicoSubtipoServicoDAO();
     }
@@ -55,7 +45,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
 
         try {
             ResultSet rs = persistencia.executarSelecao(ps);
-            servicos = extrairTodos(rs);
+            servicos = extrairServicoESubtipo(rs);
         }
 
         catch (SQLException e) {
@@ -69,20 +59,31 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
         return servicos;
     }
 
-    private SQLProdutor obterSQlGeral() {
+
+    /**Monta a base das consultas que retornam uma lista de serviço.
+     * Query pronta, para usar em cada consulta, basta adicionar as cláusulas
+     * WHERE em diante.
+     * @return Produtor de SQL contendo a estrutura básica das consultas q
+     */
+    private SQLProdutor obterSQlInicial() {
 
         SQLProdutor sqlProd = new SQLProdutor();
         sqlProd.select(
                 ID, DESCRICAO, TITULO, VALOR, FK_TIPO_SERVICO,
-                FK_USUARIO, FK_CONTRATO, ServicoSubtipoServicoDAO.FK_SUBTIPO_SERVICO);
+                FK_USUARIO, FK_CONTRATO, "array_agg(" + ServicoSubtipoServicoDAO.FK_SUBTIPO_SERVICO + ") AS \"servico.fk_subtipos\"");
         sqlProd.from(ETab.SERVICO.get()).innerJoin(ETab.SERVICO_SUBTIPO_SERVICO.get());
         sqlProd.on(ID, ServicoSubtipoServicoDAO.FK_SERVICO);
 
         return sqlProd;
     }
 
+    private SQLProdutor obterSQlFinal(SQLProdutor sqlProd, Integer limit, Integer offset) {
+        sqlProd.groupBy().orderBy(ID).limit(limit).offset(offset);
+        return sqlProd;
+    }
+
     /**
-     * Busca e retorna todos servicos de um determinado tipo.
+     * Busca e retorna todos servicos.
      *
      * @param limit  Quantidade de resultados a ser retornada.
      * @param offset Quantidade de resultados a pular.
@@ -93,21 +94,20 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     public List<Servico> obterTodos(Integer limit, Integer offset)
             throws SQLException {
 
-        SQLProdutor sqlProd = obterSQlGeral();
-        sqlProd.orderBy(1).limit(limit).offset(offset);
-        String sql = sqlProd.toString();
-        psTodos = conexao.prepareStatement(sql);
+        SQLProdutor sqlProd = obterSQlInicial();
+        String sql = obterSQlFinal(sqlProd, limit, offset).toString();
+        PreparedStatement psTodos = conexao.prepareStatement(sql);
         return obterGenerico(psTodos);
     }
 
     @Override
     public List<Servico> obterTodosPorUsuario(int usuarioId, Integer limit, Integer offset)
             throws SQLException {
-        SQLProdutor sqlProd = obterSQlGeral();
-        sqlProd.where(FK_USUARIO).eq().orderBy(1).limit(limit).offset(offset);
-        String sql = sqlProd.toString();
+        SQLProdutor sqlProd = obterSQlInicial();
+        sqlProd.where(FK_USUARIO).eq();
+        String sql = obterSQlFinal(sqlProd, limit, offset).toString();
 
-        psTodosPorUsuario = conexao.prepareStatement(sql);
+        PreparedStatement psTodosPorUsuario = conexao.prepareStatement(sql);
         psTodosPorUsuario.setInt(1, usuarioId);
         return obterGenerico(psTodosPorUsuario);
     }
@@ -116,11 +116,12 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     public List<Servico> obterTodosPorTitulo(String titulo, Integer limit, Integer offset)
             throws SQLException {
 
-        SQLProdutor sqlProd = obterSQlGeral();
-        sqlProd.where(TITULO).ilike().orderBy(1).limit(limit).offset(offset);
+        SQLProdutor sqlProdutor = obterSQlInicial();
+        sqlProdutor.where(TITULO).ilike();
+        sqlProdutor = obterSQlFinal(sqlProdutor, limit, offset);
+        String sql =sqlProdutor.toString();
 
-        String sql = sqlProd.toString();
-        psTodosPorTitulo = conexao.prepareStatement(sql);
+        PreparedStatement psTodosPorTitulo = conexao.prepareStatement(sql);
         psTodosPorTitulo.setString(1, "%" + titulo + "%");
         return obterGenerico(psTodosPorTitulo);
     }
@@ -129,11 +130,11 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     public List<Servico> obterTodosPorDescricao(String descricao, Integer limit, Integer offset)
             throws SQLException {
 
-        SQLProdutor sqlProd = obterSQlGeral();
-        sqlProd.where(DESCRICAO).ilike().orderBy(1).limit(limit).offset(offset);
+        SQLProdutor sqlProd = obterSQlInicial();
+        sqlProd.where(DESCRICAO).ilike();
+        String sql = obterSQlFinal(sqlProd, limit, offset).toString();
 
-        String sql = sqlProd.toString();
-        psTodosPorDescricao = conexao.prepareStatement(sql);
+        PreparedStatement psTodosPorDescricao = conexao.prepareStatement(sql);
         psTodosPorDescricao.setString(1, "%" + descricao + "%");
         return obterGenerico(psTodosPorDescricao);
     }
@@ -142,11 +143,11 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     public List<Servico> obterTodosPorValor(double valorMin, double valorMax, Integer limit, Integer offset)
             throws SQLException {
 
-        SQLProdutor sqlProd = obterSQlGeral();
-        sqlProd.where(VALOR).grteq().and().leq().orderBy(1).limit(limit).offset(offset);
+        SQLProdutor sqlProd = obterSQlInicial();
+        sqlProd.where(VALOR).grteq().and().leq();
+        String sql = obterSQlFinal(sqlProd, limit, offset).toString();
 
-        String sql = sqlProd.toString();
-        psTodosPorValor = conexao.prepareStatement(sql);
+        PreparedStatement psTodosPorValor = conexao.prepareStatement(sql);
         psTodosPorValor.setDouble(1, valorMin);
         psTodosPorValor.setDouble(2, valorMin);
 
@@ -157,11 +158,11 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     public List<Servico> obterTodosPorTipo(ETipoServico tipo, Integer limit, Integer offset)
             throws SQLException {
 
-        SQLProdutor sqlProd = obterSQlGeral();
-        sqlProd.where(FK_TIPO_SERVICO).eq().orderBy(1).limit(limit).offset(offset);
+        SQLProdutor sqlProd = obterSQlInicial();
+        sqlProd.where(FK_TIPO_SERVICO).eq();
+        String sql = obterSQlFinal(sqlProd, limit, offset).toString();
 
-        String sql = sqlProd.toString();
-        psTodosPorTipo = conexao.prepareStatement(sql);
+        PreparedStatement psTodosPorTipo = conexao.prepareStatement(sql);
         psTodosPorTipo.setInt(1, tipo.getId());
 
         return obterGenerico(psTodosPorTipo);
@@ -171,50 +172,14 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     public List<Servico> obterTodosPorSubtipo(ESubtipoServico subtipo, Integer limit, Integer offset)
             throws SQLException {
 
-        SQLProdutor sqlProd = obterSQlGeral();
-        sqlProd.where(FK_TIPO_SERVICO).eq().orderBy(1).limit(limit).offset(offset);
+        SQLProdutor sqlProd = obterSQlInicial();
+        sqlProd.where(ServicoSubtipoServicoDAO.FK_SUBTIPO_SERVICO).eq();
 
-        String sql = sqlProd.toString();
-        psTodosPorSubTipo = conexao.prepareStatement(sql);
+        String sql = obterSQlFinal(sqlProd, limit, offset).toString();
+        PreparedStatement psTodosPorSubTipo = conexao.prepareStatement(sql);
         psTodosPorSubTipo.setInt(1, subtipo.getId());
 
         return obterGenerico(psTodosPorSubTipo);
-    }
-
-    /**
-     * Persiste o servico em um meio não volátil de armazenamento.
-     *
-     * @param servico servico a ser persistido.
-     * @return T servico atualizado com Id.
-     * @throws SQLException
-     */
-    @Override
-    public Servico adicionar(Servico servico) throws SQLException {
-
-        try {
-            ServicoSubtipoServico sss = new ServicoSubtipoServico();
-
-            //Salve o serviço;
-            super.adicionar(servico);
-
-            // Para cada subtipo, relacione-o com o serviço na tabela "servico_subtipo_servico";
-            for (ESubtipoServico subtipo: servico.getSubtipos()) {
-                sss.setFkServico(servico.getId());
-                sss.setFkSubtipoServico(subtipo.getId());
-                sssDAO.adicionar(sss);
-                sss.setId(0);
-            }
-        }
-
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        finally {
-            if (psAdicionar != null) psAdicionar.close();
-        }
-
-        return servico;
     }
 
 
@@ -222,7 +187,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
      * Substitui os '?' do PS pelos valores dos atributos da servico.
      * Substitui os valores para operações de INSERT e UPDATE apenas.
      *
-     * @param ps     P. Statement com SQL já pronto com os '?' para serem substituídos.
+     * @param ps P. Statement com SQL já pronto com os '?' para serem substituídos.
      * @param servico servico com os atributos para preencher o statement.
      * @return ps com os '?' substituídos, pronto para execução.
      */
@@ -281,50 +246,67 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
      * @param rs ResultSet retornado de uma consulta já executada.
      * @return Objeto montado a partir dos resultados da consulta.
      */
-    public List<Servico> extrairTodos(ResultSet rs)
+    public List<Servico> extrairServicoESubtipo(ResultSet rs)
             throws SQLException {
 
         List<Servico> objetos = new ArrayList<>();
         Servico servico;
-        int indice;
 
         // Enquanto houver registros;
         while (rs.next()) {
 
             // Construa o serviço a partir do registro;
-            servico = construir(rs);
+            servico = construirServico(rs);
+            Integer[] fkSubtipos = (Integer[]) rs.getArray("servico.fk_subtipos").getArray();
 
-            // Verifique se o serviço já está na lista e guarde seu índice;
-            indice = Collections.binarySearch(objetos, servico);
-
-            if (indice > -1) {
-                servico.addSubtipoServico(ESubtipoServico.getById(rs.getInt(ServicoSubtipoServicoDAO.FK_SUBTIPO_SERVICO)));
-
-                objetos.get(indice).addSubtipoServico(servico.getSubtipos().get(0));
+            for (int i = 0, fkSubtiposLength = fkSubtipos.length; i < fkSubtiposLength; i++) {
+                Integer fk = fkSubtipos[i];
+                servico.addSubtipoServico(ESubtipoServico.getById(fk));
             }
 
-            else {
-                objetos.add(servico);
-            }
+            objetos.add(servico);
         }
 
         return objetos;
     }
 
-    public Servico obterPorId(int id)
+    /**
+     * Persiste o servico em um meio não volátil de armazenamento.
+     *
+     * @param servico servico a ser persistido.
+     * @return T servico atualizado com Id.
+     * @throws SQLException
+     */
+    @Override
+    public Servico adicionar(Servico servico)
             throws SQLException {
 
-        List<ServicoSubtipoServico> ssss;
-        ssss = sssDAO.obterPorServico(id, null, null);
-        Servico servico = super.obterPorId(id);
+        try {
+            ServicoSubtipoServico sss = new ServicoSubtipoServico();
 
-        // Para cada subtipo, relacione-o com o serviço na tabela "servico_subtipo_servico";
-        for (ServicoSubtipoServico sss: ssss) {
-            servico.getSubtipos().add(ESubtipoServico.getById(sss.getFkSubtipoServico()));
+            //Salve o serviço;
+            super.adicionar(servico);
+
+            // Para cada subtipo, relacione-o com o serviço na tabela "servico_subtipo_servico";
+            for (ESubtipoServico subtipo: servico.getSubtipos()) {
+                sss.setFkServico(servico.getId());
+                sss.setFkSubtipoServico(subtipo.getId());
+                sssDAO.adicionar(sss);
+                sss.setId(0);
+            }
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        finally {
+            if (psAdicionar != null) psAdicionar.close();
         }
 
         return servico;
     }
+
 
     /**
      * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
