@@ -17,15 +17,15 @@ import java.util.List;
 public class ServicoDAO extends AGenericDAO<Servico> implements IServicoRepositorio {
     
     public static final String ID = ETab.SERVICO.get() + ".id";
-    public static final String DESCRICAO = ETab.SERVICO.get() + ".descricao";
     public static final String TITULO = ETab.SERVICO.get() + ".titulo";
+    public static final String DESCRICAO = ETab.SERVICO.get() + ".descricao";
     public static final String VALOR = ETab.SERVICO.get() + ".valor";
     public static final String FK_CONTRATO = ETab.SERVICO.get() + ".fk_contrato";
     public static final String FK_TIPO_SERVICO = ETab.SERVICO.get() + ".fk_tipo_servico";
     public static final String FK_USUARIO = ETab.SERVICO.get() + ".fk_usuario";
 
     public static final List<String> COLUNAS = Arrays.asList(
-            DESCRICAO, TITULO, VALOR, FK_TIPO_SERVICO, FK_USUARIO, FK_CONTRATO);
+            TITULO, DESCRICAO, VALOR, FK_TIPO_SERVICO, FK_USUARIO, FK_CONTRATO);
 
     private Persistencia persistencia = Persistencia.get();
     private Connection conexao = persistencia.getConexao();
@@ -144,12 +144,12 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
             throws SQLException {
 
         SQLProdutor sqlProd = obterSQlInicial();
-        sqlProd.where(VALOR).grteq().and().leq();
+        sqlProd.where(VALOR).grteq().and(VALOR).leq();
         String sql = obterSQlFinal(sqlProd, limit, offset).toString();
 
         PreparedStatement psTodosPorValor = conexao.prepareStatement(sql);
         psTodosPorValor.setDouble(1, valorMin);
-        psTodosPorValor.setDouble(2, valorMin);
+        psTodosPorValor.setDouble(2, valorMax);
 
         return obterGenerico(psTodosPorValor);
     }
@@ -325,7 +325,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
      */
     @Override
     protected String obterSqlAtualizar() {
-        return GenericSQL.adicionar(ETab.SERVICO, COLUNAS);
+        return GenericSQL.atualizar(ETab.SERVICO, COLUNAS, ID);
     }
 
     /**

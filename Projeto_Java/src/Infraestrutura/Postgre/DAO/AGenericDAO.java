@@ -151,9 +151,13 @@ public abstract class AGenericDAO<T> implements IBaseRepositorio<T> {
             psAtualizar = conexao.prepareStatement(obterSqlAtualizar());
             preencherPS(psAtualizar, objeto);
             persistencia.executarAtualizacao(psAtualizar);
-        } catch (SQLException e) {
+        }
+
+        catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        finally {
             if (psAtualizar != null) psAtualizar.close();
         }
     }
@@ -194,9 +198,13 @@ public abstract class AGenericDAO<T> implements IBaseRepositorio<T> {
             psSelecionar = conexao.prepareStatement(obterSqlSelecionar());
             psSelecionar.setInt(1, id);
             objeto = obterObjeto(persistencia.executarSelecao(psSelecionar));
-        } catch (SQLException e) {
+        }
+
+        catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        finally {
             if (psSelecionar != null) psSelecionar.close();
         }
 

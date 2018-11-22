@@ -33,7 +33,7 @@ public class Persistencia {
         String senha = "postgres";
 
         String driver = "org.postgresql.Driver";
-        String url = "jdbc:postgresql://localhost:5432/" + nome_base_dados;
+        String url = "jdbc:postgresql://localhost:5433/" + nome_base_dados;
 
         Class.forName(driver);
         this.conexao = DriverManager.getConnection(url, nome_user_postgre, senha);
@@ -108,10 +108,11 @@ public class Persistencia {
             throws SQLException {
 
         ResultSet result = null;
+        System.out.println(preparedSt);
 
         if (persistencia == null) {
             throw new NullPointerException("Objeto não inicializado!");
-        } else {
+        }else {
             try {
                 result = preparedSt.executeQuery();
             } catch (SQLException e) {
