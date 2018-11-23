@@ -2,9 +2,9 @@ package Infraestrutura.Postgre.DAO;
 
 import Dominio.Entidades.Avaliacao;
 import Dominio.Entidades.Servico;
+import Dominio.Entidades.ServicoSubtipoServico;
 import Dominio.Enum.ESubtipoServico;
 import Dominio.Enum.ETipoServico;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
@@ -15,20 +15,15 @@ import java.util.Random;
 class ServicoDAOTest {
 
     ServicoDAO servicoDAO = new ServicoDAO();
-    Servico servico;
+    Servico servico = new Servico(
+            "Servico de teste",
+            "Descrição de teste",
+            ESubtipoServico.getByTipoServico(ETipoServico.BANCO_DE_DADOS),
+            35,
+            ETipoServico.BANCO_DE_DADOS.getId(),
+            2,
+            1);
     Random rand = new Random();
-
-    @BeforeEach
-    void setUp() {
-        servico = new Servico(
-                "Servico de teste",
-                "Descrição de teste",
-                ESubtipoServico.getByTipoServico(ETipoServico.BANCO_DE_DADOS),
-                35,
-                ETipoServico.BANCO_DE_DADOS.getId(),
-                2,
-                1);
-    }
 
     @Test
     void obterTodos() throws SQLException {
@@ -43,6 +38,14 @@ class ServicoDAOTest {
         List<Servico> servicos = servicoDAO.obterTodosPorUsuario(1, null, null);
         System.out.println(servicos.size());
         assert servicos.size() > 0;
+    }
+
+    @Test
+    void obterTodosPorContrato() throws SQLException {
+        Servico servico = servicoDAO.obterPorContrato(1, null, null);
+        System.out.println(servico);
+
+        assert servico.getFkContrato() == 1;
     }
 
     @Test
@@ -129,17 +132,22 @@ class ServicoDAOTest {
     @Test
     void excluirPorId() throws SQLException {
 
-        List<Servico> servicos = servicoDAO.obterTodos(10000, null);
-        Servico servico = servicoDAO.obterPorId(rand.nextInt() % servicos.size() + 1);
-        System.out.println(servico);
+        List<Servico> servicos = servicoDAO.obterTodos(1000, null);
+        Servico servico = servicoDAO.obterPorId(rand.nextInt((servicos.size() - 2) + 1) + 2);
 
-        servicoDAO.excluirPorId(servico.getId());
         AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
+        ServicoSubtipoServicoDAO sssDAO = new ServicoSubtipoServicoDAO();
 
         for (Avaliacao x : avaliacaoDAO.obterTodasPorServico(servico.getId(), null, null)) {
             avaliacaoDAO.excluirPorId(x.getId());
         }
-        
+
+        for (ServicoSubtipoServico sss : sssDAO.obterPorServico(servico.getId(), null, null)) {
+            sssDAO.excluirPorId(sss.getId());
+        }
+
+        servicoDAO.excluirPorId(servico.getId());
+
         Servico servicoDel = servicoDAO.obterPorId(servico.getId());
         System.out.println(servicoDel);
         assert servicoDel == null;

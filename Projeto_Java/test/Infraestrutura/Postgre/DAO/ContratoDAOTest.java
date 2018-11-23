@@ -1,9 +1,10 @@
 package Infraestrutura.Postgre.DAO;
 
+import Dominio.Entidades.Avaliacao;
 import Dominio.Entidades.Contrato;
 import Dominio.Entidades.Servico;
+import Dominio.Entidades.ServicoSubtipoServico;
 import Infraestrutura.Postgre.Util.Persistencia;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -12,18 +13,15 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Random;
 
 class ContratoDAOTest {
 
     ContratoDAO contratoDAO = new ContratoDAO();
     ServicoDAO servicoDAO = new ServicoDAO();
     Connection conexao = Persistencia.get().getConexao();
-    int id = 2;
-
-    @BeforeEach
-    void setUp() {
-        id++;
-    }
+    Random rand = new Random();
+    int id = 1;
 
     @Test
     void obterTodos() throws SQLException {
@@ -99,26 +97,32 @@ class ContratoDAOTest {
         assert contratoDAO.obterPorId(1).getDescricao().equals(descricao);
     }
 
-    //TODO depende do DAO servico
-    //@Test
+    @Test
     void excluirPorId() throws SQLException {
 
-        try {
-            conexao.setAutoCommit(false);
+        List<Contrato> contratos = contratoDAO.obterTodos(1000, null);
+        Contrato contrato = contratoDAO.obterPorId(rand.nextInt((contratos.size() - 2) + 1) + 2);
+        Servico servico = servicoDAO.obterPorContrato(contrato.getId(), null, null);
+        System.out.println(contrato);
 
-            Contrato contrato = contratoDAO.obterPorId(id);
-            Servico servico = null;//servicoDAO.obterPorContrato(contrato.getId());
+        AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
+        ServicoSubtipoServicoDAO sssDAO = new ServicoSubtipoServicoDAO();
 
-            servicoDAO.excluirPorId(servico.getId());
-            contratoDAO.excluirPorId(contrato.getId());
-
-            conexao.commit();
-            assert true;
+        for (Avaliacao x : avaliacaoDAO.obterTodasPorServico(servico.getId(), null, null)) {
+            avaliacaoDAO.excluirPorId(x.getId());
         }
 
-        catch (SQLException e) {
-            conexao.rollback();
+        for (ServicoSubtipoServico sss : sssDAO.obterPorServico(servico.getId(), null, null)) {
+            sssDAO.excluirPorId(sss.getId());
         }
+
+        servicoDAO.excluirPorId(servico.getId());
+
+        contratoDAO.excluirPorId(contrato.getId());
+        Contrato contratoExcluido = contratoDAO.obterPorId(contrato.getId());
+        System.out.println(contratoExcluido);
+
+        assert contratoExcluido == null;
     }
 
     @Test

@@ -4,24 +4,20 @@ import Dominio.Entidades.Endereco;
 import Dominio.Enum.EEstado;
 import Infraestrutura.Postgre.Util.Persistencia;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
 
 class EnderecoDAOTest {
 
     Persistencia persistencia = Persistencia.get();
     Connection conexao = persistencia.getConexao();
     EnderecoDAO enderecoDAO = new EnderecoDAO();
-    int id = 2;
-
-    @BeforeEach
-    void setUp() {
-        id++;
-    }
+    Random rand = new Random();
+    int id = 1;
 
     @AfterEach
     void tearDown() {
@@ -44,25 +40,30 @@ class EnderecoDAOTest {
     @Test
     void atualizar() throws SQLException {
         String cidade = "Viana";
-        Endereco endereco = enderecoDAO.obterPorId(1);
+        Endereco endereco = enderecoDAO.obterPorId(2);
         System.out.println(endereco);
         endereco.setCidade(cidade);
         enderecoDAO.atualizar(endereco);
 
-        Endereco endereco2 = enderecoDAO.obterPorId(1);
+        Endereco endereco2 = enderecoDAO.obterPorId(2);
         System.out.println(endereco2);
 
         assert endereco2.getCidade().equals(cidade);
     }
 
-    //@Test
+    @Test
     void excluirPorId() throws SQLException {
-        Endereco endereco = enderecoDAO.obterPorId(id);
+
+        List<Endereco> enderecos = enderecoDAO.obterTodos(1000, null);
+        Endereco endereco = enderecoDAO.obterPorId(rand.nextInt((enderecos.size() - 2) + 1) + 2);
+
         System.out.println(endereco);
-        enderecoDAO.excluirPorId(id);
+        enderecoDAO.excluirPorId(endereco.getId());
+
         Endereco endereco2 = enderecoDAO.obterPorId(id);
         System.out.println(endereco2);
-        assert endereco != null && endereco2 == null;
+
+        assert endereco2 == null;
     }
 
 

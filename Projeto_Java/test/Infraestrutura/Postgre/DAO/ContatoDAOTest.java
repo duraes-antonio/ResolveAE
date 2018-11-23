@@ -10,13 +10,15 @@ import org.junit.jupiter.api.Test;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
 
 class ContatoDAOTest {
 
     Persistencia persistencia = Persistencia.get();
     Connection conexao = persistencia.getConexao();
     ContatoDAO contatoDAO = new ContatoDAO();
-    int id = 7;
+    int id = 1;
+    Random rand = new Random();
 
     @BeforeEach
     void setUp() {
@@ -57,14 +59,19 @@ class ContatoDAOTest {
         assert contatoDAO.obterPorId(id).getDescricao().equals("Teste");
     }
 
-    //@Test
-    void excluirPorId() throws SQLException {
-        Contato contato = contatoDAO.obterPorId(id + 1);
+    @Test
+    void excluirPorId()
+            throws SQLException {
+
+        List<Contato> contatos = contatoDAO.obterTodos(1000, null);
+        Contato contato = contatoDAO.obterPorId(rand.nextInt((contatos.size() - 2) + 1) + 2);
         System.out.println(contato);
-        contatoDAO.excluirPorId(id + 1);
-        Contato contatoExcluido = contatoDAO.obterPorId(id + 1);
+
+        contatoDAO.excluirPorId(contato.getId());
+        Contato contatoExcluido = contatoDAO.obterPorId(contato.getId());
         System.out.println(contatoExcluido);
-        assert contato != null && contatoExcluido == null;
+
+        assert contatoExcluido == null;
     }
 
 

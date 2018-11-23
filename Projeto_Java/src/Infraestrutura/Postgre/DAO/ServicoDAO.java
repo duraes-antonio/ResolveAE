@@ -182,6 +182,19 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
         return obterGenerico(psTodosPorSubTipo);
     }
 
+    @Override
+    public Servico obterPorContrato(Integer fkContrato, Integer limit, Integer offset) throws SQLException {
+
+        SQLProdutor sqlProd = obterSQlInicial();
+        sqlProd.where(FK_CONTRATO).eq();
+        String sql = obterSQlFinal(sqlProd, limit, offset).toString();
+
+        PreparedStatement psTodosPorUsuario = conexao.prepareStatement(sql);
+        psTodosPorUsuario.setInt(1, fkContrato);
+        List<Servico> servicos = obterGenerico(psTodosPorUsuario);
+        return servicos.size() > 0 ? servicos.get(0) : null;
+    }
+
 
     /**
      * Substitui os '?' do PS pelos valores dos atributos da servico.

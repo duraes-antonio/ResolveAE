@@ -14,6 +14,7 @@ class InfoProfissionalDAOTest {
 
     InfoProfissionalDAO infoProDAO = new InfoProfissionalDAO();
     Random rand = new Random();
+    int id = 1;
 
     @Test
     void obterTodos() throws SQLException {
