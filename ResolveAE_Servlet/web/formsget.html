@@ -1,0 +1,736 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <!--LINHA 1-->
+    <div class="form-row">
+        <!--AVALIACAO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">AVALICAO GET ALL</h1>
+            <form id="getAvaliacao1" action="Avaliacao" target="_blank" method="GET">
+                <div align="center">
+                    <select  id="metodo" name="method" form="getAvaliacao1">
+                        <option>SearchAll</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--OBTER POR ID-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">AVALIACAO GET BY ID</h1>
+            <form id="getAvaliacao2" action="Avaliacao" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getAvaliacao2">
+                        <option>SearchById</option>
+                    </select>
+                    <br>
+                    <label for="idAvaliacaoGetAvaliacao2">ID:</label>
+                    <input type="number" id="idAvaliacaoGetAvaliacao2" name="ID">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 2-->
+    <div class="form-row">
+        <!--AVALIACAO POR ID SERVICO-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">AVALICAO GET BY ID SERVICO</h1>
+            <form id="getAvaliacao3" action="Avaliacao" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getAvaliacao3">
+                        <option>SearchByServico</option>
+                    </select>
+                    <br>
+                    <label for="idServicoAvaliacaoGetAvaliacao3">SERVICO:</label>
+                    <input type="number" id="idServicoAvaliacaoGetAvaliacao3" name="FkServico">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--OBTER POR ID USUARIO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">AVALIACAO GET BY ID USER</h1>
+            <form id="getAvaliacao4" action="Avaliacao" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getAvaliacao4">
+                        <option>SeachByUser</option>
+                    </select>
+                    <br>
+                    <label for="idUserAvaliacaoGetAvaliacao4">USER:</label>
+                    <input type="number" id="idUserAvaliacaoGetAvaliacao4" name="FkUsuario">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 3-->
+    <div class="form-row">
+        <!--COMENTARIO POR ID SERVICO-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">COMENTARIO GET BY ID </h1>
+            <form id="getComentario1" action="Comentario" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getComentario1">
+                        <option>SearchById</option>
+                    </select>
+                    <br>
+                    <label for="idComentarioGetComentario1">ID:</label>
+                    <input type="number" id="idComentarioGetComentario1" name="ID">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--COMENTARIO OBETER TODOS-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">COMENTARIO GET ALL</h1>
+            <form id="getComentario2" action="Comentario" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getComentario2">
+                        <option>SearchAll</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 4-->
+    <div class="form-row">
+        <!--COMENTARIO POR ID SERVICO-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">COMENTARIO GET BY ID SERVICO </h1>
+            <form id="getComentario3" action="Comentario" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getComentario3">
+                        <option>SearchByIdServico</option>
+                    </select>
+                    <br>
+                    <label for="idComentarioServicoGetComentario3">SERVICO:</label>
+                    <input type="number" id="idComentarioServicoGetComentario3" name="IdServico">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--COMENTARIO POR ID AVALIACAO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">COMENTARIO GET BY AVALIACAO</h1>
+            <form id="getComentario4" action="Comentario" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getComentario4">
+                        <option>SearchByIdAvaliacao</option>
+                    </select>
+                    <br>
+                    <label for="idComentarioAvaliacaoGetComentario4">AVALIACAO:</label>
+                    <input type="number" id="idComentarioAvaliacaoGetComentario4" name="FkAvaliacao">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 5-->
+    <div class="form-row">
+        <!--COMENTARIO POR ID USUARIO-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">COMENTARIO GET BY ID USER</h1>
+            <form id="getComentario5" action="Comentario" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getComentario5">
+                        <option>SearchByIdUser</option>
+                    </select>
+                    <br>
+                    <label for="idComentarioUserGetComentario5">USER:</label>
+                    <input type="number" id="idComentarioUserGetComentario5" name="IdUser">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--OBTER POR ID USUARIO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">CONTATO GET BY ID</h1>
+            <form id="getContato1" action="Contato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContato1">
+                        <option>SearchById</option>
+                    </select>
+                    <br>
+                    <label for="idContatogetContato1">ID:</label>
+                    <input type="number" id="idContatogetContato1" name="ID">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 6-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">CONTATO GET ALL</h1>
+            <form id="getContato2" action="Contato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContato2">
+                        <option>SearchAll</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">CONTATO GET BY ID</h1>
+            <form id="getContato3" action="Contato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContato3">
+                        <option>SearchByType</option>
+                    </select>
+                    <br>
+                    <label for="idContatoTipoContatoGetContato3">TYPE:</label>
+                    <input type="text" id="idContatoTipoContatoGetContato3" name="TipoContato">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 7-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">COMENTARIO GET BY USER</h1>
+            <form id="getContato4" action="Contato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContato4">
+                        <option>SearchByUser</option>
+                    </select>
+                    <br>
+                    <label for="idContatoUserGetContato4">USER:</label>
+                    <input type="number" id="idContatoUserGetContato4" name="FkUsuario">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--XXXX-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">CONTATO GET BY USER AND TYPE</h1>
+            <form id="getContato5" action="Contato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContato5">
+                        <option>SearchByUserNType</option>
+                    </select>
+                    <br>
+                    <label for="idContatoUserGetContato5">USER:</label>
+                    <input type="number" id="idContatoUserGetContato5" name="FkUsuario">
+                    <label for="idContratoTipoContatoGetContato5">TYPE:</label>
+                    <input type="text" id="idContratoTipoContatoGetContato5" name="TipoContato">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 8-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">CONTRATO GET BY ID</h1>
+            <form id="getContrato1" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContrato1">
+                        <option>SearchById</option>
+                    </select>
+                    <br>
+                    <label for="idContatoGetContrato1">ID:</label>
+                    <input type="number" id="idContatoGetContrato1" name="ID">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">CONTRATO GET ALL</h1>
+            <form id="getContrato2" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContrato2">
+                        <option>searchAll</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 9-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">CONTRATO GET BY USER</h1>
+            <form id="getContrato3" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContrato3">
+                        <option>SearchByUserId</option>
+                    </select>
+                    <br>
+                    <label for="idContatoGetContrato1">USER:</label>
+                    <input type="number" id="idContatoUsuarioGetContrato3" name="FkUsuario">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">CONTRATO GET BY DESCRIPTION</h1>
+            <form id="getContrato4" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContrato4">
+                        <option>SearchByDescription</option>
+                    </select>
+                    <br>
+                    <label for="IdContratoDescricaoGetContrato4">DESCRICAO</label>
+                    <input type="text" id="IdContratoDescricaoGetContrato4" name="Descricao">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 10-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">CONTRATO GET BY DATE</h1>
+            <form id="getContrato5" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getContrato5">
+                        <option>SearchByDate</option>
+                    </select>
+                    <br>
+                    <label for="IdContratoDescricaoGetContrato5">DATE BEGIN: </label>
+                    <input type="date" id="IdContratoDataInicioGetContrato5" name="DataInicio"><br>
+                    <label for="IdContratoDataFimGetContrato5">DATE END: </label>
+                    <input type="date" id="IdContratoDataFimGetContrato5" name="DataFim"><br>
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">ENDERECO BY ID</h1>
+            <form id="getEndereco1" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getEndereco1">
+                        <option>SearchById</option>
+                    </select>
+                    <br>
+                    <label for="idEnderecoGetEndereco1">ID: </label>
+                    <input type="number" id="idEnderecoGetEndereco1" name="ID">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 11-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">ENDERECO GET ALL</h1>
+            <form id="getEndereco2" action="Endereco" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getEndereco2">
+                        <option>SearchAll</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">ENDERECO BY ID</h1>
+            <form id="getEndereco3" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getEndereco3">
+                        <option>SearchByBairro</option>
+                    </select>
+                    <br>
+                    <label for="idEnderecoBairroGetEndereco3">BAIRRO: </label>
+                    <input type="text" id="idEnderecoBairroGetEndereco3" name="Bairro">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 12-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">ENDERECO GET BY CIDADE</h1>
+            <form id="getEndereco4" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getEndereco4">
+                        <option>SearchByCidade</option>
+                    </select>
+                    <br>
+                    <label for="idEnderecoCidadeGetEndereco4">Cidade: </label>
+                    <input type="text" id="idEnderecoCidadeGetEndereco4" name="Cidade">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">ENDERECO GET BY ESTADO</h1>
+            <form id="getEndereco5" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getEndereco5">
+                        <option>SearchByEstado</option>
+                    </select>
+                    <br>
+                    <label for="idEnderecoEstadoGetEndereco5">ESTADO: </label>
+                    <input type="text" id="idEnderecoEstadoGetEndereco5" name="Estado">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 13-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">ENDERECO GET BY CEP</h1>
+            <form id="getEndereco6" action="Contrato" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getEndereco6">
+                        <option>SearchByCep</option>
+                    </select>
+                    <br>
+                    <label for="idEnderecoCepGetEndereco6">CEP: </label>
+                    <input type="number" id="idEnderecoCepGetEndereco6" name="Cep">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">INFO.PROF. BY ID</h1>
+            <form id="getInfoProf1" action="InfoProfissional" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getInfoProf1">
+                        <option>SearchById</option>
+                    </select>
+                    <br>
+                    <label for="idInfoProfGetInfoProf1">ID: </label>
+                    <input type="number" id="idInfoProfGetInfoProf1" name="ID">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 14-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">INFO.PROF. GET ALL</h1>
+            <form id="getInfoProf2" action="InfoProfissional" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getInfoProf2">
+                        <option>SearchAll</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">INFO.PROF. BY TYPE</h1>
+            <form id="getInfoProf3" action="InfoProfissional" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getInfoProf3">
+                        <option>SearchByType</option>
+                    </select>
+                    <br>
+                    <label for="idInfoProfTypeGetInfoProf3">TYPE: </label>
+                    <input type="text" id="idInfoProfTypeGetInfoProf3" name="TipoInformacaoProf">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 15-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">INFO.PROF. GET BY USER</h1>
+            <form id="getInfoProf4" action="InfoProfissional" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getInfoProf4">
+                        <option>SearchByUser</option>
+                    </select>
+                    <br>
+                    <label for="idInfoProfUserGetInfoProf4">TITLE: </label>
+                    <input type="number" id="idInfoProfUserGetInfoProf4" name="FkUsuario">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">INFO.PROF. BY USER N TYPE</h1>
+            <form id="getInfoProf5" action="InfoProfissional" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getInfoProf5">
+                        <option>SearchByUserNTYpe</option>
+                    </select>
+                    <br>
+                    <label for="idInfoProfUserGetInfoProf5">USER: </label>
+                    <input type="text" id="idInfoProfUserGetInfoProf5" name="FkUsuario">
+                    <label for="idInfoProfTypeGetInfoProf5">TYPE: </label>
+                    <input type="text" id="idInfoProfTypeGetInfoProf5" name="Descricao">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 16-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">INFO.PROF. GET BY DATE</h1>
+            <form id="getInfoProf6" action="InfoProfissional" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getInfoProf6">
+                        <option>SearchByPrice</option>
+                    </select>
+                    <br>
+                    <label for="idInfoProfDateBeginGetInfoProf6">DATE BEGIN: </label>
+                    <input type="date" id="idInfoProfDateBeginGetInfoProf6" name="DataInicio"><BR>
+                    <label for="idInfoProfDateBeginGetInfoProf6">DATE END: </label>
+                    <input type="date" id="idInfoProfDateEndGetInfoProf6" name="DataFim"><BR>
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">SERVICO BY ID</h1>
+            <form id="getServico1" action="Servico" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getServico1">
+                        <option>SearchById</option>
+                    </select>
+                    <br>
+                    <label for="idServicoIdGetServico1">ID: </label>
+                    <input type="number" id="idServicoIdGetServico1" name="ID">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 17-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">SERVICO GET ALL</h1>
+            <form id="getServico2" action="Servico" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getServico2">
+                        <option>SearchAll</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">SERVICO BY USER</h1>
+            <form id="getServico3" action="Servico" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getServico3">
+                        <option>SearchByUser</option>
+                    </select>
+                    <br>
+                    <label for="idServicoUserGetServico3">USER: </label>
+                    <input type="number" id="idServicoUserGetServico3" name="FkUsuario">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 18-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">SERVICO GET BY TITLE</h1>
+            <form id="getServico4" action="Servico" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getServico4">
+                        <option>SearchByTitle</option>
+                    </select>
+                    <br>
+                    <label for="idServicoTitleGetServico4">TITLE: </label>
+                    <input type="text" id="idServicoTitleGetServico4" name="Titulo">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">SERVICO BY DESCRIPTION</h1>
+            <form id="getServico5" action="Servico" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getServico5">
+                        <option>SearchByDescription</option>
+                    </select>
+                    <br>
+                    <label for="idServicoDescriptionGetServico5">DESCRIPTION: </label>
+                    <input type="text" id="idServicoDescriptionGetServico5" name="Descricao">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 19-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">SERVICO GET BY PRICE</h1>
+            <form id="getServico6" action="Servico" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getServico6">
+                        <option>SearchByPrice</option>
+                    </select>
+                    <br>
+                    <label for="idServicoPriceGetServico6">PRICE: </label>
+                    <input type="number" id="idServicoPriceGetServico6" name="Valor">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+            <h1 style="text-align: center">SERVICO BY TYPE</h1>
+            <form id="getServico7" action="Servico" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getServico7">
+                        <option>SearchByType</option>
+                    </select>
+                    <br>
+                    <label for="idServicoTypeGetServico7">TYPE: </label>
+                    <input type="text" id="idServicoTypeGetServico7" name="TipoServico">
+                    <input type="submit" value="Enviar" />
+                </div>
+            </form>
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+    <!--LINHA 20-->
+    <div class="form-row">
+        <!--CONTATO OBTER TODOS-->
+        <div class="col-md-5" style="margin-left:1%">
+            <h1 style="text-align: center">SERVICO GET BY SUBTYPE</h1>
+            <form id="getServico8" action="Servico" target="_blank" method="GET">
+                <div align="center">
+                    <select id="metodo" name="method" form="getServico8">
+                        <option>SearchBySubtype</option>
+                    </select>
+                    <br>
+                    <label for="idServicoSubtypeGetServico8">SUBTYPE: </label>
+                    <input type="number" id="idServicoSubtypeGetServico8" name="Subtipo">
+                    <input type="submit" value="Enviar" />
+                </div>
+                <br>
+            </form>
+        </div>
+        <!--#####-->
+        <!--CONTATO OBTER POR TIPO-->
+        <div class="col-md-6">
+        </div>
+        <!--#####-->
+    </div>
+    <!--#####-->
+
+
+</body>
+
+</html>
