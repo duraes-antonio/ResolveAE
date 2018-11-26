@@ -15,6 +15,6 @@ public interface IServicoRepositorio extends IBaseRepositorio<Servico> {
     List<Servico> obterTodosPorValor(double valorMin, double valorMax, Integer limit, Integer offset) throws SQLException;
     List<Servico> obterTodosPorTipo(ETipoServico tipo, Integer limit, Integer offset) throws SQLException;
     List<Servico> obterTodosPorSubtipo(ESubtipoServico subtipo, Integer limit, Integer offset) throws SQLException;
-    Servico obterPorContrato(Integer fkContrato, Integer limit, Integer offset) throws SQLException;
+    Servico obterPorContrato(Integer fkContrato) throws SQLException;
 
 }

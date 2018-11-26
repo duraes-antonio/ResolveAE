@@ -113,7 +113,7 @@ public class Contato {
                         "\nDescrição:\t\t\t%s;" +
                         "\nTipo:\t\t\t\t%s;" +
                         "\nFK_usuario:\t\t\t%d;" +
-                        "\nFK_tipo_contato:\t%d\n",
+                        "\nFK_tipo_contato:\t%d",
                 id, descricao, tipo.getNome(), fkUsuario, fkTipoContato);
     }
 

@@ -41,9 +41,13 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
 
         try {
             infos = extrairTodos(persistencia.executarSelecao(ps));
-        } catch (SQLException e) {
+        }
+
+        catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        finally {
             if (ps != null) ps.close();
         }
 

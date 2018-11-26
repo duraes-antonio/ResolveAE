@@ -12,6 +12,14 @@ public class Endereco {
     public Endereco(){}
 
     public Endereco(String bairro, String cidade, String estado,
+                    int cep){
+        this.setBairro(bairro);
+        this.setCidade(cidade);
+        this.setEstado(estado);
+        this.cep = new Cep(cep);
+    }
+
+    public Endereco(String bairro, String cidade, String estado,
                     int cep, int fkUsuario){
         this.setBairro(bairro);
         this.setCidade(cidade);

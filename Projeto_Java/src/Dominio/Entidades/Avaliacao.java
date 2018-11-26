@@ -1,5 +1,7 @@
 package Dominio.Entidades;
 
+import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+
 import javax.persistence.*;
 
 @Entity
@@ -62,7 +64,7 @@ public class Avaliacao {
 
     public void setNota(int nota) {
 
-        if (nota < 1) Util.throwExceptNumeroInferior("nota", 1);
+        if (nota < 1) throw new ValueException("O campo '" + "nota" + "' deve conter valor maior ou igual a " + 1 + "'!");
 
         this.nota = nota;
     }
@@ -94,7 +96,7 @@ public class Avaliacao {
     @Override
     public String toString() {
         return String.format(
-                "ID:\t\t\t%d;\nNota:\t\t'%s';\nFK_usuario:\t%d;\nFK_servico:\t%d;" +
+                "ID:\t\t\t%d;\nNota:\t\t%d;\nFK_usuario:\t%d;\nFK_servico:\t%d;" +
                         "\n\n---COMENTÁRIO---\n",
                 this.getId(), this.getNota(), this.getFkUsuario(), getFkServico()) + (comentario != null ? comentario.toString() : "~NÃO HÁ COMENTÁRIO!");
     }

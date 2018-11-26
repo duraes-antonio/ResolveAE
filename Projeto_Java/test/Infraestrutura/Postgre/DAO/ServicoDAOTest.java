@@ -5,12 +5,15 @@ import Dominio.Entidades.Servico;
 import Dominio.Entidades.ServicoSubtipoServico;
 import Dominio.Enum.ESubtipoServico;
 import Dominio.Enum.ETipoServico;
+import Infraestrutura.Postgre.Util.Persistencia;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Random;
 
 class ServicoDAOTest {
 
@@ -23,7 +26,25 @@ class ServicoDAOTest {
             ETipoServico.BANCO_DE_DADOS.getId(),
             2,
             1);
-    Random rand = new Random();
+    Persistencia persistencia = Persistencia.get();
+    Connection conexao;
+    int id = 1;
+
+    @BeforeEach
+    void setUp() {
+        conexao = persistencia.getConexao();
+    }
+
+    @AfterEach
+    void tearDown() {
+
+        try {
+            conexao.close();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     void obterTodos() throws SQLException {
@@ -42,7 +63,7 @@ class ServicoDAOTest {
 
     @Test
     void obterTodosPorContrato() throws SQLException {
-        Servico servico = servicoDAO.obterPorContrato(1, null, null);
+        Servico servico = servicoDAO.obterPorContrato(1);
         System.out.println(servico);
 
         assert servico.getFkContrato() == 1;
@@ -97,15 +118,24 @@ class ServicoDAOTest {
     void adicionar()
             throws SQLException {
 
-        servico.setDescricao(String.valueOf(LocalDateTime.now()));
+        try {
 
-        servicoDAO.adicionar(servico);
-        System.out.println(servico);
+            conexao.setAutoCommit(false);
 
-        Servico servico2 = servicoDAO.obterPorId(servico.getId());
-        System.out.println(servico2);
+            servico.setDescricao(String.valueOf(LocalDateTime.now()));
 
-        assert servico2.getDescricao().equals(servico.getDescricao());
+            servicoDAO.adicionar(servico);
+            System.out.println(servico);
+
+            Servico servico2 = servicoDAO.obterPorId(servico.getId());
+            System.out.println(servico2);
+
+            assert servico2.getDescricao().equals(servico.getDescricao());
+        }
+
+        finally {
+            conexao.rollback();
+        }
     }
 
     @Test
@@ -132,24 +162,31 @@ class ServicoDAOTest {
     @Test
     void excluirPorId() throws SQLException {
 
-        List<Servico> servicos = servicoDAO.obterTodos(1000, null);
-        Servico servico = servicoDAO.obterPorId(rand.nextInt((servicos.size() - 2) + 1) + 2);
+        try {
+            conexao.setAutoCommit(false);
 
-        AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
-        ServicoSubtipoServicoDAO sssDAO = new ServicoSubtipoServicoDAO();
+            Servico servico = servicoDAO.obterPorId(id);
 
-        for (Avaliacao x : avaliacaoDAO.obterTodasPorServico(servico.getId(), null, null)) {
-            avaliacaoDAO.excluirPorId(x.getId());
+            AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
+            ServicoSubtipoServicoDAO sssDAO = new ServicoSubtipoServicoDAO();
+
+            for (Avaliacao x : avaliacaoDAO.obterTodasPorServico(servico.getId(), null, null)) {
+                avaliacaoDAO.excluirPorId(x.getId());
+            }
+
+            for (ServicoSubtipoServico sss : sssDAO.obterPorServico(servico.getId(), null, null)) {
+                sssDAO.excluirPorId(sss.getId());
+            }
+
+            servicoDAO.excluirPorId(servico.getId());
+
+            Servico servicoDel = servicoDAO.obterPorId(servico.getId());
+            System.out.println(servicoDel);
+            assert servicoDel == null;
         }
 
-        for (ServicoSubtipoServico sss : sssDAO.obterPorServico(servico.getId(), null, null)) {
-            sssDAO.excluirPorId(sss.getId());
+        finally {
+            conexao.rollback();
         }
-
-        servicoDAO.excluirPorId(servico.getId());
-
-        Servico servicoDel = servicoDAO.obterPorId(servico.getId());
-        System.out.println(servicoDel);
-        assert servicoDel == null;
     }
 }

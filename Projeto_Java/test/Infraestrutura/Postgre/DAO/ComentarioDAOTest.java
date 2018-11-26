@@ -7,18 +7,15 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Random;
 
 class ComentarioDAOTest {
 
-    Persistencia persistencia = Persistencia.get();
-    Connection conexao = persistencia.getConexao();
-    ComentarioDAO comentarioDAO = new ComentarioDAO();;
-    Random rand = new Random();
-    int id = 1;
+    private Persistencia persistencia = Persistencia.get();
+    private Connection conexao = persistencia.getConexao();
+    private ComentarioDAO comentarioDAO = new ComentarioDAO();;
+    private int id = 1;
 
     @AfterEach
     void tearDown() {
@@ -33,36 +30,54 @@ class ComentarioDAOTest {
     }
 
     @Test
-    void adicionar() {
-        Comentario comentario = new Comentario("Teste" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()), 1);
-        try {
-            comentarioDAO.adicionar(comentario);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    void adicionar() throws SQLException {
+
+        Comentario comentario = new Comentario(String.valueOf(LocalDateTime.now()), 1);
+
+        conexao.setAutoCommit(false);
+
+        comentarioDAO.adicionar(comentario);
+        comentario = comentarioDAO.obterPorId(comentario.getId());
+
+        System.out.println(comentario);
+
+        assert comentario.toString().equals(comentario.toString());
+
+        conexao.rollback();
     }
 
     @Test
     void obterPorId() throws SQLException {
-        Comentario comentario = comentarioDAO.obterPorId(2);
+        Comentario comentario = comentarioDAO.obterPorId(id);
         System.out.println(comentario);
-        assert comentario.getId() == 2;
+        assert comentario.getId() == id;
     }
 
     @Test
     void atualizar() throws SQLException {
-        Comentario comentario = comentarioDAO.obterPorId(id + 1);
-        comentario.setComentario("666");
+
+        conexao.setAutoCommit(false);
+
+        Comentario comentario = comentarioDAO.obterPorId(id);
+        comentario.setComentario("777");
+        System.out.println(comentario);
+
         comentarioDAO.atualizar(comentario);
-        comentario = null;
-        comentario = comentarioDAO.obterPorId(id + 1);
-        assert comentario.getComentario().equals("666");
+
+        Comentario comentario2 = comentarioDAO.obterPorId(id);
+        System.out.println(comentario2);
+
+        assert comentario2.getComentario().equals(comentario.getComentario());
+
+        conexao.rollback();
     }
 
     @Test
     void excluirPorId() throws SQLException {
-        List<Comentario> comentarios = comentarioDAO.obterTodos(1000, null);
-        Comentario comentario = comentarioDAO.obterPorId(rand.nextInt((comentarios.size() - 2) + 1) + 2);
+
+        conexao.setAutoCommit(false);
+
+        Comentario comentario = comentarioDAO.obterPorId(id);
         System.out.println(comentario);
 
         comentarioDAO.excluirPorId(comentario.getId());
@@ -70,31 +85,37 @@ class ComentarioDAOTest {
         System.out.println(comentarioExcluido);
 
         assert comentarioExcluido == null;
+
+        conexao.rollback();
     }
 
 
     @Test
     void obterTodos() throws SQLException {
-        List<Comentario> comentarios = comentarioDAO.obterTodos(5, null);
-        comentarios.forEach(System.out::println);
+        List<Comentario> comentarios = comentarioDAO.obterTodos(null, null);
+        System.out.println(comentarios.size());
         assert comentarios.size() > 0;
     }
 
     @Test
     void obterPorAvaliacao() throws SQLException {
-        System.out.println(comentarioDAO.obterPorAvaliacao(6));
+        Comentario comentario = comentarioDAO.obterPorAvaliacao(6);
+        System.out.println(comentario);
+        assert comentario.getFkAvalicao() == 6;
     }
 
     @Test
     void obterTodosPorUsuario() throws SQLException {
-        List<Comentario> comentarios = comentarioDAO.obterTodosPorUsuario(5, 5, 0);
-        comentarios.forEach(System.out::println);
+        List<Comentario> comentarios = comentarioDAO.obterTodosPorUsuario(7, null, null);
+        System.out.println(comentarios.size());
+        assert comentarios.size() > 0;
     }
 
     @Test
     void obterTodosPorServico() throws SQLException {
-        List<Comentario> comentarios = comentarioDAO.obterTodosPorServico(3, 5, 0);
-        comentarios.forEach(System.out::println);
+        List<Comentario> comentarios = comentarioDAO.obterTodosPorServico(4, null, null);
+        System.out.println(comentarios.size());
+        assert comentarios.size() > 0;
     }
 
 }

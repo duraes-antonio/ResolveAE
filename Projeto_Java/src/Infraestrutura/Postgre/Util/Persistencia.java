@@ -7,11 +7,9 @@ public class Persistencia {
 
     private static Persistencia persistencia;
     private Connection conexao;
-    private PreparedStatement preparedSt;
 
     //Alterar de acordo com sua base de dados, usuário e senha no postgresql;
-    private Persistencia(String nomeDatabase, String nomeUsuario, String senha, int porta)
-            throws SQLException, ClassNotFoundException {
+    private Persistencia(String nomeDatabase, String nomeUsuario, String senha, int porta) throws SQLException, ClassNotFoundException {
 
         String driver = "org.postgresql.Driver";
         String url = "jdbc:postgresql://localhost:" + porta + "/" + nomeDatabase;
@@ -20,11 +18,10 @@ public class Persistencia {
         this.conexao = DriverManager.getConnection(url, nomeUsuario, senha);
     }
 
-    private Persistencia()
-            throws SQLException, ClassNotFoundException {
+    private Persistencia() throws SQLException, ClassNotFoundException {
 
         // Nome da sua base de dados no postgres;
-        String nome_base_dados = "resolve_ae";
+        String nome_base_dados = "db_gin";
 
         // Nome do usuário de sua base;
         String nome_user_postgre = "postgres";
@@ -40,16 +37,14 @@ public class Persistencia {
     }
 
 
-    public static synchronized Persistencia get
-            (String nomeDatabase, String nomeUsuario, String senha, int porta) {
+    public static synchronized Persistencia get(String nomeDatabase, String nomeUsuario, String senha, int porta) {
 
         try {
             if (persistencia == null || persistencia.conexao.isClosed()) {
                 persistencia = new Persistencia(nomeDatabase, nomeUsuario, senha, porta);
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
@@ -62,9 +57,8 @@ public class Persistencia {
             if (persistencia == null || persistencia.conexao.isClosed()) {
                 persistencia = new Persistencia();
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
@@ -78,21 +72,20 @@ public class Persistencia {
 
         if (persistencia == null) {
             throw new NullPointerException("Objeto não inicializado!");
-        } else {
+        }
+        else {
             try {
                 result = this.conexao.prepareStatement(sql).execute();
-            } catch (SQLException e) {
+            }
+            catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
-                if (!this.conexao.isClosed()) this.conexao.close();
             }
 
             return result;
         }
     }
 
-    public boolean executar(PreparedStatement preparedSt)
-            throws SQLException {
+    public boolean executar(PreparedStatement preparedSt) throws SQLException {
         return this.executar(preparedSt.toString());
     }
 
@@ -104,18 +97,18 @@ public class Persistencia {
      * @return ResultSet com os resultados da seleção.
      * @throws SQLException
      */
-    public ResultSet executarSelecao(PreparedStatement preparedSt)
-            throws SQLException {
+    public ResultSet executarSelecao(PreparedStatement preparedSt) {
 
         ResultSet result = null;
-        System.out.println(preparedSt);
 
         if (persistencia == null) {
             throw new NullPointerException("Objeto não inicializado!");
-        }else {
+        }
+        else {
             try {
                 result = preparedSt.executeQuery();
-            } catch (SQLException e) {
+            }
+            catch (SQLException e) {
                 e.printStackTrace();
             }
 
@@ -131,8 +124,7 @@ public class Persistencia {
      * @throws SQLException
      */
 
-    public ResultSet executarSelecao(String sql)
-            throws SQLException {
+    public ResultSet executarSelecao(String sql) throws SQLException {
         return this.executarSelecao(getConexao().prepareStatement(sql));
     }
 
@@ -144,8 +136,7 @@ public class Persistencia {
      * @return Id do objeto inserido, modificado ou atualizado
      * @throws SQLException
      */
-    public int executarAtualizacao(String sql)
-            throws SQLException {
+    public int executarAtualizacao(String sql) throws SQLException {
 
         int idObjeto;
         ResultSet rs;
@@ -169,8 +160,7 @@ public class Persistencia {
      * @return Id do objeto inserido, modificado ou atualizado
      * @throws SQLException
      */
-    public int executarAtualizacao(PreparedStatement preparedSt)
-            throws SQLException {
+    public int executarAtualizacao(PreparedStatement preparedSt) throws SQLException {
         return this.executarAtualizacao(preparedSt.toString());
     }
 

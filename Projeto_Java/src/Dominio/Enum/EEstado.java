@@ -13,7 +13,7 @@ public enum EEstado {
 
     private String estado;
 
-    private EEstado(String sigla) {
+    EEstado(String sigla) {
         this.estado = sigla;
     }
 

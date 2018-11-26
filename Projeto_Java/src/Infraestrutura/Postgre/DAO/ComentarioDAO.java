@@ -36,9 +36,13 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
 
         try {
             comentarios = extrairTodos(persistencia.executarSelecao(ps));
-        } catch (SQLException e) {
+        }
+
+        catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        finally {
             if (ps != null) ps.close();
         }
 
@@ -158,7 +162,10 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
     public Comentario obterPorAvaliacao(int avaliacaoId) throws SQLException {
         SQLProdutor sqlProd = new SQLProdutor();
         sqlProd.select(ID, COMENTARIO, FK_AVALIACAO).from(ETab.COMENTARIO.get());
+        sqlProd.where(FK_AVALIACAO).eq();
+
         psPorAvaliacao = conexao.prepareStatement(sqlProd.toString());
+        psPorAvaliacao.setInt(1, avaliacaoId);
         List<Comentario> coments = obterGenerico(psPorAvaliacao);
         return coments != null && coments.size() > 0 ? coments.get(0) : null;
     }

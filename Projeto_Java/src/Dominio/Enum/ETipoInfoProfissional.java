@@ -11,7 +11,7 @@ public enum ETipoInfoProfissional {
 
     private String tipo;
 
-    private ETipoInfoProfissional(String tipo) {
+    ETipoInfoProfissional(String tipo) {
         this.tipo = tipo;
     }
 

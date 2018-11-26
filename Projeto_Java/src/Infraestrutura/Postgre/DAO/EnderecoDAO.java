@@ -26,8 +26,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     public static final String CEP = ETab.ENDERECO.get() + ".cep";
     public static final String FK_USUARIO = ETab.ENDERECO.get() + ".fk_usuario";
 
-    public static final List<String> COLUNAS = Arrays.asList(
-            BAIRRO, CIDADE, ESTADO, CEP, FK_USUARIO);
+    public static final List<String> COLUNAS = Arrays.asList(BAIRRO, CIDADE, ESTADO, CEP, FK_USUARIO);
 
 
     private Persistencia persistencia = Persistencia.get();
@@ -37,6 +36,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     private PreparedStatement psTodosPorCidade = null;
     private PreparedStatement psTodosPorEstado = null;
     private PreparedStatement psTodosPorCep = null;
+    private PreparedStatement psTodosPorUsuario = null;
 
     /**
      * Define o Id de um objeto.
@@ -60,16 +60,17 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
 
-    private List<Endereco> obterGenerico(PreparedStatement ps)
-            throws SQLException {
+    private List<Endereco> obterGenerico(PreparedStatement ps) throws SQLException {
 
         List<Endereco> enderecos = null;
 
         try {
             enderecos = extrairTodos(persistencia.executarSelecao(ps));
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        }
+        finally {
             if (ps != null) ps.close();
         }
 
@@ -85,8 +86,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
      * @throws SQLException
      */
     @Override
-    public List<Endereco> obterTodos(Integer limit, Integer offset)
-            throws SQLException {
+    public List<Endereco> obterTodos(Integer limit, Integer offset) throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
         sqlProd.selectAll().from(View.VIEW_ENDERECO.name());
@@ -97,14 +97,12 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
     @Override
-    public List<Endereco> obterTodosPorBairro(String bairro, Integer limit, Integer offset)
-            throws SQLException {
+    public List<Endereco> obterTodosPorBairro(String bairro, Integer limit, Integer offset) throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
 
         //SELECT * FROM VIEW_ENDERECO WHERE bairro ILIKE ?;
-        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(BAIRRO)
-                .ilike().limit(limit).offset(offset);
+        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(BAIRRO).ilike().limit(limit).offset(offset);
 
         psTodosPorBairro = conexao.prepareStatement(sqlProd.toString());
         psTodosPorBairro.setString(1, "%" + bairro + "%");
@@ -112,14 +110,12 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
     @Override
-    public List<Endereco> obterTodosPorCidade(String cidade, Integer limit, Integer offset)
-            throws SQLException {
+    public List<Endereco> obterTodosPorCidade(String cidade, Integer limit, Integer offset) throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
 
         //SELECT * FROM VIEW_ENDERECO WHERE cidade ILIKE ?;
-        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(CIDADE)
-                .ilike().limit(limit).offset(offset);
+        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(CIDADE).ilike().limit(limit).offset(offset);
 
         psTodosPorCidade = conexao.prepareStatement(sqlProd.toString());
         psTodosPorCidade.setString(1, "%" + cidade + "%");
@@ -127,14 +123,12 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
     @Override
-    public List<Endereco> obterTodosPorEstado(EEstado estado, Integer limit, Integer offset)
-            throws SQLException {
+    public List<Endereco> obterTodosPorEstado(EEstado estado, Integer limit, Integer offset) throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
 
         //SELECT * FROM VIEW_ENDERECO WHERE estado ILIKE ?;
-        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(ESTADO)
-                .ilike().limit(limit).offset(offset);
+        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(ESTADO).ilike().limit(limit).offset(offset);
 
         psTodosPorEstado = conexao.prepareStatement(sqlProd.toString());
         psTodosPorEstado.setString(1, estado.toString());
@@ -142,18 +136,31 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
     @Override
-    public List<Endereco> obterTodosPorCep(int cep, Integer limit, Integer offset)
-            throws SQLException {
+    public List<Endereco> obterTodosPorCep(int cep, Integer limit, Integer offset) throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
 
         //SELECT * FROM VIEW_ENDERECO WHERE estado ILIKE ?;
-        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(CEP)
-                .eq().limit(limit).offset(offset);
+        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(CEP).eq().limit(limit).offset(offset);
 
         psTodosPorCep = conexao.prepareStatement(sqlProd.toString());
         psTodosPorCep.setInt(1, cep);
         return obterGenerico(psTodosPorCep);
+    }
+
+    @Override
+    public Endereco obterTodosPorUsuario(int fkUsuario) throws SQLException {
+
+        SQLProdutor sqlProd = new SQLProdutor();
+
+        //SELECT * FROM VIEW_ENDERECO WHERE fkUsuario = ?;
+        sqlProd.selectAll().from(View.VIEW_ENDERECO.name()).where(FK_USUARIO).eq();
+
+        psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
+        psTodosPorUsuario.setInt(1, fkUsuario);
+        List<Endereco> enderecos = obterGenerico(psTodosPorUsuario);
+
+        return  (enderecos != null && enderecos.size() > 0) ? enderecos.get(0) : null;
     }
 
 
@@ -165,8 +172,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
      * @return ps com os '?' substituídos, inclusíve o da cláusula WHERE;
      */
     @Override
-    protected PreparedStatement preencherPS(PreparedStatement ps, Endereco objeto)
-            throws SQLException {
+    protected PreparedStatement preencherPS(PreparedStatement ps, Endereco objeto) throws SQLException {
 
         ps.setString(COLUNAS.indexOf(BAIRRO) + 1, objeto.getBairro());
         ps.setString(COLUNAS.indexOf(CIDADE) + 1, objeto.getCidade());
@@ -184,16 +190,14 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
      * @return Objeto montado a partir dos resultados da consulta.
      */
     @Override
-    protected Endereco construir(ResultSet rs)
-            throws SQLException {
+    protected Endereco construir(ResultSet rs) throws SQLException {
         return new Endereco(
                 rs.getInt(ID),
                 rs.getString(BAIRRO),
                 rs.getString(CIDADE),
                 rs.getString(ESTADO),
                 rs.getInt(CEP),
-                rs.getInt(FK_USUARIO)
-        );
+                rs.getInt(FK_USUARIO));
     }
 
     /**

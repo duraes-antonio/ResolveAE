@@ -4,34 +4,30 @@ import Dominio.Entidades.Avaliacao;
 import Dominio.Entidades.Comentario;
 import Infraestrutura.Postgre.Util.Persistencia;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.util.List;
 
 
 class AvaliacaoDAOTest {
 
-    Persistencia persistencia = Persistencia.get();
-    Connection conexao = persistencia.getConexao();
-    AvaliacaoDAO avaliacaoDAO;
-    ComentarioDAO comentarioDAO;
-    int id = 11;
+    private Persistencia persistencia = Persistencia.get();
+    private Connection conexao = persistencia.getConexao();
+    private AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();;
+    private ComentarioDAO comentarioDAO = new ComentarioDAO();
+    private int id = 1;
 
-    @BeforeEach
-    void setUp() {
-        avaliacaoDAO = new AvaliacaoDAO();
-        comentarioDAO = new ComentarioDAO();
-    }
 
     @AfterEach
     void tearDown() {
         try {
             conexao.close();
-        } catch (SQLException e) {
+        }
+
+        catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -40,71 +36,103 @@ class AvaliacaoDAOTest {
     @Test
     void adicionar() throws SQLException {
 
-        try {
-            conexao.setAutoCommit(false);
+        conexao.setAutoCommit(false);
 
-            Avaliacao avaliacao = new Avaliacao(5, 1, 1, null);
-            avaliacaoDAO.adicionar(avaliacao);
+        Avaliacao avaliacao = new Avaliacao(5, 1, 1, null);
+        avaliacaoDAO.adicionar(avaliacao);
 
-            Comentario comentario = new Comentario("Teste" + new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime()), avaliacao.getId());
-            comentarioDAO.adicionar(comentario);
+        Comentario comentario = new Comentario(String.valueOf(LocalDateTime.now()), avaliacao.getId());
+        comentarioDAO.adicionar(comentario);
 
-            avaliacao.setComentario(comentario);
-            avaliacaoDAO.atualizar(avaliacao);
+        avaliacao.setComentario(comentario);
 
-            conexao.commit();
-        } catch (SQLException e) {
-            conexao.rollback();
-            e.printStackTrace();
-        }
+        System.out.println(avaliacao);
+
+        avaliacaoDAO.atualizar(avaliacao);
+
+        Avaliacao avaliacao2 = avaliacaoDAO.obterPorId(avaliacao.getId());
+
+        System.out.println(avaliacao2);
+
+        assert avaliacao.toString().equals(avaliacao2.toString());
+
+        conexao.rollback();
     }
 
     @Test
     void obterPorId() throws SQLException {
-        Avaliacao avaliacao = avaliacaoDAO.obterPorId(1);
+        Avaliacao avaliacao = avaliacaoDAO.obterPorId(id);
         System.out.println(avaliacao);
-        assert avaliacao.getId() == 1;
+        assert avaliacao.getId() == id;
     }
 
     @Test
     void atualizar() throws SQLException {
-        Comentario comentario = comentarioDAO.obterPorId(18);
-        comentario.setComentario("666");
+
+        conexao.setAutoCommit(false);
+
+
+        Avaliacao avaliacao1 = avaliacaoDAO.obterPorId(id);
+        System.out.println(avaliacao1);
+
+        //Atualize o comentário;
+        Comentario comentario = avaliacao1.getComentario();
+        comentario.setComentario(String.valueOf(LocalDateTime.now()));
+
+        //Atualize a nota da avaliação;
+        avaliacao1.setNota(3);
+
         comentarioDAO.atualizar(comentario);
-        comentario = null;
-        comentario = comentarioDAO.obterPorId(id + 1);
-        assert comentario.getComentario().equals("666");
+        avaliacaoDAO.atualizar(avaliacao1);
+
+        Avaliacao avaliacao2 = avaliacaoDAO.obterPorId(id);
+        System.out.println(avaliacao2);
+
+        assert avaliacao1.toString().equals(avaliacao2.toString());
+
+
+        conexao.rollback();
     }
 
-    //@Test
+    @Test
     void excluirPorId() throws SQLException {
 
-        try {
-            conexao.setAutoCommit(false);
+        conexao.setAutoCommit(false);
 
-            Avaliacao avaliacao = avaliacaoDAO.obterPorId(12);
+        Avaliacao avaliacao1 = avaliacaoDAO.obterPorId(id);
 
-            comentarioDAO.excluirPorId(avaliacao.getComentario().getId());
-            avaliacaoDAO.excluirPorId(avaliacao.getId());
+        System.out.println(avaliacao1);
 
-            conexao.commit();
-            assert true;
-        } catch (SQLException e) {
-            conexao.rollback();
-        }
+        comentarioDAO.excluirPorId(avaliacao1.getComentario().getId());
+        avaliacaoDAO.excluirPorId(avaliacao1.getId());
+
+        Avaliacao avaliacao2 = avaliacaoDAO.obterPorId(avaliacao1.getId());
+        System.out.println(avaliacao2);
+
+        assert avaliacao2 == null;
+
+        conexao.rollback();
     }
 
 
     @Test
-    void obterTodos() {
+    void obterTodos() throws SQLException {
+        List<Avaliacao> avaliacoes = avaliacaoDAO.obterTodos(null, null);
+        System.out.println(avaliacoes.size());
+        assert avaliacoes.size() > 0;
     }
 
     @Test
-    void obterTodasPorUsuario() {
+    void obterTodasPorUsuario() throws SQLException {
+        List<Avaliacao> avaliacoes = avaliacaoDAO.obterTodasPorUsuario(7, null, null);
+        System.out.println(avaliacoes.size());
+        assert avaliacoes.size() > 0;
     }
 
     @Test
-    void obterTodasPorServico() {
+    void obterTodasPorServico() throws SQLException {
+        List<Avaliacao> avaliacoes = avaliacaoDAO.obterTodasPorServico(4, null, null);
+        System.out.println(avaliacoes.size());
+        assert avaliacoes.size() > 0;
     }
-
 }

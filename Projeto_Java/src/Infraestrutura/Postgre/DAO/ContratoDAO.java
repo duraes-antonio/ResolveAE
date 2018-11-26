@@ -33,10 +33,8 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
     private Connection conexao = persistencia.getConexao();
     private PreparedStatement psTodos;
     private PreparedStatement psTodosPorUsuario;
-    private PreparedStatement psTodosPorServico;
     private PreparedStatement psTodosPorDescricao;
     private PreparedStatement psTodosPorData;
-    private PreparedStatement psTodosPorValor;
 
 
     private List<Contrato> obterGenerico(PreparedStatement ps)
@@ -91,25 +89,6 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
         psTodosPorUsuario.setInt(1, usuarioId);
         return obterGenerico(psTodosPorUsuario);
     }
-
-//    @Override
-//    public Contrato obterPorServico(int servicoId, Integer limit, Integer offset)
-//            throws SQLException {
-//
-//        SQLProdutor sqlProd = new SQLProdutor();
-//
-//        sqlProd.select(ID, DATA_INICIO, DATA_FIM, DATA_ULT_MODIF, DESCRICAO,
-//                HORAS_CONTRATADAS, FK_USUARIO)
-//                .from(ETab.CONTRATO.get()).innerJoin(ETab.SERVICO.get())
-//                .on(ID, ServicoDAO.FK_CONTRATO).where(ServicoDAO.ID).eq()
-//                .limit(limit).offset(offset);
-//
-//        psTodosPorServico = conexao.prepareStatement(sqlProd.toString());
-//        psTodosPorServico.setInt(1, servicoId);
-//        List<Contrato> contratos = obterGenerico(psTodosPorServico);
-//        return contratos != null && contratos.size() > 0 ? contratos.get(0) : null;
-//
-//    }
 
     @Override
     public List<Contrato> obterTodosPorDescricao(String descricao, Integer limit, Integer offset)

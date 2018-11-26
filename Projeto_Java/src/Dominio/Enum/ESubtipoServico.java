@@ -57,7 +57,7 @@ public enum ESubtipoServico {
     private static HashMap<Integer, ESubtipoServico> hashEnumId;
 
 
-    private ESubtipoServico(String subtipo, ETipoServico tipoServico) {
+    ESubtipoServico(String subtipo, ETipoServico tipoServico) {
         this.subtipo = subtipo;
         this.tipoServico = tipoServico;
     }

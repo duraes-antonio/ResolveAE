@@ -57,6 +57,8 @@ public abstract class AGenericDAO<T> implements IBaseRepositorio<T> {
             objetos.add(construir(rs));
         }
 
+        rs.close();
+
         return objetos;
     }
 
@@ -66,8 +68,12 @@ public abstract class AGenericDAO<T> implements IBaseRepositorio<T> {
      * @param rs ResultSet retornado de uma consulta já executada.
      * @return Objeto montado a partir dos resultados da consulta.
      */
-    public T obterObjeto(ResultSet rs) throws SQLException {
-        return (rs != null && rs.next()) ? construir(rs) : null;
+    private T obterObjeto(ResultSet rs) throws SQLException {
+        T objeto = (rs != null && rs.next()) ? construir(rs) : null;
+
+        if (rs != null && !rs.isClosed()) rs.close();
+
+        return objeto;
     }
 
 
@@ -127,9 +133,13 @@ public abstract class AGenericDAO<T> implements IBaseRepositorio<T> {
             psAdicionar = conexao.prepareStatement(obterSqlAdicionar());
             preencherPS(psAdicionar, objeto);
             result = persistencia.executarAtualizacao(psAdicionar);
-        } catch (SQLException e) {
+        }
+
+        catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        finally {
             if (psAdicionar != null) psAdicionar.close();
         }
 
@@ -175,9 +185,13 @@ public abstract class AGenericDAO<T> implements IBaseRepositorio<T> {
             psExcluir = conexao.prepareStatement(obterSqlExcluir());
             psExcluir.setInt(1, id);
             persistencia.executarAtualizacao(psExcluir);
-        } catch (SQLException e) {
+        }
+
+        catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        }
+
+        finally {
             if (psExcluir != null) psExcluir.close();
         }
     }

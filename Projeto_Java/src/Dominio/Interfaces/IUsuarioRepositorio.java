@@ -5,16 +5,18 @@ import Dominio.Enum.EEstado;
 import Dominio.Enum.ETipoContato;
 import Dominio.Enum.ETipoInfoProfissional;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface IUsuarioRepositorio extends IBaseRepositorio<Usuario> {
 
-    List<Usuario> obterTodosPorNome(String nome, Integer limit, Integer offset);
-    List<Usuario> obterTodosPorEmail(String email, Integer limit, Integer offset);
-    List<Usuario> obterTodosPorContato(ETipoContato tipoContato, String contato, Integer limit, Integer offset);
-    List<Usuario> obterTodosPorCep(int cep, Integer limit, Integer offset);
-    List<Usuario> obterTodosPorBairro(String bairro, Integer limit, Integer offset);
-    List<Usuario> obterTodosPorCidade(String cidade, Integer limit, Integer offset);
-    List<Usuario> obterTodosPorEstado(EEstado estado, Integer limit, Integer offset);
-    List<Usuario> obterTodosPorInfoProfissional(ETipoInfoProfissional tipoInfo, Integer limit, Integer offset);
+    List<Usuario> obterTodosPorNome(String nome, Integer limit, Integer offset) throws SQLException;
+    List<Usuario> obterTodosPorEmail(String email, Integer limit, Integer offset) throws SQLException;
+    List<Usuario> obterTodosPorContato(String contato, Integer limit, Integer offset) throws SQLException;
+    List<Usuario> obterTodosPorContato(ETipoContato tipoContato, String contato, Integer limit, Integer offset) throws SQLException;
+    List<Usuario> obterTodosPorCep(int cep, Integer limit, Integer offset) throws SQLException;
+    List<Usuario> obterTodosPorBairro(String bairro, Integer limit, Integer offset) throws SQLException;
+    List<Usuario> obterTodosPorCidade(String cidade, Integer limit, Integer offset) throws SQLException;
+    List<Usuario> obterTodosPorEstado(EEstado estado, Integer limit, Integer offset) throws SQLException;
+    List<Usuario> obterTodosPorInfoProfissional(ETipoInfoProfissional tipoInfo, Integer limit, Integer offset) throws SQLException;
 }

@@ -19,9 +19,41 @@ public class SQLProdutor {
     private String colunasSelect;
     private boolean deleteInsertUpdate;
     private boolean joins;
+    private boolean containWhere;
 
     public SQLProdutor() {
         this.strings = new ArrayList<String>();
+        this.containWhere = false;
+    }
+
+    private String tratarColSelect(String novoNome) {
+
+        String novaString;
+
+        if (!novoNome.contains("AS") && !novoNome.contains("(") && !novoNome.contains("VIEW")) {
+            novaString = novoNome + " AS " + "\"" + novoNome + "\"";
+        }
+
+        else {
+            novaString = novoNome;
+        }
+
+        return novaString;
+    }
+
+    private String tratarColWhere(String nomeColuna) {
+
+        String novoNome;
+
+        if (!deleteInsertUpdate && joins) {
+            novoNome = nomeColuna;
+        }
+
+        else {
+            novoNome = "\"" + nomeColuna.replace(nomeTabela, "") + "\"";
+        }
+
+        return novoNome;
     }
 
     private String concatSequencia(List<String> argumentos) {
@@ -31,18 +63,13 @@ public class SQLProdutor {
     }
 
     private String concatColunas(String... nomeColunas) {
+
         StringJoiner stringJoinerTemp = new StringJoiner(",");
 
         for (String nome : nomeColunas) {
-
-            if (!nome.contains("AS") && !nome.contains("(")) {
-                stringJoinerTemp.add("\n\t" + nome + " AS " + "\"" + nome + "\"");
-            }
-
-            else {
-                stringJoinerTemp.add("\n\t" + nome);
-            }
+            stringJoinerTemp.add("\n\t" + tratarColSelect(nome));
         }
+
         return stringJoinerTemp.toString();
     }
 
@@ -73,6 +100,7 @@ public class SQLProdutor {
     }
 
     public SQLProdutor select(String... nomeColunas) {
+
         String colunasConcat = this.concatColunas(nomeColunas);
         this.strings.add("SELECT");
         this.strings.add(colunasConcat);
@@ -81,7 +109,7 @@ public class SQLProdutor {
 
         for (String nome : nomeColunas) {
 
-            if (!nome.contains("(")) {
+            if (!nome.contains("(") && !nome.contains("*")) {
                 stringJoinerTemp.add(nome);
             }
         }
@@ -166,9 +194,8 @@ public class SQLProdutor {
     public SQLProdutor where(String nomeColuna) {
 
         this.strings.add("\nWHERE");
-
-        if (!deleteInsertUpdate && joins) this.strings.add( nomeColuna);
-        else this.strings.add("\"" + nomeColuna.replace(nomeTabela, "") + "\"");
+        this.strings.add(tratarColWhere(nomeColuna));
+        this.containWhere = true;
 
         return this;
     }
@@ -262,7 +289,7 @@ public class SQLProdutor {
 
     public SQLProdutor and(String nomeColuna) {
         this.strings.add("AND");
-        this.strings.add(nomeColuna);
+        this.strings.add(tratarColWhere(nomeColuna));
         return this;
     }
 
@@ -273,12 +300,19 @@ public class SQLProdutor {
 
     public SQLProdutor or(String nomeColuna) {
         this.strings.add("OR");
-        this.strings.add(nomeColuna);
+        this.strings.add(tratarColWhere(nomeColuna));
         return this;
     }
 
     public SQLProdutor innerJoin(String nomeSegundaTabela) {
         this.strings.add("\n\tINNER JOIN");
+        this.strings.add(nomeSegundaTabela);
+        joins = true;
+        return this;
+    }
+
+    public SQLProdutor leftJoin(String nomeSegundaTabela) {
+        this.strings.add("\n\tLEFT JOIN");
         this.strings.add(nomeSegundaTabela);
         joins = true;
         return this;
@@ -323,7 +357,7 @@ public class SQLProdutor {
     }
 
     public SQLProdutor orderBy(int... ordemColunas) {
-        this.strings.add("ORDER BY");
+        this.strings.add("\nORDER BY");
 
         StringJoiner stringJoinerTemp = new StringJoiner(",");
 
@@ -372,7 +406,11 @@ public class SQLProdutor {
 
         String sql = String.join(" ", this.strings);
 //        System.out.println(sql);
-        this.strings.clear();
+//        this.strings.clear();
         return sql.replace(" \n", "\n");
+    }
+
+    public boolean containsWhere() {
+        return containWhere;
     }
 }

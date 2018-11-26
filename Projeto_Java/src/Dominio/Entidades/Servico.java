@@ -195,7 +195,6 @@ public class Servico implements Comparable<Servico>{
         return servicoStr;
     }
 
-
     @Override
     public int compareTo(Servico servico) {
         return Integer.compare(getId(), servico.getId());

@@ -37,9 +37,11 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
         try {
             avaliacoes = extrairTodos(persistencia.executarSelecao(ps));
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
-        } finally {
+        }
+        finally {
             if (ps != null) ps.close();
         }
 

@@ -4,26 +4,20 @@ import Dominio.Entidades.Contato;
 import Dominio.Enum.ETipoContato;
 import Infraestrutura.Postgre.Util.Persistencia;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Random;
 
 class ContatoDAOTest {
 
-    Persistencia persistencia = Persistencia.get();
-    Connection conexao = persistencia.getConexao();
-    ContatoDAO contatoDAO = new ContatoDAO();
-    int id = 1;
-    Random rand = new Random();
+    private Persistencia persistencia = Persistencia.get();
+    private Connection conexao = persistencia.getConexao();
+    private ContatoDAO contatoDAO = new ContatoDAO();
+    private int id = 1;
 
-    @BeforeEach
-    void setUp() {
-        id++;
-    }
 
     @AfterEach
     void tearDown() {
@@ -37,11 +31,20 @@ class ContatoDAOTest {
 
     @Test
     void adicionar() throws SQLException {
+
+        conexao.setAutoCommit(false);
+
         Contato contato = new Contato("garotozero", 1, ETipoContato.FACEBOOK.getId());
+        System.out.println(contato);
+
         contatoDAO.adicionar(contato);
+
         Contato contato2 = contatoDAO.obterPorId(contato.getId());
+        System.out.println(contato2);
 
         assert "garotozero".equals(contato2.getDescricao());
+
+        conexao.rollback();
     }
 
     @Test
@@ -53,18 +56,30 @@ class ContatoDAOTest {
 
     @Test
     void atualizar() throws SQLException {
-        Contato contato = contatoDAO.obterPorId(id);
-        contato.setDescricao("Teste");
-        contatoDAO.atualizar(contato);
-        assert contatoDAO.obterPorId(id).getDescricao().equals("Teste");
+
+        conexao.setAutoCommit(false);
+
+        Contato contato1 = contatoDAO.obterPorId(id);
+        contato1.setDescricao(String.valueOf(LocalDateTime.now()));
+        System.out.println(contato1);
+
+        contatoDAO.atualizar(contato1);
+
+        Contato contato2 = contatoDAO.obterPorId(id);
+        System.out.println(contato2);
+
+        assert contato1.toString().equals(contato2.toString());
+
+        conexao.rollback();
     }
 
     @Test
     void excluirPorId()
             throws SQLException {
 
-        List<Contato> contatos = contatoDAO.obterTodos(1000, null);
-        Contato contato = contatoDAO.obterPorId(rand.nextInt((contatos.size() - 2) + 1) + 2);
+        conexao.setAutoCommit(false);
+
+        Contato contato = contatoDAO.obterPorId(id);
         System.out.println(contato);
 
         contatoDAO.excluirPorId(contato.getId());
@@ -72,25 +87,28 @@ class ContatoDAOTest {
         System.out.println(contatoExcluido);
 
         assert contatoExcluido == null;
+
+        conexao.rollback();
     }
 
 
     @Test
     void obterTodos() throws SQLException {
-        List<Contato> contatos = contatoDAO.obterTodos(10, 0);
+        List<Contato> contatos = contatoDAO.obterTodos(null, null);
+        System.out.println(contatos.size());
         assert contatos.size() > 0;
     }
 
     @Test
     void obterTodosPorTipo() throws SQLException {
-        List<Contato> contatos = contatoDAO.obterTodosPorTipo(ETipoContato.FACEBOOK, 3, 0);
-        contatos.forEach(System.out::println);
+        List<Contato> contatos = contatoDAO.obterTodosPorTipo(ETipoContato.FACEBOOK, null,null);
+        System.out.println(contatos.size());
         assert contatos.size() > 0;
     }
 
     @Test
     void obterTodosPorUsuario() throws SQLException {
-        List<Contato> contatos = contatoDAO.obterTodosPorUsuario(1, 5, 0);
+        List<Contato> contatos = contatoDAO.obterTodosPorUsuario(1, null, null);
         contatos.forEach(System.out::println);
         assert contatos.size() > 0;
     }

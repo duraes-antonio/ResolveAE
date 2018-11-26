@@ -21,7 +21,7 @@ public enum ETipoContato {
             CELULAR, FACEBOOK, GITHUB, LATTES, LINKEDIN, SKYPE, TELEFONE, TELEGRAM,
             TWITTER, WHATSAPP);
 
-    private ETipoContato(String tipo) {
+    ETipoContato(String tipo) {
         this.nome = tipo;
     }
 

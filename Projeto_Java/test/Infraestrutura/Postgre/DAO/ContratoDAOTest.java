@@ -7,30 +7,23 @@ import Dominio.Entidades.ServicoSubtipoServico;
 import Infraestrutura.Postgre.Util.Persistencia;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Random;
 
 class ContratoDAOTest {
 
-    ContratoDAO contratoDAO = new ContratoDAO();
-    ServicoDAO servicoDAO = new ServicoDAO();
-    Connection conexao = Persistencia.get().getConexao();
-    Random rand = new Random();
-    int id = 1;
+    private ContratoDAO contratoDAO = new ContratoDAO();
+    private ServicoDAO servicoDAO = new ServicoDAO();
+    private Connection conexao = Persistencia.get().getConexao();
+    private int id = 1;
 
     @Test
     void obterTodos() throws SQLException {
-        List<Contrato> contratos = contratoDAO.obterTodos(5, null);
-
-        for (Contrato contrato: contratos) {
-            System.out.println(contrato);
-        }
-
+        List<Contrato> contratos = contratoDAO.obterTodos(null, null);
+        System.out.println(contratos.size());
         assert contratos.size() > 0;
     }
 
@@ -47,69 +40,79 @@ class ContratoDAOTest {
 
     @Test
     void obterTodosPorDescricao() throws SQLException {
-        List<Contrato> contratos = null;
-        contratos = contratoDAO.obterTodosPorDescricao("imagine", 5, null);
-
-        for (Contrato contrato: contratos) {
-            System.out.println(contrato);
-        }
-
+        List<Contrato> contratos = contratoDAO.obterTodosPorDescricao(" ", null, null);
+        System.out.println(contratos.size());
         assert contratos.size() > 0;
     }
 
     @Test
-    void obterTodosPorData() throws SQLException, FileNotFoundException {
-        List<Contrato> contratos = null;
-        LocalDate localDate1 = LocalDate.of(2015, 1, 1);
-        LocalDate localDate2 = LocalDate.of(2018, 1, 1);
+    void obterTodosPorData() throws SQLException {
+        List<Contrato> contratos;
+        LocalDate data1 = LocalDate.of(2015, 1, 1);
+        LocalDate data2 = LocalDate.of(2018, 1, 1);
 
-        contratos = contratoDAO.obterTodosPorData(localDate1, localDate2, 3, null);
-
-        for (Contrato contrato: contratos) {
-            System.out.println(contrato);
-        }
+        contratos = contratoDAO.obterTodosPorData(data1, data2, null, null);
+        System.out.println(contratos.size());
 
         assert contratos.size() > 0;
     }
 
     @Test
     void adicionar() throws SQLException {
-        String descricao = "1245678";
+
+        conexao.setAutoCommit(false);
+
+        String descricao = String.valueOf(LocalDateTime.now());
         LocalDate inicio = LocalDate.now();
         LocalDate fim = LocalDate.of(2018, 12, 31);
-        Contrato contrato = null;
-        contrato = new Contrato(descricao, inicio, fim, LocalDateTime.now(),150,1);
-        contratoDAO.adicionar(contrato);
 
-        Contrato contratoObtido = null;
-        contratoObtido = contratoDAO.obterPorId(contrato.getId());
-        System.out.println(contrato);
-        assert contratoObtido.getDescricao().equals(descricao);
+        Contrato contrato1;
+        contrato1 = new Contrato(descricao, inicio, fim, LocalDateTime.now(),150,1);
+        System.out.println(contrato1);
+
+        contratoDAO.adicionar(contrato1);
+
+        Contrato contrato2 = contratoDAO.obterPorId(contrato1.getId());
+        System.out.println(contrato2);
+
+        assert contrato1.toString().equals(contrato2.toString());
+
+        conexao.rollback();
     }
 
     @Test
     void atualizar() throws SQLException {
-        String descricao = String.valueOf(LocalDateTime.now());
-        Contrato contrato = contratoDAO.obterPorId(1);
-        contrato.setDescricao(descricao);
-        contratoDAO.atualizar(contrato);
-        System.out.println(contrato);
-        assert contratoDAO.obterPorId(1).getDescricao().equals(descricao);
+
+        conexao.setAutoCommit(false);
+
+        Contrato contrato1 = contratoDAO.obterPorId(id);
+        contrato1.setDescricao(String.valueOf(LocalDateTime.now()));
+
+        contratoDAO.atualizar(contrato1);
+        System.out.println(contrato1);
+
+        Contrato contrato2 = contratoDAO.obterPorId(id);
+        System.out.println(contrato2);
+
+        assert contrato1.toString().equals(contrato2.toString());
+
+        conexao.rollback();
     }
 
     @Test
     void excluirPorId() throws SQLException {
 
-        List<Contrato> contratos = contratoDAO.obterTodos(1000, null);
-        Contrato contrato = contratoDAO.obterPorId(rand.nextInt((contratos.size() - 2) + 1) + 2);
-        Servico servico = servicoDAO.obterPorContrato(contrato.getId(), null, null);
-        System.out.println(contrato);
+        conexao.setAutoCommit(false);
+
+        Contrato contrato1 = contratoDAO.obterPorId(id);
+        Servico servico = servicoDAO.obterPorContrato(contrato1.getId());
+        System.out.println(contrato1);
 
         AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
         ServicoSubtipoServicoDAO sssDAO = new ServicoSubtipoServicoDAO();
 
-        for (Avaliacao x : avaliacaoDAO.obterTodasPorServico(servico.getId(), null, null)) {
-            avaliacaoDAO.excluirPorId(x.getId());
+        for (Avaliacao aval : avaliacaoDAO.obterTodasPorServico(servico.getId(), null, null)) {
+            avaliacaoDAO.excluirPorId(aval.getId());
         }
 
         for (ServicoSubtipoServico sss : sssDAO.obterPorServico(servico.getId(), null, null)) {
@@ -117,18 +120,20 @@ class ContratoDAOTest {
         }
 
         servicoDAO.excluirPorId(servico.getId());
+        contratoDAO.excluirPorId(contrato1.getId());
 
-        contratoDAO.excluirPorId(contrato.getId());
-        Contrato contratoExcluido = contratoDAO.obterPorId(contrato.getId());
-        System.out.println(contratoExcluido);
+        Contrato contrat2 = contratoDAO.obterPorId(contrato1.getId());
+        System.out.println(contrat2);
 
-        assert contratoExcluido == null;
+        assert contrat2 == null;
+
+        conexao.rollback();
     }
 
     @Test
     void obterPorId() throws SQLException {
-        Contrato contrato = contratoDAO.obterPorId(1);
+        Contrato contrato = contratoDAO.obterPorId(id);
         System.out.println(contrato);
-        assert contrato.getId() == 1;
+        assert id == contrato.getId();
     }
 }
