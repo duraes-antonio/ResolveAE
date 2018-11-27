@@ -1,13 +1,17 @@
-import Dominio.Enum.ETipoServico;
+import Infraestrutura.Hibernate.DAO.ServicoDAOH;
+
+import java.sql.SQLException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         long startTime = System.currentTimeMillis();
 
 
-        System.out.println(ETipoServico.getById(6).getTipo());
+        ServicoDAOH daoh = new ServicoDAOH();
+        daoh.obterTodosPorUsuario(1, null, null)
+                .forEach(System.out::println);
 
 
         long stopTime = System.currentTimeMillis();

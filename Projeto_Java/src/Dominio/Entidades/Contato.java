@@ -1,6 +1,7 @@
 package Dominio.Entidades;
 
 import Dominio.Enum.ETipoContato;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import javax.persistence.*;
 
@@ -15,6 +16,7 @@ public class Contato {
     @Column(name = "descricao")
     private String descricao;
 
+    @Ignore
     private ETipoContato tipo;
 
     @Column(name = "fk_usuario")

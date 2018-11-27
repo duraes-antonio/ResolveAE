@@ -22,7 +22,7 @@ public class Avaliacao {
     @Column(name = "fk_servico")
     private int fkServico;
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Comentario.class)
+    @OneToOne(fetch = FetchType.EAGER, targetEntity = Comentario.class)
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Comentario comentario;
 
