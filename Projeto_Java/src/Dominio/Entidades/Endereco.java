@@ -1,7 +1,5 @@
 package Dominio.Entidades;
 
-import Dominio.Enum.EEstado;
-
 import javax.persistence.*;
 
 @Entity
@@ -127,7 +125,7 @@ public class Endereco {
         setCep(new Cep(cepNumero));
         setBairro(this.bairroObj.getNome());
         setCidade(this.bairroObj.getCidade().getNome());
-        setEstado(EEstado.getById(this.bairroObj.getCidade().getFkEstado()).getNomeExtenso());
+        setEstado(this.bairroObj.getCidade().getEstado().getNomeExtenso());
     }
 
     @Override

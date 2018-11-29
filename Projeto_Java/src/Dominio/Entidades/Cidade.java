@@ -1,7 +1,8 @@
 package Dominio.Entidades;
 
+import Dominio.Enum.EEstado;
+
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "cidade")
@@ -18,8 +19,8 @@ public class Cidade {
     @Column(name = "fk_estado")
     private int fkEstado;
 
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = Bairro.class)
-    private List<Bairro> bairros;
+    private EEstado estado;
+
 
     public Cidade() {}
 
@@ -57,13 +58,15 @@ public class Cidade {
 
     public void setFkEstado(int fkEstado) {
         this.fkEstado = fkEstado;
+        this.setEstado();
     }
 
-    public List<Bairro> getBairros() {
-        return bairros;
+    @PostLoad
+    private void setEstado() {
+        this.estado = EEstado.getById(this.fkEstado);
     }
 
-    public void setBairros(List<Bairro> bairros) {
-        this.bairros = bairros;
+    public EEstado getEstado() {
+        return estado;
     }
 }

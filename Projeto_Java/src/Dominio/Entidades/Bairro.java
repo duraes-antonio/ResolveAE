@@ -21,7 +21,6 @@ public class Bairro {
     @JoinColumn(name = "fk_cidade", referencedColumnName = "id")
     private Cidade cidade;
 
-
     public Bairro() {}
 
     public Bairro(String nome, int fkCidade){
@@ -68,6 +67,8 @@ public class Bairro {
         this.cidade = cidade;
     }
 
+    //Métodos para uso do Hibernate
+    @PostLoad
     private void setFkCidade() {
         this.setFkCidade(getCidade().getId());
     }
