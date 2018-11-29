@@ -1,6 +1,7 @@
 package Dominio.Entidades;
 
 import Dominio.Enum.ETipoContato;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import javax.persistence.*;
 

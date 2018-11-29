@@ -2,25 +2,25 @@ package Dominio.Entidades;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
-@Table(name = "subtipo_servico")
 @Entity
+@Table(name = "subtipo_servico")
 public class SubtipoServico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "subtipo_servico_id")
+    @Column(name = "id")
     private int id;
 
-    @Column(length = 50)
+    @Column(name = "nome", length = 50)
     private String nome;
 
     @Column(name = "fk_tipo_servico")
     private int fkTipoServico;
 
     @ManyToMany(mappedBy = "subtiposServico")
-    private List<Servico> servicos = new ArrayList<>();
+    private Collection<Servico> servicos = new ArrayList<Servico>();
 
     public SubtipoServico() {}
 

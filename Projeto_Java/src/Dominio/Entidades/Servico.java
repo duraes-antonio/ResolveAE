@@ -5,6 +5,7 @@ import Dominio.Enum.ETipoServico;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -12,21 +13,22 @@ import java.util.List;
 public class Servico implements Comparable<Servico>{
 
     @Id
-    @Column(name = "servico_id")
+    @Column(name = "id")
     private int id;
 
-    @Column
+    @Column(name = "titulo")
     private String titulo;
 
-    @Column
+    @Column(name = "descricao")
     private String descricao;
 
-    @Column
+    @Transient
     private ETipoServico tipo;
 
+    @Transient
     private List<ESubtipoServico> subtipos;
 
-    @Column
+    @Column(name = "valor")
     private double valor;
 
     @Column(name = "fk_usuario")
@@ -41,10 +43,10 @@ public class Servico implements Comparable<Servico>{
     @ManyToMany
     @JoinTable(
             name="servico_subtipo_servico",
-            joinColumns={@JoinColumn(name="servico_id")},
-            inverseJoinColumns={@JoinColumn(name="subtipo_servico_id")}
+            joinColumns={@JoinColumn(name="fk_servico")},
+            inverseJoinColumns={@JoinColumn(name="fk_subtipo_servico")}
             )
-    private List<SubtipoServico> subtiposServico;
+    private Collection<SubtipoServico> subtiposServico = new ArrayList<SubtipoServico>();
 
     public Servico() {}
 
