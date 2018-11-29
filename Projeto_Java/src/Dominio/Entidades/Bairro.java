@@ -14,10 +14,11 @@ public class Bairro {
     @Column(name = "nome", length = 60)
     private String nome;
 
-    @Column(name = "fk_cidade")
+    @Transient
     private int fkCidade;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Cidade.class)
+    @JoinColumn(name = "fk_cidade", referencedColumnName = "id")
     private Cidade cidade;
 
 
@@ -65,5 +66,9 @@ public class Bairro {
 
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
+    }
+
+    private void setFkCidade() {
+        this.setFkCidade(getCidade().getId());
     }
 }

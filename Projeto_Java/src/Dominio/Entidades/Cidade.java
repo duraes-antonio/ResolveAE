@@ -18,9 +18,8 @@ public class Cidade {
     @Column(name = "fk_estado")
     private int fkEstado;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Bairro.class)
     private List<Bairro> bairros;
-
 
     public Cidade() {}
 

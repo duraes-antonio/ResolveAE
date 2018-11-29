@@ -1,5 +1,7 @@
 package Dominio.Entidades;
 
+import Dominio.Enum.EEstado;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,15 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
+
+    @Column(name = "cep")
+    private int cepNumero;
+
+    @Column(name = "fk_usuario")
+    private int fkUsuario;
+
+    @Transient
+    private int fk_bairro;
 
     @Transient
     private String bairro;
@@ -23,8 +34,9 @@ public class Endereco {
     @Transient
     private Cep cep;
 
-    @Column(name = "fk_usuario")
-    private int fkUsuario;
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Bairro.class)
+    @JoinColumn(name = "fk_bairro", referencedColumnName = "id")
+    private Bairro bairroObj;
 
 
     public Endereco() {}
@@ -105,6 +117,18 @@ public class Endereco {
         this.fkUsuario = fkUsuario;
     }
 
+    public int getFk_bairro() {
+        return fk_bairro;
+    }
+
+    @PostLoad
+    private void setFk_bairro() {
+        this.fk_bairro = this.bairroObj.getId();
+        setCep(new Cep(cepNumero));
+        setBairro(this.bairroObj.getNome());
+        setCidade(this.bairroObj.getCidade().getNome());
+        setEstado(EEstado.getById(this.bairroObj.getCidade().getFkEstado()).getNomeExtenso());
+    }
 
     @Override
     public String toString() {

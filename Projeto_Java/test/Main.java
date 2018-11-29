@@ -1,4 +1,4 @@
-import Infraestrutura.Hibernate.DAO.ServicoDAOH;
+import Infraestrutura.Hibernate.DAO.EnderecoDAOHibernate;
 
 import java.sql.SQLException;
 
@@ -9,9 +9,10 @@ public class Main {
         long startTime = System.currentTimeMillis();
 
 
-        ServicoDAOH daoh = new ServicoDAOH();
-        daoh.obterTodosPorUsuario(1, null, null)
-                .forEach(System.out::println);
+        EnderecoDAOHibernate daoh = new EnderecoDAOHibernate();
+        System.out.println(daoh.obterTodosPorUsuario(1));
+//        daoh.obterTodosPorUsuario(1, null, null)
+//                .forEach(System.out::println);
 
 
         long stopTime = System.currentTimeMillis();

@@ -4,8 +4,6 @@ import Dominio.Enum.EEstado;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "endereco")
 public class EnderecoAdapter extends Endereco {
 
     /* Atributos usados apenas p/ Hibernate, não é o mais adequado, porém,
