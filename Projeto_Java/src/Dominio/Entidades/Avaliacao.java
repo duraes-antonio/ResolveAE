@@ -10,7 +10,7 @@ public class Avaliacao {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "nota")
@@ -22,11 +22,12 @@ public class Avaliacao {
     @Column(name = "fk_servico")
     private int fkServico;
 
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Comentario.class)
+    @OneToOne(fetch = FetchType.EAGER, targetEntity = Comentario.class)
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Comentario comentario;
 
-    public Avaliacao(){}
+
+    public Avaliacao() { }
 
     public Avaliacao(int nota, int fkUsuario, int fkServico){
         this.nota = nota;
@@ -34,7 +35,8 @@ public class Avaliacao {
         this.fkServico = fkServico;
     }
 
-    public Avaliacao(int nota, int fkUsuario, int fkServico, Comentario comentario){
+    public Avaliacao(int nota, int fkUsuario, int fkServico,
+                     Comentario comentario){
         this.setNota(nota);
         this.setComentario(comentario);
         this.setFkUsuario(fkUsuario);
@@ -49,6 +51,7 @@ public class Avaliacao {
         this.setFkUsuario(fkUsuario);
         this.setFkServico(fkServico);
     }
+
 
     public int getId() {
         return id;

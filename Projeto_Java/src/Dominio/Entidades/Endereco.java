@@ -1,15 +1,33 @@
 package Dominio.Entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "endereco")
 public class Endereco {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int id;
+
+    @Transient
     private String bairro;
+
+    @Transient
     private String cidade;
+
+    @Transient
     private String estado;
+
+    @Transient
     private Cep cep;
+
+    @Column(name = "fk_usuario")
     private int fkUsuario;
 
-    public Endereco(){}
+
+    public Endereco() {}
 
     public Endereco(String bairro, String cidade, String estado,
                     int cep){
@@ -38,6 +56,7 @@ public class Endereco {
         this.setFkUsuario(fkUsuario);
     }
 
+
     public int getId() {
         return id;
     }
@@ -51,10 +70,7 @@ public class Endereco {
     }
 
     public void setBairro(String bairro) {
-
-        if (Util.isStringValida(bairro)) this.bairro = bairro;
-
-        else Util.throwExceptCampoVazio("bairro");
+        this.bairro = bairro;
     }
 
     public String getCidade() {
@@ -62,10 +78,7 @@ public class Endereco {
     }
 
     public void setCidade(String cidade) {
-
-        if (Util.isStringValida(cidade)) this.cidade = cidade;
-
-        else Util.throwExceptCampoVazio("cidade");
+        this.cidade = cidade;
     }
 
     public String getEstado() {
@@ -73,10 +86,7 @@ public class Endereco {
     }
 
     public void setEstado(String estado) {
-
-        if (Util.isStringValida(estado)) this.estado = estado;
-
-        else Util.throwExceptCampoVazio("estado");
+        this.estado = estado;
     }
 
     public Cep getCep() {

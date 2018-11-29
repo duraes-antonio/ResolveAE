@@ -10,6 +10,7 @@ import Infraestrutura.Postgre.Util.Persistencia;
 import Infraestrutura.Postgre.Util.SQLProdutor;
 import Infraestrutura.Postgre.Util.View;
 
+import javax.security.auth.login.FailedLoginException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,12 +34,13 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
     private Persistencia persistencia = Persistencia.get();
     private Connection conexao = persistencia.getConexao();
 
-    AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
-    ContatoDAO contatoDAO = new ContatoDAO();
-    EnderecoDAO enderecoDAO = new EnderecoDAO();
-    HorarioDAO horarioDAO = new HorarioDAO();
-    InfoProfissionalDAO infoProDAO = new InfoProfissionalDAO();
+    private AvaliacaoDAO avaliacaoDAO = new AvaliacaoDAO();
+    private ContatoDAO contatoDAO = new ContatoDAO();
+    private EnderecoDAO enderecoDAO = new EnderecoDAO();
+    private HorarioDAO horarioDAO = new HorarioDAO();
+    private InfoProfissionalDAO infoProDAO = new InfoProfissionalDAO();
 
+    private PreparedStatement psLogin;
     private PreparedStatement psTodos;
     private PreparedStatement psTodosPorNome;
     private PreparedStatement psTodosPorEmail;
@@ -59,6 +61,33 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         sqlProd.selectAll().from(View.VIEW_USUARIO.name());
 
         return sqlProd;
+    }
+
+    public Usuario login(String email, String senha)
+            throws SQLException, FailedLoginException, IllegalArgumentException {
+
+        SQLProdutor sqlProd = new SQLProdutor();
+        sqlProd.selectAll().from(View.VIEW_USUARIO.toString());
+        sqlProd.where(EMAIL).eq();
+
+        psLogin = conexao.prepareStatement(sqlProd.toString());
+        psLogin.setString(1, email);
+
+        List<Usuario> usuarios = obterGenerico(psLogin);
+
+        if (usuarios == null || usuarios.size() == 0) {
+            throw new FailedLoginException(
+                    "Não foram encontradas pessoas com esse login." +
+                    " Verifique o email digitado e tente novamente.");
+        }
+
+        else if (!usuarios.get(0).getSenha().equals(senha)) {
+            throw new IllegalArgumentException(
+                    "Senha incorreta! Verifique a senha digitada e tente novamente."
+            );
+        }
+
+        return usuarios.size() > 0 ? obterPorId(usuarios.get(0).getId()) : null;
     }
 
     /**Recebe um Produtor de SQL já com as condições do WHERE montadas e

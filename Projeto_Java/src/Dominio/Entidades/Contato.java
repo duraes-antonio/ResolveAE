@@ -10,11 +10,13 @@ public class Contato {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "descricao")
+    @Column(name = "descricao", length = 100)
     private String descricao;
 
+    @Transient
     private ETipoContato tipo;
 
     @Column(name = "fk_usuario")
@@ -24,8 +26,8 @@ public class Contato {
     @JoinColumn(referencedColumnName = "id")
     private int fkTipoContato;
 
-    public Contato() {
-    }
+
+    public Contato() { }
 
     public Contato(String descricao, int fkUsuario, int fkTipoContato) {
         this.setDescricao(descricao);
@@ -101,7 +103,6 @@ public class Contato {
         this.atualizarTipoContato();
     }
 
-    @PostLoad
     private void atualizarTipoContato() {
         this.setTipo(ETipoContato.getTipoContatoPorId(this.getFkTipoContato()));
     }

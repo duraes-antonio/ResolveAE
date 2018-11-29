@@ -17,8 +17,8 @@ public class Comentario {
     @Column(name = "fk_avaliacao")
     private int fkAvalicao;
 
-    public Comentario() {
-    }
+
+    public Comentario() { }
 
     public Comentario(String comentario, int fkAvalicao) {
         this.setComentario(comentario);

@@ -1,20 +1,35 @@
 package Dominio.Entidades;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * @author 20161BSI0314
- */
+@Entity
+@Table(name = "contrato")
 public class Contrato {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String descricao;
-    private LocalDateTime dataUltimaModif;
+
+    @Column(name = "data_inicio")
     private LocalDate dataInicio;
+
+    @Column(name = "data_fim")
     private LocalDate dataFim;
+
+    @Column(name = "data_ult_modif")
+    private LocalDateTime dataUltimaModif;
+
+    @Column(name = "descricao", length = 1000)
+    private String descricao;
+
+    @Column(name = "horas_contratadas")
     private int horasContratadas;
+
+    @Column(name = "fk_usuario")
     private int fkUsuario;
 
 
