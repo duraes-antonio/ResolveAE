@@ -10,158 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a9405f3-55d7-464e-aca6-140c6bb39ff7" name="Default Changelist" comment="UP: fk adicionadas nas classes + DAO generico (Abstração)">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Bairro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Cidade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Dominio/Entidades/EnderecoAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOHibernate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAOHibernate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projeto_Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto_Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Comentario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Contato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Contrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Bairro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Bairro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Cidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Cidade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Endereco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Enum/EEstado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Enum/EEstado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOH.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/UsuarioDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/UsuarioDAOTest.java" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ContatoDAOH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ServicoDAOH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/AvaliacaoApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/ComentarioApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/ContatoApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/ContratoApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/EnderecoApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/GenericApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/HorarioApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/InfoProfissionalApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/ServicoApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/AplicationService/UsuarioApl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/alteracao_dados_usuario.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/cadastro_novo_usuario.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/cadastro_oferta_servico.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/confirmacao_contratacao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/contato_usuario.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/detalhe_servico_recebido.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/detalhe_servico_selecionado.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/home_resolveAE.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/home_usuario.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/informacoes_profissionais_usuario.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/pagina_prestador.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/resultado_pesquisa_servicos.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Apresentacao/servicos_usuario_geral.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/AvaliacaoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/ComentarioController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/ContatoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/ContratoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/ControllerFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/EnderecoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/HorarioController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/InfoProfissionalController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/Interfaces/IController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/ServicoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controller/UsuarioController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/APessoa.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Avaliacao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Cep.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Comentario.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Contato.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Contrato.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Endereco.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Horario.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/InfoProfissional.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Servico.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/ServicoSubtipoServico.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/SubtipoServico.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Usuario.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Entidades/Util.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Enum/EDiaSemana.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Enum/EEstado.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Enum/ESubtipoServico.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Enum/ETipoContato.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Enum/ETipoInfoProfissional.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Enum/ETipoServico.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Enum/ETipoTelefone.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IAvaliacaoRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IBaseRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IComentarioRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IContatoRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IContratoRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IEnderecoRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IHorarioRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IInfoProfissionalRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IServicoRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IServicoSubtipoServicoRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Dominio/Interfaces/IUsuarioRepositorio.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Enum/EConfigBD.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Enum/ETab.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Hibernate/DAO/AGenericDAOH.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Hibernate/DAO/AvaliacaoDAOH.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Hibernate/DAO/ComentarioDAOH.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Hibernate/DAO/ContatoDAOH.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Hibernate/DAO/ServicoDAOH.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Hibernate/Util/FabricaConexao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/AGenericDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/AvaliacaoDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/ComentarioDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/ContatoDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/ContratoDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/EnderecoDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/GenericSQL.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/HorarioDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/InfoProfissionalDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/ServicoDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/ServicoSubtipoServicoDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/SubtipoServicoDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/DAO/UsuarioDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/Util/Function.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/Util/Persistencia.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/Util/SQLProdutor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Infraestrutura/Postgre/Util/View.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Controller/AvaliacaoControllerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Controller/ComentarioControllerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Controller/ContatoControllerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Controller/EnderecoControllerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Controller/InfoProfissionalControllerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Controller/ServicoControllerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/AvaliacaoDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/ComentarioDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/ContatoDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/ContratoDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/EnderecoDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/HorarioDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/InfoProfissionalDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/ServicoDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Infraestrutura/Postgre/DAO/UsuarioDAOTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_3_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_3_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projeto_Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto_Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Contato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/Servico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/Servico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dominio/Entidades/SubtipoServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dominio/Entidades/SubtipoServico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AvaliacaoDAOH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AvaliacaoDAOH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ComentarioDAOH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ComentarioDAOH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ContatoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ServicoPrestacaoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/SubtipoServicoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/SubtipoServicoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main.java" afterDir="false" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -178,14 +29,7 @@
     <SUITE FILE_PATH="coverage/Projeto_Java$ContratoDAOTest_obterTodosPorUsuario.ic" NAME="ContratoDAOTest.obterTodosPorUsuario Coverage Results" MODIFIED="1542557972036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Infraestrutura.Postgre.DAO.*</FILTER>
     </SUITE>
-<<<<<<< HEAD
-    <SUITE FILE_PATH="coverage/Projeto_Java$UsuarioDAOTest.ic" NAME="UsuarioDAOTest Coverage Results" MODIFIED="1543385711000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Infraestrutura.Postgre.DAO.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Projeto_Java$InfoProfissionalDAOTest.ic" NAME="InfoProfissionalDAOTest Coverage Results" MODIFIED="1542571852029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-=======
     <SUITE FILE_PATH="coverage/Projeto_Java$Infraestrutura_Postgre_DAO_in_Projeto_Java.ic" NAME="Infraestrutura.Postgre.DAO in Projeto_Java Coverage Results" MODIFIED="1543209934313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
       <FILTER>Infraestrutura.Postgre.DAO.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Projeto_Java$AvaliacaoDAOTest.ic" NAME="AvaliacaoDAOTest Coverage Results" MODIFIED="1542935008683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -194,17 +38,10 @@
     <SUITE FILE_PATH="coverage/Projeto_Java$_engine_junit_jupiter___class_Infraestrutura_Postgre_DAO_UsuarioDAOTest_.ic" NAME="[engine:junit-jupiter]/[class:Infraestrutura.Postgre.DAO.UsuarioDAOTest] Coverage Results" MODIFIED="1543209689695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Infraestrutura.Postgre.DAO.*</FILTER>
     </SUITE>
-<<<<<<< HEAD
-    <SUITE FILE_PATH="coverage/Projeto_Java$UsuarioDAOTest_obterTodos.ic" NAME="UsuarioDAOTest.obterTodos Coverage Results" MODIFIED="1543385693720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Infraestrutura.Postgre.DAO.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Projeto_Java$_engine_junit_jupiter___class_Infraestrutura_Postgre_DAO_UsuarioDAOTest_.ic" NAME="[engine:junit-jupiter]/[class:Infraestrutura.Postgre.DAO.UsuarioDAOTest] Coverage Results" MODIFIED="1543209689695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-=======
     <SUITE FILE_PATH="coverage/Projeto_Java$Main.ic" NAME="Main Coverage Results" MODIFIED="1541343611797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Testes.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Projeto_Java$ContatoDAOTest.ic" NAME="ContatoDAOTest Coverage Results" MODIFIED="1542953917795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
       <FILTER>Infraestrutura.Postgre.DAO.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Projeto_Java$InfoProfissionalDAOTest.ic" NAME="InfoProfissionalDAOTest Coverage Results" MODIFIED="1542571852029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -218,7 +55,7 @@
     </SUITE>
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="136" />
+    <option name="myElementSize" value="87" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -292,16 +129,14 @@
     <session id="-1990331533">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
-          <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.35" value="2" />
@@ -314,7 +149,7 @@
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.54" value="1" />
           <entry key="project.open.time.67" value="1" />
-          <entry key="project.opened" value="28" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -322,7 +157,7 @@
           <entry key="XML" value="2" />
           <entry key="class" value="84" />
           <entry key="iml" value="5" />
-          <entry key="java" value="1021" />
+          <entry key="java" value="989" />
           <entry key="properties" value="1" />
           <entry key="sql" value="1" />
           <entry key="tipo_contato" value="1" />
@@ -334,7 +169,7 @@
           <entry key="CLASS" value="84" />
           <entry key="Database Element" value="1" />
           <entry key="IDEA_MODULE" value="5" />
-          <entry key="JAVA" value="1021" />
+          <entry key="JAVA" value="989" />
           <entry key="Properties" value="1" />
           <entry key="Scratch" value="3" />
           <entry key="XML" value="31" />
@@ -344,7 +179,7 @@
         <counts>
           <entry key="dummy" value="11" />
           <entry key="iml" value="2" />
-          <entry key="java" value="61269" />
+          <entry key="java" value="58800" />
           <entry key="txt" value="115" />
           <entry key="xml" value="338" />
         </counts>
@@ -353,7 +188,7 @@
         <counts>
           <entry key="Hibernate QL" value="12" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="61269" />
+          <entry key="JAVA" value="58800" />
           <entry key="PLAIN_TEXT" value="126" />
           <entry key="XML" value="326" />
         </counts>
@@ -412,38 +247,36 @@
     <session id="-1071002012">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="37" />
+          <entry key="java" value="35" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="37" />
+          <entry key="JAVA" value="35" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2520" />
-          <entry key="xml" value="7" />
+          <entry key="java" value="2576" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2520" />
-          <entry key="XML" value="7" />
+          <entry key="JAVA" value="2576" />
         </counts>
       </usages-collector>
     </session>
@@ -454,134 +287,80 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/test/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAOHibernate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+              <folding>
+                <element signature="method#obterTodosPorBairro#0;class#EnderecoDAOHibernate#0" />
+                <element signature="method#obterTodosPorCidade#0;class#EnderecoDAOHibernate#0" />
+                <element signature="method#obterTodosPorEstado#0;class#EnderecoDAOHibernate#0" />
+                <element signature="method#obterTodosPorCep#0;class#EnderecoDAOHibernate#0" />
+                <element signature="docComment;method#obterTodos#0;class#EnderecoDAOHibernate#0" />
+                <element signature="method#obterTodos#0;class#EnderecoDAOHibernate#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/EnderecoAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Endereco.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+            <state relative-caret-position="583">
+              <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
               <folding>
-                <element signature="e#94#101#0" />
-                <element signature="e#124#127#0" />
+                <element signature="e#57#64#0" />
+                <element signature="e#120#123#0" />
                 <element signature="method#Endereco#1;class#Endereco#0" />
                 <element signature="method#Endereco#2;class#Endereco#0" />
                 <element signature="method#Endereco#3;class#Endereco#0" />
-                <element signature="e#1665#1666#0" expanded="true" />
-                <element signature="e#1701#1702#0" expanded="true" />
-                <element signature="e#1807#1808#0" expanded="true" />
-                <element signature="e#1843#1844#0" expanded="true" />
+                <element signature="method#setFk_bairro#0;class#Endereco#0" />
                 <element signature="method#toString#0;class#Endereco#0" />
-=======
-        <entry file="file://$PROJECT_DIR$/test/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="13" column="44" lean-forward="true" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/EnderecoAdapter.java">
+        <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/AGenericDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="68">
+              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
               <folding>
-                <element signature="imports" expanded="true" />
-=======
-        <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/Util/FabricaConexao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#387#388#0" expanded="true" />
-                <element signature="e#435#436#0" expanded="true" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAOHibernate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#487#488#0" expanded="true" />
-                <element signature="e#516#517#0" expanded="true" />
-                <element signature="docComment;method#obterTodos#0;class#EnderecoDAO#0" />
-=======
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Servico.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="185" column="43" selection-start-line="185" selection-start-column="43" selection-end-line="185" selection-end-column="43" />
-              <folding>
-                <element signature="e#1161#1177#0" expanded="true" />
-                <element signature="method#Servico#1;class#Servico#0" />
-                <element signature="method#Servico#2;class#Servico#0" />
-                <element signature="method#Servico#3;class#Servico#0" />
-                <element signature="method#setTitulo#0;class#Servico#0" />
-                <element signature="method#setDescricao#0;class#Servico#0" />
-                <element signature="method#setValor#0;class#Servico#0" />
-                <element signature="method#addSubtipoServico#0;class#Servico#0" />
-                <element signature="method#setFkTipoServico#0;class#Servico#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/SubtipoServico.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-              <folding>
-                <element signature="e#493#502#0" expanded="true" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOHibernate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-=======
-        <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/SubtipoServicoDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ServicoDAOH.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#preencherPS#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#construir#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#extrairTodos#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#obterObjeto#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#obterSqlAdicionar#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#obterSqlAtualizar#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#obterSqlExcluir#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#obterSqlSelecionar#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#definirId#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#adicionar#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#atualizar#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#excluirPorId#0;class#AGenericDAO#0" />
+                <element signature="docComment;method#obterPorId#0;class#AGenericDAO#0" />
               </folding>
             </state>
           </provider>
@@ -594,8 +373,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -630,7 +409,7 @@
       <find>where</find>
       <find>from</find>
       <find>tratar</find>
-      <find>tipo</find>
+      <find>setFkCidade</find>
     </findStrings>
     <replaceStrings>
       <replace>concatSequencia</replace>
@@ -659,24 +438,27 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/AplicationService/ComentarioApl.java" />
+        <option value="$PROJECT_DIR$/src/AplicationService/ContatoApl.java" />
+        <option value="$PROJECT_DIR$/src/AplicationService/EnderecoApl.java" />
         <option value="$PROJECT_DIR$/src/AplicationService/ServicoApl.java" />
         <option value="$PROJECT_DIR$/src/AplicationService/GenericApl.java" />
         <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/InfoProfissionalDAOTest.java" />
         <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/ComentarioDAOTest.java" />
-=======
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
         <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/ContatoDAOTest.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/Util/Function.java" />
         <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/AvaliacaoDAOTest.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Interfaces/IEnderecoRepositorio.java" />
         <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/EnderecoDAOTest.java" />
+        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Servico.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/ContatoDAO.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/EnderecoDAO.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/ServicoSubtipoServicoDAO.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/SubtipoServicoDAO.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/AvaliacaoDAO.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/Util/View.java" />
+        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" />
+        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Contato.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Interfaces/IUsuarioRepositorio.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Enum/ETipoInfoProfissional.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Entidades/Usuario.java" />
@@ -688,48 +470,25 @@
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/InfoProfissionalDAO.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Entidades/Horario.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Enum/ETipoServico.java" />
+        <option value="$PROJECT_DIR$/src/Dominio/Enum/EEstado.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Enum/ESubtipoServico.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Enum/ETipoContato.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Enum/EDiaSemana.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/Util/SQLProdutor.java" />
+        <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/ComentarioDAO.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Interfaces/IHorarioRepositorio.java" />
+        <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/HorarioDAO.java" />
         <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/HorarioDAOTest.java" />
+        <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/UsuarioDAOTest.java" />
         <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/ServicoDAOTest.java" />
         <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/Util/Persistencia.java" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/HorarioDAO.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java" />
-        <option value="$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/UsuarioDAOTest.java" />
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Comentario.java" />
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" />
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Contato.java" />
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Contrato.java" />
+        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAOHibernate.java" />
+        <option value="$PROJECT_DIR$/test/Main.java" />
+        <option value="$PROJECT_DIR$/src/Dominio/Entidades/EnderecoAdapter.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Entidades/Bairro.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Entidades/Cidade.java" />
-        <option value="$PROJECT_DIR$/src/Dominio/Enum/EEstado.java" />
         <option value="$PROJECT_DIR$/src/Dominio/Entidades/Endereco.java" />
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/EnderecoAdapter.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOH.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAO.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAOHibernate.java" />
-=======
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOH.java" />
-        <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ComentarioDAOH.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AvaliacaoDAOH.java" />
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Contato.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ContatoDAO.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ContatoDAOH.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/SubtipoServicoDAO.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ServicoPrestacaoDAO.java" />
-        <option value="$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ServicoDAOH.java" />
-        <option value="$PROJECT_DIR$/test/Main.java" />
-        <option value="$PROJECT_DIR$/src/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/SubtipoServico.java" />
-        <option value="$PROJECT_DIR$/src/Dominio/Entidades/Servico.java" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
       </list>
     </option>
   </component>
@@ -755,18 +514,11 @@
       <select />
     </treeState>
   </component>
-<<<<<<< HEAD
-  <component name="ProjectFrameBounds" extendedState="5">
-    <option name="x" value="683" />
-    <option name="width" value="683" />
-    <option name="height" value="741" />
-=======
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1986" />
-    <option name="y" value="56" />
+    <option name="x" value="100" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
     <option name="height" value="899" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -880,11 +632,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-      <pane id="Scope" />
-=======
       <pane id="PackagesPane" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -907,16 +655,6 @@
               <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projeto_Java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-=======
-              <item name="Dominio" type="462c0819:PsiDirectoryNode" />
-              <item name="Entidades" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Projeto_Java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
               <item name="Infraestrutura" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -924,39 +662,32 @@
               <item name="Projeto_Java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Infraestrutura" type="462c0819:PsiDirectoryNode" />
-              <item name="Hibernate" type="462c0819:PsiDirectoryNode" />
+              <item name="Postgre" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projeto_Java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Infraestrutura" type="462c0819:PsiDirectoryNode" />
-              <item name="Hibernate" type="462c0819:PsiDirectoryNode" />
+              <item name="Postgre" type="462c0819:PsiDirectoryNode" />
               <item name="DAO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projeto_Java" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-=======
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projeto_Java" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projeto_Java" type="462c0819:PsiDirectoryNode" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
-      <pane id="PackagesPane" />
-=======
       <pane id="Scope" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -983,9 +714,6 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Infraestrutura.Dao" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="Infraestrutura.Postgre.DAO" />
       <recent name="Controller" />
@@ -997,6 +725,12 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Controller.Interfaces" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/META-INF" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main/java/Infraestrutura/Hibernate/DAO" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -1012,11 +746,8 @@
       <recent name="Infraestrutura.UtilPostgres" />
       <recent name="Infraestrutura.Dao" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/META-INF" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/main/java/Infraestrutura/Hibernate/DAO" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Infraestrutura.Dao" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1031,8 +762,30 @@
       </list>
     </option>
   </component>
-<<<<<<< HEAD
-  <component name="RunManager" selected="JUnit.UsuarioDAOTest.login (1)">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Projeto_Java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HorarioDAOTest.obterTodosPorUsuario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto_Java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Infraestrutura.Postgre.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Infraestrutura.Postgre.DAO" />
+      <option name="MAIN_CLASS_NAME" value="Infraestrutura.Postgre.DAO.HorarioDAOTest" />
+      <option name="METHOD_NAME" value="obterTodosPorUsuario" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Infraestrutura.Postgre.DAO in Projeto_Java" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projeto_Java" />
       <extension name="coverage">
@@ -1043,17 +796,11 @@
       </extension>
       <option name="PACKAGE_NAME" value="Infraestrutura.Postgre.DAO" />
       <option name="TEST_OBJECT" value="package" />
-=======
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Projeto_Java" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsuarioDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsuarioDAOTest.excluirPorId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projeto_Java" />
       <extension name="coverage">
         <pattern>
@@ -1063,27 +810,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="Infraestrutura.Postgre.DAO" />
       <option name="MAIN_CLASS_NAME" value="Infraestrutura.Postgre.DAO.UsuarioDAOTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsuarioDAOTest.login (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projeto_Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Infraestrutura.Postgre.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Infraestrutura.Postgre.DAO" />
-      <option name="MAIN_CLASS_NAME" value="Infraestrutura.Postgre.DAO.UsuarioDAOTest" />
-      <option name="METHOD_NAME" value="login" />
+      <option name="METHOD_NAME" value="excluirPorId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsuarioDAOTest.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="[engine:junit-jupiter]/[class:Infraestrutura.Postgre.DAO.UsuarioDAOTest]" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projeto_Java" />
       <extension name="coverage">
         <pattern>
@@ -1092,45 +825,16 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Infraestrutura.Postgre.DAO" />
-      <option name="MAIN_CLASS_NAME" value="Infraestrutura.Postgre.DAO.UsuarioDAOTest" />
-      <option name="METHOD_NAME" value="login(java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsuarioDAOTest.obterTodos" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projeto_Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Infraestrutura.Postgre.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Infraestrutura.Postgre.DAO" />
-      <option name="MAIN_CLASS_NAME" value="Infraestrutura.Postgre.DAO.UsuarioDAOTest" />
-      <option name="METHOD_NAME" value="obterTodos" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="uniqueId" />
+      <uniqueIds>
+        <uniqueId value="[engine:junit-jupiter]/[class:Infraestrutura.Postgre.DAO.UsuarioDAOTest]" />
+      </uniqueIds>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="JUnit.Infraestrutura.Postgre.DAO in Projeto_Java" />
-<<<<<<< HEAD
-      <item itemvalue="JUnit.UsuarioDAOTest.obterTodos" />
-      <item itemvalue="JUnit.UsuarioDAOTest" />
-      <item itemvalue="JUnit.UsuarioDAOTest.login" />
-      <item itemvalue="JUnit.UsuarioDAOTest.login (1)" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.UsuarioDAOTest.login (1)" />
-        <item itemvalue="JUnit.UsuarioDAOTest.login" />
-        <item itemvalue="JUnit.UsuarioDAOTest" />
-        <item itemvalue="JUnit.UsuarioDAOTest.obterTodos" />
-        <item itemvalue="JUnit.Infraestrutura.Postgre.DAO in Projeto_Java" />
-=======
       <item itemvalue="JUnit.HorarioDAOTest.obterTodosPorUsuario" />
       <item itemvalue="JUnit.UsuarioDAOTest.excluirPorId" />
       <item itemvalue="JUnit.[engine:junit-jupiter]/[class:Infraestrutura.Postgre.DAO.UsuarioDAOTest]" />
@@ -1143,7 +847,6 @@
         <item itemvalue="JUnit.[engine:junit-jupiter]/[class:Infraestrutura.Postgre.DAO.UsuarioDAOTest]" />
         <item itemvalue="JUnit.UsuarioDAOTest.excluirPorId" />
         <item itemvalue="JUnit.HorarioDAOTest.obterTodosPorUsuario" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
       </list>
     </recent_temporary>
   </component>
@@ -1200,35 +903,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 36m 22s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="HorarioDAOTest - 2018.11.26 at 02h 50m 27s.xml">
+      <configuration name="HorarioDAOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 37m 57s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="HorarioDAOTest - 2018.11.26 at 02h 52m 08s.xml">
+      <configuration name="HorarioDAOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 38m 39s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="HorarioDAOTest - 2018.11.26 at 02h 54m 28s.xml">
+      <configuration name="HorarioDAOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 39m 12s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="HorarioDAOTest - 2018.11.26 at 02h 54m 47s.xml">
+      <configuration name="HorarioDAOTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 39m 28s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="Infraestrutura_Postgre_DAO_in_Projeto_Java - 2018.11.26 at 02h 59m 49s.xml">
+      <configuration name="Infraestrutura.Postgre.DAO in Projeto_Java" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 39m 51s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="HorarioDAOTest_obterTodosPorUsuario - 2018.11.26 at 03h 02m 13s.xml">
+      <configuration name="HorarioDAOTest.obterTodosPorUsuario" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 40m 13s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="UsuarioDAOTest_excluirPorId - 2018.11.26 at 03h 02m 38s.xml">
+      <configuration name="UsuarioDAOTest.excluirPorId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 42m 39s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="Infraestrutura_Postgre_DAO_in_Projeto_Java - 2018.11.26 at 03h 10m 37s.xml">
+      <configuration name="Infraestrutura.Postgre.DAO in Projeto_Java" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 44m 31s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="Infraestrutura_Postgre_DAO_in_Projeto_Java - 2018.11.26 at 03h 18m 12s.xml">
+      <configuration name="Infraestrutura.Postgre.DAO in Projeto_Java" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioDAOTest_login_(1) - 2018.11.28 at 04h 45m 07s.xml">
-      <configuration name="UsuarioDAOTest.login (1)" configurationId="JUnit" />
+    <history-entry file="[engine_junit-jupiter]_[class_Infraestrutura_Postgre_DAO_UsuarioDAOTest] - 2018.11.26 at 03h 23m 07s.xml">
+      <configuration name="[engine:junit-jupiter]/[class:Infraestrutura.Postgre.DAO.UsuarioDAOTest]" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
@@ -1244,17 +947,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
-    <frame x="683" y="0" width="683" height="741" extended-state="4" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49157304" weight="0.31181103" />
-=======
-    <frame x="1912" y="56" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49157304" visible="true" weight="0.17961165" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49157304" visible="true" weight="0.23667377" />
       <window_info id="Structure" order="1" sideWeight="0.5024233" side_tool="true" weight="0.40191388" />
       <window_info id="Persistence" order="2" sideWeight="0.5056543" side_tool="true" weight="0.38118023" />
       <window_info id="Designer" order="3" />
@@ -1264,19 +960,15 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956383" />
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49545455" weight="0.3919355" />
-=======
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49621212" visible="true" weight="0.49365628" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49960256" weight="0.44193548" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49621212" weight="0.55146265" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49960256" weight="0.4409534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32258064" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" weight="0.32903227" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3279483" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50454545" side_tool="true" weight="0.5258064" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5037879" side_tool="true" weight="0.45483872" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49920508" weight="0.21612903" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32903227" />
       <window_info anchor="bottom" id="Hibernate Console" order="13" weight="0.6032258" />
@@ -1288,12 +980,12 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
       <window_info anchor="right" id="Palette" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.34469697" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" visible="true" weight="0.34469697" />
       <window_info anchor="right" id="Database" order="5" weight="0.32755905" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.24848485" />
-      <window_info anchor="right" id="Maven Projects" order="9" weight="0.32166302" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.3219697" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49157304" weight="0.17451523" />
@@ -1355,11 +1047,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java</url>
-<<<<<<< HEAD
-          <line>102</line>
-=======
-          <line>101</line>
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
+          <line>99</line>
           <properties />
           <option name="timeStamp" value="143" />
         </line-breakpoint>
@@ -1407,31 +1095,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/ContratoDAO.java</url>
-          <line>96</line>
+          <line>117</line>
           <properties />
           <option name="timeStamp" value="193" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/EnderecoDAO.java</url>
-          <line>244</line>
+          <line>240</line>
           <properties />
           <option name="timeStamp" value="207" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/ComentarioDAO.java</url>
-          <line>115</line>
+          <line>111</line>
           <properties />
           <option name="timeStamp" value="234" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/AvaliacaoDAO.java</url>
-          <line>196</line>
+          <line>194</line>
           <properties />
           <option name="timeStamp" value="236" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Dominio/Entidades/Servico.java</url>
-          <line>88</line>
+          <line>86</line>
           <properties />
           <option name="timeStamp" value="282" />
         </line-breakpoint>
@@ -1449,58 +1137,47 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java</url>
-<<<<<<< HEAD
-          <line>69</line>
-=======
-          <line>68</line>
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
+          <line>66</line>
           <properties />
           <option name="timeStamp" value="326" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-<<<<<<< HEAD
           <url>file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java</url>
-          <line>152</line>
+          <line>123</line>
           <properties />
           <option name="timeStamp" value="333" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java</url>
-          <line>170</line>
+          <line>141</line>
           <properties />
           <option name="timeStamp" value="334" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-=======
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
           <url>file://$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/UsuarioDAOTest.java</url>
-          <line>130</line>
+          <line>100</line>
           <properties />
           <option name="timeStamp" value="342" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/HorarioDAO.java</url>
-          <line>162</line>
+          <line>163</line>
           <properties />
           <option name="timeStamp" value="359" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/AGenericDAO.java</url>
-          <line>225</line>
+          <line>211</line>
           <properties />
           <option name="timeStamp" value="360" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Dominio/Entidades/Cidade.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="363" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Dominio/Entidades/Endereco.java</url>
-          <line>72</line>
-          <properties />
-          <option name="timeStamp" value="364" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/UsuarioDAOTest.java</url>
+          <line>116</line>
+          <properties class="Infraestrutura.Postgre.DAO.UsuarioDAOTest">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="350" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1516,57 +1193,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="117" column="16" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/APessoa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Servico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
-          <folding>
-            <element signature="e#180#187#0" />
-            <element signature="e#271#274#0" />
-            <element signature="method#setFkTipoServico#0;class#Servico#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/InfoProfissional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="107" column="44" lean-forward="true" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Interfaces/IUsuarioRepositorio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
     <entry file="file://$PROJECT_DIR$/src/Dominio/Enum/ETipoInfoProfissional.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-          <folding>
-            <element signature="method#getByString#0;class#ETipoInfoProfissional#0" />
-            <element signature="method#getById#0;class#ETipoInfoProfissional#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1672,6 +1302,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Contato.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="110" selection-start-line="110" selection-end-line="116" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Horario.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1690,6 +1327,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dominio/Enum/EEstado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1725,6 +1369,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/AvaliacaoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="86" column="75" selection-start-line="86" selection-start-column="75" selection-end-line="86" selection-end-column="75" />
+          <folding>
+            <element signature="method#obterGenerico#0;class#AvaliacaoDAO#0" />
+            <element signature="docComment;method#obterTodos#0;class#AvaliacaoDAO#0" />
+            <element signature="method#obterTodos#0;class#AvaliacaoDAO#0" />
+            <element signature="method#obterTodasPorServico#0;class#AvaliacaoDAO#0" />
+            <element signature="docComment;method#preencherPS#0;class#AvaliacaoDAO#0" />
+            <element signature="method#preencherPS#0;class#AvaliacaoDAO#0" />
+            <element signature="docComment;method#construir#0;class#AvaliacaoDAO#0" />
+            <element signature="method#construir#0;class#AvaliacaoDAO#0" />
+            <element signature="docComment;method#obterSqlAdicionar#0;class#AvaliacaoDAO#0" />
+            <element signature="docComment;method#obterSqlAtualizar#0;class#AvaliacaoDAO#0" />
+            <element signature="docComment;method#obterSqlExcluir#0;class#AvaliacaoDAO#0" />
+            <element signature="docComment;method#obterSqlSelecionar#0;class#AvaliacaoDAO#0" />
+            <element signature="method#obterSqlSelecionar#0;class#AvaliacaoDAO#0" />
+            <element signature="docComment;method#definirId#0;class#AvaliacaoDAO#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1780,28 +1447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/AGenericDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="212" selection-start-line="212" selection-end-line="212" />
-          <folding>
-            <element signature="docComment;method#preencherPS#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#construir#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#extrairTodos#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#obterObjeto#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#obterSqlAdicionar#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#obterSqlAtualizar#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#obterSqlExcluir#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#obterSqlSelecionar#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#definirId#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#adicionar#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#atualizar#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#excluirPorId#0;class#AGenericDAO#0" />
-            <element signature="docComment;method#obterPorId#0;class#AGenericDAO#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/ComentarioDAOTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1813,52 +1458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="388" column="57" lean-forward="true" selection-start-line="388" selection-start-column="57" selection-end-line="388" selection-end-column="57" />
-          <folding>
-            <element signature="docComment;class#SQLProdutor#0" />
-            <element signature="e#606#717#0" />
-            <element signature="e#723#1072#0" />
-            <element signature="e#1078#1375#0" />
-            <element signature="e#1381#1603#0" />
-            <element signature="e#1609#1896#0" />
-            <element signature="e#1902#1999#0" />
-            <element signature="e#2005#2097#0" />
-            <element signature="e#2103#2526#0" />
-            <element signature="e#2532#3043#0" />
-            <element signature="e#3049#3184#0" />
-            <element signature="e#3049#3363#0" />
-            <element signature="e#3369#4025#0" />
-            <element signature="e#4031#4273#0" />
-            <element signature="e#4279#4645#0" />
-            <element signature="e#4651#4781#0" />
-            <element signature="e#4787#4919#0" />
-            <element signature="e#4925#5221#0" />
-            <element signature="e#5227#5426#0" />
-            <element signature="e#5432#6038#0" />
-            <element signature="e#6044#6142#0" />
-            <element signature="e#6222#6325#0" />
-            <element signature="e#6407#6505#0" />
-            <element signature="e#6587#6695#0" />
-            <element signature="e#6777#6875#0" />
-            <element signature="e#6956#7064#0" />
-            <element signature="e#7148#7289#0" />
-            <element signature="e#7457#7543#0" />
-            <element signature="e#7549#7706#0" />
-            <element signature="e#7712#7796#0" />
-            <element signature="e#7802#7957#0" />
-            <element signature="e#7963#8157#0" />
-            <element signature="e#8163#8355#0" />
-            <element signature="e#8361#8588#0" />
-            <element signature="e#8594#8807#0" />
-            <element signature="e#8813#9028#0" />
-            <element signature="e#9034#9341#0" />
-            <element signature="e#9347#9693#0" />
-            <element signature="e#9699#9787#0" />
-            <element signature="e#9793#9879#0" />
-            <element signature="e#9885#10028#0" />
-            <element signature="e#10034#10461#0" />
-            <element signature="e#10467#10675#0" />
-            <element signature="e#10562#10596#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1869,10 +1468,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/ServicoDAOTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/UsuarioDAOTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="method#tearDown#0;class#UsuarioDAOTest#0" />
+            <element signature="method#obterTodos#0;class#UsuarioDAOTest#0" />
+            <element signature="method#obterTodosPorEmail#0;class#UsuarioDAOTest#0" />
+            <element signature="method#obterTodosPorContato#0;class#UsuarioDAOTest#0" />
+            <element signature="method#obterTodosPorCep#0;class#UsuarioDAOTest#0" />
+            <element signature="method#obterTodosPorCidade#0;class#UsuarioDAOTest#0" />
+            <element signature="method#obterTodosPorEstado#0;class#UsuarioDAOTest#0" />
+            <element signature="method#obterTodosPorInfoProfissional#0;class#UsuarioDAOTest#0" />
+            <element signature="method#atualizar#0;class#UsuarioDAOTest#0" />
+            <element signature="method#obterPorId#0;class#UsuarioDAOTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4913">
+          <caret line="307" lean-forward="true" selection-start-line="307" selection-end-line="307" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/Util/Persistencia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/HorarioDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="250">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#obterSQlInicial#0;class#HorarioDAO#0" />
@@ -1892,268 +1531,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/Util/Persistencia.java">
+    <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="153">
+          <caret line="12" column="75" lean-forward="true" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/Util/FabricaConexao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AvaliacaoDAOH.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ComentarioDAOH.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Servico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="185" selection-start-line="185" selection-end-line="185" />
           <folding>
-            <element signature="method#get#1;class#Persistencia#0" />
-            <element signature="method#executar#0;class#Persistencia#0" />
-            <element signature="method#executar#1;class#Persistencia#0" />
-            <element signature="docComment;method#executarSelecao#0;class#Persistencia#0" />
-            <element signature="docComment;method#executarSelecao#1;class#Persistencia#0" />
-            <element signature="method#executarSelecao#1;class#Persistencia#0" />
-            <element signature="docComment;method#executarAtualizacao#0;class#Persistencia#0" />
-            <element signature="method#executarAtualizacao#0;class#Persistencia#0" />
-            <element signature="docComment;method#executarAtualizacao#1;class#Persistencia#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/AvaliacaoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding>
-            <element signature="method#obterGenerico#0;class#AvaliacaoDAO#0" />
-            <element signature="docComment;method#obterTodos#0;class#AvaliacaoDAO#0" />
-            <element signature="method#obterTodos#0;class#AvaliacaoDAO#0" />
-            <element signature="method#obterTodasPorServico#0;class#AvaliacaoDAO#0" />
-            <element signature="docComment;method#preencherPS#0;class#AvaliacaoDAO#0" />
-            <element signature="method#preencherPS#0;class#AvaliacaoDAO#0" />
-            <element signature="docComment;method#construir#0;class#AvaliacaoDAO#0" />
-            <element signature="method#construir#0;class#AvaliacaoDAO#0" />
-            <element signature="docComment;method#obterSqlAdicionar#0;class#AvaliacaoDAO#0" />
-            <element signature="docComment;method#obterSqlAtualizar#0;class#AvaliacaoDAO#0" />
-            <element signature="docComment;method#obterSqlExcluir#0;class#AvaliacaoDAO#0" />
-            <element signature="docComment;method#obterSqlSelecionar#0;class#AvaliacaoDAO#0" />
-            <element signature="method#obterSqlSelecionar#0;class#AvaliacaoDAO#0" />
-            <element signature="docComment;method#definirId#0;class#AvaliacaoDAO#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="69" column="61" selection-start-line="69" selection-start-column="61" selection-end-line="69" selection-end-column="61" />
-          <folding>
-            <element signature="e#1996#2215#0" />
-            <element signature="e#2221#2375#0" />
-            <element signature="e#2221#2828#0" />
-            <element signature="e#2834#2961#0" />
-            <element signature="e#2834#3382#0" />
-            <element signature="e#3833#4110#0" />
-            <element signature="e#3833#4466#0" />
-            <element signature="e#4472#5008#0" />
-            <element signature="e#5014#5559#0" />
-            <element signature="e#5565#6150#0" />
-            <element signature="e#6156#6901#0" />
-            <element signature="e#6907#7425#0" />
-            <element signature="e#7431#7997#0" />
-            <element signature="e#8003#8569#0" />
-            <element signature="e#8575#9141#0" />
-            <element signature="e#9147#9776#0" />
-            <element signature="e#12735#13118#0" />
-            <element signature="e#12735#13556#0" />
-            <element signature="e#13563#13818#0" />
-            <element signature="e#13563#14801#0" />
-            <element signature="e#14807#15062#0" />
-            <element signature="e#14807#15393#0" />
-            <element signature="e#15399#15559#0" />
-            <element signature="e#15688#15843#0" />
-            <element signature="e#15976#16129#0" />
-            <element signature="e#16254#16406#0" />
-            <element signature="e#16541#16695#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/ServicoDAOTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/UsuarioDAOTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="248">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
-=======
-        <state relative-caret-position="748">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
-          <folding>
-            <element signature="method#tearDown#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterTodosPorNome#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterTodosPorEmail#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterTodosPorContato#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterTodosPorCep#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterTodosPorBairro#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterTodosPorCidade#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterTodosPorEstado#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterTodosPorInfoProfissional#0;class#UsuarioDAOTest#0" />
-            <element signature="method#adicionar#0;class#UsuarioDAOTest#0" />
-            <element signature="method#atualizar#0;class#UsuarioDAOTest#0" />
-            <element signature="method#excluirPorId#0;class#UsuarioDAOTest#0" />
-            <element signature="method#obterPorId#0;class#UsuarioDAOTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/test/Infraestrutura/Postgre/DAO/ServicoDAOTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Cep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="method#Avaliacao#1;class#Avaliacao#0" />
-            <element signature="method#Avaliacao#2;class#Avaliacao#0" />
-            <element signature="method#Avaliacao#3;class#Avaliacao#0" />
-            <element signature="method#setNota#0;class#Avaliacao#0" />
-            <element signature="method#toString#0;class#Avaliacao#0" />
+            <element signature="e#3929#3930#0" expanded="true" />
+            <element signature="e#3971#3972#0" expanded="true" />
+            <element signature="method#setFkTipoServico#0;class#Servico#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Comentario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="method#Comentario#0;class#Comentario#0" />
-            <element signature="method#Comentario#1;class#Comentario#0" />
-            <element signature="method#Comentario#2;class#Comentario#0" />
-            <element signature="method#toString#0;class#Comentario#0" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Contato.java">
+    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="method#Contato#1;class#Contato#0" />
-            <element signature="method#Contato#2;class#Contato#0" />
-            <element signature="method#setDescricao#0;class#Contato#0" />
-            <element signature="method#setFkTipoContato#0;class#Contato#0" />
-            <element signature="method#toString#0;class#Contato#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Contrato.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/HorarioDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="33" column="37" lean-forward="true" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
->>>>>>> 8236efeb7c442b7c0fd0ec7bf832689edfaa5272
+        <state relative-caret-position="408">
+          <caret line="24" selection-start-line="24" selection-end-line="25" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Contrato#0;class#Contrato#0" />
-            <element signature="method#Contrato#1;class#Contrato#0" />
-            <element signature="method#Contrato#2;class#Contrato#0" />
-            <element signature="method#Contrato#3;class#Contrato#0" />
-            <element signature="method#Contrato#4;class#Contrato#0" />
-            <element signature="method#setDescricao#0;class#Contrato#0" />
-            <element signature="method#setDataUltimaModif#0;class#Contrato#0" />
-            <element signature="method#toString#0;class#Contrato#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Bairro.java">
+    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/EnderecoAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="method#Bairro#1;class#Bairro#0" />
-            <element signature="method#Bairro#2;class#Bairro#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/EnderecoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="117" column="27" lean-forward="true" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Cidade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Cidade#2;class#Cidade#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AplicationService/EnderecoApl.java">
+    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAOHibernate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Enum/EEstado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+        <state relative-caret-position="142">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
-            <element signature="e#775#858#0" />
-            <element signature="e#648#933#0" />
-            <element signature="e#1160#1441#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Endereco.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-          <folding>
-            <element signature="e#94#101#0" />
-            <element signature="e#124#127#0" />
-            <element signature="method#Endereco#1;class#Endereco#0" />
-            <element signature="method#Endereco#2;class#Endereco#0" />
-            <element signature="method#Endereco#3;class#Endereco#0" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1701#1702#0" expanded="true" />
-            <element signature="e#1807#1808#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="method#toString#0;class#Endereco#0" />
+            <element signature="method#obterTodosPorBairro#0;class#EnderecoDAOHibernate#0" />
+            <element signature="method#obterTodosPorCidade#0;class#EnderecoDAOHibernate#0" />
+            <element signature="method#obterTodosPorEstado#0;class#EnderecoDAOHibernate#0" />
+            <element signature="method#obterTodosPorCep#0;class#EnderecoDAOHibernate#0" />
+            <element signature="docComment;method#obterTodos#0;class#EnderecoDAOHibernate#0" />
+            <element signature="method#obterTodos#0;class#EnderecoDAOHibernate#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/EnderecoDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="156" selection-start-line="156" selection-end-line="156" />
+        <state relative-caret-position="306">
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
           <folding>
             <element signature="docComment;method#definirId#0;class#EnderecoDAO#0" />
             <element signature="docComment;method#obterTodos#0;class#EnderecoDAO#0" />
@@ -2172,260 +1645,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/EnderecoAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Cidade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="771">
+          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#Cidade#1;class#Cidade#0" />
+            <element signature="method#Cidade#2;class#Cidade#0" />
+            <element signature="method#setFkEstado#0;class#Cidade#0" />
+            <element signature="e#1222#1223#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOHibernate.java">
+    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Bairro.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="640">
+          <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#57#64#0" />
+            <element signature="e#116#119#0" />
+            <element signature="method#Bairro#1;class#Bairro#0" />
+            <element signature="method#Bairro#2;class#Bairro#0" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1201#1202#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/EnderecoDAOHibernate.java">
+    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/AGenericDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="68">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
-            <element signature="docComment;method#obterTodos#0;class#EnderecoDAO#0" />
+            <element signature="docComment;method#preencherPS#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#construir#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#extrairTodos#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#obterObjeto#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#obterSqlAdicionar#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#obterSqlAtualizar#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#obterSqlExcluir#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#obterSqlSelecionar#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#definirId#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#adicionar#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#atualizar#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#excluirPorId#0;class#AGenericDAO#0" />
+            <element signature="docComment;method#obterPorId#0;class#AGenericDAO#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/DAO/UsuarioDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="456" column="50" lean-forward="true" selection-start-line="455" selection-start-column="7" selection-end-line="456" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Postgre/Util/Persistencia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="method#Persistencia#0;class#Persistencia#0" />
-            <element signature="method#Persistencia#1;class#Persistencia#0" />
-            <element signature="method#get#0;class#Persistencia#0" />
-            <element signature="method#get#1;class#Persistencia#0" />
-            <element signature="method#executar#0;class#Persistencia#0" />
-            <element signature="method#executar#1;class#Persistencia#0" />
-            <element signature="docComment;method#executarSelecao#0;class#Persistencia#0" />
-            <element signature="method#executarSelecao#0;class#Persistencia#0" />
-            <element signature="docComment;method#executarSelecao#1;class#Persistencia#0" />
-            <element signature="method#executarSelecao#1;class#Persistencia#0" />
-            <element signature="docComment;method#executarAtualizacao#0;class#Persistencia#0" />
-            <element signature="method#executarAtualizacao#0;class#Persistencia#0" />
-            <element signature="docComment;method#executarAtualizacao#1;class#Persistencia#0" />
-            <element signature="method#executarAtualizacao#1;class#Persistencia#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Avaliacao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Cep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Comentario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AGenericDAOH.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="19" selection-start-line="27" selection-end-line="28" />
-          <folding>
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="docComment;method#adicionar#0;class#AGenericDAOH#0" />
-            <element signature="docComment;method#atualizar#0;class#AGenericDAOH#0" />
-            <element signature="method#atualizar#0;class#AGenericDAOH#0" />
-            <element signature="docComment;method#obterPorId#0;class#AGenericDAOH#0" />
-            <element signature="method#obterPorId#0;class#AGenericDAOH#0" />
-            <element signature="docComment;method#obterTodos#0;class#AGenericDAOH#0" />
-            <element signature="method#obterTodos#0;class#AGenericDAOH#0" />
-            <element signature="docComment;method#excluirPorId#0;class#AGenericDAOH#0" />
-            <element signature="method#excluirPorId#0;class#AGenericDAOH#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="48" column="20" lean-forward="true" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ComentarioDAOH.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-            <element signature="e#324#325#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/ServicoSubtipoServico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Contato.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="method#Contato#0;class#Contato#0" />
-            <element signature="method#Contato#1;class#Contato#0" />
-            <element signature="method#Contato#2;class#Contato#0" />
-            <element signature="method#setDescricao#0;class#Contato#0" />
-            <element signature="e#1593#1660#0" />
-            <element signature="method#setFkTipoContato#0;class#Contato#0" />
-            <element signature="method#toString#0;class#Contato#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/AvaliacaoDAOH.java">
+    <entry file="file://$PROJECT_DIR$/src/AplicationService/GenericApl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="docComment;method#obterTodos#0;class#AvaliacaoDAOH#0" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ContatoDAOH.java">
+    <entry file="file://$PROJECT_DIR$/src/AplicationService/EnderecoApl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="24" selection-end-column="26" />
+        <state relative-caret-position="68">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/EnderecoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="107" column="16" lean-forward="true" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Endereco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
           <folding>
-            <element signature="method#obterTodosPorTipo#0;class#ContatoDAOH#0" />
-            <element signature="method#obterTodosPorTipoEUsuario#0;class#ContatoDAOH#0" />
-            <element signature="docComment;method#adicionar#0;class#ContatoDAOH#0" />
-            <element signature="method#adicionar#0;class#ContatoDAOH#0" />
-            <element signature="docComment;method#atualizar#0;class#ContatoDAOH#0" />
-            <element signature="method#atualizar#0;class#ContatoDAOH#0" />
-            <element signature="docComment;method#excluirPorId#0;class#ContatoDAOH#0" />
-            <element signature="method#excluirPorId#0;class#ContatoDAOH#0" />
-            <element signature="docComment;method#obterPorId#0;class#ContatoDAOH#0" />
-            <element signature="method#obterPorId#0;class#ContatoDAOH#0" />
-            <element signature="docComment;method#obterTodos#0;class#ContatoDAOH#0" />
-            <element signature="method#obterTodos#0;class#ContatoDAOH#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/SubtipoServicoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/Util/FabricaConexao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#387#388#0" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/SubtipoServico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding>
-            <element signature="e#493#502#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infraestrutura/Hibernate/DAO/ServicoDAOH.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="13" column="44" lean-forward="true" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dominio/Entidades/Servico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="185" column="43" selection-start-line="185" selection-start-column="43" selection-end-line="185" selection-end-column="43" />
-          <folding>
-            <element signature="e#1161#1177#0" expanded="true" />
-            <element signature="method#Servico#1;class#Servico#0" />
-            <element signature="method#Servico#2;class#Servico#0" />
-            <element signature="method#Servico#3;class#Servico#0" />
-            <element signature="method#setTitulo#0;class#Servico#0" />
-            <element signature="method#setDescricao#0;class#Servico#0" />
-            <element signature="method#setValor#0;class#Servico#0" />
-            <element signature="method#addSubtipoServico#0;class#Servico#0" />
-            <element signature="method#setFkTipoServico#0;class#Servico#0" />
+            <element signature="e#57#64#0" />
+            <element signature="e#120#123#0" />
+            <element signature="method#Endereco#1;class#Endereco#0" />
+            <element signature="method#Endereco#2;class#Endereco#0" />
+            <element signature="method#Endereco#3;class#Endereco#0" />
+            <element signature="method#setFk_bairro#0;class#Endereco#0" />
+            <element signature="method#toString#0;class#Endereco#0" />
           </folding>
         </state>
       </provider>
@@ -2441,6 +1749,7 @@
             <option name="proportions">
               <list>
                 <option value="0.18205349" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -2448,7 +1757,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Detection</last-edited>
+          <last-edited>Invalid</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

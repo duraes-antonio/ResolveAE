@@ -3,15 +3,19 @@ package Infraestrutura.Hibernate.DAO;
 import Dominio.Entidades.Endereco;
 import Dominio.Enum.EEstado;
 import Dominio.Interfaces.IEnderecoRepositorio;
+import Infraestrutura.Hibernate.Util.FabricaConexao;
 
+import javax.persistence.EntityManager;
 import java.sql.SQLException;
 import java.util.List;
 
 public class EnderecoDAOHibernate extends AGenericDAOHibernate<Endereco>
         implements IEnderecoRepositorio {
 
-    public EnderecoDAOHibernate(Class<Endereco> classe) {
-        super(classe);
+    private EntityManager em = FabricaConexao.obterConexao();
+
+    public EnderecoDAOHibernate() {
+        super(Endereco.class);
     }
 
     @Override
@@ -36,7 +40,7 @@ public class EnderecoDAOHibernate extends AGenericDAOHibernate<Endereco>
 
     @Override
     public Endereco obterTodosPorUsuario(int fkUsuario) throws SQLException {
-        return null;
+        return (Endereco) em.createQuery(String.format("FROM Endereco WHERE fkUsuario = %d", fkUsuario)).getSingleResult();
     }
 
     /**
