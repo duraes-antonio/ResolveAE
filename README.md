@@ -69,6 +69,9 @@ O feedback do cliente também deve ter seu espaço, portanto, deseja-se poder av
     <img src="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Imagens/modelo_er_logico.png"></p><br>
     <a href="https://github.com/duraes-antonio/ResolveAE/blob/master/Documentacao/Diagramas/Arquivos/modelo_er_logico.brM3">Download brmodelo(.brM3)</a><br>
 
+### 5.4 Padrões de Projeto Aplicados<br>
+Exibição e explicação dos padrões de projeto utilizados podem ser acessados clicando [aqui](https://docs.google.com/presentation/d/1krAiRMQfGEQmZai_m4LEOqmLGbQGTpEczI7saDPJr1Q/edit?usp=sharing).<br>
+
 ### REFERÊNCIAS
 [1]. G1. "Tecnologia no Brasil volta crescer em 2017 e mantém país entre os 10 maiores mercados do mundo". Acesso em 16/09/2018. Disponível em: https://g1.globo.com/economia/tecnologia/noticia/tecnologia-no-brasil-volta-crescer-em-2017-e-mantem-pais-entre-os-10-maiores-mercados-do-mundo.ghtml<br>
 [2]. PostgreSQL. "CREATE TABLE". Acesso em 05/10/2018. Disponível em: https://www.postgresql.org/docs/9.1/static/sql-createtable.html
