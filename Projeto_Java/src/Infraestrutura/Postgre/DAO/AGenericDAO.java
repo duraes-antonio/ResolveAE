@@ -116,7 +116,6 @@ public abstract class AGenericDAO<T> implements IBaseRepositorio<T> {
     protected abstract void definirId(T objeto, int id);
 
     //Métodos CRUD GENÉRICOS;
-
     /**
      * Persiste o objeto em um meio não volátil de armazenamento.
      *

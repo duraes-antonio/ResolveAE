@@ -37,7 +37,7 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
     private PreparedStatement psTodosPorData;
 
 
-    private List<Contrato> obterGenerico(PreparedStatement ps)
+    private List<Contrato> obterVarios(PreparedStatement ps)
             throws SQLException {
 
         List<Contrato> contratos = null;
@@ -71,7 +71,7 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
                 .from(ETab.CONTRATO.get()).limit(limit).offset(offset);
 
         psTodos = conexao.prepareStatement(sqlProd.toString());
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -87,7 +87,7 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
 
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, usuarioId);
-        return obterGenerico(psTodosPorUsuario);
+        return obterVarios(psTodosPorUsuario);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
 
         psTodosPorDescricao = conexao.prepareStatement(sqlProd.toString());
         psTodosPorDescricao.setString(1, "%" + descricao + "%");
-        return obterGenerico(psTodosPorDescricao);
+        return obterVarios(psTodosPorDescricao);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class ContratoDAO extends AGenericDAO<Contrato> implements IContratoRepos
         psTodosPorData = conexao.prepareStatement(sql);
         psTodosPorData.setDate(1, Date.valueOf(inicio));
         psTodosPorData.setDate(2, Date.valueOf(fim));
-        return obterGenerico(psTodosPorData);
+        return obterVarios(psTodosPorData);
     }
 
 

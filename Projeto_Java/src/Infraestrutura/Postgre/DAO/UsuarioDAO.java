@@ -73,7 +73,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         psLogin = conexao.prepareStatement(sqlProd.toString());
         psLogin.setString(1, email);
 
-        List<Usuario> usuarios = obterGenerico(psLogin);
+        List<Usuario> usuarios = obterVarios(psLogin);
 
         if (usuarios == null || usuarios.size() == 0) {
             throw new FailedLoginException(
@@ -132,7 +132,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         return qtdParam;
     }
 
-    private List<Usuario> obterGenerico(PreparedStatement ps)
+    private List<Usuario> obterVarios(PreparedStatement ps)
             throws SQLException {
 
         List<Usuario> usuarios = null;
@@ -168,7 +168,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         SQLProdutor sqlProdutor = obterSQLFinal(obterSQlInicial(), limit);
         psTodos = conexao.prepareStatement(sqlProdutor.toString());
         preencherPSInicial(psTodos, limit, offset);
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -183,7 +183,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         psTodosPorNome.setString(pos + 1, "%" + nome + "%");
 
         System.out.println(psTodosPorNome);
-        return obterGenerico(psTodosPorNome);
+        return obterVarios(psTodosPorNome);
     }
 
     @Override
@@ -198,7 +198,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         psTodosPorEmail.setString(pos + 1, "%" + email + "%");
 
         System.out.println(psTodosPorEmail);
-        return obterGenerico(psTodosPorEmail);
+        return obterVarios(psTodosPorEmail);
     }
 
     @Override
@@ -214,7 +214,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
 
         System.out.println(psTodosPorContato);
 
-        return obterGenerico(psTodosPorContato);
+        return obterVarios(psTodosPorContato);
     }
 
     @Override
@@ -232,7 +232,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
 
 
         System.out.println(psTodosPorTipoContato);
-        return obterGenerico(psTodosPorTipoContato);
+        return obterVarios(psTodosPorTipoContato);
     }
 
     @Override
@@ -247,7 +247,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         psTodosPorCep.setInt(pos + 1, cep);
 
         System.out.println(psTodosPorCep);
-        return obterGenerico(psTodosPorCep);
+        return obterVarios(psTodosPorCep);
     }
 
     @Override
@@ -262,7 +262,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         psTodosPorBairro.setString(pos + 1, "%" + bairro + "%");
 
         System.out.println(psTodosPorBairro);
-        return obterGenerico(psTodosPorBairro);
+        return obterVarios(psTodosPorBairro);
     }
 
     @Override
@@ -277,7 +277,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         psTodosPorCidade.setString(pos + 1, "%" + cidade + "%");
 
         System.out.println(psTodosPorCidade);
-        return obterGenerico(psTodosPorCidade);
+        return obterVarios(psTodosPorCidade);
     }
 
     @Override
@@ -292,7 +292,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         psTodosPorEstado.setString(pos + 1, estado.toString());
 
         System.out.println(psTodosPorEstado);
-        return obterGenerico(psTodosPorEstado);
+        return obterVarios(psTodosPorEstado);
     }
 
     @Override
@@ -307,7 +307,7 @@ public class UsuarioDAO extends AGenericDAO<Usuario>
         psTodosPorTipoInfoPro.setInt(pos + 1, tipoInfo.getId());
 
         System.out.println(psTodosPorTipoInfoPro);
-        return obterGenerico(psTodosPorTipoInfoPro);
+        return obterVarios(psTodosPorTipoInfoPro);
     }
 
     private List<Usuario> extrairUsuarios(ResultSet rs) throws SQLException {

@@ -109,6 +109,7 @@ public class Persistencia {
     public ResultSet executarSelecao(PreparedStatement preparedSt) {
 
         ResultSet result = null;
+        System.out.println(preparedSt);
 
         if (persistencia == null) {
             throw new NullPointerException("Objeto não inicializado!");

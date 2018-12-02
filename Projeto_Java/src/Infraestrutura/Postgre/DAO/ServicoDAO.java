@@ -46,7 +46,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
         sssDAO = new ServicoSubtipoServicoDAO();
     }
 
-    private List<Servico> obterGenerico(PreparedStatement ps) throws SQLException {
+    private List<Servico> obterVarios(PreparedStatement ps) throws SQLException {
 
         List<Servico> servicos = null;
 
@@ -104,7 +104,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
         SQLProdutor sqlProd = obterSQlInicial();
         String sql = obterSQlFinal(sqlProd, limit, offset).toString();
         psTodos = conexao.prepareStatement(sql);
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
 
         psTodosPorUsuario = conexao.prepareStatement(sql);
         psTodosPorUsuario.setInt(1, usuarioId);
-        return obterGenerico(psTodosPorUsuario);
+        return obterVarios(psTodosPorUsuario);
     }
 
     @Override
@@ -128,7 +128,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
 
         psTodosPorTitulo = conexao.prepareStatement(sql);
         psTodosPorTitulo.setString(1, "%" + titulo + "%");
-        return obterGenerico(psTodosPorTitulo);
+        return obterVarios(psTodosPorTitulo);
     }
 
     @Override
@@ -140,7 +140,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
 
         psTodosPorDescricao = conexao.prepareStatement(sql);
         psTodosPorDescricao.setString(1, "%" + descricao + "%");
-        return obterGenerico(psTodosPorDescricao);
+        return obterVarios(psTodosPorDescricao);
     }
 
     @Override
@@ -154,7 +154,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
         psTodosPorValor.setDouble(1, valorMin);
         psTodosPorValor.setDouble(2, valorMax);
 
-        return obterGenerico(psTodosPorValor);
+        return obterVarios(psTodosPorValor);
     }
 
     @Override
@@ -167,7 +167,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
         psTodosPorTipo = conexao.prepareStatement(sql);
         psTodosPorTipo.setInt(1, tipo.getId());
 
-        return obterGenerico(psTodosPorTipo);
+        return obterVarios(psTodosPorTipo);
     }
 
     @Override
@@ -180,7 +180,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
         psTodosPorSubTipo = conexao.prepareStatement(sql);
         psTodosPorSubTipo.setInt(1, subtipo.getId());
 
-        return obterGenerico(psTodosPorSubTipo);
+        return obterVarios(psTodosPorSubTipo);
     }
 
     @Override
@@ -192,7 +192,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
 
         psTodosPorContrato = conexao.prepareStatement(sql);
         psTodosPorContrato.setInt(1, fkContrato);
-        List<Servico> servicos = obterGenerico(psTodosPorContrato);
+        List<Servico> servicos = obterVarios(psTodosPorContrato);
         return servicos.size() > 0 ? servicos.get(0) : null;
     }
 
