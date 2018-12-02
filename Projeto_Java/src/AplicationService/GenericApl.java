@@ -1,6 +1,6 @@
 package AplicationService;
 
-import Infraestrutura.Postgre.DAO.AGenericDAO;
+import Dominio.Interfaces.IBaseRepositorio;
 import Infraestrutura.Postgre.Util.Persistencia;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 import org.json.JSONObject;
@@ -10,15 +10,13 @@ import java.util.List;
 public abstract class GenericApl<T> {
 
     private Persistencia currentConnection = Persistencia.get("resolve_ae", "postgres", "postgres", 5433);
-    private AGenericDAO dataDAO;
+    private IBaseRepositorio dataDAO;
 
-    public void setDataDAO(AGenericDAO dataDAO) {
-
+    public void setDataDAO(IBaseRepositorio dataDAO) {
         this.dataDAO = dataDAO;
     }
 
-    public AGenericDAO getDataDAo() {
-
+    public IBaseRepositorio getDataDAo() {
         return this.dataDAO;
     }
 

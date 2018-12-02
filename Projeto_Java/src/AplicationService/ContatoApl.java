@@ -2,6 +2,7 @@ package AplicationService;
 
 import Dominio.Entidades.Contato;
 import Dominio.Enum.ETipoContato;
+import Dominio.Interfaces.IContatoRepositorio;
 import Infraestrutura.Postgre.DAO.ContatoDAO;
 import org.json.JSONObject;
 
@@ -12,7 +13,6 @@ public class ContatoApl extends GenericApl<Contato> {
 
     //CONSTRUTORES
     public ContatoApl() {
-
         this.setDataDAO(new ContatoDAO());
     }
 
@@ -21,7 +21,7 @@ public class ContatoApl extends GenericApl<Contato> {
 
         List<Contato> resultSearch = null;
         try {
-            ContatoDAO currentDao = (ContatoDAO) this.getDataDAo();
+            IContatoRepositorio currentDao = (IContatoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorTipo(type, limit, offset);
         }
         catch (Exception erro) {
@@ -36,7 +36,7 @@ public class ContatoApl extends GenericApl<Contato> {
 
         List<Contato> resultSearch = null;
         try {
-            ContatoDAO currentDao = (ContatoDAO) this.getDataDAo();
+            IContatoRepositorio currentDao = (IContatoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorUsuario(idUser, limit, offset);
         }
         catch (Exception erro) {
@@ -51,7 +51,7 @@ public class ContatoApl extends GenericApl<Contato> {
 
         List<Contato> resultSearch = null;
         try {
-            ContatoDAO currentDao = (ContatoDAO) this.getDataDAo();
+            IContatoRepositorio currentDao = (IContatoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorTipoEUsuario(type, idUser, limit, offset);
         }
         catch (Exception erro) {

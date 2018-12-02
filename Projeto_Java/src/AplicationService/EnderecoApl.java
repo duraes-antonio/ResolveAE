@@ -21,8 +21,9 @@ public class EnderecoApl extends GenericApl<Endereco> {
     public List<Endereco> getByBairro(String bairro, int limit, int offset) {
 
         List<Endereco> resultSearch = null;
+
         try {
-            IEnderecoRepositorio currentDao = (EnderecoDAO) this.getDataDAo();
+            IEnderecoRepositorio currentDao = (IEnderecoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorBairro(bairro, limit, offset);
         }
         catch (Exception erro) {
@@ -37,7 +38,7 @@ public class EnderecoApl extends GenericApl<Endereco> {
 
         List<Endereco> resultSearch = null;
         try {
-            IEnderecoRepositorio currentDao = (EnderecoDAO) this.getDataDAo();
+            IEnderecoRepositorio currentDao = (IEnderecoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorCidade(cidade, limit, offset);
         }
         catch (Exception erro) {
@@ -52,7 +53,7 @@ public class EnderecoApl extends GenericApl<Endereco> {
 
         List<Endereco> resultSearch = null;
         try {
-            IEnderecoRepositorio currentDao = (EnderecoDAO) this.getDataDAo();
+            IEnderecoRepositorio currentDao = (IEnderecoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorEstado(estado, limit, offset);
         }
         catch (Exception erro) {
@@ -67,7 +68,7 @@ public class EnderecoApl extends GenericApl<Endereco> {
 
         List<Endereco> resultSearch = null;
         try {
-            IEnderecoRepositorio currentDao = (EnderecoDAO) this.getDataDAo();
+            IEnderecoRepositorio currentDao = (IEnderecoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorCep(cep, limit, offset);
         }
         catch (Exception erro) {

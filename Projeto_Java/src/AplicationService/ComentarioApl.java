@@ -1,6 +1,7 @@
 package AplicationService;
 
 import Dominio.Entidades.Comentario;
+import Dominio.Interfaces.IComentarioRepositorio;
 import Infraestrutura.Postgre.DAO.ComentarioDAO;
 import org.json.JSONObject;
 
@@ -11,7 +12,6 @@ public class ComentarioApl extends GenericApl<Comentario> {
 
     //CONSTRUTORES
     public ComentarioApl() {
-
         this.setDataDAO(new ComentarioDAO());
     }
 
@@ -20,8 +20,9 @@ public class ComentarioApl extends GenericApl<Comentario> {
     public List<Comentario> getByServico(int idServico, int skip, int offset) {
 
         List<Comentario> resultSet = null;
+
         try {
-            ComentarioDAO currentDAO = (ComentarioDAO) this.getDataDAo();
+            IComentarioRepositorio currentDAO = (IComentarioRepositorio) this.getDataDAo();
             resultSet = currentDAO.obterTodosPorServico(idServico, skip, offset);
         }
         catch (Exception erro) {
@@ -34,7 +35,7 @@ public class ComentarioApl extends GenericApl<Comentario> {
 
         Comentario resultSearch = null;
         try {
-            ComentarioDAO currentDAO = (ComentarioDAO) this.getDataDAo();
+            IComentarioRepositorio currentDAO = (IComentarioRepositorio) this.getDataDAo();
             resultSearch = currentDAO.obterPorAvaliacao(idAvaliacao);
         }
         catch (Exception erro) {
@@ -47,7 +48,7 @@ public class ComentarioApl extends GenericApl<Comentario> {
 
         List<Comentario> resultSet = null;
         try {
-            ComentarioDAO currentDAO = (ComentarioDAO) this.getDataDAo();
+            IComentarioRepositorio currentDAO = (IComentarioRepositorio) this.getDataDAo();
             resultSet = currentDAO.obterTodosPorUsuario(idUsuario, limit, offset);
         }
         catch (Exception erro) {

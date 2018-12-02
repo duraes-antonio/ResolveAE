@@ -1,6 +1,7 @@
 package AplicationService;
 
 import Dominio.Entidades.Contrato;
+import Dominio.Interfaces.IContratoRepositorio;
 import Infraestrutura.Postgre.DAO.ContratoDAO;
 import org.json.JSONObject;
 
@@ -12,7 +13,6 @@ public class ContratoApl extends GenericApl<Contrato> {
 
     //CONSTRUTORES
     public ContratoApl() {
-
         this.setDataDAO(new ContratoDAO());
     }
 
@@ -21,7 +21,7 @@ public class ContratoApl extends GenericApl<Contrato> {
 
         List<Contrato> resultSearch = null;
         try {
-            ContratoDAO currentDao = (ContratoDAO) this.getDataDAo();
+            IContratoRepositorio currentDao = (IContratoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorUsuario(idUser, limit, offset);
         }
         catch (Exception erro) {
@@ -36,7 +36,7 @@ public class ContratoApl extends GenericApl<Contrato> {
 
         List<Contrato> resultSearch = null;
         try {
-            ContratoDAO currentDao = (ContratoDAO) this.getDataDAo();
+            IContratoRepositorio currentDao = (IContratoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorDescricao(description, limit, offset);
         }
         catch (Exception erro) {
@@ -51,7 +51,7 @@ public class ContratoApl extends GenericApl<Contrato> {
 
         List<Contrato> resultSearch = null;
         try {
-            ContratoDAO currentDao = (ContratoDAO) this.getDataDAo();
+            IContratoRepositorio currentDao = (IContratoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorData(infDate, supDate, limit, offset);
         }
         catch (Exception erro) {

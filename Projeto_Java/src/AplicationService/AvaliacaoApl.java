@@ -1,6 +1,7 @@
 package AplicationService;
 
 import Dominio.Entidades.Avaliacao;
+import Dominio.Interfaces.IAvaliacaoRepositorio;
 import Infraestrutura.Postgre.DAO.AvaliacaoDAO;
 import org.json.JSONObject;
 
@@ -11,7 +12,6 @@ public class AvaliacaoApl extends GenericApl<Avaliacao> {
 
     //CONSTRUTORES
     public AvaliacaoApl() {
-
         this.setDataDAO(new AvaliacaoDAO());
     }
 
@@ -20,7 +20,7 @@ public class AvaliacaoApl extends GenericApl<Avaliacao> {
 
         List<Avaliacao> resultSearch = null;
         try {
-            AvaliacaoDAO currentDao = (AvaliacaoDAO) this.getDataDAo();
+            IAvaliacaoRepositorio currentDao = (IAvaliacaoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodasPorUsuario(idUsuario, limit, offset);
         }
         catch (Exception erro) {
@@ -35,7 +35,7 @@ public class AvaliacaoApl extends GenericApl<Avaliacao> {
 
         List<Avaliacao> resultSearch = null;
         try {
-            AvaliacaoDAO currentDao = (AvaliacaoDAO) this.getDataDAo();
+            IAvaliacaoRepositorio currentDao = (IAvaliacaoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodasPorServico(idServico, limit, offset);
         }
         catch (Exception erro) {

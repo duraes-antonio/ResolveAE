@@ -3,6 +3,7 @@ package AplicationService;
 import Dominio.Entidades.Servico;
 import Dominio.Enum.ESubtipoServico;
 import Dominio.Enum.ETipoServico;
+import Dominio.Interfaces.IServicoRepositorio;
 import Infraestrutura.Postgre.DAO.ServicoDAO;
 import org.json.JSONObject;
 
@@ -21,7 +22,7 @@ public class ServicoApl extends GenericApl<Servico> {
 
         List<Servico> resultSearch = null;
         try {
-            ServicoDAO currentDao = (ServicoDAO) this.getDataDAo();
+            IServicoRepositorio currentDao = (IServicoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorUsuario(userId, limit, offset);
         }
         catch (Exception erro) {
@@ -36,7 +37,7 @@ public class ServicoApl extends GenericApl<Servico> {
 
         List<Servico> resultSearch = null;
         try {
-            ServicoDAO currentDao = (ServicoDAO) this.getDataDAo();
+            IServicoRepositorio currentDao = (IServicoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorTitulo(title, limit, offset);
         }
         catch (Exception erro) {
@@ -51,7 +52,7 @@ public class ServicoApl extends GenericApl<Servico> {
 
         List<Servico> resultSearch = null;
         try {
-            ServicoDAO currentDao = (ServicoDAO) this.getDataDAo();
+            IServicoRepositorio currentDao = (IServicoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorDescricao(descricao, limit, offset);
         }
         catch (Exception erro) {
@@ -66,7 +67,7 @@ public class ServicoApl extends GenericApl<Servico> {
 
         List<Servico> resultSearch = null;
         try {
-            ServicoDAO currentDao = (ServicoDAO) this.getDataDAo();
+            IServicoRepositorio currentDao = (IServicoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorValor(minValor, maxValor, limit, offset);
         }
         catch (Exception erro) {
@@ -81,7 +82,7 @@ public class ServicoApl extends GenericApl<Servico> {
 
         List<Servico> resultSearch = null;
         try {
-            ServicoDAO currentDao = (ServicoDAO) this.getDataDAo();
+            IServicoRepositorio currentDao = (IServicoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorTipo(type, limit, offset);
         }
         catch (Exception erro) {
@@ -96,7 +97,7 @@ public class ServicoApl extends GenericApl<Servico> {
 
         List<Servico> resultSearch = null;
         try {
-            ServicoDAO currentDao = (ServicoDAO) this.getDataDAo();
+            IServicoRepositorio currentDao = (IServicoRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorSubtipo(subtype, limit, offset);
         }
         catch (Exception erro) {

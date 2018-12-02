@@ -2,6 +2,7 @@ package AplicationService;
 
 import Dominio.Entidades.InfoProfissional;
 import Dominio.Enum.ETipoInfoProfissional;
+import Dominio.Interfaces.IInfoProfissionalRepositorio;
 import Infraestrutura.Postgre.DAO.InfoProfissionalDAO;
 import org.json.JSONObject;
 
@@ -22,7 +23,7 @@ public class InfoProfissionalApl extends GenericApl<InfoProfissional> {
 
         List<InfoProfissional> resultSearch = null;
         try {
-            InfoProfissionalDAO currentDao = (InfoProfissionalDAO) this.getDataDAo();
+            IInfoProfissionalRepositorio currentDao = (IInfoProfissionalRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorTipo(type, limit, offset);
         }
         catch (Exception erro) {
@@ -37,7 +38,7 @@ public class InfoProfissionalApl extends GenericApl<InfoProfissional> {
 
         List<InfoProfissional> resultSearch = null;
         try {
-            InfoProfissionalDAO currentDao = (InfoProfissionalDAO) this.getDataDAo();
+            IInfoProfissionalRepositorio currentDao = (IInfoProfissionalRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorUsuario(idUser, limit, offset);
         }
         catch (Exception erro) {
@@ -52,7 +53,7 @@ public class InfoProfissionalApl extends GenericApl<InfoProfissional> {
 
         List<InfoProfissional> resultSearch = null;
         try {
-            InfoProfissionalDAO currentDao = (InfoProfissionalDAO) this.getDataDAo();
+            IInfoProfissionalRepositorio currentDao = (IInfoProfissionalRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorTipoEUsuario(type, idUser, limit, offset);
         }
         catch (Exception erro) {
@@ -67,7 +68,7 @@ public class InfoProfissionalApl extends GenericApl<InfoProfissional> {
 
         List<InfoProfissional> resultSearch = null;
         try {
-            InfoProfissionalDAO currentDao = (InfoProfissionalDAO) this.getDataDAo();
+            IInfoProfissionalRepositorio currentDao = (IInfoProfissionalRepositorio) this.getDataDAo();
             resultSearch = currentDao.obterTodosPorData(infDate, supDate, limit, offset);
         }
         catch (Exception erro) {
