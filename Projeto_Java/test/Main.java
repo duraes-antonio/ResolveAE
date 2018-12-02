@@ -1,23 +1,31 @@
-import Infraestrutura.Hibernate.DAO.EnderecoDAOHibernate;
+import Dominio.Entidades.Cep;
+import Dominio.Entidades.Endereco;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class Main {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
 
         long startTime = System.currentTimeMillis();
 
-
-        EnderecoDAOHibernate daoh = new EnderecoDAOHibernate();
-        System.out.println(daoh.obterTodosPorUsuario(1));
-//        daoh.obterTodosPorUsuario(1, null, null)
-//                .forEach(System.out::println);
-
+        Endereco endereco = Cep.getEnderecoPorCep(29161699);
+        System.out.println(endereco);
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println("TEMPO de EXECUÇÃO:\t" + elapsedTime / 1000.00 + " sec.");
+        System.out.printf("\nTEMPO de EXECUÇÃO:\t %.6f segundos", elapsedTime / 1000.00);
+
+
+        startTime = System.currentTimeMillis();
+
+        Endereco enderecoCache = Cep.getEnderecoPorCep(29161699);
+        System.out.println(enderecoCache);
+
+        stopTime = System.currentTimeMillis();
+        elapsedTime = stopTime - startTime;
+        System.out.printf("\nTEMPO de EXECUÇÃO:\t %.6f segundos", elapsedTime / 1000.00);
     }
 
 }

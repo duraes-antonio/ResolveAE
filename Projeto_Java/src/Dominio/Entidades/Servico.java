@@ -2,6 +2,7 @@ package Dominio.Entidades;
 
 import Dominio.Enum.ESubtipoServico;
 import Dominio.Enum.ETipoServico;
+import Dominio.Util.Util;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,13 +14,14 @@ import java.util.List;
 public class Servico implements Comparable<Servico>{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "titulo")
+    @Column(name = "titulo", length = 175)
     private String titulo;
 
-    @Column(name = "descricao")
+    @Column(name = "descricao", length = 1500)
     private String descricao;
 
     @Transient
@@ -46,7 +48,7 @@ public class Servico implements Comparable<Servico>{
             joinColumns={@JoinColumn(name="fk_servico")},
             inverseJoinColumns={@JoinColumn(name="fk_subtipo_servico")}
             )
-    private Collection<SubtipoServico> subtiposServico = new ArrayList<SubtipoServico>();
+    private Collection<SubtipoServico> subtiposServico = new ArrayList<>();
 
     public Servico() {}
 
@@ -165,8 +167,8 @@ public class Servico implements Comparable<Servico>{
     }
 
     public void setFkTipoServico(int fkTipoServico) {
-        this.fkTipoServico = fkTipoServico;
         this.tipo = ETipoServico.getById(fkTipoServico);
+        this.fkTipoServico = fkTipoServico;
     }
 
     public int getFkContrato() {

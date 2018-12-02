@@ -1,5 +1,6 @@
 package Dominio.Entidades;
 
+import Dominio.Util.FlyweightCep;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 import org.json.JSONObject;
 
@@ -13,9 +14,11 @@ import java.net.URLConnection;
 /**
  * @author 20161BSI0314
  */
-public class Cep {
+public class Cep implements Cloneable {
 
-    private int valorCep;
+    private static final FlyweightCep cacheEnd = new FlyweightCep();
+
+    private static int valorCep;
 
     public Cep() {
     }
@@ -39,34 +42,53 @@ public class Cep {
         return cep >= 1000000 && cep <= 99999999;
     }
 
-    public Endereco getEnderecoPorCep()
+    public static Endereco getEnderecoPorCep(int cep)
             throws IllegalArgumentException, IOException {
 
-        URL url = new URL("http://viacep.com.br/ws/" + this.valorCep + "/json");
-        URLConnection urlConexao = url.openConnection();
-        InputStream is = urlConexao.getInputStream();
+        Endereco endereco = cacheEnd.getEndereco(cep);
+        BufferedReader br;
 
-        //Crie um leitor p/ receber o resultado da requisição do viacep;
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        if (endereco == null) {
+            URL url = new URL("http://viacep.com.br/ws/" + cep + "/json");
 
-        StringBuilder jsonSB = new StringBuilder();
+            try {
 
-        //Armazene as linhas recebidas no String Builder;
-        br.lines().forEach(l -> jsonSB.append(l.trim()));
+                URLConnection urlConexao = url.openConnection();
+                InputStream is = urlConexao.getInputStream();
 
-        JSONObject jsonObj = new JSONObject(jsonSB.toString());
+                //Crie um leitor p/ receber o resultado da requisição do viacep;
+                br = new BufferedReader(new InputStreamReader(is));
+            }
 
-        if (jsonObj.toString().contains("erro")) {
-            throw new IllegalArgumentException("O CEP buscado não foi encontrado!");
+            catch (IOException ioe) {
+                throw new IllegalArgumentException("Falha ao tentar obter o endereço. Reveja o CEP e tente novamente.");
+            }
+
+            StringBuilder jsonSB = new StringBuilder();
+
+            //Armazene as linhas recebidas no String Builder;
+            br.lines().forEach(l -> jsonSB.append(l.trim()));
+
+            JSONObject jsonObj = new JSONObject(jsonSB.toString());
+
+            if(jsonObj.toString().contains("erro")) {
+                throw new IllegalArgumentException("O CEP buscado não foi encontrado!");
+            }
+
+            else {
+                endereco = new Endereco(jsonObj.getString("bairro"), jsonObj.getString("localidade"), jsonObj.getString("uf"), cep, 0);
+            }
+
+            cacheEnd.addEndereco(cep, endereco);
         }
 
-        else {
-            return new Endereco(
-                    jsonObj.getString("bairro"),
-                    jsonObj.getString("localidade"),
-                    jsonObj.getString("uf"),
-                    this.valorCep,
-                    0);
-        }
+        return endereco;
+    }
+
+    @Override
+    public Cep clone()
+            throws CloneNotSupportedException {
+
+        return (Cep) super.clone();
     }
 }

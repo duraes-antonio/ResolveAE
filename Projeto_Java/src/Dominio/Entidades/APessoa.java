@@ -1,16 +1,33 @@
 package Dominio.Entidades;
 
+import Dominio.Util.Util;
+
+import javax.persistence.*;
 import java.util.List;
 
-/**
- * @author 20161BSI0314
- */
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class APessoa {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "nome", length = 150)
     private String nome;
+
+    @Column(name = "email", length = 100)
     private String email;
+
+    @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, targetEntity = Endereco.class)
+    @JoinColumn(name = "id", referencedColumnName = "fk_usuario")
     private Endereco endereco;
+
+    @Transient
     private List<Contato> contatos;
+
+    APessoa() {}
 
     APessoa(String nome, String email, Endereco endereco, List<Contato> contatos) {
         this.setNome(nome);
@@ -55,5 +72,13 @@ public abstract class APessoa {
 
     public void setContatos(List<Contato> contatos) {
         this.contatos = contatos;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

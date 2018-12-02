@@ -1,7 +1,7 @@
 package Dominio.Entidades;
 
 import Dominio.Enum.ETipoContato;
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import Dominio.Util.Util;
 
 import javax.persistence.*;
 
@@ -11,7 +11,7 @@ public class Contato {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "descricao", length = 100)

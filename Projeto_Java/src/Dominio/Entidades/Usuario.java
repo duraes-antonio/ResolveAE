@@ -1,15 +1,31 @@
 package Dominio.Entidades;
 
+import Dominio.Util.Util;
+
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "usuario")
 public class Usuario extends APessoa {
 
-    private int id;
+    @Column(name = "senha", length = 64)
     private String senha;
+
+    @Column(name = "sobre", length = 1000)
     private String sobre;
+
+    @Transient
     private List<InfoProfissional> infoProfissionais;
+
+    @Transient
     private List<Horario> horarios;
+
+    @Transient
     private List<Avaliacao> avaliacoes;
+
+
+    public Usuario() { }
 
     public Usuario(String nome, String email, String senha, String sobre) {
         super(nome, email, null, null);
@@ -32,13 +48,6 @@ public class Usuario extends APessoa {
         this.setSobre(sobre);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getSenha() {
         return senha;

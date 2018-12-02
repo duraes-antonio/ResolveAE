@@ -8,54 +8,68 @@ import org.json.JSONObject;
 import java.util.List;
 
 public abstract class GenericApl<T> {
+
     private Persistencia currentConnection = Persistencia.get("resolve_ae", "postgres", "postgres", 5433);
     private AGenericDAO dataDAO;
 
     public void setDataDAO(AGenericDAO dataDAO) {
+
         this.dataDAO = dataDAO;
     }
 
     public AGenericDAO getDataDAo() {
+
         return this.dataDAO;
     }
 
     public T addData(T data) {
+
         T resultAdd = null;
         try {
             resultAdd = (T) this.dataDAO.adicionar(data);
-        } catch (Exception erro) {
+        }
+        catch (Exception erro) {
             resultAdd = null;
-        } finally {
+        }
+        finally {
             return resultAdd;
         }
     }
 
     public void updateData(T data) {
+
         try {
             this.dataDAO.atualizar(data);
-        } catch (Exception erro) {
+        }
+        catch (Exception erro) {
             throw new ValueException("Nao foi possivel atualizar as informacoes.");
         }
     }
 
     public T getById(int id) {
+
         T resultSearch = null;
         try {
             resultSearch = (T) dataDAO.obterPorId(id);
-        } catch (Exception erro) {
+        }
+        catch (Exception erro) {
             resultSearch = null;
-        } finally {
+        }
+        finally {
             return resultSearch;
         }
     }
 
     public List<T> getAll(int limt, int offset) {
+
         List<T> resultSerch = null;
         try {
             resultSerch = dataDAO.obterTodos(limt, offset);
-        } catch (Exception erro) {
+        }
+        catch (Exception erro) {
             resultSerch = null;
-        } finally {
+        }
+        finally {
             return resultSerch;
         }
     }
@@ -63,4 +77,5 @@ public abstract class GenericApl<T> {
     public abstract JSONObject parseDataToJSON(T data);
 
     public abstract List<JSONObject> parseListToJSONList(List<T> dataList);
+
 }

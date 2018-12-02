@@ -4,12 +4,16 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Classe criada com a finalidade de permitir que o Hibernate tenha acesso a
+ * todos subtipos de um serviço.
+ */
 @Entity
 @Table(name = "subtipo_servico")
 public class SubtipoServico {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -20,55 +24,21 @@ public class SubtipoServico {
     private int fkTipoServico;
 
     @ManyToMany(mappedBy = "subtiposServico")
-    private Collection<Servico> servicos = new ArrayList<Servico>();
+    private Collection<Servico> servicos = new ArrayList<>();
+
 
     public SubtipoServico() {}
 
-    public SubtipoServico(String nome, int fkTipoServico) {
-        setId(id);
-        setNome(nome);
-        setFkTipoServico(fkTipoServico);
-    }
-
-    public SubtipoServico(int id, String nome, int fkTipoServico) {
-        setId(id);
-        setNome(nome);
-        setFkTipoServico(fkTipoServico);
-    }
-
+    // Apenas Getters, devido a classe se comportar como Enum;
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public int getFkTipoServico() {
         return fkTipoServico;
     }
 
-    public void setFkTipoServico(int fkTipoServico) {
-        this.fkTipoServico = fkTipoServico;
-    }
-
-//    public SubtipoServico(int fkServico, int fkSubtipoServico) {
-//        this.setFkServico(fkServico);
-//        this.setFkSubtipoServico(fkSubtipoServico);
-//    }
-//
-//    public SubtipoServico(int id, int fkServico, int fkSubtipoServico) {
-//        this.setId(id);
-//        this.setFkServico(fkServico);
-//        this.setFkSubtipoServico(fkSubtipoServico);
-//    }
-
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

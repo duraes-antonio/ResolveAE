@@ -1,10 +1,22 @@
 package Dominio.Entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "servico_subtipo_servico")
 public class ServicoSubtipoServico implements Comparable<ServicoSubtipoServico> {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "fk_servico")
     private int fkServico;
+
+    @Column(name = "fk_subtipo_servico")
     private int fkSubtipoServico;
+
 
     public ServicoSubtipoServico() {};
 

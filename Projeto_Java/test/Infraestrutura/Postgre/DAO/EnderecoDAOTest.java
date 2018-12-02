@@ -36,7 +36,7 @@ class EnderecoDAOTest {
 
         conexao.setAutoCommit(false);
 
-        Endereco endereco1 = new Cep(29161699).getEnderecoPorCep();
+        Endereco endereco1 = Cep.getEnderecoPorCep(29161699);
         endereco1.setFkUsuario(1);
         enderecoDAO.adicionar(endereco1);
 

@@ -8,14 +8,14 @@ public class Comentario {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "comentario", length = 500)
     private String comentario;
 
     @Column(name = "fk_avaliacao")
-    private int fkAvalicao;
+    private int fkAvaliacao;
 
 
     public Comentario() { }
@@ -49,11 +49,11 @@ public class Comentario {
     }
 
     public int getFkAvalicao() {
-        return fkAvalicao;
+        return fkAvaliacao;
     }
 
     public void setFkAvalicao(int fkAvalicao) {
-        this.fkAvalicao = fkAvalicao;
+        this.fkAvaliacao = fkAvalicao;
     }
 
     @Override

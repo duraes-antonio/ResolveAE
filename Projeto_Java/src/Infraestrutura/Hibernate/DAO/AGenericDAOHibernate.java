@@ -11,12 +11,17 @@ public abstract class AGenericDAOHibernate<T> implements IBaseRepositorio<T> {
 
     private Class<T> classe;
 
-    public void definirClasse(final Class<T> classe){
-        this.classe = classe;
-    }
+    private FabricaConexao fabricaCon = FabricaConexao.get();
+    private EntityManager conexao;
+    private boolean fecharConexao = true;
 
     public AGenericDAOHibernate(Class<T> classe) {
         this.definirClasse(classe);
+    }
+
+
+    public void definirClasse(final Class<T> classe){
+        this.classe = classe;
     }
 
     /**Persiste o objeto em um meio não volátil de armazenamento.
@@ -25,20 +30,21 @@ public abstract class AGenericDAOHibernate<T> implements IBaseRepositorio<T> {
      */
     public T adicionar(T objeto) {
 
-        EntityManager entityManager = FabricaConexao.obterConexao();
+        EntityManager conexao = fabricaCon.obterConexao();
 
         try {
-            entityManager.getTransaction().begin();
-            entityManager.persist(objeto);
-            entityManager.getTransaction().commit();
+            conexao.getTransaction().begin();
+            conexao.persist(objeto);
+            conexao.getTransaction().commit();
         }
 
         catch (Exception e) {
-            entityManager.getTransaction().rollback();
+            conexao.getTransaction().rollback();
+            e.printStackTrace();
         }
 
         finally {
-            entityManager.close();
+            if (fecharConexao) conexao.close();
         }
 
         return objeto;
@@ -49,20 +55,21 @@ public abstract class AGenericDAOHibernate<T> implements IBaseRepositorio<T> {
      */
     public void atualizar(T objeto){
 
-        EntityManager entityManager = FabricaConexao.obterConexao();
+        EntityManager conexao = fabricaCon.obterConexao();
 
         try {
-            entityManager.getTransaction().begin();
-            entityManager.merge(objeto);
-            entityManager.getTransaction().commit();
+            conexao.getTransaction().begin();
+            conexao.merge(objeto);
+            conexao.getTransaction().commit();
         }
 
         catch (Exception e) {
-            entityManager.getTransaction().rollback();
+            conexao.getTransaction().rollback();
+            e.printStackTrace();
         }
 
         finally {
-            entityManager.close();
+            if (fecharConexao) conexao.close();
         }
     }
 
@@ -72,11 +79,12 @@ public abstract class AGenericDAOHibernate<T> implements IBaseRepositorio<T> {
      */
     public T obterPorId(int id){
 
-        EntityManager entityManager = FabricaConexao.obterConexao();
+        EntityManager conexao = fabricaCon.obterConexao();
+
         T objeto = null;
 
         try {
-            objeto = entityManager.find(this.classe, id);
+            objeto = conexao.find(this.classe, id);
         }
 
         catch (Exception e) {
@@ -84,7 +92,7 @@ public abstract class AGenericDAOHibernate<T> implements IBaseRepositorio<T> {
         }
 
         finally {
-            entityManager.close();
+            if (fecharConexao) conexao.close();
         }
 
         return objeto;
@@ -93,13 +101,15 @@ public abstract class AGenericDAOHibernate<T> implements IBaseRepositorio<T> {
     /**Busca e retorna todos objetos de um determinado tipo.
      * @return Lista com todos objetos encontrados.
      */
-    public List<T> obterTodos(){
+    public List<T> obterTodos(Integer limit, Integer offset) {
 
-        EntityManager em = FabricaConexao.obterConexao();
+        EntityManager conexao = fabricaCon.obterConexao();
+
         List<T> objetos = new ArrayList<>();
 
         try {
-            objetos = em.createQuery("from " + classe.getName()).getResultList();
+            objetos = conexao.createQuery("from " + classe.getName())
+                    .setFirstResult(offset).setMaxResults(limit).getResultList();
         }
 
         catch (Exception e) {
@@ -107,7 +117,7 @@ public abstract class AGenericDAOHibernate<T> implements IBaseRepositorio<T> {
         }
 
         finally {
-            em.close();
+            if (fecharConexao) conexao.close();
         }
 
         return objetos;
@@ -118,22 +128,22 @@ public abstract class AGenericDAOHibernate<T> implements IBaseRepositorio<T> {
      */
     public void excluirPorId(int id){
 
-        EntityManager em = FabricaConexao.obterConexao();
+        EntityManager conexao = fabricaCon.obterConexao();
 
         try {
-            em.getTransaction().begin();
-            T objeto = em.find(classe, id);
-            em.remove(objeto);
-            em.getTransaction().commit();
+            conexao.getTransaction().begin();
+            T objeto = conexao.find(classe, id);
+            conexao.remove(objeto);
+            conexao.getTransaction().commit();
         }
 
         catch (Exception e) {
-            em.getTransaction().rollback();
+            conexao.getTransaction().rollback();
             e.printStackTrace();
         }
 
         finally {
-            em.close();
+            if (fecharConexao) conexao.close();
         }
     }
 }

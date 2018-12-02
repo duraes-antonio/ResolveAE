@@ -41,10 +41,8 @@ class UsuarioDAOTest {
         conexao.close();
     }
 
-
-
     @Test
-    private void obterTodos() throws SQLException {
+    void obterTodos() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.obterTodos(10000, 0);
         System.out.println(usuarios.size());
         System.out.println(usuarios.get(usuarios.size() - 1));
@@ -79,7 +77,7 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void obterTodosPorNome() throws SQLException {
+    void obterTodosPorNome() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.obterTodosPorNome("Max", 1000, 0);
         System.out.println(usuarios.size());
         System.out.println(usuarios.get(usuarios.size() - 1));
@@ -87,7 +85,7 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void obterTodosPorEmail() throws SQLException {
+    void obterTodosPorEmail() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.obterTodosPorEmail("@gmail.com", 0, 0);
         System.out.println(usuarios.size());
         System.out.println(usuarios.get(usuarios.size() - 1));
@@ -95,15 +93,15 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void obterTodosPorContato() throws SQLException {
-        List<Usuario> usuarios = usuarioDAO.obterTodosPorContato(ETipoContato.FACEBOOK, "Joa", 0, 0);
+    void obterTodosPorContato() throws SQLException {
+        List<Usuario> usuarios = usuarioDAO.obterTodosPorContato(ETipoContato.FACEBOOK, "Joao", 0, 0);
         System.out.println(usuarios.size());
         System.out.println(usuarios.get(usuarios.size() - 1));
         assert usuarios.size() > 0;
     }
 
     @Test
-    private void obterTodosPorCep() throws SQLException {
+    void obterTodosPorCep() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.obterTodosPorCep(29161699, 0, 0);
         System.out.println(usuarios.size());
         System.out.println(usuarios.get(usuarios.size() - 1));
@@ -111,7 +109,7 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void obterTodosPorBairro() throws SQLException {
+    void obterTodosPorBairro() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.obterTodosPorBairro("Carapina", 0, 0);
         System.out.println(usuarios.size());
         System.out.println(usuarios.get(usuarios.size() - 1));
@@ -119,7 +117,7 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void obterTodosPorCidade() throws SQLException {
+    void obterTodosPorCidade() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.obterTodosPorCidade("Viana", 0, 0);
         System.out.println(usuarios.size());
         System.out.println(usuarios.get(usuarios.size() - 1));
@@ -127,7 +125,7 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void obterTodosPorEstado() throws SQLException {
+    void obterTodosPorEstado() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.obterTodosPorEstado(EEstado.ES, 0, 0);
         System.out.println(usuarios.size());
         System.out.println(usuarios.get(usuarios.size() - 1));
@@ -135,7 +133,7 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void obterTodosPorInfoProfissional() throws SQLException {
+    void obterTodosPorInfoProfissional() throws SQLException {
         List<Usuario> usuarios = usuarioDAO.obterTodosPorInfoProfissional(
                 ETipoInfoProfissional.GRADUACAO, 0, 0);
         System.out.println(usuarios.size());
@@ -144,7 +142,7 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void adicionar() throws SQLException {
+    void adicionar() throws SQLException {
 
         try {
             conexao.setAutoCommit(false);
@@ -167,11 +165,11 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void atualizar() {
+    void atualizar() {
     }
 
     @Test
-    private void excluirPorId() throws SQLException {
+    void excluirPorId() throws SQLException {
 
         try {
             conexao.setAutoCommit(false);
@@ -231,7 +229,7 @@ class UsuarioDAOTest {
     }
 
     @Test
-    private void obterPorId() throws SQLException {
+    void obterPorId() throws SQLException {
         Usuario usuario = usuarioDAO.obterPorId(id);
         System.out.println(usuario);
         assert usuario.getId() == id;

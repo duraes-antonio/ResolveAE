@@ -10,7 +10,7 @@ public class Avaliacao {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "nota")
@@ -22,8 +22,7 @@ public class Avaliacao {
     @Column(name = "fk_servico")
     private int fkServico;
 
-    @OneToOne(fetch = FetchType.EAGER, targetEntity = Comentario.class)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @Transient
     private Comentario comentario;
 
 

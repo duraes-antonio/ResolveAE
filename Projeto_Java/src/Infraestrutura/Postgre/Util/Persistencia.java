@@ -9,7 +9,8 @@ public class Persistencia {
     private Connection conexao;
 
     //Alterar de acordo com sua base de dados, usuário e senha no postgresql;
-    private Persistencia(String nomeDatabase, String nomeUsuario, String senha, int porta) throws SQLException, ClassNotFoundException {
+    private Persistencia(String nomeDatabase, String nomeUsuario, String senha, int porta)
+            throws SQLException, ClassNotFoundException {
 
         String driver = "org.postgresql.Driver";
         String url = "jdbc:postgresql://localhost:" + porta + "/" + nomeDatabase;
@@ -18,10 +19,11 @@ public class Persistencia {
         this.conexao = DriverManager.getConnection(url, nomeUsuario, senha);
     }
 
-    private Persistencia() throws SQLException, ClassNotFoundException {
+    private Persistencia()
+            throws SQLException, ClassNotFoundException {
 
         // Nome da sua base de dados no postgres;
-        String nome_base_dados = "db_gin";
+        String nome_base_dados = "resolve_ae";
 
         // Nome do usuário de sua base;
         String nome_user_postgre = "postgres";
@@ -40,10 +42,13 @@ public class Persistencia {
     public static synchronized Persistencia get(String nomeDatabase, String nomeUsuario, String senha, int porta) {
 
         try {
+
             if (persistencia == null || persistencia.conexao.isClosed()) {
                 persistencia = new Persistencia(nomeDatabase, nomeUsuario, senha, porta);
+                BancoConfig.prepararBanco();
             }
         }
+
         catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -54,8 +59,10 @@ public class Persistencia {
     public static synchronized Persistencia get() {
 
         try {
+
             if (persistencia == null || persistencia.conexao.isClosed()) {
                 persistencia = new Persistencia();
+                BancoConfig.prepararBanco();
             }
         }
         catch (ClassNotFoundException | SQLException e) {
@@ -74,9 +81,11 @@ public class Persistencia {
             throw new NullPointerException("Objeto não inicializado!");
         }
         else {
+
             try {
                 result = this.conexao.prepareStatement(sql).execute();
             }
+
             catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -105,9 +114,11 @@ public class Persistencia {
             throw new NullPointerException("Objeto não inicializado!");
         }
         else {
+
             try {
                 result = preparedSt.executeQuery();
             }
+
             catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -1,24 +1,40 @@
 package Dominio.Entidades;
 
 import Dominio.Enum.ETipoInfoProfissional;
+import Dominio.Util.Util;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-/**
- * @author 20161BSI0314
- */
+@Entity
+@Table(name = "info_profissional")
 public class InfoProfissional {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "descricao", length = 200)
     private String descricao;
+
+    @Column(name = "data_inicio")
     private LocalDate dataInicio;
+
+    @Column(name = "data_fim")
     private LocalDate dataFim;
+
+    @Transient
     private ETipoInfoProfissional tipoInfo;
+
+    @Column(name = "fk_tipo_info_prof")
     private int fkTipoInfo;
+
+    @Column(name = "fk_usuario")
     private int fkUsuario;
 
-    public InfoProfissional() {
-    }
+
+    public InfoProfissional() { }
 
     public InfoProfissional(String descricao, LocalDate dataInicio, LocalDate dataFim,
                             int fkTipoInfo, int fkUsuario) {
@@ -38,6 +54,7 @@ public class InfoProfissional {
         this.setFkTipoInfo(fkTipoInfo);
         this.setFkUsuario(fkUsuario);
     }
+
 
     public int getId() {
         return id;

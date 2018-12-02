@@ -1,4 +1,4 @@
-package Dominio.Entidades;
+package Dominio.Util;
 
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 

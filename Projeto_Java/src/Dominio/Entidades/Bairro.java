@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Bairro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -20,6 +20,7 @@ public class Bairro {
     @OneToOne(fetch = FetchType.LAZY, targetEntity = Cidade.class)
     @JoinColumn(name = "fk_cidade", referencedColumnName = "id")
     private Cidade cidade;
+
 
     public Bairro() {}
 

@@ -2,20 +2,36 @@ package Dominio.Entidades;
 
 import Dominio.Enum.EDiaSemana;
 
+import javax.persistence.*;
 import java.time.LocalTime;
 
-/**
- * @author 20161BSI0314
- */
+@Entity
+@Table(name = "horario_prestacao")
 public class Horario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Transient
     private EDiaSemana diaSemana;
+
+    @Column(name = "inicio")
     private LocalTime inicio;
+
+    @Column(name = "fim")
     private LocalTime fim;
+
+    @Column(name = "disponivel")
     private boolean livre;
+
+    @Column(name = "fk_usuario")
     private int fkUsuario;
+
+    @Column(name = "fk_dia_semana")
     private int fkDiaSemana;
+
 
     public Horario() { }
 
@@ -37,6 +53,7 @@ public class Horario {
         this.setFkDiaSemana(fkDiaSemana);
         this.setFkUsuario(fkUsuario);
     }
+
 
     public int getId() {
         return id;

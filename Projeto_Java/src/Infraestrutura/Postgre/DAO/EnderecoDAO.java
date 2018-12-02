@@ -51,12 +51,12 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
     @Override
     public Endereco adicionar(Endereco entidade) throws SQLException {
-        return Function.insertEndereco(entidade, persistencia);
+        return Function.salvarEndereco(entidade, persistencia);
     }
 
     @Override
     public void atualizar(Endereco entidade) throws SQLException {
-        Function.insertEndereco(entidade, persistencia);
+        Function.salvarEndereco(entidade, persistencia);
     }
 
 

@@ -1,5 +1,7 @@
 package Dominio.Entidades;
 
+import Dominio.Util.Util;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,7 +13,7 @@ public class Contrato {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "data_inicio")
@@ -32,6 +34,8 @@ public class Contrato {
     @Column(name = "fk_usuario")
     private int fkUsuario;
 
+
+    public Contrato() { }
 
     public Contrato(int fkUsuario) {
         descricao = "";

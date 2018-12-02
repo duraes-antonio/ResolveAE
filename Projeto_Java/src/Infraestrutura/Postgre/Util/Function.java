@@ -12,16 +12,16 @@ import java.sql.SQLException;
  */
 public class Function {
 
-    public static final String INSERT_ENDERECO = "insert_endereco";
+    public static final String SALVAR_ENDERECO = "salvar_endereco";
 
-    public static Endereco insertEndereco(Endereco endereco, Persistencia persistencia)
+    public static Endereco salvarEndereco(Endereco endereco, Persistencia persistencia)
             throws SQLException {
 
         /*FUNÇÃO SQL:
         "SELECT insert_endereco(bairro_nome, cidade_nome, estado_sigla,
                                 cep_novo, usuario_id);"*/
         SQLProdutor sqlProdutor = new SQLProdutor();
-        sqlProdutor.select().function(INSERT_ENDERECO, 5);
+        sqlProdutor.select().function(SALVAR_ENDERECO, 5);
         String sql = sqlProdutor.toString();
 
         PreparedStatement ps = persistencia.getConexao().prepareStatement(sql);
@@ -37,7 +37,7 @@ public class Function {
         if (!rs.isBeforeFirst()) return null;
 
         rs.next();
-        endereco.setId(rs.getInt(INSERT_ENDERECO));
+        endereco.setId(rs.getInt(SALVAR_ENDERECO));
 
         return endereco;
     }

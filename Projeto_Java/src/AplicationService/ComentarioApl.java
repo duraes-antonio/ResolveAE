@@ -11,39 +11,46 @@ public class ComentarioApl extends GenericApl<Comentario> {
 
     //CONSTRUTORES
     public ComentarioApl() {
+
         this.setDataDAO(new ComentarioDAO());
     }
 
     //METODOS
 
     public List<Comentario> getByServico(int idServico, int skip, int offset) {
+
         List<Comentario> resultSet = null;
         try {
             ComentarioDAO currentDAO = (ComentarioDAO) this.getDataDAo();
             resultSet = currentDAO.obterTodosPorServico(idServico, skip, offset);
-        } catch (Exception erro) {
+        }
+        catch (Exception erro) {
             resultSet = null;
         }
         return resultSet;
     }
 
     public Comentario getByAvaliacao(int idAvaliacao) {
+
         Comentario resultSearch = null;
         try {
             ComentarioDAO currentDAO = (ComentarioDAO) this.getDataDAo();
             resultSearch = currentDAO.obterPorAvaliacao(idAvaliacao);
-        } catch (Exception erro) {
+        }
+        catch (Exception erro) {
             resultSearch = null;
         }
         return resultSearch;
     }
 
     public List<Comentario> getByUsuario(int idUsuario, int limit, int offset) {
+
         List<Comentario> resultSet = null;
         try {
             ComentarioDAO currentDAO = (ComentarioDAO) this.getDataDAo();
             resultSet = currentDAO.obterTodosPorUsuario(idUsuario, limit, offset);
-        } catch (Exception erro) {
+        }
+        catch (Exception erro) {
             resultSet = null;
         }
         return resultSet;
@@ -51,6 +58,7 @@ public class ComentarioApl extends GenericApl<Comentario> {
 
     @Override
     public JSONObject parseDataToJSON(Comentario data) {
+
         JSONObject jsonOutput = new JSONObject();
         jsonOutput.put("ID", data.getId());
         jsonOutput.put("FkAvaliacao", data.getFkAvalicao());
@@ -60,10 +68,12 @@ public class ComentarioApl extends GenericApl<Comentario> {
 
     @Override
     public List<JSONObject> parseListToJSONList(List<Comentario> dataList) {
+
         List<JSONObject> listJSONOutput = new ArrayList<JSONObject>();
-        for (Comentario comentario : dataList) {
+        for(Comentario comentario : dataList) {
             listJSONOutput.add(this.parseDataToJSON(comentario));
         }
         return listJSONOutput;
     }
+
 }

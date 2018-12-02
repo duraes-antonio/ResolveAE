@@ -4,21 +4,21 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "endereco")
-public class Endereco {
+public class Endereco implements Cloneable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-
-    @Column(name = "cep")
-    private int cepNumero;
+//
+//    @Column(name = "cep")
+//    private int cepNumero;
 
     @Column(name = "fk_usuario")
     private int fkUsuario;
 
-    @Transient
-    private int fk_bairro;
+//    @Column(name = "fk_bairro")
+//    private int fkBairro;
 
     @Transient
     private String bairro;
@@ -31,21 +31,22 @@ public class Endereco {
 
     @Transient
     private Cep cep;
-
-    @OneToOne(fetch = FetchType.LAZY, targetEntity = Bairro.class)
-    @JoinColumn(name = "fk_bairro", referencedColumnName = "id")
-    private Bairro bairroObj;
+//
+//    @OneToOne(fetch = FetchType.LAZY, targetEntity = Bairro.class)
+//    @JoinColumn(name = "fk_bairro", referencedColumnName = "id", insertable = false, updatable = false)
+//    private Bairro bairroObj;
 
 
     public Endereco() {}
 
-    public Endereco(String bairro, String cidade, String estado,
-                    int cep){
-        this.setBairro(bairro);
-        this.setCidade(cidade);
-        this.setEstado(estado);
-        this.cep = new Cep(cep);
-    }
+//TODO apagar se não houver uso
+    // public Endereco(String bairro, String cidade, String estado,
+//                    int cep){
+//        this.setBairro(bairro);
+//        this.setCidade(cidade);
+//        this.setEstado(estado);
+//        this.cep = new Cep(cep);
+//    }
 
     public Endereco(String bairro, String cidade, String estado,
                     int cep, int fkUsuario){
@@ -115,18 +116,28 @@ public class Endereco {
         this.fkUsuario = fkUsuario;
     }
 
-    public int getFk_bairro() {
-        return fk_bairro;
+    @Override
+    public Endereco clone() throws CloneNotSupportedException {
+        Endereco endereco = (Endereco) super.clone();
+        endereco.setCep(this.cep.clone());
+        return endereco;
     }
+//    public void setFkBairro(int fkBairro) {
+//        this.fkBairro = fkBairro;
+//    }
+//    /**
+//     * Método responsável por preencher os atributos quando a persistência é
+//     * feita com ORM hibernate, pois seu funcionamento é diferente do uso do SQL hard.
+//     */
 
-    @PostLoad
-    private void setFk_bairro() {
-        this.fk_bairro = this.bairroObj.getId();
-        setCep(new Cep(cepNumero));
-        setBairro(this.bairroObj.getNome());
-        setCidade(this.bairroObj.getCidade().getNome());
-        setEstado(this.bairroObj.getCidade().getEstado().getNomeExtenso());
-    }
+//    @PostLoad
+//    private void hibernateConstruir() {
+//        setCep(new Cep(cepNumero));
+//        setBairro(this.bairroObj.getNome());
+//        this.fkBairro = this.bairroObj.getId();
+//        setCidade(this.bairroObj.getCidade().getNome());
+//        setEstado(this.bairroObj.getCidade().getEstado().getNomeExtenso());
+//    }
 
     @Override
     public String toString() {
