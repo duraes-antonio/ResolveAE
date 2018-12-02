@@ -1,8 +1,6 @@
 package Dominio.Entidades;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Classe criada com a finalidade de permitir que o Hibernate tenha acesso a
@@ -23,22 +21,51 @@ public class SubtipoServico {
     @Column(name = "fk_tipo_servico")
     private int fkTipoServico;
 
-    @ManyToMany(mappedBy = "subtiposServico")
-    private Collection<Servico> servicos = new ArrayList<>();
-
-
     public SubtipoServico() {}
 
-    // Apenas Getters, devido a classe se comportar como Enum;
+    public SubtipoServico(String nome, int fkTipoServico) {
+        setNome(nome);
+        setFkTipoServico(fkTipoServico);
+    }
+
+    public SubtipoServico(int id, String nome, int fkTipoServico) {
+        setId(id);
+        setNome(nome);
+        setFkTipoServico(fkTipoServico);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getFkTipoServico() {
         return fkTipoServico;
     }
 
-    public int getId() {
-        return id;
+    public void setFkTipoServico(int fkTipoServico) {
+        this.fkTipoServico = fkTipoServico;
     }
+
+    @Override
+    public String toString() {
+
+        String subtipoStr = "\nID:\t\t\t\t\t" + getId();
+        subtipoStr += "\nNome:\t\t\t\t" + getNome();
+        subtipoStr += "\nFK_tipo_servico:\t" + getFkTipoServico();
+
+        return subtipoStr;
+    }
+
 }

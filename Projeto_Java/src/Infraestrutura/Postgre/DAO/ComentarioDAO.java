@@ -29,7 +29,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
     private PreparedStatement psTodosPorUsuario;
     private PreparedStatement psTodosPorServico;
 
-    private List<Comentario> obterGenerico(PreparedStatement ps)
+    private List<Comentario> obterVarios(PreparedStatement ps)
             throws SQLException {
 
         List<Comentario> comentarios = null;
@@ -155,7 +155,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
         sqlProd.select(ID, COMENTARIO, FK_AVALIACAO).from(ETab.COMENTARIO.get());
         sqlProd.orderBy(1).desc().limit(limit).offset(offset);
         psTodos = conexao.prepareStatement(sqlProd.toString());
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -166,7 +166,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
 
         psPorAvaliacao = conexao.prepareStatement(sqlProd.toString());
         psPorAvaliacao.setInt(1, avaliacaoId);
-        List<Comentario> coments = obterGenerico(psPorAvaliacao);
+        List<Comentario> coments = obterVarios(psPorAvaliacao);
         return coments != null && coments.size() > 0 ? coments.get(0) : null;
     }
 
@@ -184,7 +184,7 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
         sqlProd.where(AvaliacaoDAO.FK_USUARIO).eq().orderBy(1).desc().limit(limit).offset(offset);
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, usuarioId);
-        return obterGenerico(psTodosPorUsuario);
+        return obterVarios(psTodosPorUsuario);
     }
 
     @Override
@@ -202,6 +202,6 @@ public class ComentarioDAO extends AGenericDAO<Comentario> implements IComentari
         sqlProd.where(AvaliacaoDAO.FK_SERVICO).eq().orderBy(1).desc().limit(limit).offset(offset);
         psTodosPorServico = conexao.prepareStatement(sqlProd.toString());
         psTodosPorServico.setInt(1, servicoId);
-        return obterGenerico(psTodosPorServico);
+        return obterVarios(psTodosPorServico);
     }
 }

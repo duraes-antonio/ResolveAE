@@ -29,7 +29,7 @@ public class ServicoSubtipoServicoDAO extends AGenericDAO<ServicoSubtipoServico>
     private PreparedStatement psTodosIntervaloServico;
 
 
-    private List<ServicoSubtipoServico> obterGenerico(PreparedStatement ps)
+    private List<ServicoSubtipoServico> obterVarios(PreparedStatement ps)
             throws SQLException {
 
         List<ServicoSubtipoServico> sss = null;
@@ -61,7 +61,7 @@ public class ServicoSubtipoServicoDAO extends AGenericDAO<ServicoSubtipoServico>
     public List<ServicoSubtipoServico> obterTodos(Integer limit, Integer offset) throws SQLException {
         String sql = GenericSQL.obterTodos(ETab.SERVICO_SUBTIPO_SERVICO, COLUNAS, ID, limit, offset);
         psTodos = conexao.prepareStatement(sql);
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class ServicoSubtipoServicoDAO extends AGenericDAO<ServicoSubtipoServico>
 
         psTodosPorServico = conexao.prepareStatement(sqlProd.toString());
         psTodosPorServico.setInt(1, servicoId);
-        return obterGenerico(psTodosPorServico);
+        return obterVarios(psTodosPorServico);
     }
 
     public List<ServicoSubtipoServico> obterPorIntervaloServico(int servicoIdMin, int servicoIdMax, Integer limit, Integer offset)
@@ -88,7 +88,7 @@ public class ServicoSubtipoServicoDAO extends AGenericDAO<ServicoSubtipoServico>
         psTodosIntervaloServico = conexao.prepareStatement(sqlProd.toString());
         psTodosIntervaloServico.setInt(1, servicoIdMin);
         psTodosIntervaloServico.setInt(2, servicoIdMax);
-        return obterGenerico(psTodosIntervaloServico);
+        return obterVarios(psTodosIntervaloServico);
     }
 
     /**

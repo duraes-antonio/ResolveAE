@@ -60,7 +60,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
 
-    private List<Endereco> obterGenerico(PreparedStatement ps) throws SQLException {
+    private List<Endereco> obterVarios(PreparedStatement ps) throws SQLException {
 
         List<Endereco> enderecos = null;
 
@@ -93,7 +93,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
         sqlProd.limit(limit).offset(offset);
 
         psTodos = conexao.prepareStatement(sqlProd.toString());
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
         psTodosPorBairro = conexao.prepareStatement(sqlProd.toString());
         psTodosPorBairro.setString(1, "%" + bairro + "%");
-        return obterGenerico(psTodosPorBairro);
+        return obterVarios(psTodosPorBairro);
     }
 
     @Override
@@ -119,7 +119,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
         psTodosPorCidade = conexao.prepareStatement(sqlProd.toString());
         psTodosPorCidade.setString(1, "%" + cidade + "%");
-        return obterGenerico(psTodosPorCidade);
+        return obterVarios(psTodosPorCidade);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
         psTodosPorEstado = conexao.prepareStatement(sqlProd.toString());
         psTodosPorEstado.setString(1, estado.toString());
-        return obterGenerico(psTodosPorEstado);
+        return obterVarios(psTodosPorEstado);
     }
 
     @Override
@@ -145,7 +145,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
         psTodosPorCep = conexao.prepareStatement(sqlProd.toString());
         psTodosPorCep.setInt(1, cep);
-        return obterGenerico(psTodosPorCep);
+        return obterVarios(psTodosPorCep);
     }
 
     @Override
@@ -158,7 +158,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
 
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, fkUsuario);
-        List<Endereco> enderecos = obterGenerico(psTodosPorUsuario);
+        List<Endereco> enderecos = obterVarios(psTodosPorUsuario);
 
         return  (enderecos != null && enderecos.size() > 0) ? enderecos.get(0) : null;
     }

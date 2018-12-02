@@ -35,7 +35,7 @@ public class HorarioDAO extends AGenericDAO<Horario> implements IHorarioReposito
     private PreparedStatement psTodosPorUsuario;
 
 
-    private List<Horario> obterGenerico(PreparedStatement ps)
+    private List<Horario> obterVarios(PreparedStatement ps)
             throws SQLException {
 
         System.out.println(ps);
@@ -84,7 +84,7 @@ public class HorarioDAO extends AGenericDAO<Horario> implements IHorarioReposito
         SQLProdutor sqlProd = obterSQlInicial();
         sqlProd.orderBy(1).limit(limit).offset(offset);
         psTodos = conexao.prepareStatement(sqlProd.toString());
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -97,7 +97,7 @@ public class HorarioDAO extends AGenericDAO<Horario> implements IHorarioReposito
         psTodosPorDia = conexao.prepareStatement(sqlProd.toString());
         psTodosPorDia.setInt(1, usuarioId);
         psTodosPorDia.setInt(2, dia.getId());
-        return obterGenerico(psTodosPorDia);
+        return obterVarios(psTodosPorDia);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class HorarioDAO extends AGenericDAO<Horario> implements IHorarioReposito
         sqlProd.where(DISPONIVEL).eq().orderBy(1).limit(limit).offset(offset);
         psTodosLivres = conexao.prepareStatement(sqlProd.toString());
         psTodosLivres.setBoolean(1, true);
-        return obterGenerico(psTodosLivres);
+        return obterVarios(psTodosLivres);
     }
 
     @Override
@@ -119,7 +119,7 @@ public class HorarioDAO extends AGenericDAO<Horario> implements IHorarioReposito
         sqlProd.where(DISPONIVEL).eq().orderBy(1).limit(limit).offset(offset);
         psTodosOcupados = conexao.prepareStatement(sqlProd.toString());
         psTodosOcupados.setBoolean(1, false);
-        return obterGenerico(psTodosOcupados);
+        return obterVarios(psTodosOcupados);
     }
 
     @Override
@@ -129,7 +129,7 @@ public class HorarioDAO extends AGenericDAO<Horario> implements IHorarioReposito
         sqlProd.where(FK_USUARIO).eq().orderBy(1).limit(limit).offset(offset);
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, usuarioId);
-        return obterGenerico(psTodosPorUsuario);
+        return obterVarios(psTodosPorUsuario);
     }
 
     @Override
@@ -145,7 +145,7 @@ public class HorarioDAO extends AGenericDAO<Horario> implements IHorarioReposito
         psTodosNoIntervalo = conexao.prepareStatement(sqlProd.toString());
         psTodosNoIntervalo.setTime(1, Time.valueOf(inicio));
         psTodosNoIntervalo.setTime(2, Time.valueOf(fim));
-        return obterGenerico(psTodosNoIntervalo);
+        return obterVarios(psTodosNoIntervalo);
     }
 
 

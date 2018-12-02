@@ -30,7 +30,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
     private PreparedStatement psTodosPorUsuario = null;
     private PreparedStatement psTodosPorServico = null;
 
-    private List<Avaliacao> obterGenerico(PreparedStatement ps)
+    private List<Avaliacao> obterVarios(PreparedStatement ps)
             throws SQLException {
 
         List<Avaliacao> avaliacoes = null;
@@ -66,7 +66,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
         sqlProd.on(ID, ComentarioDAO.FK_AVALIACAO).limit(limit).offset(offset);
 
         psTodos = conexao.prepareStatement(sqlProd.toString());
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, usuarioId);
-        return obterGenerico(psTodosPorUsuario);
+        return obterVarios(psTodosPorUsuario);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class AvaliacaoDAO extends AGenericDAO<Avaliacao> implements IAvaliacaoRe
 
         psTodosPorServico = conexao.prepareStatement(sqlProd.toString());
         psTodosPorServico.setInt(1, servicoId);
-        return obterGenerico(psTodosPorServico);
+        return obterVarios(psTodosPorServico);
     }
 
 

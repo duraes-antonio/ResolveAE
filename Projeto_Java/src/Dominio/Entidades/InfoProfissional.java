@@ -119,14 +119,14 @@ public class InfoProfissional {
     @Override
     public String toString() {
 
-        String enderecoStr = "\nID:\t\t\t\t" + getId();
-        enderecoStr += "\nDescrição:\t\t" + getDescricao();
-        enderecoStr += "\nData início:\t" + getDataInicio();
-        enderecoStr += "\nData fim:\t\t" + getDataFim();
-        enderecoStr += "\nTipo info.:\t\t" + getTipoInfoProfissional().getTipo();
-        enderecoStr += "\nFK_tipo_info:\t" + getFkTipoInfo();
-        enderecoStr += "\nFK_usuario:\t\t" + getFkUsuario();
+        String infoStr = "\nID:\t\t\t\t" + getId();
+        infoStr += "\nDescrição:\t\t" + getDescricao();
+        infoStr += "\nData início:\t" + getDataInicio();
+        infoStr += "\nData fim:\t\t" + getDataFim();
+        infoStr += "\nTipo info.:\t\t" + getTipoInfoProfissional().getTipo();
+        infoStr += "\nFK_tipo_info:\t" + getFkTipoInfo();
+        infoStr += "\nFK_usuario:\t\t" + getFkUsuario();
 
-        return enderecoStr;
+        return infoStr;
     }
 }

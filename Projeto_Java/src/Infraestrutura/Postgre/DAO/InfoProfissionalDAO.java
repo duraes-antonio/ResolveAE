@@ -34,7 +34,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
     private PreparedStatement psTodosPorData;
 
 
-    private List<InfoProfissional> obterGenerico(PreparedStatement ps)
+    private List<InfoProfissional> obterVarios(PreparedStatement ps)
             throws SQLException {
 
         List<InfoProfissional> infos = null;
@@ -68,7 +68,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
 
         String sql = GenericSQL.obterTodos(ETab.INFO_PRO, COLUNAS, ID, limit, offset);
         psTodos = conexao.prepareStatement(sql);
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
         String sql = sqlProd.toString();
         psTodosPorTipo = conexao.prepareStatement(sql);
         psTodosPorTipo.setInt(1, tipo.getId());
-        return obterGenerico(psTodosPorTipo);
+        return obterVarios(psTodosPorTipo);
     }
 
     @Override
@@ -97,7 +97,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
 
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, usuarioId);
-        return obterGenerico(psTodosPorUsuario);
+        return obterVarios(psTodosPorUsuario);
     }
 
     @Override
@@ -113,7 +113,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
         psTodosPorTipoEUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorTipoEUsuario.setInt(1, usuarioId);
         psTodosPorTipoEUsuario.setInt(2, tipo.getId());
-        return obterGenerico(psTodosPorTipoEUsuario);
+        return obterVarios(psTodosPorTipoEUsuario);
     }
 
     @Override
@@ -130,7 +130,7 @@ public class InfoProfissionalDAO extends AGenericDAO<InfoProfissional>
         psTodosPorData.setDate(1, Date.valueOf(inicio));
         psTodosPorData.setDate(2, Date.valueOf(fim));
 
-        return obterGenerico(psTodosPorData);
+        return obterVarios(psTodosPorData);
     }
 
 

@@ -32,7 +32,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
     private PreparedStatement psTodosPorTipoEUsuario;
 
 
-    private List<Contato> obterGenerico(PreparedStatement ps)
+    private List<Contato> obterVarios(PreparedStatement ps)
             throws SQLException {
 
         List<Contato> contatos = null;
@@ -60,7 +60,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
     public List<Contato> obterTodos(Integer limit, Integer offset) throws SQLException {
         String sql = GenericSQL.obterTodos(ETab.CONTATO, COLUNAS, ID, limit, offset);
         psTodos = conexao.prepareStatement(sql);
-        return obterGenerico(psTodos);
+        return obterVarios(psTodos);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
 
         psTodosPorTipo = conexao.prepareStatement(sqlProd.toString());
         psTodosPorTipo.setInt(1, tipo.getId());
-        return obterGenerico(psTodosPorTipo);
+        return obterVarios(psTodosPorTipo);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
 
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, usuarioId);
-        return obterGenerico(psTodosPorUsuario);
+        return obterVarios(psTodosPorUsuario);
     }
 
     @Override
@@ -105,7 +105,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
         psTodosPorTipoEUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorTipoEUsuario.setInt(1, usuarioId);
         psTodosPorTipoEUsuario.setInt(2, tipo.getId());
-        return obterGenerico(psTodosPorTipoEUsuario);
+        return obterVarios(psTodosPorTipoEUsuario);
     }
 
     /**
