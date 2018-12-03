@@ -20,10 +20,7 @@ public class Cep implements Cloneable {
 
     private static int valorCep;
 
-    public Cep() {
-    }
-
-    public Cep(int cep) {
+    public Cep(Integer cep) {
         this.setCep(cep);
     }
 
@@ -49,7 +46,15 @@ public class Cep implements Cloneable {
         BufferedReader br;
 
         if (endereco == null) {
-            URL url = new URL("http://viacep.com.br/ws/" + cep + "/json");
+
+            int numDigFalta = 8 - String.valueOf(cep).length();
+            String cepStr = String.valueOf(cep);
+
+            for(int i = 0; i < numDigFalta; i++) {
+                cepStr = "0" + cepStr;
+            }
+
+            URL url = new URL("http://viacep.com.br/ws/" + cepStr + "/json");
 
             try {
 

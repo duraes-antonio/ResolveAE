@@ -29,7 +29,7 @@ public class Function {
         ps.setString(1, endereco.getBairro());
         ps.setString(2, endereco.getCidade());
         ps.setString(3, endereco.getEstado());
-        ps.setInt(4, endereco.getCep().getCep());
+        ps.setInt(4, endereco.getCep());
         ps.setInt(5, endereco.getFkUsuario());
 
         ResultSet rs = persistencia.executarSelecao(ps);

@@ -132,7 +132,7 @@ public class ServicoSubtipoServicoDAO extends AGenericDAO<ServicoSubtipoServico>
     }
 
     /**
-     * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
+     * Retorna uma string com query de INSERT, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para adicionar um novo objeto.
      */
@@ -142,7 +142,7 @@ public class ServicoSubtipoServicoDAO extends AGenericDAO<ServicoSubtipoServico>
     }
 
     /**
-     * Retorna uma string com query de UPDATE, com '?' p/ ser substuído.
+     * Retorna uma string com query de UPDATE, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para atualizar um objeto.
      */
@@ -152,7 +152,7 @@ public class ServicoSubtipoServicoDAO extends AGenericDAO<ServicoSubtipoServico>
     }
 
     /**
-     * Retorna uma string com query de DELETE, com '?' p/ ser substuído.
+     * Retorna uma string com query de DELETE, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para deletar um objeto.
      */
@@ -162,7 +162,7 @@ public class ServicoSubtipoServicoDAO extends AGenericDAO<ServicoSubtipoServico>
     }
 
     /**
-     * Retorna uma string com query de SELECT, com '?' p/ ser substuído.
+     * Retorna uma string com query de SELECT, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para buscar um objeto.
      */

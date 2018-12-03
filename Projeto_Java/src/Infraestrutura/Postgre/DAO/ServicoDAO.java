@@ -309,7 +309,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
 
 
     /**
-     * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
+     * Retorna uma string com query de INSERT, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para adicionar um novo servico.
      */
@@ -319,7 +319,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     }
 
     /**
-     * Retorna uma string com query de UPDATE, com '?' p/ ser substuído.
+     * Retorna uma string com query de UPDATE, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para atualizar um servico.
      */
@@ -329,7 +329,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     }
 
     /**
-     * Retorna uma string com query de DELETE, com '?' p/ ser substuído.
+     * Retorna uma string com query de DELETE, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para deletar um servico.
      */
@@ -339,7 +339,7 @@ public class ServicoDAO extends AGenericDAO<Servico> implements IServicoReposito
     }
 
     /**
-     * Retorna uma string com query de SELECT, com '?' p/ ser substuído.
+     * Retorna uma string com query de SELECT, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para buscar um servico.
      */

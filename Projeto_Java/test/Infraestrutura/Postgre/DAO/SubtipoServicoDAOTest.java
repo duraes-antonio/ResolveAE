@@ -39,7 +39,7 @@ class SubtipoServicoDAOTest {
             conexao.setAutoCommit(false);
 
             SubtipoServico subtipoServico = new SubtipoServico(
-                    "Formatação de computadores",
+                    "RE-Formatação de computadores",
                     ETipoServico.MANUTENCAO_E_SUPORTE.getId()
             );
 

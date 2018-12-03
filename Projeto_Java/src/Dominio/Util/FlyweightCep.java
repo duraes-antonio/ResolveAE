@@ -10,7 +10,7 @@ public class FlyweightCep {
 
     LinkedHashMap<Integer, Endereco> hashCepEnd = new LinkedHashMap<>();
 
-    public void addEndereco(int cep, Endereco endereco) {
+    public void addEndereco(Integer cep, Endereco endereco) {
 
         //Se houver mais que 2 mil endereços em cache;
         //Remova os primeiros 250;
@@ -25,7 +25,7 @@ public class FlyweightCep {
         this.hashCepEnd.put(cep, endereco);
     }
 
-    public Endereco getEndereco(int cep) {
+    public Endereco getEndereco(Integer cep) {
 
         Endereco endereco = hashCepEnd.get(cep);
 

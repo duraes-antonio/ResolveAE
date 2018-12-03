@@ -177,7 +177,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
         ps.setString(COLUNAS.indexOf(BAIRRO) + 1, objeto.getBairro());
         ps.setString(COLUNAS.indexOf(CIDADE) + 1, objeto.getCidade());
         ps.setString(COLUNAS.indexOf(ESTADO) + 1, objeto.getEstado());
-        ps.setInt(COLUNAS.indexOf(CEP) + 1, objeto.getCep().getCep());
+        ps.setInt(COLUNAS.indexOf(CEP) + 1, objeto.getCep());
         ps.setInt(COLUNAS.indexOf(FK_USUARIO) + 1, objeto.getFkUsuario());
 
         return ps;
@@ -201,7 +201,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
     /**
-     * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
+     * Retorna uma string com query de INSERT, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para adicionar um novo objeto.
      */
@@ -211,7 +211,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
     /**
-     * Retorna uma string com query de UPDATE, com '?' p/ ser substuído.
+     * Retorna uma string com query de UPDATE, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para atualizar um objeto.
      */
@@ -221,7 +221,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
     /**
-     * Retorna uma string com query de DELETE, com '?' p/ ser substuído.
+     * Retorna uma string com query de DELETE, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para deletar um objeto.
      */
@@ -231,7 +231,7 @@ public class EnderecoDAO extends AGenericDAO<Endereco> implements IEnderecoRepos
     }
 
     /**
-     * Retorna uma string com query de SELECT, com '?' p/ ser substuído.
+     * Retorna uma string com query de SELECT, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para buscar um objeto.
      */

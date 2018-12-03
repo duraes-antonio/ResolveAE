@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ContatoDAO extends AGenericDAO<Contato> implements IContatoRepositorio {
+
     //Nome das colunas da tabela CONTATO (nomes usados para montar as querys);
     public static final String ID = ETab.CONTATO.get() + ".id";
     public static final String DESCRICAO = ETab.CONTATO.get() + ".descricao";
@@ -32,17 +33,17 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
     private PreparedStatement psTodosPorTipoEUsuario;
 
 
-    private List<Contato> obterVarios(PreparedStatement ps)
-            throws SQLException {
+    private List<Contato> obterVarios(PreparedStatement ps) throws SQLException {
 
         List<Contato> contatos = null;
 
         try {
             contatos = extrairTodos(persistencia.executarSelecao(ps));
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (ps != null) ps.close();
+            if(ps != null) ps.close();
         }
 
         return contatos;
@@ -58,20 +59,19 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
      */
     @Override
     public List<Contato> obterTodos(Integer limit, Integer offset) throws SQLException {
+
         String sql = GenericSQL.obterTodos(ETab.CONTATO, COLUNAS, ID, limit, offset);
         psTodos = conexao.prepareStatement(sql);
         return obterVarios(psTodos);
     }
 
     @Override
-    public List<Contato> obterTodosPorTipo(ETipoContato tipo, Integer limit, Integer offset)
-            throws SQLException {
+    public List<Contato> obterTodosPorTipo(ETipoContato tipo, Integer limit, Integer offset) throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
 
-        sqlProd.select(ID, DESCRICAO, FK_USUARIO, FK_TIPO_CONTATO)
-                .from(ETab.CONTATO.get()).where(FK_TIPO_CONTATO).eq()
-                .limit(limit).offset(offset);
+        sqlProd.select(ID, DESCRICAO, FK_USUARIO, FK_TIPO_CONTATO).from(ETab.CONTATO.get()).where(
+                FK_TIPO_CONTATO).eq().limit(limit).offset(offset);
 
         psTodosPorTipo = conexao.prepareStatement(sqlProd.toString());
         psTodosPorTipo.setInt(1, tipo.getId());
@@ -83,9 +83,8 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
 
         SQLProdutor sqlProd = new SQLProdutor();
 
-        sqlProd.select(ID, DESCRICAO, FK_USUARIO, FK_TIPO_CONTATO)
-                .from(ETab.CONTATO.get()).where(FK_USUARIO).eq()
-                .limit(limit).offset(offset);
+        sqlProd.select(ID, DESCRICAO, FK_USUARIO, FK_TIPO_CONTATO).from(ETab.CONTATO.get()).where(
+                FK_USUARIO).eq().limit(limit).offset(offset);
 
         psTodosPorUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorUsuario.setInt(1, usuarioId);
@@ -93,14 +92,12 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
     }
 
     @Override
-    public List<Contato> obterTodosPorTipoEUsuario(ETipoContato tipo, int usuarioId,
-                                                   Integer limit, Integer offset) throws SQLException {
+    public List<Contato> obterTodosPorTipoEUsuario(ETipoContato tipo, int usuarioId, Integer limit, Integer offset) throws SQLException {
 
         SQLProdutor sqlProd = new SQLProdutor();
 
-        sqlProd.select(ID, DESCRICAO, FK_USUARIO, FK_TIPO_CONTATO)
-                .from(ETab.CONTATO.get()).where(FK_USUARIO).eq()
-                .and(FK_TIPO_CONTATO).eq().limit(limit).offset(offset);
+        sqlProd.select(ID, DESCRICAO, FK_USUARIO, FK_TIPO_CONTATO).from(ETab.CONTATO.get()).where(FK_USUARIO).eq().and(
+                FK_TIPO_CONTATO).eq().limit(limit).offset(offset);
 
         psTodosPorTipoEUsuario = conexao.prepareStatement(sqlProd.toString());
         psTodosPorTipoEUsuario.setInt(1, usuarioId);
@@ -123,7 +120,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
         ps.setInt(COLUNAS.indexOf(FK_USUARIO) + 1, objeto.getFkUsuario());
         ps.setInt(COLUNAS.indexOf(FK_TIPO_CONTATO) + 1, objeto.getFkTipoContato());
 
-        if (objeto.getId() > 0) {
+        if(objeto.getId() > 0) {
             ps.setInt(COLUNAS.size() + 1, objeto.getId());
         }
 
@@ -138,19 +135,12 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
      * @return Objeto montado a partir dos resultados da consulta.
      */
     @Override
-    protected Contato construir(ResultSet rs)
-            throws SQLException {
-
-        return new Contato(
-                rs.getInt(ID),
-                rs.getString(DESCRICAO),
-                rs.getInt(FK_USUARIO),
-                rs.getInt(FK_TIPO_CONTATO)
-        );
+    protected Contato construir(ResultSet rs) throws SQLException {
+        return new Contato(rs.getInt(ID), rs.getString(DESCRICAO), rs.getInt(FK_USUARIO), rs.getInt(FK_TIPO_CONTATO));
     }
 
     /**
-     * Retorna uma string com query de INSERT, com '?' p/ ser substuído.
+     * Retorna uma string com query de INSERT, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para adicionar um novo objeto.
      */
@@ -160,7 +150,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
     }
 
     /**
-     * Retorna uma string com query de UPDATE, com '?' p/ ser substuído.
+     * Retorna uma string com query de UPDATE, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para atualizar um objeto.
      */
@@ -170,7 +160,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
     }
 
     /**
-     * Retorna uma string com query de DELETE, com '?' p/ ser substuído.
+     * Retorna uma string com query de DELETE, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para deletar um objeto.
      */
@@ -180,7 +170,7 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
     }
 
     /**
-     * Retorna uma string com query de SELECT, com '?' p/ ser substuído.
+     * Retorna uma string com query de SELECT, com '?' p/ ser substituído.
      *
      * @return String com comando SQL para buscar um objeto.
      */
@@ -199,5 +189,6 @@ public class ContatoDAO extends AGenericDAO<Contato> implements IContatoReposito
     protected void definirId(Contato objeto, int id) {
         objeto.setId(id);
     }
+
 }
 
